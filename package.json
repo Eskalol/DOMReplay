@@ -1,9 +1,10 @@
 {
-  "name": "domreplayhudv2",
+  "name": "domreplayhud",
   "version": "1.0.0",
   "description": "Hud for DOMReplay framework",
   "main": "index.js",
   "scripts": {
+    "start:dev": "webpack-dev-server",
     "start": "webpack --watch",
     "build": "webpack -p"
   },
