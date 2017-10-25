@@ -5,7 +5,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const config = {
   context: path.resolve(__dirname, 'src'),
-  entry: ['./js/index.js', './scss/index.scss'],
+  entry: [
+    
+    './js/index.js',
+    './scss/index.scss'
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js'
@@ -29,8 +33,12 @@ const config = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'styles.css', disable: false, allChunks: true })
-  ]
+    new ExtractTextPlugin({ filename: 'styles.css', disable: false, allChunks: true }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    hot: true
+  }
 }
 
 module.exports = config
