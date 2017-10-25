@@ -1,0 +1,70 @@
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(headerSlideDown) {
+  0% {
+    top: -5em;
+  }
+  100% {
+    top: 0em;
+  }
+}
+
+@include keyframes(headerSlideUp) {
+  0% {
+    top: 0em;
+  }
+  100% {
+    top: -5em;
+  }
+}
+
+@include keyframes(buttonSlideDown) {
+  0% {
+    top: 0em;
+  }
+
+  100% {
+    top: 5em;
+  }
+}
+
+@include keyframes(buttonSlideUp) {
+  0% {
+    top: 5em;
+  }
+
+  100% {
+    top: 0em;
+  }
+}
+

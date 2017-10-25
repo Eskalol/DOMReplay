@@ -1,0 +1,122 @@
+$fa-font-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts" !default;
+// bower:scss
+// @import "bower_components/font-awesome/scss/font-awesome.scss";
+// endbower
+@import "mixins";
+@import "animations";
+
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+$font-size-base:            14px !default;
+$line-height-base:          1.428571429 !default; // 20/14
+$border-radius-base:        4px !default;
+$background-color:          #2F2D2E;
+$foreground-color:          #99C24D;
+$border-color:              #2E4057;
+
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  background: #fafafa;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.hero-unit {
+  margin: 50px auto 0 auto;
+  width: 300px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 60px;
+  h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+}
+
+.dom-hud-header {
+  position: fixed;
+  width: 100%;
+  top: -5em;
+  left: 0px;
+  background-color: $background-color;
+  height: 5em;
+
+  &.slide-down {
+    @include animation('headerSlideDown .5s 1 forwards');
+  }
+
+  &.slide-up {
+    @include animation('headerSlideUp .5s 1 forwards');
+  }
+
+  .dom-hud-btn {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+}
+
+.dom-hud-btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  @include button-variant($background-color, $foreground-color, $border-color);
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+
+}
+
+.dom-hud-dropDown {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+
+  &:before {
+    font-family: FontAwesome;
+    content: "\f078";
+  }
+
+
+  &:after {
+    content: " show";
+  }
+
+  &.slide-down {
+    @include animation('buttonSlideDown .5s 1 forwards');
+    &:before {
+      font-family: FontAwesome;
+      content: "\f077";
+    }
+    &:after {
+      content: " hide";
+    }
+  }
+
+  &.slide-up {
+    @include animation('buttonSlideUp .5s 1 forwards');
+    &:before {
+      font-family: FontAwesome;
+      content: "\f078";
+    }
+    &:after {
+      content: " show";
+    }
+  }
+}
+
+
