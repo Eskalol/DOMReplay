@@ -1,4 +1,3 @@
-
 const button = (text='', classes='', id=undefined, onClick=undefined) => {
 	const button = document.createElement('button');
 	button.innerHTML = text;
@@ -32,9 +31,9 @@ const onClickSlideDown = () => {
     button.className += ' slide-down';
   }
 }
+ 
 
-
-const render = () => {
+export const renderHud = () => {
   const header = document.createElement('div');
   header.className = "dom-hud-header";
   header.id = "dom-hud-header";
@@ -42,14 +41,12 @@ const render = () => {
   const start = button('Start');
   const stop = button('Stop');
   const record = button('Record');
-  header.appendChild(start);
-  header.appendChild(stop);
-  header.appendChild(record);
 
   const dropDown = button('DOMReplay', 'dom-hud-dropDown', 'dropDownButton', onClickSlideDown);
 
-  document.body.appendChild(header);
-  document.body.appendChild(dropDown);
+  header.appendChild(start);
+  header.appendChild(stop);
+  header.appendChild(record);
+  document.getElementsByTagName('body')[0].appendChild(header);
+  document.getElementsByTagName('body')[0].appendChild(dropDown);
 }
-
-render();

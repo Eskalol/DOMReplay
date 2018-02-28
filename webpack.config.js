@@ -6,7 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const config = {
   context: path.resolve(__dirname, 'src'),
   entry: [
-    
     './js/index.js',
     './scss/index.scss'
   ],
