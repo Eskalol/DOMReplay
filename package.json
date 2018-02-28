@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack -p --config webpack.prod.js && npm run build-lib",
-    "build-lib": "rm -rf lib && compile-modules convert -I src/js/**/*.js -o lib index.js  --format commonjs"
+    "build-lib": "rm -rf lib && babel --plugins transform-es2015-modules-commonjs src/js -d lib",
+    "watch": "babel --plugins transform-es2015-modules-commonjs src/js -d lib --watch"
   },
   "keywords": [
     "Es6",

@@ -2,7 +2,7 @@ export default class Handler {
   constructor(main) {
     this.main = main;
     this.util = main.util;
-    this.debug('Initializing DOM handlers');
+    this.util.debug('Initializing DOM handlers');
   }
 
   addClickEvent(element) {

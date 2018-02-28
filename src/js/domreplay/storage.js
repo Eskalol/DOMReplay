@@ -4,6 +4,7 @@ export default class Storage {
     this.util = main.util;
     this.data = [];
     this.isInitialized = true;
+    this.util.debug('Initializing Storage');
   }
 
   reset() {

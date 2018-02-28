@@ -25,10 +25,11 @@ export default class DomReplay {
       this.config.events = {
         click: {
           tagnames: ['a', 'button'],
-          handler: this.handler.addClickHandler(),
+          handler: this.handler.addClickHandler,
         },
         input: {
           tagnames: ['input', 'select', 'textarea'],
+          handler: this.handler.addInputEvent
         },
       };
     }
