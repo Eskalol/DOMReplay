@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack -p --config webpack.prod.js && npm run build-lib",
-    "build-lib": "rm -rf lib && compile-modules convert -I src/js -o lib index.js element.js  --format commonjs"
+    "build-lib": "rm -rf lib && compile-modules convert -I src/js/**/*.js -o lib index.js  --format commonjs"
   },
   "keywords": [
     "Es6",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.1",
