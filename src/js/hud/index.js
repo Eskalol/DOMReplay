@@ -1,3 +1,6 @@
+import { dispatcher } from '../';
+import { state } from '../';
+
 
 const button = (text='', classes='', id=undefined) => {
   const button = document.createElement('button');
@@ -15,11 +18,8 @@ const div = (classes='', id=undefined) => {
 }
 
 export default class Hud {
-  constructor(domreplay) {
-    if (domreplay.config.debugmode) {
-      console.log('[HUD] DOMReplay - Initializing Hud');
-    }
-
+  constructor(domreplay, config={}) {
+  	this.config = config;
     this.domreplay = domreplay;
     this.startButton = button('Start');
     this.stopButton = button('Stop');
@@ -30,19 +30,37 @@ export default class Hud {
     this.addEventListenerToElement(this.recordButton, 'click', this.getRecordButtonEvent());
     this.addEventListenerToElement(this.stopButton, 'click', this.getStopButtonEvent());
     this.addEventListenerToElement(this.dropDownButton, 'click', this.getDropDownButtonEvent());
+    this._initializeIndicators();
+    this._initializeEventListeners();
+  }
+
+  _initializeIndicators() {
+  	if (this.config.showRecordIndicator && state.stateIsRecord()) {
+  		this._renderRecordStateIndicator();
+  	}
+  }
+
+  _initializeEventListeners() {
+  	dispatcher.addStateChangeEventListener((event) => {
+  		if (state.stateIsRecord() && this.config.showRecordIndicator) {
+  			this._renderRecordStateIndicator();
+  		} else {
+  			this._removeRecordStateIndicator();
+  		}
+  	});
   }
 
   getRecordButtonEvent() {
     const domreplay = this.domreplay;
     return () => {
-      domreplay.startTracking();
+      domreplay.startRecord();
     };
   }
 
   getStopButtonEvent() {
     const domreplay = this.domreplay
     return () => {
-      domreplay.setOperatingStatePassive();
+      domreplay.stopRecord();
     }
   }
 
@@ -75,6 +93,20 @@ export default class Hud {
 
   addEventListenerToElement(element, type, event) {
     element.addEventListener(type, event);
+  }
+
+  _renderRecordStateIndicator() {
+  	this.recordStateIndicator = div('dom-state-indicator record');
+  	const text = document.createElement('h1');
+  	text.innerHTML = 'REC';
+  	this.recordStateIndicator.appendChild(text);
+  	document.getElementsByTagName('body')[0].appendChild(this.recordStateIndicator);
+  }
+
+  _removeRecordStateIndicator() {
+  	if (this.recordStateIndicator) {
+  		this.recordStateIndicator.parentNode.removeChild(this.recordStateIndicator);
+  	}
   }
 
   render() {

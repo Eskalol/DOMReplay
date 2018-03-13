@@ -8,6 +8,11 @@
         "template": "./node_modules/esdoc-custom-theme/template"
       }
     },
-    {"name": "esdoc-standard-plugin"}
+    {
+    	"name": "esdoc-standard-plugin",
+    	"option": {
+    		"title": "DOMReplay"
+    	}
+    }
   ]
 }

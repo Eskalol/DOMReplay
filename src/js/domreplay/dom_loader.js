@@ -26,7 +26,14 @@ const initializeEvents = (events) => {
 	});
 }
 
-
+/**
+ * Flattens the node tree and yields only,
+ * HTML elements with tagnames that should,
+ * be tracked.
+ * @param {[type]} mutation      		- mutation object from the mutation observer.
+ * @param {Array[String]} tagfilter     - tagnames that should be tracked
+ * @yield {HTMLElement} yields trackable HTMLElements.
+ */
 function* getFlatElementIterator(mutation, tagfilter) {
 	const recursiveFlat = function* (node) {
 		if (node instanceof HTMLElement && tagfilter.includes(node.tagName.toLowerCase())) {

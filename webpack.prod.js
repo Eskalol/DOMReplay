@@ -21,8 +21,10 @@ const config = {
         loader: 'babel-loader',
         options: {
           presets: [
-            ['es2015', { modules: false }]
-          ]
+            ['es2015', { modules: false }],
+            'es2017'
+          ],
+          plugins: ["transform-class-properties"]
         }
       }]
     }, {

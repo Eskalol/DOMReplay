@@ -12,6 +12,30 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "domreplayhud/js/domreplay/state.js~domreplay_state_ready",
+    "variable/index.html#static-variable-DOMREPLAY_STATE_READY",
+    "<span>DOMREPLAY_STATE_READY</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "variable"
+  ],
+  [
+    "domreplayhud/js/domreplay/state.js~domreplay_state_record",
+    "variable/index.html#static-variable-DOMREPLAY_STATE_RECORD",
+    "<span>DOMREPLAY_STATE_RECORD</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "variable"
+  ],
+  [
+    "domreplayhud/js/domreplay/state.js~domreplay_state_replay",
+    "variable/index.html#static-variable-DOMREPLAY_STATE_REPLAY",
+    "<span>DOMREPLAY_STATE_REPLAY</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "variable"
+  ],
+  [
+    "domreplayhud/js/domreplay/state.js~domreplay_state_storage_key",
+    "variable/index.html#static-variable-DOMREPLAY_STATE_STORAGE_KEY",
+    "<span>DOMREPLAY_STATE_STORAGE_KEY</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "variable"
+  ],
+  [
     "domreplayhud/js/domreplay/domreplay.js~domreplay",
     "class/js/domreplay/domreplay.js~DomReplay.html",
     "<span>DomReplay</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/domreplay.js</span>",
@@ -42,10 +66,22 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "domreplayhud/js/domreplay/logger.js~logger",
+    "class/js/domreplay/logger.js~Logger.html",
+    "<span>Logger</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/logger.js</span>",
+    "class"
+  ],
+  [
     "domreplayhud/js/domreplay/replay.js~replay",
     "class/js/domreplay/replay.js~Replay.html",
     "<span>Replay</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/replay.js</span>",
     "class"
+  ],
+  [
+    "domreplayhud/js/domreplay/error.js~state_error",
+    "variable/index.html#static-variable-STATE_ERROR",
+    "<span>STATE_ERROR</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/error.js</span>",
+    "variable"
   ],
   [
     "domreplayhud/js/domreplay/serverstorage.js~serverstorage",
@@ -66,9 +102,63 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "domreplayhud/js/domreplay/state.js~stateisinit",
-    "function/index.html#static-function-stateIsInit",
-    "<span>stateIsInit</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "domreplayhud/js/domreplay/state.js~clearstatestorage",
+    "function/index.html#static-function-clearStateStorage",
+    "<span>clearStateStorage</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/error.js~createstateerror",
+    "function/index.html#static-function-createStateError",
+    "<span>createStateError</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/error.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/dom_loader.js~domloader",
+    "function/index.html#static-function-domloader",
+    "<span>domloader</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/dom_loader.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/handlers.js~handlechangeevent",
+    "function/index.html#static-function-handleChangeEvent",
+    "<span>handleChangeEvent</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/handlers.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/handlers.js~handleclickevent",
+    "function/index.html#static-function-handleClickEvent",
+    "<span>handleClickEvent</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/handlers.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/handlers.js~handleinputevent",
+    "function/index.html#static-function-handleInputEvent",
+    "<span>handleInputEvent</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/handlers.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/logger.js~logger",
+    "variable/index.html#static-variable-logger",
+    "<span>logger</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/logger.js</span>",
+    "variable"
+  ],
+  [
+    "domreplayhud/js/domreplay/state.js~setstateready",
+    "function/index.html#static-function-setStateReady",
+    "<span>setStateReady</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/state.js~setstaterecord",
+    "function/index.html#static-function-setStateRecord",
+    "<span>setStateRecord</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/state.js~setstatereplay",
+    "function/index.html#static-function-setStateReplay",
+    "<span>setStateReplay</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
     "function"
   ],
   [
@@ -570,6 +660,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/error.js",
+    "file/js/domreplay/error.js.html",
+    "js/domreplay/error.js",
+    "file"
+  ],
+  [
     "js/domreplay/handlers.js",
     "file/js/domreplay/handlers.js.html",
     "js/domreplay/handlers.js",
@@ -616,6 +712,60 @@ window.esdocSearchIndex = [
     "file/js/domreplay/index.js.html",
     "js/domreplay/index.js",
     "file"
+  ],
+  [
+    "js/domreplay/logger.js",
+    "file/js/domreplay/logger.js.html",
+    "js/domreplay/logger.js",
+    "file"
+  ],
+  [
+    "js/domreplay/logger.js~logger#_debug",
+    "class/js/domreplay/logger.js~Logger.html#instance-member-_debug",
+    "js/domreplay/logger.js~Logger#_debug",
+    "member"
+  ],
+  [
+    "js/domreplay/logger.js~logger#constructor",
+    "class/js/domreplay/logger.js~Logger.html#instance-constructor-constructor",
+    "js/domreplay/logger.js~Logger#constructor",
+    "method"
+  ],
+  [
+    "js/domreplay/logger.js~logger#debug",
+    "class/js/domreplay/logger.js~Logger.html#instance-method-debug",
+    "js/domreplay/logger.js~Logger#debug",
+    "method"
+  ],
+  [
+    "js/domreplay/logger.js~logger#error",
+    "class/js/domreplay/logger.js~Logger.html#instance-method-error",
+    "js/domreplay/logger.js~Logger#error",
+    "method"
+  ],
+  [
+    "js/domreplay/logger.js~logger#instance",
+    "class/js/domreplay/logger.js~Logger.html#instance-member-instance",
+    "js/domreplay/logger.js~Logger#instance",
+    "member"
+  ],
+  [
+    "js/domreplay/logger.js~logger#logging",
+    "class/js/domreplay/logger.js~Logger.html#instance-set-logging",
+    "js/domreplay/logger.js~Logger#logging",
+    "member"
+  ],
+  [
+    "js/domreplay/logger.js~logger#warning",
+    "class/js/domreplay/logger.js~Logger.html#instance-method-warning",
+    "js/domreplay/logger.js~Logger#warning",
+    "method"
+  ],
+  [
+    "js/domreplay/logger.js~logger.instance",
+    "class/js/domreplay/logger.js~Logger.html#static-member-instance",
+    "js/domreplay/logger.js~Logger.instance",
+    "member"
   ],
   [
     "js/domreplay/replay.js",

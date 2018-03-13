@@ -1,65 +1,85 @@
 {
-  "coverage": "3.47%",
-  "expectCount": 115,
-  "actualCount": 4,
+  "coverage": "15.94%",
+  "expectCount": 138,
+  "actualCount": 22,
   "files": {
     "js/domreplay/dom_loader.js": {
-      "expectCount": 8,
-      "actualCount": 0,
+      "expectCount": 13,
+      "actualCount": 6,
       "undocumentLines": [
-        1,
-        7,
-        8,
-        9,
-        10,
-        14,
-        18,
-        35
+        125,
+        126,
+        127,
+        128,
+        132,
+        136,
+        153
       ]
     },
     "js/domreplay/domreplay.js": {
       "expectCount": 26,
       "actualCount": 0,
       "undocumentLines": [
-        8,
-        9,
-        10,
-        15,
-        16,
-        17,
         18,
         19,
         20,
-        21,
-        22,
-        38,
-        42,
-        43,
-        46,
-        50,
+        25,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        49,
         57,
+        58,
         61,
         65,
-        69,
-        79,
-        98,
-        106,
-        110,
-        118,
-        126
+        72,
+        76,
+        80,
+        84,
+        94,
+        113,
+        121,
+        125,
+        133,
+        141
+      ]
+    },
+    "js/domreplay/error.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        7
       ]
     },
     "js/domreplay/handlers.js": {
-      "expectCount": 7,
+      "expectCount": 10,
       "actualCount": 0,
       "undocumentLines": [
-        1,
-        2,
-        3,
-        4,
+        5,
+        6,
+        7,
         8,
+        12,
+        18,
+        23,
+        30,
+        36,
+        42
+      ]
+    },
+    "js/domreplay/logger.js": {
+      "expectCount": 10,
+      "actualCount": 5,
+      "undocumentLines": [
+        6,
+        8,
+        12,
         13,
-        18
+        53
       ]
     },
     "js/domreplay/replay.js": {
@@ -96,16 +116,13 @@
       ]
     },
     "js/domreplay/state.js": {
-      "expectCount": 11,
-      "actualCount": 4,
+      "expectCount": 14,
+      "actualCount": 10,
       "undocumentLines": [
-        2,
-        4,
-        5,
-        6,
         7,
-        10,
-        14
+        8,
+        9,
+        10
       ]
     },
     "js/domreplay/storage.js": {

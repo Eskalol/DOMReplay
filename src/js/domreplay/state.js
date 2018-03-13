@@ -3,8 +3,10 @@
  * change state safely and check state.
  */
 import { createStateError } from './error';
+import { dispatchStateChangeEvent } from './dispatcher';
 
-export const DOMREPLAY_STATE_STORAGE_KEY = 'DOMREPLAY_STATE';
+
+const DOMREPLAY_STATE_STORAGE_KEY = 'DOMREPLAY_STATE';
 export const DOMREPLAY_STATE_REPLAY = 'DOMREPLAY_STATE_REPLAY';
 export const DOMREPLAY_STATE_RECORD = 'DOMREPLAY_STATE_RECORD';
 export const DOMREPLAY_STATE_READY = 'DOMREPLAY_STATE_READY';
@@ -73,11 +75,15 @@ export const stateIsReady = () => {
  */
 export const setStateReady = (force=false) => {
 	return new Promise((resolve, reject) => {
-		if (force || stateIsReady() || stateIsEmpty()) {
+		if (force || stateIsEmpty()) {
 			setState(DOMREPLAY_STATE_READY)
+			dispatchStateChangeEvent(getState());
 			resolve(getState());
+		}
+		else if (stateIsReady()) {
+			resolve(DOMREPLAY_STATE_READY);
 		} else {
-			reject(getState());
+			reject(createStateError(`Cannot change state from "${getState()}" to "${DOMREPLAY_STATE_READY}"`));
 		}
 	});
 };
@@ -93,9 +99,10 @@ export const setStateRecord = (force=false) => {
 	return new Promise((resolve, reject) => {
 		if (force || stateIsReady()) {
 			setState(DOMREPLAY_STATE_RECORD);
+			dispatchStateChangeEvent(getState());
 			resolve(getState());
 		} else {
-			reject(createStateError(`Tried to change state from "${getState()}" to "${DOMREPLAY_STATE_RECORD}"`));
+			reject(createStateError(`Cannot change state from "${getState()}" to "${DOMREPLAY_STATE_RECORD}"`));
 		}
 	});
 };
@@ -111,10 +118,11 @@ export const setStateReplay = (force=false) => {
 	return new Promise((resolve, reject) => {
 		if (force || stateIsReady()) {
 			setState(DOMREPLAY_STATE_REPLAY);
+			dispatchStateChangeEvent(getState());
 			resolve(getState());
 		}
 		else {
-			reject(createStateError(`Tried to change state from "${getState()}" to "${DOMREPLAY_STATE_REPLAY}"`))
+			reject(createStateError(`Cannot change state from "${getState()}" to "${DOMREPLAY_STATE_REPLAY}"`))
 		}
 	});
 };

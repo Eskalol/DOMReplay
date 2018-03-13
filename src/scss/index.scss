@@ -13,6 +13,11 @@ $border-radius-base:        4px !default;
 $background-color:          #2F2D2E;
 $foreground-color:          #99C24D;
 $border-color:              #2E4057;
+$dom-color-success:         #5cb85c !default;
+$dom-color-info:            #5bc0de !default;
+$dom-color-warning:         #f0ad4e !default;
+$dom-color-danger:          #d9534f !default;
+
 
 .dom-hud-header {
   width: 100%;
@@ -89,6 +94,30 @@ $border-color:              #2E4057;
       content: " show";
     }
   }
+}
+
+.dom-state-indicator {
+	position: fixed;
+	top: 1em;
+	right: 1em;
+	z-index: 9002;
+	&:hover {
+		//todo: hide on hover.
+		z-index: 0;
+		@include animation('record .1s 1 forwards');
+	}
+
+	&.record {
+		@include animation('record 1s infinite');
+		h1 {
+			font-weight: bold;
+			color: rgba($dom-color-danger, .5);
+			&:after {
+				font-family: FontAwesome;
+	      content: " \f111";
+			}
+		}
+	}
 }
 
 
