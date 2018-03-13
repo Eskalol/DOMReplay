@@ -1,0 +1,2912 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "js/.external-ecmascript.js",
+    "static": true,
+    "longname": "js/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "js/domreplay/dom_loader.js",
+    "content": "function* entries(obj) {\n   for (let key of Object.keys(obj)) {\n     yield [key, obj[key]];\n   }\n}\n\nexport default class DOMLoeader {\n  constructor(main) {\n    this.main = main;\n    this.util = main.util;\n    this.util.debug('running dom_loader initializations');\n  }\n\n  addEventlistenerToElement(element, handler, event) {\n    return element.addEventListener(event, () => handler(this), false);\n  }\n\n  initializeEvents() {\n    const lol = () => {\n      console.log('imba');\n    }\n    console.log(this.main.config.events);\n    this.main.config.events.forEach(event => {\n      event.tagnames.forEach(tagname => {\n        const tagnames = document.getElementsByTagName(tagname);\n        Array.from(tagnames).forEach(element => {\n          console.log(element);\n          this.addEventlistenerToElement(element, lol, event.type);\n        });\n      });\n      console.log(event);\n    });\n  }\n\n  initializeMutationObserver() {\n    return;\n    const AnalyzeElement = (element) => {\n      this.util.debug(`analyzing elemnt ${element.id}, ${element.tagName}`);\n      this.main.config.events.forEach(({ event, conf }) => {\n        if (element.tagName.toLowerCase() in conf.tagnames) {\n          this.util.debug(`mutationobserver is adding a ${event}-listener to element ${element.id}`);\n          this.addEventlistenerToElement(element, conf.handler, event);\n        }\n      });\n    };\n    this.util.debug('initializing mutation_observer');\n    const observer = new MutationObserver((mutations) => {\n      mutations.forEach((mutation) => {\n        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {\n          mutation.addedNodes.foreach(element => AnalyzeElement(element));\n        }\n      });\n    });\n    const config = {\n      childList: true,\n      subtree: true,\n    };\n    observer.observe(document.body, config);\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/dom_loader.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "entries",
+    "memberof": "js/domreplay/dom_loader.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/dom_loader.js~entries",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/dom_loader.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "obj",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "class",
+    "name": "DOMLoeader",
+    "memberof": "js/domreplay/dom_loader.js",
+    "static": true,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/dom_loader.js",
+    "importStyle": "DOMLoeader",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 51,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/dom_loader.js~DOMLoeader",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "name": "main",
+    "memberof": "js/domreplay/dom_loader.js~DOMLoeader",
+    "static": false,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader#main",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "util",
+    "memberof": "js/domreplay/dom_loader.js~DOMLoeader",
+    "static": false,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader#util",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "name": "addEventlistenerToElement",
+    "memberof": "js/domreplay/dom_loader.js~DOMLoeader",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader#addEventlistenerToElement",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "handler",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "initializeEvents",
+    "memberof": "js/domreplay/dom_loader.js~DOMLoeader",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader#initializeEvents",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "name": "initializeMutationObserver",
+    "memberof": "js/domreplay/dom_loader.js~DOMLoeader",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/dom_loader.js~DOMLoeader#initializeMutationObserver",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 57,
+    "kind": "file",
+    "name": "js/domreplay/domreplay.js",
+    "content": "import Util from './utils';\nimport Storage from './storage';\nimport Handler from './handlers';\nimport Replay from './replay';\nimport ServerStorage from './serverstorage';\nimport DOMLoader from './dom_loader';\n\nexport default class DomReplay {\n  constructor(config = {}) {\n    this.config = config;\n    if (!this.config.debugmode) {\n      this.config.debugmode = false;\n    }\n    console.log(`debugmode is set to ${config.debugmode}`);\n    this.util = new Util(config.debugmode);\n    this.PASSIVE_STATE = 0;\n    this.RECORD_STATE = 1;\n    this.REPLAY_STATE = 2;\n    this.storage = new Storage(this);\n    this.handler = new Handler(this);\n    this.replay = new Replay(this);\n    this.domLoader = new DOMLoader(this);\n\n    if (!config.events) {\n      this.config.events = [{\n          type: 'click',\n          tagnames: ['a', 'button'],\n          handler: this.handler.addClickHandler,\n        }, {\n          type: 'input',\n          tagnames: ['input', 'select', 'textarea'],\n          handler: this.handler.addInputEvent\n        }\n      ];\n    }\n\n    if (this.config.server) {\n      this.serverstorage = new ServerStorage(this);\n    }\n  }\n\n  setOperatingStateReplay() {\n    this.currentOperatingState = this.REPLAY_STATE;\n  }\n\n  setOperatingStateRecord() {\n    this.currentOperatingState = this.RECORD_STATE;\n  }\n\n  setOperatingStatePassive() {\n    if (this.currentOperatingState === this.RECORD_STATE) {\n      this.util.debug('Stopped recording, should store to server now!');\n    }\n    this.currentOperatingState = this.PASSIVE_STATE;\n  }\n\n  operatingSTateIsRecording() {\n    return this.currentOperatingState === this.RECORD_STATE;\n  }\n\n  operatingStateIsReplaying() {\n    return this.currentOperatingState === this.REPLAY_STATE;\n  }\n\n  operatingStateIsPassive() {\n    return this.currentOperatingState === this.PASSIVE_STATE;\n  }\n\n  startTracking() {\n    this.initializeTracking()\n      .then(() => {\n        console.log('success');\n      })\n      .catch(({message}) => {\n        console.log('message');\n      });\n  }\n\n  initializeTracking() {\n    return new Promise((resolve, reject) => {\n      if (this.operatingSTateIsRecording()) {\n        this.util.debug('cancelling initialization of recording due to recording already being in progress.');\n        reject({message: 'cancelling initialization of recording due to recording already being in progress.'})\n      }\n\n      const time = setInterval(() => {\n        this.util.debug('running readyState-check');\n        if (document.readyState !== 'complete') {\n          this.util.debug('document not yet ready - postponing initialization');\n          return\n        }\n        clearInterval(time);\n        resolve(this.initializeModules());\n      }, 100);\n    });\n  }\n\n  initializeModules() {\n    this.util.debug('running initialize_modules');\n    this.domLoader.initializeEvents();\n    this.domLoader.initializeMutationObserver();\n    this.util.debug('all modules initialized');\n    this.setOperatingStateRecord();\n  }\n\n  getPlaybackObject() {\n    return this.replay;\n  }\n\n  pushToServer() {\n    if (!this.config.server) {\n      this.util.debug('Cannot push to server without server configuration!');\n      return;\n    }\n    this.serverstorage.pushToServer();\n  }\n\n  loadFromServer() {\n    if (!this.config.server) {\n      this.util.debug('Cannot load to server without server configuration!');\n      return;\n    }\n    this.serverstorage.loadFromServer();\n  }\n\n  resetStorage() {\n    this.storage.reset();\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/domreplay.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "name": "DomReplay",
+    "memberof": "js/domreplay/domreplay.js",
+    "static": true,
+    "longname": "js/domreplay/domreplay.js~DomReplay",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/domreplay.js",
+    "importStyle": "DomReplay",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "config",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#config",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "member",
+    "name": "util",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#util",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "member",
+    "name": "PASSIVE_STATE",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#PASSIVE_STATE",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "member",
+    "name": "RECORD_STATE",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#RECORD_STATE",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "member",
+    "name": "REPLAY_STATE",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#REPLAY_STATE",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "member",
+    "name": "storage",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#storage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "name": "handler",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#handler",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "member",
+    "name": "replay",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#replay",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "member",
+    "name": "domLoader",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#domLoader",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "member",
+    "name": "serverstorage",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#serverstorage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "setOperatingStateReplay",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#setOperatingStateReplay",
+    "access": "public",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 71,
+    "kind": "member",
+    "name": "currentOperatingState",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#currentOperatingState",
+    "access": "public",
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "setOperatingStateRecord",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#setOperatingStateRecord",
+    "access": "public",
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "setOperatingStatePassive",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#setOperatingStatePassive",
+    "access": "public",
+    "description": null,
+    "lineNumber": 50,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "operatingSTateIsRecording",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#operatingSTateIsRecording",
+    "access": "public",
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "operatingStateIsReplaying",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#operatingStateIsReplaying",
+    "access": "public",
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "operatingStateIsPassive",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#operatingStateIsPassive",
+    "access": "public",
+    "description": null,
+    "lineNumber": 65,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "method",
+    "name": "startTracking",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#startTracking",
+    "access": "public",
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "name": "initializeTracking",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#initializeTracking",
+    "access": "public",
+    "description": null,
+    "lineNumber": 79,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "initializeModules",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#initializeModules",
+    "access": "public",
+    "description": null,
+    "lineNumber": 98,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "getPlaybackObject",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#getPlaybackObject",
+    "access": "public",
+    "description": null,
+    "lineNumber": 106,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "pushToServer",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#pushToServer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 110,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "loadFromServer",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#loadFromServer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 118,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "resetStorage",
+    "memberof": "js/domreplay/domreplay.js~DomReplay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/domreplay.js~DomReplay#resetStorage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 126,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 86,
+    "kind": "file",
+    "name": "js/domreplay/handlers.js",
+    "content": "export default class Handler {\n  constructor(main) {\n    this.main = main;\n    this.util = main.util;\n    this.util.debug('Initializing DOM handlers');\n  }\n\n  addClickEvent(element) {\n    this.util.debug('Adding click event');\n    this.main.storage.addEvent(element, 'click', false);\n  }\n\n  addChangeEvent(element) {\n    this.util.debug('Adding change event');\n    this.main.storage.addEvent(element, 'event', true);\n  }\n\n  addInputEvent(element) {\n    this.debug('Adding input event');\n    this.main.storage.AddEvent(element, 'input', true);\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/handlers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 87,
+    "kind": "class",
+    "name": "Handler",
+    "memberof": "js/domreplay/handlers.js",
+    "static": true,
+    "longname": "js/domreplay/handlers.js~Handler",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/handlers.js",
+    "importStyle": "Handler",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 88,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/handlers.js~Handler",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/handlers.js~Handler#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "member",
+    "name": "main",
+    "memberof": "js/domreplay/handlers.js~Handler",
+    "static": false,
+    "longname": "js/domreplay/handlers.js~Handler#main",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 90,
+    "kind": "member",
+    "name": "util",
+    "memberof": "js/domreplay/handlers.js~Handler",
+    "static": false,
+    "longname": "js/domreplay/handlers.js~Handler#util",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "method",
+    "name": "addClickEvent",
+    "memberof": "js/domreplay/handlers.js~Handler",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/handlers.js~Handler#addClickEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 92,
+    "kind": "method",
+    "name": "addChangeEvent",
+    "memberof": "js/domreplay/handlers.js~Handler",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/handlers.js~Handler#addChangeEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 93,
+    "kind": "method",
+    "name": "addInputEvent",
+    "memberof": "js/domreplay/handlers.js~Handler",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/handlers.js~Handler#addInputEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 94,
+    "kind": "file",
+    "name": "js/domreplay/index.js",
+    "content": "import DomReplay from './domreplay';\n\nexport default DomReplay;\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 95,
+    "kind": "file",
+    "name": "js/domreplay/replay.js",
+    "content": "export default class Replay {\n  constructor(main) {\n    this.main = main;\n    this.util = main.util;\n    this.STATE_STOPPED = 0;\n    this.STATE_PLAY = 1;\n\n    this.currentStep = 0;\n    this.defaultDelay = 500;\n\n    this.currentState = this.STATE_STOPPED;\n  }\n\n  play() {\n    if (this.main.operatingStateIsReplaying()) {\n      this.util.debug('replay initialization cancelled due to replay already running');\n      return;\n    }\n    this.main.setOperatingStateReplay();\n    const playStep = () => {\n      if (this.currentState !== this.STATE_PLAY) {\n        return;\n      }\n\n      const storedElement = this.main.storage.data[this.currentState];\n      this.util.debug(`replaying! Attempting to execute a ${storedElement.event_type} on ${storedElement.id}`);\n      const element = document.getElementById(storedElement.id);\n      const event = new Event(storedElement.event_type);\n      element.dispatchEvent(event);\n\n      if (storedElement.value !== undefined) {\n        element.value = storedElement.value;\n      }\n\n      this.currentStep = this.currentStep + 1;\n      this.util.debug(`current_step is now ${this.current_step}`);\n\n      if (this.main.config.events[storedElement.event_type].delay !== undefined) {\n        triggerNextStep(this.main.config.events[storedElement.event_type].delay);\n      } else {\n        triggerNextStep();\n      }\n    };\n    const triggerNextStep = (delay = this.defaultDelay) => {\n      this.util.debug('attempting to trigger next step');\n      if (this.currentStep >= this.main.storage.data.length) {\n        this.main.setOperatingStatePassive();\n        return;\n      }\n      this.util.debug(`storage.length (${this.main.storage.data.length}) >= current_step (${this.current_step})`);\n      window.setTimeout(playStep, delay);\n    };\n    this.util.debug('setting current state to play, and running next step!');\n    this.currentState = this.STATE_PLAY;\n    triggerNextStep();\n  }\n\n  pause() {\n    this.util.debug('pausing...');\n    this.main.setOperatingStatePassive();\n    this.currentState = this.STATE_STOPPED;\n  }\n\n  reset() {\n    this.uitl.debug('stopping playback and resetting counter!');\n    this.main.setOperatingStatePassive();\n    this.currentState = this.STATE_STOPPED;\n    this.currentState = 0;\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/replay.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 96,
+    "kind": "class",
+    "name": "Replay",
+    "memberof": "js/domreplay/replay.js",
+    "static": true,
+    "longname": "js/domreplay/replay.js~Replay",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/replay.js",
+    "importStyle": "Replay",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 97,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "name": "main",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#main",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "name": "util",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#util",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "member",
+    "name": "STATE_STOPPED",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#STATE_STOPPED",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "member",
+    "name": "STATE_PLAY",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#STATE_PLAY",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "member",
+    "name": "currentStep",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#currentStep",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "member",
+    "name": "defaultDelay",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#defaultDelay",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "member",
+    "name": "currentState",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#currentState",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "name": "play",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#play",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 108,
+    "kind": "method",
+    "name": "pause",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#pause",
+    "access": "public",
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 110,
+    "kind": "method",
+    "name": "reset",
+    "memberof": "js/domreplay/replay.js~Replay",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/replay.js~Replay#reset",
+    "access": "public",
+    "description": null,
+    "lineNumber": 64,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 113,
+    "kind": "file",
+    "name": "js/domreplay/serverstorage.js",
+    "content": "export default class ServerStorage {\n  constructor(main) {\n    this.main = main;\n    this.util = this.main.util;\n    this.conf = this.main.config.server;\n    this.loadFromServer();\n  }\n\n  readyToLoad() {\n    if (!this.conf.url) {\n      this.debug('Cannot make call to server without url!');\n      return false;\n    }\n    if (!this.main.operatingStateIsPassive()) {\n      this.debug('Cannot make a call to server while state is not passive!');\n      return false;\n    }\n    return !this.conf.isLoading;\n  }\n\n  loadFromServer() {\n    if (!this.readyToLoad()) {\n      return;\n    }\n    this.conf.isLoading = true;\n\n    let urlstring = `${this.conf.url}?session_id=${this.conf.sessionId}`;\n    if (!this.conf.userId) {\n      urlstring = `${urlstring}&user_id=${this.conf.userId}`;\n    }\n    this.util.debug(`Attempting to load from url: ${urlstring}`);\n    this.util.debug(`conf.user_id: ${this.conf.user_id}, conf.session_id: ${this.conf.session_id}, conf.url: ${this.conf.url}`);\n    this.util.debug('conf:');\n    this.util.debugLiteral(this.conf);\n    const headers = new Headers();\n    headers.append('Content-Type', 'application/json');\n    const config = {\n      method: 'GET',\n      headers,\n    };\n    fetch(new Request(urlstring), config).then((response) => {\n      this.util.debug(response);\n      if (response.status === 200) {\n        this.main.storage.updateStorage(response.data);\n      }\n      this.isLoading = false;\n    }).catch((error) => {\n      this.util.debug(error);\n    });\n  }\n\n  pushToServer() {\n    if (!this.readyToLoad()) {\n      return;\n    }\n    this.conf.isLoading = true;\n    const headers = new Headers();\n    headers.append('Content-Type', 'application/json');\n    headers.append('Origin', `${this.conf.url}`);\n    const config = {\n      method: 'POST',\n      headers,\n    };\n    const data = {\n      user_id: this.conf.userId,\n      session_id: this.conf.session_id,\n      data: this.main.storage.data,\n    };\n    fetch(new Request(this.conf.url), config).then((response) => {\n      this.isLoading = false;\n    }).catch((error) => {\n\n    });\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/serverstorage.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 114,
+    "kind": "class",
+    "name": "ServerStorage",
+    "memberof": "js/domreplay/serverstorage.js",
+    "static": true,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/serverstorage.js",
+    "importStyle": "ServerStorage",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 115,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 116,
+    "kind": "member",
+    "name": "main",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#main",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 117,
+    "kind": "member",
+    "name": "util",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#util",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 118,
+    "kind": "member",
+    "name": "conf",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#conf",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "name": "readyToLoad",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#readyToLoad",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 120,
+    "kind": "method",
+    "name": "loadFromServer",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#loadFromServer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 121,
+    "kind": "member",
+    "name": "isLoading",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#isLoading",
+    "access": "public",
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 122,
+    "kind": "method",
+    "name": "pushToServer",
+    "memberof": "js/domreplay/serverstorage.js~ServerStorage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/serverstorage.js~ServerStorage#pushToServer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 52,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 124,
+    "kind": "file",
+    "name": "js/domreplay/state.js",
+    "content": "\nconst DOMREPLAY_STATE_STORAGE_KEY = 'DOM_REPLAY_STATE';\n\nconst DOMREPLAY_STATE_REPLAY = 'DOMREPLAY_STATE_REPLAY';\nconst DOMREPLAY_STATE_RECORD = 'DOMREPLAY_STATE_RECORD';\nconst DOMREPLAY_STATE_READY = 'DOMREPLAY_STATE_READY';\nconst DOMREPLAY_STATE_INIT = 'DOMREPLAY_STATE_INIT';\n\n\nconst getState = () => {\n\treturn window.localStorage.getItem(DOMREPLAY_STATE_STORAGE_KEY);\n};\n\nconst setState = (state) => {\n\twindow.localStorage.setItem(DOMREPLAY_STATE_STORAGE_KEY, state);\n};\n\n/**\n * True if state is Replay\n * @return {Boolean} - True if state is Replay\n */\nexport const stateIsReplay = () => {\n\treturn getState() === DOMREPLAY_STATE_READY;\n};\n\n/**\n * True if state is Record\n * @return {Boolean} - True if state is Record\n */\nexport const stateIsRecord = () => {\n\treturn getState() === DOMREPLAY_STATE_RECORD;\n}\n\n/**\n * True if state is Ready\n * @return {Boolean} - True if state is Ready\n */\nexport const stateIsReady = () => {\n\treturn getState() === DOMREPLAY_STATE_READY;\n};\n\n/**\n * True if state is Init\n * @return {Boolean} - True if state is Init.\n */\nexport const stateIsInit = () => {\n\treturn getState() === DOMREPLAY_STATE_REPLAY;\n}\n\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/state.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 125,
+    "kind": "variable",
+    "name": "DOMREPLAY_STATE_STORAGE_KEY",
+    "memberof": "js/domreplay/state.js",
+    "static": true,
+    "longname": "js/domreplay/state.js~DOMREPLAY_STATE_STORAGE_KEY",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "variable",
+    "name": "DOMREPLAY_STATE_REPLAY",
+    "memberof": "js/domreplay/state.js",
+    "static": true,
+    "longname": "js/domreplay/state.js~DOMREPLAY_STATE_REPLAY",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "variable",
+    "name": "DOMREPLAY_STATE_RECORD",
+    "memberof": "js/domreplay/state.js",
+    "static": true,
+    "longname": "js/domreplay/state.js~DOMREPLAY_STATE_RECORD",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 128,
+    "kind": "variable",
+    "name": "DOMREPLAY_STATE_READY",
+    "memberof": "js/domreplay/state.js",
+    "static": true,
+    "longname": "js/domreplay/state.js~DOMREPLAY_STATE_READY",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 129,
+    "kind": "variable",
+    "name": "DOMREPLAY_STATE_INIT",
+    "memberof": "js/domreplay/state.js",
+    "static": true,
+    "longname": "js/domreplay/state.js~DOMREPLAY_STATE_INIT",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 130,
+    "kind": "function",
+    "name": "getState",
+    "memberof": "js/domreplay/state.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/state.js~getState",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 131,
+    "kind": "function",
+    "name": "setState",
+    "memberof": "js/domreplay/state.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/state.js~setState",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 132,
+    "kind": "function",
+    "name": "stateIsReplay",
+    "memberof": "js/domreplay/state.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/state.js~stateIsReplay",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": "{stateIsReplay}",
+    "description": "True if state is Replay",
+    "lineNumber": 22,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "True if state is Replay"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 133,
+    "kind": "function",
+    "name": "stateIsRecord",
+    "memberof": "js/domreplay/state.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/state.js~stateIsRecord",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": "{stateIsRecord}",
+    "description": "True if state is Record",
+    "lineNumber": 30,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "True if state is Record"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 134,
+    "kind": "function",
+    "name": "stateIsReady",
+    "memberof": "js/domreplay/state.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/state.js~stateIsReady",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": "{stateIsReady}",
+    "description": "True if state is Ready",
+    "lineNumber": 38,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "True if state is Ready"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 135,
+    "kind": "function",
+    "name": "stateIsInit",
+    "memberof": "js/domreplay/state.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/domreplay/state.js~stateIsInit",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/state.js",
+    "importStyle": "{stateIsInit}",
+    "description": "True if state is Init",
+    "lineNumber": 46,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "True if state is Init."
+    },
+    "params": []
+  },
+  {
+    "__docId__": 136,
+    "kind": "file",
+    "name": "js/domreplay/storage.js",
+    "content": "export default class Storage {\n  constructor(main) {\n    this.main = main;\n    this.util = main.util;\n    this.data = [];\n    this.isInitialized = true;\n    this.util.debug('Initializing Storage');\n  }\n\n  reset() {\n    this.data = [];\n  }\n\n  okToStoreEvent(element) {\n    if (!this.isInitialized) {\n      this.util.error('attempting to add element before storage was initialized!');\n      return false;\n    }\n    if (!this.main.operatingStateIsRecording()) {\n      this.util.debug('cancelling storage due to current operating state not set to record');\n      return false;\n    }\n    if (element.hasAttribute('DomReplayIgnore')) {\n      this.util.error('Cannot track ignored element');\n      return false;\n    }\n    if (!element || !element.id) {\n      this.util.error('Cannot add element to storage without valid id!');\n      return false;\n    }\n    return true;\n  }\n\n  addEvent(element, event, addValue = false) {\n    this.util.debug('adding event to storage');\n    if (!this.okToStoreEvent(element)) {\n      return;\n    }\n    const object = {\n      eventType: event,\n      id: element.id,\n    };\n    if (addValue) {\n      object.value = element.value;\n    }\n    this.data.push(object);\n  }\n\n  updateStorage(newData) {\n    this.util.debug('updating storage.data.');\n    this.util.debug('new data:');\n    this.util.debugLiteral(newData);\n    this.data = newData;\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/storage.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 137,
+    "kind": "class",
+    "name": "Storage",
+    "memberof": "js/domreplay/storage.js",
+    "static": true,
+    "longname": "js/domreplay/storage.js~Storage",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/storage.js",
+    "importStyle": "Storage",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 138,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 139,
+    "kind": "member",
+    "name": "main",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#main",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 140,
+    "kind": "member",
+    "name": "util",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#util",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 141,
+    "kind": "member",
+    "name": "data",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#data",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 142,
+    "kind": "member",
+    "name": "isInitialized",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#isInitialized",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 143,
+    "kind": "method",
+    "name": "reset",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#reset",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 145,
+    "kind": "method",
+    "name": "okToStoreEvent",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#okToStoreEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 146,
+    "kind": "method",
+    "name": "addEvent",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#addEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "addValue",
+        "optional": true,
+        "types": [
+          "boolean"
+        ],
+        "defaultRaw": false,
+        "defaultValue": "false"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 147,
+    "kind": "method",
+    "name": "updateStorage",
+    "memberof": "js/domreplay/storage.js~Storage",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/storage.js~Storage#updateStorage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [
+      {
+        "name": "newData",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 149,
+    "kind": "file",
+    "name": "js/domreplay/utils.js",
+    "content": "export default class Util {\n  constructor(debugmode) {\n    this.debugmode = debugmode;\n  }\n\n  error(msg) {\n    console.log(`DOMReplay - ERROR - ${msg}`);\n  }\n\n  debug(msg) {\n    if (this.debugmode) {\n      console.log(`DOMReplay - DEBUG - ${msg}`);\n    }\n  }\n\n  debugLiteral(msg) {\n    if (this.debugmode) {\n      console.log(msg);\n    }\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/domreplay/utils.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 150,
+    "kind": "class",
+    "name": "Util",
+    "memberof": "js/domreplay/utils.js",
+    "static": true,
+    "longname": "js/domreplay/utils.js~Util",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/domreplay/utils.js",
+    "importStyle": "Util",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 151,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/domreplay/utils.js~Util",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/utils.js~Util#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 152,
+    "kind": "member",
+    "name": "debugmode",
+    "memberof": "js/domreplay/utils.js~Util",
+    "static": false,
+    "longname": "js/domreplay/utils.js~Util#debugmode",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 153,
+    "kind": "method",
+    "name": "error",
+    "memberof": "js/domreplay/utils.js~Util",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/utils.js~Util#error",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "msg",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 154,
+    "kind": "method",
+    "name": "debug",
+    "memberof": "js/domreplay/utils.js~Util",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/utils.js~Util#debug",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "msg",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 155,
+    "kind": "method",
+    "name": "debugLiteral",
+    "memberof": "js/domreplay/utils.js~Util",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/utils.js~Util#debugLiteral",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [
+      {
+        "name": "msg",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 156,
+    "kind": "file",
+    "name": "js/element.js",
+    "content": "export default class Element extends HTMLElement {\n\tconstructor() {\n\t\tsuper();\n\t}\n\n\t\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/element.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 157,
+    "kind": "class",
+    "name": "Element",
+    "memberof": "js/element.js",
+    "static": true,
+    "longname": "js/element.js~Element",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/element.js",
+    "importStyle": "Element",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "HTMLElement"
+    ]
+  },
+  {
+    "__docId__": 158,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/element.js~Element",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/element.js~Element#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 159,
+    "kind": "file",
+    "name": "js/hud/element.js",
+    "content": "class Element extends HTMLElement {\n\tconstructor(id=undefined, classes='') {\n\t\tsuper();\n\t}\t\n}\n\nexport class Button extends HTMLButtonElement {\n\tconstructor(text='', classes='', id=undefined, onClick=undefined) {\n\t\tsuper();\n\t\tthis.innerHTML = text;\n\t\tthis.id = id;\n\t\tthis.onClick = onClick;\n\t\tthis.className = `dom-hud-btn ${classes}`;\n\t}\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/hud/element.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 160,
+    "kind": "class",
+    "name": "Element",
+    "memberof": "js/hud/element.js",
+    "static": true,
+    "longname": "js/hud/element.js~Element",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/hud/element.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "HTMLElement"
+    ],
+    "ignore": true
+  },
+  {
+    "__docId__": 161,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/hud/element.js~Element",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/element.js~Element#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 162,
+    "kind": "class",
+    "name": "Button",
+    "memberof": "js/hud/element.js",
+    "static": true,
+    "longname": "js/hud/element.js~Button",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/hud/element.js",
+    "importStyle": "{Button}",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "HTMLButtonElement"
+    ]
+  },
+  {
+    "__docId__": 163,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/hud/element.js~Button",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/element.js~Button#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 164,
+    "kind": "member",
+    "name": "innerHTML",
+    "memberof": "js/hud/element.js~Button",
+    "static": false,
+    "longname": "js/hud/element.js~Button#innerHTML",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 165,
+    "kind": "member",
+    "name": "id",
+    "memberof": "js/hud/element.js~Button",
+    "static": false,
+    "longname": "js/hud/element.js~Button#id",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 166,
+    "kind": "member",
+    "name": "onClick",
+    "memberof": "js/hud/element.js~Button",
+    "static": false,
+    "longname": "js/hud/element.js~Button#onClick",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 167,
+    "kind": "member",
+    "name": "className",
+    "memberof": "js/hud/element.js~Button",
+    "static": false,
+    "longname": "js/hud/element.js~Button#className",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 168,
+    "kind": "file",
+    "name": "js/hud/index.js",
+    "content": "\nconst button = (text='', classes='', id=undefined) => {\n  const button = document.createElement('button');\n  button.innerHTML = text;\n  button.id = id;\n  button.className = `dom-hud-btn ${classes}`;\n  return button;\n}\n\nconst div = (classes='', id=undefined) => {\n  const div = document.createElement('div');\n  div.className = classes;\n  div.id = id;\n  return div;\n}\n\nexport default class Hud {\n  constructor(domreplay) {\n    if (domreplay.config.debugmode) {\n      console.log('[HUD] DOMReplay - Initializing Hud');\n    }\n\n    this.domreplay = domreplay;\n    this.startButton = button('Start');\n    this.stopButton = button('Stop');\n    this.recordButton = button('Record');\n    this.header = div('dom-hud-header');\n    this.dropDownButton = button('DOMReplay', 'dom-hud-dropDown');\n\n    this.addEventListenerToElement(this.recordButton, 'click', this.getRecordButtonEvent());\n    this.addEventListenerToElement(this.stopButton, 'click', this.getStopButtonEvent());\n    this.addEventListenerToElement(this.dropDownButton, 'click', this.getDropDownButtonEvent());\n  }\n\n  getRecordButtonEvent() {\n    const domreplay = this.domreplay;\n    return () => {\n      domreplay.startTracking();\n    };\n  }\n\n  getStopButtonEvent() {\n    const domreplay = this.domreplay\n    return () => {\n      domreplay.setOperatingStatePassive();\n    }\n  }\n\n  getDropDownButtonEvent() {\n    const header = this.header;\n    const button = this.dropDownButton;\n\n    return () => {\n      if (header.className.indexOf('slide-down') != -1) {\n        header.className = header.className.substring(0, header.className.indexOf(' slide-down'));\n        header.className += ' slide-up';\n      } else {\n        if (header.className.indexOf('slide-up') != -1) {\n          header.className = header.className.substring(0, header.className.indexOf(' slide-up'));\n        }\n        header.className += ' slide-down';\n      }\n\n      if (button.className.indexOf('slide-down') != -1) {\n        button.className = button.className.substring(0, button.className.indexOf(' slide-down'));\n        button.className += ' slide-up';\n      } else {\n        if (button.className.indexOf('slide-up') != -1) {\n          button.className = button.className.substring(0, button.className.indexOf(' slide-up'));\n        }\n        button.className += ' slide-down';\n      }\n    };\n  }\n\n  addEventListenerToElement(element, type, event) {\n    element.addEventListener(type, event);\n  }\n\n  render() {\n    this.header.appendChild(this.startButton);\n    this.header.appendChild(this.stopButton);\n    this.header.appendChild(this.recordButton);\n    let body = document.getElementsByTagName('body')[0];\n    body.prepend(this.header);\n    body.prepend(this.dropDownButton);\n  }\n\n}\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/hud/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 169,
+    "kind": "function",
+    "name": "button",
+    "memberof": "js/hud/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/hud/index.js~button",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/hud/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "text",
+        "optional": true,
+        "types": [
+          "string"
+        ],
+        "defaultRaw": "",
+        "defaultValue": ""
+      },
+      {
+        "name": "classes",
+        "optional": true,
+        "types": [
+          "string"
+        ],
+        "defaultRaw": "",
+        "defaultValue": ""
+      },
+      {
+        "name": "id",
+        "optional": true,
+        "types": [
+          "*"
+        ],
+        "defaultRaw": "undefined",
+        "defaultValue": "undefined"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 170,
+    "kind": "function",
+    "name": "div",
+    "memberof": "js/hud/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "js/hud/index.js~div",
+    "access": "public",
+    "export": false,
+    "importPath": "domreplayhud/js/hud/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "classes",
+        "optional": true,
+        "types": [
+          "string"
+        ],
+        "defaultRaw": "",
+        "defaultValue": ""
+      },
+      {
+        "name": "id",
+        "optional": true,
+        "types": [
+          "*"
+        ],
+        "defaultRaw": "undefined",
+        "defaultValue": "undefined"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 171,
+    "kind": "class",
+    "name": "Hud",
+    "memberof": "js/hud/index.js",
+    "static": true,
+    "longname": "js/hud/index.js~Hud",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/hud/index.js",
+    "importStyle": "Hud",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 172,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "js/hud/index.js~Hud",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/index.js~Hud#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true
+  },
+  {
+    "__docId__": 173,
+    "kind": "member",
+    "name": "domreplay",
+    "memberof": "js/hud/index.js~Hud",
+    "static": false,
+    "longname": "js/hud/index.js~Hud#domreplay",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 174,
+    "kind": "member",
+    "name": "startButton",
+    "memberof": "js/hud/index.js~Hud",
+    "static": false,
+    "longname": "js/hud/index.js~Hud#startButton",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 175,
+    "kind": "member",
+    "name": "stopButton",
+    "memberof": "js/hud/index.js~Hud",
+    "static": false,
+    "longname": "js/hud/index.js~Hud#stopButton",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 176,
+    "kind": "member",
+    "name": "recordButton",
+    "memberof": "js/hud/index.js~Hud",
+    "static": false,
+    "longname": "js/hud/index.js~Hud#recordButton",
+    "access": "public",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 177,
+    "kind": "member",
+    "name": "header",
+    "memberof": "js/hud/index.js~Hud",
+    "static": false,
+    "longname": "js/hud/index.js~Hud#header",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 178,
+    "kind": "member",
+    "name": "dropDownButton",
+    "memberof": "js/hud/index.js~Hud",
+    "static": false,
+    "longname": "js/hud/index.js~Hud#dropDownButton",
+    "access": "public",
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 179,
+    "kind": "method",
+    "name": "getRecordButtonEvent",
+    "memberof": "js/hud/index.js~Hud",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/index.js~Hud#getRecordButtonEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 180,
+    "kind": "method",
+    "name": "getStopButtonEvent",
+    "memberof": "js/hud/index.js~Hud",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/index.js~Hud#getStopButtonEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 181,
+    "kind": "method",
+    "name": "getDropDownButtonEvent",
+    "memberof": "js/hud/index.js~Hud",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/index.js~Hud#getDropDownButtonEvent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 182,
+    "kind": "method",
+    "name": "addEventListenerToElement",
+    "memberof": "js/hud/index.js~Hud",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/index.js~Hud#addEventListenerToElement",
+    "access": "public",
+    "description": null,
+    "lineNumber": 76,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 183,
+    "kind": "method",
+    "name": "render",
+    "memberof": "js/hud/index.js~Hud",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/hud/index.js~Hud#render",
+    "access": "public",
+    "description": null,
+    "lineNumber": 80,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 184,
+    "kind": "file",
+    "name": "js/index.js",
+    "content": "export const Hud = require('./hud').default;\nexport default require('./domreplay/domreplay').default;\n",
+    "static": true,
+    "longname": "/Users/eska/dev/DOMReplayHudv2/src/js/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 185,
+    "kind": "variable",
+    "name": "Hud",
+    "memberof": "js/index.js",
+    "static": true,
+    "longname": "js/index.js~Hud",
+    "access": "public",
+    "export": true,
+    "importPath": "domreplayhud/js/index.js",
+    "importStyle": "{Hud}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "",
+    "longname": "/Users/eska/dev/DOMReplayHudv2/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"domreplayhud\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Hud for DOMReplay framework\",\n  \"main\": \"lib/index.js\",\n  \"scripts\": {\n    \"start\": \"webpack-dev-server --open\",\n    \"build\": \"webpack -p --config webpack.prod.js && npm run build-lib\",\n    \"build-lib\": \"rm -rf lib && babel --plugins transform-es2015-modules-commonjs src/js -d lib\",\n    \"watch\": \"babel --plugins transform-es2015-modules-commonjs src/js -d lib --watch\",\n    \"build-docs\": \"esdoc\",\n    \"open-docs\": \"open ./docs/index.html\"\n  },\n  \"keywords\": [\n    \"Es6\",\n    \"Webpack\",\n    \"Sass\"\n  ],\n  \"author\": \"Eskil Opdahl Nordland\",\n  \"license\": \"MIT\",\n  \"dependencies\": {\n    \"DOMReplay\": \"file:../DOMReplay\"\n  },\n  \"devDependencies\": {\n    \"babel-core\": \"^6.26.0\",\n    \"babel-loader\": \"^7.1.2\",\n    \"babel-plugin-transform-es2015-modules-commonjs\": \"^6.26.0\",\n    \"babel-polyfill\": \"^6.26.0\",\n    \"babel-preset-es2015\": \"^6.24.1\",\n    \"css-loader\": \"^0.28.7\",\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-custom-theme\": \"^1.4.2\",\n    \"esdoc-publish-html-plugin\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"extract-text-webpack-plugin\": \"^3.0.1\",\n    \"node-sass\": \"^4.7.2\",\n    \"sass-loader\": \"^6.0.6\",\n    \"style-loader\": \"^0.19.0\",\n    \"webpack\": \"^3.8.1\",\n    \"webpack-dev-server\": \"^2.9.3\",\n    \"webpack-merge\": \"^4.1.0\"\n  }\n}\n",
+    "longname": "/Users/eska/dev/DOMReplayHudv2/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

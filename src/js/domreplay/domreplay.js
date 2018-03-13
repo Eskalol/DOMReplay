@@ -1,18 +1,29 @@
 import Util from './utils';
 import Storage from './storage';
-import Handler from './handlers';
+import Handler, { handleClickEvent, handleChangeEvent, handleInputEvent } from './handlers';
 import Replay from './replay';
 import ServerStorage from './serverstorage';
-import DOMLoader from './dom_loader';
+import DOMLoader, {domloader} from './dom_loader';
+import Logger from './logger';
+import {
+	setStateReady,
+	setStateRecord,
+	setStateReplay,
+	stateIsReplay,
+	stateIsRecord,
+	stateIsReady
+} from './state';
+
 
 export default class DomReplay {
   constructor(config = {}) {
     this.config = config;
-    if (!this.config.debugmode) {
-      this.config.debugmode = false;
+    if (this.config.debugmode) {
+    	Logger.logging = true;
     }
-    console.log(`debugmode is set to ${config.debugmode}`);
+
     this.util = new Util(config.debugmode);
+
     this.PASSIVE_STATE = 0;
     this.RECORD_STATE = 1;
     this.REPLAY_STATE = 2;
@@ -22,20 +33,25 @@ export default class DomReplay {
     this.domLoader = new DOMLoader(this);
 
     if (!config.events) {
-      this.config.events = {
-        click: {
+      this.config.events = [{
+          type: 'click',
           tagnames: ['a', 'button'],
-          handler: this.handler.addClickHandler,
-        },
-        input: {
+          handler: handleClickEvent,
+        }, {
+          type: 'input',
           tagnames: ['input', 'select', 'textarea'],
-          handler: this.handler.addInputEvent
-        },
-      };
+          handler: handleInputEvent
+        }
+      ];
     }
+
     if (this.config.server) {
       this.serverstorage = new ServerStorage(this);
     }
+
+    domloader(this.config.events)
+		.then(() => setStateReady())
+		.then(state => Logger.debug(`current State is: ${state}`));
   }
 
   setOperatingStateReplay() {
@@ -65,21 +81,33 @@ export default class DomReplay {
     return this.currentOperatingState === this.PASSIVE_STATE;
   }
 
+  startTracking() {
+    this.initializeTracking()
+      .then(() => {
+        console.log('success');
+      })
+      .catch(({message}) => {
+        console.log('message');
+      });
+  }
+
   initializeTracking() {
-    if (this.operatingSTateIsRecording()) {
-      this.util.debug('cancelling initialization of recording due to recording already being in progress.');
-      return;
-    }
-    this.util.debug('running initial load!');
-    const time = setInterval(() => {
-      this.util.debug('running readyState-check');
-      if (document.readyState !== 'complete') {
-        this.util.debug('document not yet ready - postponing initialization');
-        return;
+    return new Promise((resolve, reject) => {
+      if (this.operatingSTateIsRecording()) {
+        this.util.debug('cancelling initialization of recording due to recording already being in progress.');
+        reject({message: 'cancelling initialization of recording due to recording already being in progress.'})
       }
-      clearInterval(time);
-      this.initializeModules();
-    }, 100);
+
+      const time = setInterval(() => {
+        this.util.debug('running readyState-check');
+        if (document.readyState !== 'complete') {
+          this.util.debug('document not yet ready - postponing initialization');
+          return
+        }
+        clearInterval(time);
+        resolve(this.initializeModules());
+      }, 100);
+    });
   }
 
   initializeModules() {
