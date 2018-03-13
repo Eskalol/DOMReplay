@@ -1,9 +1,9 @@
 import Util from './utils';
 import Storage from './storage';
-import Handler, { handleClickEvent, handleChangeEvent, handleInputEvent } from './handlers';
+import { handleClickEvent, handleChangeEvent, handleInputEvent } from './handlers';
 import Replay from './replay';
 import ServerStorage from './serverstorage';
-import DOMLoader, {domloader} from './dom_loader';
+import { domloader } from './dom_loader';
 import Logger from './logger';
 import { STATE_ERROR } from './error';
 import {
@@ -47,7 +47,7 @@ export default class DomReplay {
     domloader(this.config.events)
 		.then(() => setStateReady())
 		.catch(err => {
-			if (err === STATE_ERROR) {
+			if (err.type === STATE_ERROR) {
 				return;
 			}
 			throw err;

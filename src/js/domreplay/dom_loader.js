@@ -1,5 +1,8 @@
 import Logger from './logger';
 
+// HTMLElements using this classname will be ignored
+export const domreplayIgnoreClassName = 'dom-replay-ignore';
+
 /**
  * Generator function that creates an iterator of
  * elements by tag name
@@ -20,7 +23,9 @@ const initializeEvents = (events) => {
 	events.forEach(event => {
 		event.tagnames.forEach(tagname => {
 			for (let element of elementByTagNameIterator(tagname)) {
-				element.addEventListener(event.type, () => event.handler(element), false);
+				if (!element.className.includes(domreplayIgnoreClassName)) {
+					element.addEventListener(event.type, () => event.handler(element), false);
+				}
 			}
 		});
 	});
@@ -36,7 +41,10 @@ const initializeEvents = (events) => {
  */
 function* getFlatElementIterator(mutation, tagfilter) {
 	const recursiveFlat = function* (node) {
-		if (node instanceof HTMLElement && tagfilter.includes(node.tagName.toLowerCase())) {
+		if (node instanceof HTMLElement &&
+					tagfilter.includes(node.tagName.toLowerCase()) &&
+					!node.className.includes(domreplayIgnoreClassName)
+				) {
 			yield node;
 		} else if (node.childNodes.length > 0) {
 			for (let n of Array.from(node.childNodes)) {
@@ -119,60 +127,4 @@ export const domloader = (events) => {
 			resolve();
 		}, 100);
 	});
-}
-
-
-export default class DOMLoeader {
-  constructor(main) {
-    this.main = main;
-    this.util = main.util;
-    this.util.debug('running dom_loader initializations');
-  }
-
-  addEventlistenerToElement(element, handler, event) {
-    return element.addEventListener(event, () => handler(this), false);
-  }
-
-  initializeEvents() {
-    const lol = () => {
-      console.log('imba');
-    }
-    console.log(this.main.config.events);
-    this.main.config.events.forEach(event => {
-      event.tagnames.forEach(tagname => {
-        const tagnames = document.getElementsByTagName(tagname);
-        Array.from(tagnames).forEach(element => {
-          console.log(element);
-          this.addEventlistenerToElement(element, lol, event.type);
-        });
-      });
-      console.log(event);
-    });
-  }
-
-  initializeMutationObserver() {
-    return;
-    const AnalyzeElement = (element) => {
-      this.util.debug(`analyzing elemnt ${element.id}, ${element.tagName}`);
-      this.main.config.events.forEach(({ event, conf }) => {
-        if (element.tagName.toLowerCase() in conf.tagnames) {
-          this.util.debug(`mutationobserver is adding a ${event}-listener to element ${element.id}`);
-          this.addEventlistenerToElement(element, conf.handler, event);
-        }
-      });
-    };
-    this.util.debug('initializing mutation_observer');
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          mutation.addedNodes.foreach(element => AnalyzeElement(element));
-        }
-      });
-    });
-    const config = {
-      childList: true,
-      subtree: true,
-    };
-    observer.observe(document.body, config);
-  }
 }

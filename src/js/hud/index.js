@@ -1,12 +1,15 @@
-import { dispatcher } from '../';
-import { state } from '../';
+import {
+	dispatcher,
+	domreplayIgnoreClassName,
+	state
+} from '../';
 
 
 const button = (text='', classes='', id=undefined) => {
   const button = document.createElement('button');
   button.innerHTML = text;
   button.id = id;
-  button.className = `dom-hud-btn ${classes}`;
+  button.className = `${domreplayIgnoreClassName} dom-hud-btn ${classes}`;
   return button;
 }
 

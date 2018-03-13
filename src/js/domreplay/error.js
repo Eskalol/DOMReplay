@@ -6,7 +6,7 @@ export const STATE_ERROR = 'STATE_ERROR';
 
 export const createStateError = (message) => {
 	return {
-		error: STATE_ERROR,
+		type: STATE_ERROR,
 		message
 	};
 }
