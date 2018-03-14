@@ -6,9 +6,7 @@ class Logger {
 	static instance;
 
 	constructor() {
-		console.log('Logger constructor');
 		if (!this.instance) {
-			console.log('instance create');
 			this._debug = false;
 			this.instance = this;
 		}

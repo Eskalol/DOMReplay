@@ -1,4 +1,3 @@
-import Util from './utils';
 import Storage from './storage';
 import { handleClickEvent, handleChangeEvent, handleInputEvent } from './handlers';
 import Replay from './replay';
@@ -17,15 +16,17 @@ import {
 
 
 export default class DomReplay {
+	/**
+	 * The core DomReplay class
+	 * @param  {Boolean}  config.debugmode - if true, debug messages wil be logged.
+	 * @return {DomReplay} an instance of DomReplay
+	 */
   constructor(config = {}) {
   	this.config = config;
     if (config.debugmode) {
     	Logger.logging = true;
     }
-
-    this.util = new Util(config.debugmode);
-    this.storage = new Storage(this);
-    this.replay = new Replay(this);
+    this.replay = new Replay();
 
     if (!config.events) {
       this.config.events = [{
@@ -45,13 +46,16 @@ export default class DomReplay {
     }
 
     domloader(this.config.events)
-		.then(() => setStateReady())
-		.catch(err => {
-			if (err.type === STATE_ERROR) {
-				return;
-			}
-			throw err;
-		});
+			.then(() => setStateReady())
+			.catch(err => {
+				if (err.type === STATE_ERROR) {
+					if (stateIsReplay()) {
+						return this.playSteps();
+					}
+					return;
+				}
+				throw err;
+			});
   }
 
   startRecord() {
@@ -76,27 +80,15 @@ export default class DomReplay {
   		});
   }
 
-  getPlaybackObject() {
-    return this.replay;
+  loadEventsFromLocalStorage() {
+  	this.replay.load(Storage.eventList);
   }
 
-  pushToServer() {
-    if (!this.config.server) {
-      this.util.debug('Cannot push to server without server configuration!');
-      return;
-    }
-    this.serverstorage.pushToServer();
-  }
-
-  loadFromServer() {
-    if (!this.config.server) {
-      this.util.debug('Cannot load to server without server configuration!');
-      return;
-    }
-    this.serverstorage.loadFromServer();
-  }
-
-  resetStorage() {
-    this.storage.reset();
+  play() {
+  	this.replay.reset();
+  	this.replay.play().then(status => {
+  		Logger.debug(`replayed ${status.replayedEvents} of ${status.totalEventCount} events.`);
+  		setStateReady(true);
+  	});
   }
 }

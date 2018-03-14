@@ -1,55 +1,75 @@
-export default class Storage {
-  constructor(main) {
-    this.main = main;
-    this.util = main.util;
-    this.data = [];
-    this.isInitialized = true;
-    this.util.debug('Initializing Storage');
-  }
+import Logger from './logger';
+import { stateIsRecord } from './state';
+import { createStorageError } from './error';
+import { dispatchStorageUpdateEvent } from './dispatcher';
+import { trail, tracker } from './domhound';
 
-  reset() {
-    this.data = [];
-  }
 
-  okToStoreEvent(element) {
-    if (!this.isInitialized) {
-      this.util.error('attempting to add element before storage was initialized!');
-      return false;
-    }
-    if (!this.main.operatingStateIsRecording()) {
-      this.util.debug('cancelling storage due to current operating state not set to record');
-      return false;
-    }
-    if (element.hasAttribute('DomReplayIgnore')) {
-      this.util.error('Cannot track ignored element');
-      return false;
-    }
-    if (!element || !element.id) {
-      this.util.error('Cannot add element to storage without valid id!');
-      return false;
-    }
-    return true;
-  }
+class Storage {
 
-  addEvent(element, event, addValue = false) {
-    this.util.debug('adding event to storage');
-    if (!this.okToStoreEvent(element)) {
-      return;
-    }
-    const object = {
-      eventType: event,
-      id: element.id,
-    };
-    if (addValue) {
-      object.value = element.value;
-    }
-    this.data.push(object);
-  }
+	static storageKey;
+	static instance;
 
-  updateStorage(newData) {
-    this.util.debug('updating storage.data.');
-    this.util.debug('new data:');
-    this.util.debugLiteral(newData);
-    this.data = newData;
-  }
+	constructor() {
+		if (!this.instance) {
+			this.instance = this;
+			this.storageKey = 'DOMREPLAY_EVENT_STORAGE';
+		}
+		return this.instance;
+	}
+
+	clear() {
+		window.localStorage.removeItem(this.storageKey);
+		Logger.debug('Event storage cleared!');
+	}
+
+
+	_appendEvent(object) {
+		let eventObject = JSON.parse(window.localStorage.getItem(this.storageKey));
+		let eventList = [];
+		if (!!eventObject) {
+			eventList = eventObject.eventList;
+		}
+		else {
+			eventObject = {};
+			eventObject.count = 0;
+			eventList = []
+		}
+		eventList.push(object);
+		eventObject.eventList = eventList;
+		eventObject.count++;
+		Logger.debug(`Count: ${eventObject.count}, Event: type(${object.type}) id(${object.id}) value(${object.value})`);
+		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
+	}
+
+	addEvent(element, type, value = null) {
+		return new Promise((resolve, reject) => {
+			if (!stateIsRecord()) {
+				Logger.error('Tried to add event to localstorage, but domreplay is not in record state');
+				reject(createStorageError('Tried to add event to localstorage, but domreplay is not in record state'));
+			}
+			let object = {
+				type,
+				location: window.location.href,
+				trail: trail(element, null, null)
+			}
+			if (value) {
+				object.value = value;
+			}
+			console.log(object);
+			tracker(object.trail)
+				.then(element => {
+					console.log(element);
+				});
+			this._appendEvent(object);
+			resolve(object);
+		});
+	}
+
+	get eventList() {
+		return JSON.parse(window.localStorage.getItem(this.storageKey));
+	}
 }
+
+export default new Storage();
+

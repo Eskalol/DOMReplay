@@ -6,12 +6,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "domreplayhud/js/domreplay/dom_loader.js~domloeader",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html",
-    "<span>DOMLoeader</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/dom_loader.js</span>",
-    "class"
-  ],
-  [
     "domreplayhud/js/domreplay/state.js~domreplay_state_ready",
     "variable/index.html#static-variable-DOMREPLAY_STATE_READY",
     "<span>DOMREPLAY_STATE_READY</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
@@ -30,12 +24,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "domreplayhud/js/domreplay/state.js~domreplay_state_storage_key",
-    "variable/index.html#static-variable-DOMREPLAY_STATE_STORAGE_KEY",
-    "<span>DOMREPLAY_STATE_STORAGE_KEY</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
-    "variable"
-  ],
-  [
     "domreplayhud/js/domreplay/domreplay.js~domreplay",
     "class/js/domreplay/domreplay.js~DomReplay.html",
     "<span>DomReplay</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/domreplay.js</span>",
@@ -45,12 +33,6 @@ window.esdocSearchIndex = [
     "domreplayhud/js/element.js~element",
     "class/js/element.js~Element.html",
     "<span>Element</span> <span class=\"search-result-import-path\">domreplayhud/js/element.js</span>",
-    "class"
-  ],
-  [
-    "domreplayhud/js/domreplay/handlers.js~handler",
-    "class/js/domreplay/handlers.js~Handler.html",
-    "<span>Handler</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/handlers.js</span>",
     "class"
   ],
   [
@@ -102,6 +84,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "domreplayhud/js/domreplay/dispatcher.js~addstatechangeeventlistener",
+    "function/index.html#static-function-addStateChangeEventListener",
+    "<span>addStateChangeEventListener</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/dispatcher.js</span>",
+    "function"
+  ],
+  [
     "domreplayhud/js/domreplay/state.js~clearstatestorage",
     "function/index.html#static-function-clearStateStorage",
     "<span>clearStateStorage</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
@@ -114,10 +102,40 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "domreplayhud/js/domreplay/dispatcher.js~dispatchstatechangeevent",
+    "function/index.html#static-function-dispatchStateChangeEvent",
+    "<span>dispatchStateChangeEvent</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/dispatcher.js</span>",
+    "function"
+  ],
+  [
+    "domreplayhud/js/index.js~dispatcher",
+    "variable/index.html#static-variable-dispatcher",
+    "<span>dispatcher</span> <span class=\"search-result-import-path\">domreplayhud/js/index.js</span>",
+    "variable"
+  ],
+  [
     "domreplayhud/js/domreplay/dom_loader.js~domloader",
     "function/index.html#static-function-domloader",
     "<span>domloader</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/dom_loader.js</span>",
     "function"
+  ],
+  [
+    "domreplayhud/js/domreplay/dom_loader.js~domreplayignoreclassname",
+    "variable/index.html#static-variable-domreplayIgnoreClassName",
+    "<span>domreplayIgnoreClassName</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/dom_loader.js</span>",
+    "variable"
+  ],
+  [
+    "domreplayhud/js/domreplay/index.js~domreplayignoreclassname",
+    "variable/index.html#static-variable-domreplayIgnoreClassName",
+    "<span>domreplayIgnoreClassName</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/index.js</span>",
+    "variable"
+  ],
+  [
+    "domreplayhud/js/index.js~domreplayignoreclassname",
+    "variable/index.html#static-variable-domreplayIgnoreClassName",
+    "<span>domreplayIgnoreClassName</span> <span class=\"search-result-import-path\">domreplayhud/js/index.js</span>",
+    "variable"
   ],
   [
     "domreplayhud/js/domreplay/handlers.js~handlechangeevent",
@@ -160,6 +178,12 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-setStateReplay",
     "<span>setStateReplay</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
     "function"
+  ],
+  [
+    "domreplayhud/js/index.js~state",
+    "variable/index.html#static-variable-state",
+    "<span>state</span> <span class=\"search-result-import-path\">domreplayhud/js/index.js</span>",
+    "variable"
   ],
   [
     "domreplayhud/js/domreplay/state.js~stateisready",
@@ -462,70 +486,22 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "js/domreplay/dispatcher.js",
+    "file/js/domreplay/dispatcher.js.html",
+    "js/domreplay/dispatcher.js",
+    "file"
+  ],
+  [
     "js/domreplay/dom_loader.js",
     "file/js/domreplay/dom_loader.js.html",
     "js/domreplay/dom_loader.js",
     "file"
   ],
   [
-    "js/domreplay/dom_loader.js~domloeader#addeventlistenertoelement",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html#instance-method-addEventlistenerToElement",
-    "js/domreplay/dom_loader.js~DOMLoeader#addEventlistenerToElement",
-    "method"
-  ],
-  [
-    "js/domreplay/dom_loader.js~domloeader#constructor",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html#instance-constructor-constructor",
-    "js/domreplay/dom_loader.js~DOMLoeader#constructor",
-    "method"
-  ],
-  [
-    "js/domreplay/dom_loader.js~domloeader#initializeevents",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html#instance-method-initializeEvents",
-    "js/domreplay/dom_loader.js~DOMLoeader#initializeEvents",
-    "method"
-  ],
-  [
-    "js/domreplay/dom_loader.js~domloeader#initializemutationobserver",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html#instance-method-initializeMutationObserver",
-    "js/domreplay/dom_loader.js~DOMLoeader#initializeMutationObserver",
-    "method"
-  ],
-  [
-    "js/domreplay/dom_loader.js~domloeader#main",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html#instance-member-main",
-    "js/domreplay/dom_loader.js~DOMLoeader#main",
-    "member"
-  ],
-  [
-    "js/domreplay/dom_loader.js~domloeader#util",
-    "class/js/domreplay/dom_loader.js~DOMLoeader.html#instance-member-util",
-    "js/domreplay/dom_loader.js~DOMLoeader#util",
-    "member"
-  ],
-  [
     "js/domreplay/domreplay.js",
     "file/js/domreplay/domreplay.js.html",
     "js/domreplay/domreplay.js",
     "file"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#passive_state",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-PASSIVE_STATE",
-    "js/domreplay/domreplay.js~DomReplay#PASSIVE_STATE",
-    "member"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#record_state",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-RECORD_STATE",
-    "js/domreplay/domreplay.js~DomReplay#RECORD_STATE",
-    "member"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#replay_state",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-REPLAY_STATE",
-    "js/domreplay/domreplay.js~DomReplay#REPLAY_STATE",
-    "member"
   ],
   [
     "js/domreplay/domreplay.js~domreplay#config",
@@ -540,63 +516,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "js/domreplay/domreplay.js~domreplay#currentoperatingstate",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-currentOperatingState",
-    "js/domreplay/domreplay.js~DomReplay#currentOperatingState",
-    "member"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#domloader",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-domLoader",
-    "js/domreplay/domreplay.js~DomReplay#domLoader",
-    "member"
-  ],
-  [
     "js/domreplay/domreplay.js~domreplay#getplaybackobject",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-getPlaybackObject",
     "js/domreplay/domreplay.js~DomReplay#getPlaybackObject",
     "method"
   ],
   [
-    "js/domreplay/domreplay.js~domreplay#handler",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-handler",
-    "js/domreplay/domreplay.js~DomReplay#handler",
-    "member"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#initializemodules",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-initializeModules",
-    "js/domreplay/domreplay.js~DomReplay#initializeModules",
-    "method"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#initializetracking",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-initializeTracking",
-    "js/domreplay/domreplay.js~DomReplay#initializeTracking",
-    "method"
-  ],
-  [
     "js/domreplay/domreplay.js~domreplay#loadfromserver",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-loadFromServer",
     "js/domreplay/domreplay.js~DomReplay#loadFromServer",
-    "method"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#operatingstateisrecording",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-operatingSTateIsRecording",
-    "js/domreplay/domreplay.js~DomReplay#operatingSTateIsRecording",
-    "method"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#operatingstateispassive",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-operatingStateIsPassive",
-    "js/domreplay/domreplay.js~DomReplay#operatingStateIsPassive",
-    "method"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#operatingstateisreplaying",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-operatingStateIsReplaying",
-    "js/domreplay/domreplay.js~DomReplay#operatingStateIsReplaying",
     "method"
   ],
   [
@@ -624,27 +552,15 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "js/domreplay/domreplay.js~domreplay#setoperatingstatepassive",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-setOperatingStatePassive",
-    "js/domreplay/domreplay.js~DomReplay#setOperatingStatePassive",
+    "js/domreplay/domreplay.js~domreplay#startrecord",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-startRecord",
+    "js/domreplay/domreplay.js~DomReplay#startRecord",
     "method"
   ],
   [
-    "js/domreplay/domreplay.js~domreplay#setoperatingstaterecord",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-setOperatingStateRecord",
-    "js/domreplay/domreplay.js~DomReplay#setOperatingStateRecord",
-    "method"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#setoperatingstatereplay",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-setOperatingStateReplay",
-    "js/domreplay/domreplay.js~DomReplay#setOperatingStateReplay",
-    "method"
-  ],
-  [
-    "js/domreplay/domreplay.js~domreplay#starttracking",
-    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-startTracking",
-    "js/domreplay/domreplay.js~DomReplay#startTracking",
+    "js/domreplay/domreplay.js~domreplay#stoprecord",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-stopRecord",
+    "js/domreplay/domreplay.js~DomReplay#stopRecord",
     "method"
   ],
   [
@@ -670,42 +586,6 @@ window.esdocSearchIndex = [
     "file/js/domreplay/handlers.js.html",
     "js/domreplay/handlers.js",
     "file"
-  ],
-  [
-    "js/domreplay/handlers.js~handler#addchangeevent",
-    "class/js/domreplay/handlers.js~Handler.html#instance-method-addChangeEvent",
-    "js/domreplay/handlers.js~Handler#addChangeEvent",
-    "method"
-  ],
-  [
-    "js/domreplay/handlers.js~handler#addclickevent",
-    "class/js/domreplay/handlers.js~Handler.html#instance-method-addClickEvent",
-    "js/domreplay/handlers.js~Handler#addClickEvent",
-    "method"
-  ],
-  [
-    "js/domreplay/handlers.js~handler#addinputevent",
-    "class/js/domreplay/handlers.js~Handler.html#instance-method-addInputEvent",
-    "js/domreplay/handlers.js~Handler#addInputEvent",
-    "method"
-  ],
-  [
-    "js/domreplay/handlers.js~handler#constructor",
-    "class/js/domreplay/handlers.js~Handler.html#instance-constructor-constructor",
-    "js/domreplay/handlers.js~Handler#constructor",
-    "method"
-  ],
-  [
-    "js/domreplay/handlers.js~handler#main",
-    "class/js/domreplay/handlers.js~Handler.html#instance-member-main",
-    "js/domreplay/handlers.js~Handler#main",
-    "member"
-  ],
-  [
-    "js/domreplay/handlers.js~handler#util",
-    "class/js/domreplay/handlers.js~Handler.html#instance-member-util",
-    "js/domreplay/handlers.js~Handler#util",
-    "member"
   ],
   [
     "js/domreplay/index.js",
@@ -1050,10 +930,40 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "js/hud/index.js~hud#_initializeeventlisteners",
+    "class/js/hud/index.js~Hud.html#instance-method-_initializeEventListeners",
+    "js/hud/index.js~Hud#_initializeEventListeners",
+    "method"
+  ],
+  [
+    "js/hud/index.js~hud#_initializeindicators",
+    "class/js/hud/index.js~Hud.html#instance-method-_initializeIndicators",
+    "js/hud/index.js~Hud#_initializeIndicators",
+    "method"
+  ],
+  [
+    "js/hud/index.js~hud#_removerecordstateindicator",
+    "class/js/hud/index.js~Hud.html#instance-method-_removeRecordStateIndicator",
+    "js/hud/index.js~Hud#_removeRecordStateIndicator",
+    "method"
+  ],
+  [
+    "js/hud/index.js~hud#_renderrecordstateindicator",
+    "class/js/hud/index.js~Hud.html#instance-method-_renderRecordStateIndicator",
+    "js/hud/index.js~Hud#_renderRecordStateIndicator",
+    "method"
+  ],
+  [
     "js/hud/index.js~hud#addeventlistenertoelement",
     "class/js/hud/index.js~Hud.html#instance-method-addEventListenerToElement",
     "js/hud/index.js~Hud#addEventListenerToElement",
     "method"
+  ],
+  [
+    "js/hud/index.js~hud#config",
+    "class/js/hud/index.js~Hud.html#instance-member-config",
+    "js/hud/index.js~Hud#config",
+    "member"
   ],
   [
     "js/hud/index.js~hud#constructor",
@@ -1101,6 +1011,12 @@ window.esdocSearchIndex = [
     "js/hud/index.js~hud#recordbutton",
     "class/js/hud/index.js~Hud.html#instance-member-recordButton",
     "js/hud/index.js~Hud#recordButton",
+    "member"
+  ],
+  [
+    "js/hud/index.js~hud#recordstateindicator",
+    "class/js/hud/index.js~Hud.html#instance-member-recordStateIndicator",
+    "js/hud/index.js~Hud#recordStateIndicator",
     "member"
   ],
   [

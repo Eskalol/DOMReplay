@@ -10,3 +10,12 @@ export const createStateError = (message) => {
 		message
 	};
 }
+
+export const STORAGE_ERROR = 'STORAGE_ERROR';
+
+export const createStorageError = (message) => {
+	return {
+		type: STORAGE_ERROR,
+		message
+	}
+}

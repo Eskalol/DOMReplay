@@ -7,7 +7,7 @@ export const domreplayIgnoreClassName = 'dom-replay-ignore';
  * Generator function that creates an iterator of
  * elements by tag name
  * @param {String} tagname     - HTML tag name
- * @yield {Element} Element
+ * @yield {HTMLElement} Element
  */
 function* elementByTagNameIterator(tagname) {
 	const elements = document.getElementsByTagName(tagname);
@@ -53,8 +53,8 @@ function* getFlatElementIterator(mutation, tagfilter) {
 		}
 	}
 
-	for (let n of Array.from(mutation.addedNodes)) {
-		yield* recursiveFlat(n);
+	for (let node of Array.from(mutation.addedNodes)) {
+		yield* recursiveFlat(node);
 	}
 }
 

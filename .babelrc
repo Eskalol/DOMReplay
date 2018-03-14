@@ -4,6 +4,9 @@
     ["transform-es2015-modules-commonjs", {
       "allowTopLevelThis": true
     }],
-    "transform-class-properties"
+    "transform-async-to-generator",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+
   ]
 }

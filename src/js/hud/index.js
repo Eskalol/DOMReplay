@@ -27,9 +27,12 @@ export default class Hud {
     this.startButton = button('Start');
     this.stopButton = button('Stop');
     this.recordButton = button('Record');
+    this.loadFromStorageButton = button('Load from storage');
     this.header = div('dom-hud-header');
     this.dropDownButton = button('DOMReplay', 'dom-hud-dropDown');
 
+    this.addEventListenerToElement(this.startButton, 'click', this.getStartButtonEvent());
+    this.addEventListenerToElement(this.loadFromStorageButton, 'click', this.getLoadFromStorageButtonEvent());
     this.addEventListenerToElement(this.recordButton, 'click', this.getRecordButtonEvent());
     this.addEventListenerToElement(this.stopButton, 'click', this.getStopButtonEvent());
     this.addEventListenerToElement(this.dropDownButton, 'click', this.getDropDownButtonEvent());
@@ -51,6 +54,20 @@ export default class Hud {
   			this._removeRecordStateIndicator();
   		}
   	});
+  }
+
+  getLoadFromStorageButtonEvent() {
+  	const domreplay = this.domreplay;
+  	return () => {
+  		domreplay.loadEventsFromLocalStorage();
+  	}
+  }
+
+  getStartButtonEvent() {
+  	const domreplay = this.domreplay;
+  	return () => {
+  		domreplay.play();
+  	}
   }
 
   getRecordButtonEvent() {
@@ -116,6 +133,7 @@ export default class Hud {
     this.header.appendChild(this.startButton);
     this.header.appendChild(this.stopButton);
     this.header.appendChild(this.recordButton);
+    this.header.appendChild(this.loadFromStorageButton);
     let body = document.getElementsByTagName('body')[0];
     body.prepend(this.header);
     body.prepend(this.dropDownButton);

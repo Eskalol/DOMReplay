@@ -1,70 +1,120 @@
+import Logger from './logger';
+import { stateIsReady, setStateReplay, setStateReady } from './state';
+import { tracker } from './domhound';
+
+
 export default class Replay {
-  constructor(main) {
-    this.main = main;
-    this.util = main.util;
-    this.STATE_STOPPED = 0;
-    this.STATE_PLAY = 1;
+	static storageKey;
 
-    this.currentStep = 0;
-    this.defaultDelay = 500;
 
-    this.currentState = this.STATE_STOPPED;
-  }
+	constructor() {
+		this.storageKey = 'DOMREPLAY_REPLAY_EVENTS';
+	}
 
-  play() {
-    if (this.main.operatingStateIsReplaying()) {
-      this.util.debug('replay initialization cancelled due to replay already running');
-      return;
-    }
-    this.main.setOperatingStateReplay();
-    const playStep = () => {
-      if (this.currentState !== this.STATE_PLAY) {
-        return;
-      }
+	load(eventObject) {
+		const replayObject = {
+			nextEvent: 0,
+			eventObject
+		};
+		this._replayObject = replayObject;
+	}
 
-      const storedElement = this.main.storage.data[this.currentState];
-      this.util.debug(`replaying! Attempting to execute a ${storedElement.event_type} on ${storedElement.id}`);
-      const element = document.getElementById(storedElement.id);
-      const event = new Event(storedElement.event_type);
-      element.dispatchEvent(event);
+	clear() {
+		window.localStorage.removeItem(this.storageKey);
+	}
 
-      if (storedElement.value !== undefined) {
-        element.value = storedElement.value;
-      }
+	set _replayObject(replayObject) {
+		window.localStorage.setItem(this.storageKey, JSON.stringify(replayObject));
+	}
 
-      this.currentStep = this.currentStep + 1;
-      this.util.debug(`current_step is now ${this.current_step}`);
+	get _replayObject() {
+		return JSON.parse(window.localStorage.getItem(this.storageKey));
+	}
 
-      if (this.main.config.events[storedElement.event_type].delay !== undefined) {
-        triggerNextStep(this.main.config.events[storedElement.event_type].delay);
-      } else {
-        triggerNextStep();
-      }
-    };
-    const triggerNextStep = (delay = this.defaultDelay) => {
-      this.util.debug('attempting to trigger next step');
-      if (this.currentStep >= this.main.storage.data.length) {
-        this.main.setOperatingStatePassive();
-        return;
-      }
-      this.util.debug(`storage.length (${this.main.storage.data.length}) >= current_step (${this.current_step})`);
-      window.setTimeout(playStep, delay);
-    };
-    this.util.debug('setting current state to play, and running next step!');
-    this.currentState = this.STATE_PLAY;
-    triggerNextStep();
-  }
+	set _nextEventIndex(index) {
+		let replayObject = this._replayObject;
+		replayObject.nextEvent = index;
+		this._replayObject = replayObject;
+	}
 
-  pause() {
-    this.util.debug('pausing...');
-    this.main.setOperatingStatePassive();
-    this.currentState = this.STATE_STOPPED;
-  }
+	get _totalEventCount() {
+		let replayObject = this._replayObject;
+		return replayObject.eventObject.count;
+	}
 
-  reset() {
-    this.uitl.debug('stopping playback and resetting counter!');
-    this.main.setOperatingStatePassive();
-    this.currentState = this.STATE_STOPPED;
-    this.currentState = 0;
-  }
+	get _nextEventIndex() {
+		let replayObject = this._replayObject;
+		return replayObject.nextEvent;
+	}
+
+	get _nextEvent() {
+		let replayObject = this._replayObject;
+		let nextEventIndex = this._nextEventIndex;
+		this._nextEventIndex = nextEventIndex + 1;
+		return replayObject.eventObject.eventList[nextEventIndex];
+	}
+
+	reset() {
+		this._nextEventIndex = 0;
+	}
+
+	getNextStep() {
+		// const instance = this;
+		return new Promise(resolve => {
+			if (this._nextEventIndex >= this._totalEventCount) {
+				resolve(null);
+			}
+			else {
+				resolve(this._nextEvent);
+			}
+		});
+	}
+
+
+	executeEvent(element, eventObject) {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				//Need to handle other event types aswell.
+				element.click();
+				resolve(false);
+			}, 1000);
+		});
+	}
+
+	async playStep() {
+		const nextStep = await this.getNextStep();
+		if (!nextStep) {
+			return new Promise(resolve => resolve(true));
+		}
+		// We need a way to wait for the element to appear if the dom is loading
+		// something from apis.
+		const element = await tracker(nextStep.trail);
+		if (!nextStep && !element) {
+			return new Promise(resolve => resolve(true));
+		}
+
+		const result = await this.executeEvent(element, nextStep);
+		return new Promise(resolve => resolve(result));
+	}
+
+	play() {
+		Logger.debug('replay: start replaying events!');
+		if (!stateIsReady()) {
+			Logger.debug('state is not ready');
+		}
+
+		if (!this._replayObject) {
+			Logger.warn('Please load event see Replay.load');
+			return;
+		}
+		const instance = this;
+		return setStateReplay()
+			.then(async () => {
+				while(!await this.playStep());
+				return {
+					totalEventCount: this._totalEventCount,
+					replayedEvents: this._nextEventIndex
+				}
+			});
+	}
 }
