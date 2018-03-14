@@ -81,7 +81,21 @@ export default class Replay {
 		});
 	}
 
+	readyStateCheck() {
+		return new Promise(resolve => {
+			const time = setInterval(() => {
+				if (document.readyState !== 'complete') {
+					Logger.debug('Waiting for dom to complete loading after navigation');
+					return;
+				}
+				clearInterval(time);
+				resolve();
+			}, 500);
+		});
+	}
+
 	async playStep() {
+		await this.readyStateCheck();
 		const nextStep = await this.getNextStep();
 		if (!nextStep) {
 			return new Promise(resolve => resolve(true));
@@ -112,9 +126,17 @@ export default class Replay {
 			.then(async () => {
 				while(!await this.playStep());
 				return {
-					totalEventCount: this._totalEventCount,
-					replayedEvents: this._nextEventIndex
+					total: this._totalEventCount,
+					replayed: this._nextEventIndex
+				};
+			}).then(({total, replayed}) => {
+				if (total == replayed) {
+					setStateReady(true);
 				}
+				return {
+					total,
+					replayed
+				};
 			});
 	}
 }

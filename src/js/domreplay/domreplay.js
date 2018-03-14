@@ -50,7 +50,9 @@ export default class DomReplay {
 			.catch(err => {
 				if (err.type === STATE_ERROR) {
 					if (stateIsReplay()) {
-						return this.playSteps();
+						console.log('WTF');
+						this.replay.play();
+						return;
 					}
 					return;
 				}
@@ -87,8 +89,16 @@ export default class DomReplay {
   play() {
   	this.replay.reset();
   	this.replay.play().then(status => {
-  		Logger.debug(`replayed ${status.replayedEvents} of ${status.totalEventCount} events.`);
-  		setStateReady(true);
+  		Logger.debug(`replayed ${status.total} of ${status.replayed} events.`);
   	});
+  }
+
+  playStep() {
+  	this.replay.playStep()
+  		.then(done => {
+  			if (done) {
+  				setStateReady(true);
+  			}
+  		});
   }
 }

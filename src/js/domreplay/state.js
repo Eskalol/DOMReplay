@@ -48,7 +48,7 @@ const stateIsEmpty = () => {
  * @return {Boolean} - True if state is Replay
  */
 export const stateIsReplay = () => {
-	return getState() === DOMREPLAY_STATE_READY;
+	return getState() === DOMREPLAY_STATE_REPLAY;
 };
 
 /**
@@ -101,7 +101,9 @@ export const setStateRecord = (force=false) => {
 			setState(DOMREPLAY_STATE_RECORD);
 			dispatchStateChangeEvent(getState());
 			resolve(getState());
-		} else {
+		} else if (stateIsReplay()) {
+			resolve(DOMREPLAY_STATE_RECORD);
+		}else {
 			reject(createStateError(`Cannot change state from "${getState()}" to "${DOMREPLAY_STATE_RECORD}"`));
 		}
 	});
@@ -120,8 +122,9 @@ export const setStateReplay = (force=false) => {
 			setState(DOMREPLAY_STATE_REPLAY);
 			dispatchStateChangeEvent(getState());
 			resolve(getState());
-		}
-		else {
+		} else if (stateIsReplay()) {
+			resolve(DOMREPLAY_STATE_REPLAY);
+		} else {
 			reject(createStateError(`Cannot change state from "${getState()}" to "${DOMREPLAY_STATE_REPLAY}"`))
 		}
 	});
