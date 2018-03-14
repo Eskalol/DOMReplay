@@ -1,7 +1,7 @@
 import Storage from './storage';
 import { handleClickEvent, handleChangeEvent, handleInputEvent } from './handlers';
 import Replay from './replay';
-import { domloader } from './dom_loader';
+import { domloader } from './loader';
 import Logger from './logger';
 import { STATE_ERROR } from './error';
 import {

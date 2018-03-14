@@ -8,7 +8,7 @@ import {
 	stateIsReady
 } from './domreplay/state';
 
-export { domreplayIgnoreClassName as domreplayIgnoreClassName } from './domreplay/dom_loader';
+export { domreplayIgnoreClassName as domreplayIgnoreClassName } from './domreplay/loader';
 
 export const dispatcher = {
 	addStateChangeEventListener
@@ -23,5 +23,6 @@ export const state = {
 	stateIsReady
 };
 
+export { default as Storage } from './domreplay/storage';
 export { default as Hud } from './hud';
 export { DomReplay as default } from './domreplay/domreplay';

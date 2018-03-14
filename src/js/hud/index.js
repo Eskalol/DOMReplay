@@ -43,8 +43,13 @@ export default class Hud {
   }
 
   _initializeIndicators() {
+  	this.replayStateIndicator = null;
+  	this.recordStateIndicator = null;
   	if (this.config.showRecordIndicator && state.stateIsRecord()) {
   		this._renderRecordStateIndicator();
+  	}
+  	else if (this.config.showReplayIndicator && state.stateIsReplay()) {
+  		this._renderReplayStateIndicator();
   	}
   }
 
@@ -52,8 +57,11 @@ export default class Hud {
   	dispatcher.addStateChangeEventListener((event) => {
   		if (state.stateIsRecord() && this.config.showRecordIndicator) {
   			this._renderRecordStateIndicator();
+  		} else if (state.stateIsReplay() && this.config.showReplayIndicator) {
+  			this._renderReplayStateIndicator();
   		} else {
   			this._removeRecordStateIndicator();
+  			this._removeReplayStateIndicator();
   		}
   	});
   }
@@ -122,6 +130,20 @@ export default class Hud {
 
   addEventListenerToElement(element, type, event) {
     element.addEventListener(type, event);
+  }
+
+  _renderReplayStateIndicator() {
+  	this.replayStateIndicator = div('dom-state-indicator replay');
+  	const text = document.createElement('h1');
+  	text.innerHTML = "REPLAY";
+  	this.replayStateIndicator.appendChild(text);
+  	document.getElementsByTagName('body')[0].appendChild(this.replayStateIndicator);
+  }
+
+  _removeReplayStateIndicator() {
+  	if (this.replayStateIndicator) {
+  		this.replayStateIndicator.parentNode.removeChild(this.replayStateIndicator);
+  	}
   }
 
   _renderRecordStateIndicator() {

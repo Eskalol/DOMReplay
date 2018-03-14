@@ -118,6 +118,18 @@ $dom-color-danger:          #d9534f !default;
 			}
 		}
 	}
+
+	&.replay {
+		@include animation('record 1s infinite');
+		h1 {
+			font-weight: bold;
+			color: rgba($dom-color-warning, .5);
+			&:after {
+				font-family: FontAwesome;
+				content: " \f04b"
+			}
+		}
+	}
 }
 
 

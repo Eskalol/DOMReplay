@@ -42,7 +42,7 @@ class Storage {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
 	}
 
-	addEvent(element, type, value = null) {
+	addEvent(element, type, value = null, extra = {}) {
 		return new Promise((resolve, reject) => {
 			if (!stateIsRecord()) {
 				Logger.error('Tried to add event to localstorage, but domreplay is not in record state');
