@@ -1,7 +1,6 @@
 import Storage from './storage';
 import { handleClickEvent, handleChangeEvent, handleInputEvent } from './handlers';
 import Replay from './replay';
-import ServerStorage from './serverstorage';
 import { domloader } from './dom_loader';
 import Logger from './logger';
 import { STATE_ERROR } from './error';
@@ -15,7 +14,7 @@ import {
 } from './state';
 
 
-export default class DomReplay {
+export class DomReplay {
 	/**
 	 * The core DomReplay class
 	 * @param  {Boolean}  config.debugmode - if true, debug messages wil be logged.

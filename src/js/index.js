@@ -8,8 +8,7 @@ import {
 	stateIsReady
 } from './domreplay/state';
 
-export const domreplayIgnoreClassName = require('./domreplay/dom_loader')
-	.domreplayIgnoreClassName;
+export { domreplayIgnoreClassName as domreplayIgnoreClassName } from './domreplay/dom_loader';
 
 export const dispatcher = {
 	addStateChangeEventListener
@@ -24,6 +23,5 @@ export const state = {
 	stateIsReady
 };
 
-
-export const Hud = require('./hud').default;
-export default require('./domreplay/domreplay').default;
+export { default as Hud } from './hud';
+export { DomReplay as default } from './domreplay/domreplay';
