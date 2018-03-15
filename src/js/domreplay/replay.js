@@ -59,7 +59,6 @@ export default class Replay {
 	}
 
 	getNextStep() {
-		// const instance = this;
 		return new Promise(resolve => {
 			if (this._nextEventIndex >= this._totalEventCount) {
 				resolve(null);
@@ -70,18 +69,61 @@ export default class Replay {
 		});
 	}
 
-
-	executeEvent(element, eventObject) {
-		return new Promise((resolve) => {
+	executeClickEvent(element) {
+		return new Promise(resolve => {
 			setTimeout(() => {
-				if (eventObject.type === 'click') {
-					element.click();
-				} else if (eventObject.type === 'input') {
-					element.value = eventObject.value;
-				}
+				element.click();
 				resolve(false);
 			}, 1000);
 		});
+	}
+
+	executeFocusElement(element) {
+		return new Promise(resolve => {
+			setTimeout(() => {
+				element.focus();
+				resolve(false);
+			}, 1000);
+		});
+	}
+
+	async executeInputEvent(element, value) {
+		await this.executeFocusElement(element);
+		return new Promise(resolve => {
+				let index = 0;
+				const time = setInterval(() => {
+					if (index == value.length) {
+						clearInterval(time);
+						resolve(false);
+					}
+					element.value = element.value + value.substring(index, index + 1);
+					let event = new InputEvent('input', {bubbles: true, data: value[index], inputType: 'insertText' });
+					let textInputEvent = new Event('textInput', {bubbles: true, data: value[index++]});
+					element.dispatchEvent(event);
+					element.dispatchEvent(textInputEvent);
+				}, 100);
+		});
+	}
+
+	executeChangeEvent(element) {
+		return new Promise(resolve => {
+			setTimeout(() => {
+				const event = new Event('change', {bubbles: true});
+				element.dispatchEvent(event);
+				resolve(false);
+			}, 1000);
+		});
+	}
+
+	executeEvent(element, eventObject) {
+		Logger.debug(`Executing ${eventObject.type} event.`);
+		if (eventObject.type === 'click') {
+			return this.executeClickEvent(element);
+		} else if (eventObject.type === 'input') {
+			return this.executeInputEvent(element, eventObject.value);
+		} else if (eventObject.type === 'change') {
+			return this.executeChangeEvent(element);
+		}
 	}
 
 	readyStateCheck() {

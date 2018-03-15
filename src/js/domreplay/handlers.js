@@ -21,6 +21,7 @@ export const handleClickEvent = (element) => {
 export const handleChangeEvent = (element) => {
 	if (stateIsRecord()) {
 		Logger.debug('change event handler');
+		Storage.addEvent(element, 'change');
 	}
 }
 

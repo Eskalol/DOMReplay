@@ -36,6 +36,10 @@ export class DomReplay {
           type: 'input',
           tagnames: ['input', 'select', 'textarea'],
           handler: handleInputEvent
+        }, {
+        	type: 'change',
+        	tagnames: ['input', 'select', 'textarea'],
+        	handler: handleChangeEvent
         }
       ];
     }

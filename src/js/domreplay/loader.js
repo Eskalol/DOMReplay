@@ -24,6 +24,7 @@ const initializeEvents = (events) => {
 		event.tagnames.forEach(tagname => {
 			for (let element of elementByTagNameIterator(tagname)) {
 				if (!element.className.includes(domreplayIgnoreClassName)) {
+					Logger.debug(`Adding ${event.type} event listener to element`);
 					element.addEventListener(event.type, () => event.handler(element), false);
 				}
 			}
