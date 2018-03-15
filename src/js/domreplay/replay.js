@@ -74,8 +74,11 @@ export default class Replay {
 	executeEvent(element, eventObject) {
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				//Need to handle other event types aswell.
-				element.click();
+				if (eventObject.type === 'click') {
+					element.click();
+				} else if (eventObject.type === 'input') {
+					element.value = eventObject.value;
+				}
 				resolve(false);
 			}, 1000);
 		});

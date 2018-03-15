@@ -1,5 +1,5 @@
 {
-  "source": "./src/js/index.js",
+  "source": "./src/js/",
   "destination": "./docs",
   "plugins": [
     {

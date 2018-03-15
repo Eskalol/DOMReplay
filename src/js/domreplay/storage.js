@@ -23,6 +23,23 @@ class Storage {
 		Logger.debug('Event storage cleared!');
 	}
 
+	set updateStorage(eventObject) {
+		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
+	}
+
+	set updateLastEvent(object) {
+		let eventObject = this.eventList;
+		eventObject.eventList[eventObject.count - 1] = object;
+		this.updateStorage = eventObject;
+	}
+
+	get lastRecordedElement() {
+		let eventObject = this.eventList;
+		if (!eventObject) {
+			return null;
+		}
+		return eventObject.eventList[eventObject.count - 1];
+	}
 
 	_appendEvent(object) {
 		let eventObject = JSON.parse(window.localStorage.getItem(this.storageKey));
@@ -56,11 +73,6 @@ class Storage {
 			if (value) {
 				object.value = value;
 			}
-			console.log(object);
-			tracker(object.trail)
-				.then(element => {
-					console.log(element);
-				});
 			this._appendEvent(object);
 			resolve(object);
 		});
