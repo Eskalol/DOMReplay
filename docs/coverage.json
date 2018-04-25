@@ -1,7 +1,7 @@
 {
-  "coverage": "21.48%",
-  "expectCount": 121,
-  "actualCount": 26,
+  "coverage": "32.19%",
+  "expectCount": 146,
+  "actualCount": 47,
   "files": {
     "js/domreplay/domhound/tracker.js": {
       "expectCount": 2,
@@ -26,12 +26,12 @@
         17,
         24,
         28,
-        44,
-        62,
-        73,
-        84,
+        48,
+        66,
+        77,
         88,
-        95
+        92,
+        99
       ]
     },
     "js/domreplay/error.js": {
@@ -67,27 +67,12 @@
       ]
     },
     "js/domreplay/replay.js": {
-      "expectCount": 18,
-      "actualCount": 0,
+      "expectCount": 24,
+      "actualCount": 21,
       "undocumentLines": [
-        6,
-        7,
-        10,
+        9,
         11,
-        14,
-        22,
-        26,
-        30,
-        34,
-        40,
-        45,
-        50,
-        57,
-        61,
-        74,
-        84,
-        97,
-        114
+        12
       ]
     },
     "js/domreplay/serverstorage.js": {
@@ -116,7 +101,7 @@
       ]
     },
     "js/domreplay/storage.js": {
-      "expectCount": 11,
+      "expectCount": 14,
       "actualCount": 0,
       "undocumentLines": [
         8,
@@ -126,10 +111,47 @@
         15,
         16,
         21,
-        27,
-        45,
-        69,
-        74
+        26,
+        30,
+        36,
+        44,
+        62,
+        81,
+        86
+      ]
+    },
+    "js/hud/buttons/base.js": {
+      "expectCount": 8,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        5,
+        7,
+        9,
+        14,
+        20,
+        24,
+        28
+      ]
+    },
+    "js/hud/buttons/index.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        6,
+        10
+      ]
+    },
+    "js/hud/containers/index.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        6,
+        8,
+        11,
+        17
       ]
     },
     "js/hud/index.js": {

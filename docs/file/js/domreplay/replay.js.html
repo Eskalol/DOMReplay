@@ -2,15 +2,20 @@
 import { stateIsReady, setStateReplay, setStateReady } from &apos;./state&apos;;
 import { tracker } from &apos;./domhound&apos;;
 
-
+/**
+ * Replay loaded events in browser
+ */
 export default class Replay {
 	static storageKey;
-
 
 	constructor() {
 		this.storageKey = &apos;DOMREPLAY_REPLAY_EVENTS&apos;;
 	}
 
+	/**
+	 * Loads event object into localstorage
+	 * @param  {Object} eventObject - Json object with event data to be played.
+	 */
 	load(eventObject) {
 		const replayObject = {
 			nextEvent: 0,
@@ -19,34 +24,61 @@ export default class Replay {
 		this._replayObject = replayObject;
 	}
 
+	/**
+	 * Clears the replay local storage
+	 */
 	clear() {
 		window.localStorage.removeItem(this.storageKey);
 	}
 
+	/**
+	 * Sets replay object, usually called when the storage has been updated.
+	 * @param  {Object} replayObject - Json object with replay information
+	 */
 	set _replayObject(replayObject) {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(replayObject));
 	}
 
-	get _replayObject() {
-		return JSON.parse(window.localStorage.getItem(this.storageKey));
-	}
-
+	/**
+	 * Sets the next event index, usually called when restted.
+	 * @param  {Number} index - the event index to set.
+	 */
 	set _nextEventIndex(index) {
 		let replayObject = this._replayObject;
 		replayObject.nextEvent = index;
 		this._replayObject = replayObject;
 	}
 
+	/**
+	 * Returns the replay object from localstorage
+	 * @return {Object} returns eventObject from storage
+	 */
+	get _replayObject() {
+		return JSON.parse(window.localStorage.getItem(this.storageKey));
+	}
+
+	/**
+	 * Gets total event count
+	 * @return {Number} total event count
+	 */
 	get _totalEventCount() {
 		let replayObject = this._replayObject;
 		return replayObject.eventObject.count;
 	}
 
+	/**
+	 * gets next event index.
+	 * @return {Number} returns next event index
+	 */
 	get _nextEventIndex() {
 		let replayObject = this._replayObject;
 		return replayObject.nextEvent;
 	}
 
+	/**
+	 * Gets next event object to be executed.
+	 * @return {Object} returns object with information about then next scheduled event.
+	 */
 	get _nextEvent() {
 		let replayObject = this._replayObject;
 		let nextEventIndex = this._nextEventIndex;
@@ -54,12 +86,18 @@ export default class Replay {
 		return replayObject.eventObject.eventList[nextEventIndex];
 	}
 
+	/**
+	 * Reset event index
+	 */
 	reset() {
 		this._nextEventIndex = 0;
 	}
 
+	/**
+	 * Gets next event if we have not reached the end.
+	 * @return {Promise} resolves to the next event if there is still more event, resolves otherwise to null.
+	 */
 	getNextStep() {
-		// const instance = this;
 		return new Promise(resolve =&gt; {
 			if (this._nextEventIndex &gt;= this._totalEventCount) {
 				resolve(null);
@@ -70,17 +108,113 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * Adds replay border around dom-element which the framework is performing a event on.
+	 * @param {HTMLElement} element - HTMLElement to be highlighted.
+	 */
+	addReplayBorder(element) {
+		element.classList.add(&apos;dom-replay-border&apos;);
+		console.log(element.classList);
+	}
 
-	executeEvent(element, eventObject) {
-		return new Promise((resolve) =&gt; {
+	/**
+	 * Removes the replay border from a HTMLElement.
+	 * @param  {HTMLElement} element - HTMLElement to remove border from.
+	 */
+	removeReplayBorder(element) {
+		element.classList.remove(&apos;dom-replay-border&apos;);
+	}
+
+	/**
+	 * Executes click event on element
+	 * @param  {HTMLElement} element - Perform click event on HTMLElement.
+	 * @return {Promise}         resolves with false when click event has been performed.
+	 */
+	executeClickEvent(element) {
+		this.addReplayBorder(element);
+		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
-				//Need to handle other event types aswell.
 				element.click();
 				resolve(false);
 			}, 1000);
 		});
 	}
 
+	/**
+	 * Execute focus on HTMLElement, usually called when performing events on input fields.
+	 * @param  {HTMLElement} element - HTMLElement to focus.
+	 * @return {PRomise}         resolves with null when focus has been performed.
+	 */
+	executeFocusElement(element) {
+		return new Promise(resolve =&gt; {
+			setTimeout(() =&gt; {
+				element.focus();
+				resolve(false);
+			}, 1000);
+		});
+	}
+
+	/**
+	 * execute input event on element, executes multiple events on input field, to fill in a specified value.
+	 * @param  {HTMLElement} element - HTMLElement to perform input evnets on.
+	 * @param  {String} value        - value to be filled in.
+	 * @return {Promise}         resolves with false when input evnets has been completed.
+	 */
+	async executeInputEvent(element, value) {
+		this.addReplayBorder(element);
+		await this.executeFocusElement(element);
+		return new Promise(resolve =&gt; {
+				let index = 0;
+				const time = setInterval(() =&gt; {
+					if (index == value.length) {
+						clearInterval(time);
+						resolve(false);
+					}
+					element.value = element.value + value.substring(index, index + 1);
+					let event = new InputEvent(&apos;input&apos;, {bubbles: true, data: value[index], inputType: &apos;insertText&apos; });
+					let textInputEvent = new Event(&apos;textInput&apos;, {bubbles: true, data: value[index++]});
+					element.dispatchEvent(event);
+					element.dispatchEvent(textInputEvent);
+				}, 100);
+		});
+	}
+
+	/**
+	 * execute change evnets on a HTMLElement
+	 * @param  {HTMLElement} element - HTMLElement to perform change event on.
+	 * @return {Promise}         resolves with false when done.
+	 */
+	executeChangeEvent(element) {
+		return new Promise(resolve =&gt; {
+			setTimeout(() =&gt; {
+				const event = new Event(&apos;change&apos;, {bubbles: true});
+				element.dispatchEvent(event);
+				resolve(false);
+			}, 1000);
+		});
+	}
+
+	/**
+	 * Execute event proxy.
+	 * @param  {HTMLElement} element     - HTMLElement to perform event on.
+	 * @param  {Object} eventObject 		 - eventObject which contains information about the event.
+	 * @return {Promise}             		 - The proxy returns the correct promise to be resolved.
+	 */
+	executeEvent(element, eventObject) {
+		Logger.debug(`Executing ${eventObject.type} event.`);
+		if (eventObject.type === &apos;click&apos;) {
+			return this.executeClickEvent(element);
+		} else if (eventObject.type === &apos;input&apos;) {
+			return this.executeInputEvent(element, eventObject.value);
+		} else if (eventObject.type === &apos;change&apos;) {
+			return this.executeChangeEvent(element);
+		}
+	}
+
+	/**
+	 * Checks whether the HTML-DOM load is completed, if not it will wait until it has been completed.
+	 * @return {Pronise} resolves with no value when completed.
+	 */
 	readyStateCheck() {
 		return new Promise(resolve =&gt; {
 			const time = setInterval(() =&gt; {
@@ -94,6 +228,10 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * play single step.
+	 * @return {Promise} Resolves with false if the step has been played. resolves with true if the step has been played
+	 */
 	async playStep() {
 		await this.readyStateCheck();
 		const nextStep = await this.getNextStep();
@@ -106,11 +244,15 @@ export default class Replay {
 		if (!nextStep &amp;&amp; !element) {
 			return new Promise(resolve =&gt; resolve(true));
 		}
-
 		const result = await this.executeEvent(element, nextStep);
+		this.removeReplayBorder(element);
 		return new Promise(resolve =&gt; resolve(result));
 	}
 
+	/**
+	 * Runs basic checks then start replay sequence.
+	 * @return {Promise} Resolves with stats over total played events.
+	 */
 	play() {
 		Logger.debug(&apos;replay: start replaying events!&apos;);
 		if (!stateIsReady()) {
@@ -171,4 +313,6 @@ export default class Replay {
 <li class="nav-item js_navItem _" data-ice="doc"><a class="nav-link js_dirPath _" data-ice="dirPath" href="identifiers.html#domreplay-domhound">domreplay/domhound</a><div class="hidden fake-nav-link js_fakeLink _"><span class="kind _kind-function" data-ice="kind">F</span> <span class="name _" data-ice="name"><span><a href="function/index.html#static-function-tracker">tracker</a></span></span></div></li>
 <li class="nav-item js_navItem _" data-ice="doc"><div class="hidden fake-nav-link js_fakeLink _"><span class="kind _kind-function" data-ice="kind">F</span> <span class="name _" data-ice="name"><span><a href="function/index.html#static-function-trail">trail</a></span></span></div></li>
 <li class="nav-item js_navItem _" data-ice="doc"><a class="nav-link js_dirPath _" data-ice="dirPath" href="identifiers.html#hud">hud</a><div class="hidden fake-nav-link js_fakeLink _"><span class="kind _kind-class" data-ice="kind">C</span> <span class="name _" data-ice="name"><span><a href="class/js/hud/index.js~Hud.html">Hud</a></span></span></div></li>
+<li class="nav-item js_navItem _" data-ice="doc"><a class="nav-link js_dirPath _" data-ice="dirPath" href="identifiers.html#hud-buttons">hud/buttons</a><div class="hidden fake-nav-link js_fakeLink _"><span class="kind _kind-class" data-ice="kind">C</span> <span class="name _" data-ice="name"><span><a href="class/js/hud/buttons/base.js~BaseButton.html">BaseButton</a></span></span></div></li>
+<li class="nav-item js_navItem _" data-ice="doc"><a class="nav-link js_dirPath _" data-ice="dirPath" href="identifiers.html#hud-containers">hud/containers</a><div class="hidden fake-nav-link js_fakeLink _"><span class="kind _kind-class" data-ice="kind">C</span> <span class="name _" data-ice="name"><span><a href="class/js/hud/containers/index.js~ReplayContainer.html">ReplayContainer</a></span></span></div></li>
 </ul></nav></aside><aside class="sidebar closed js_sidebarRight sidebar-right"><nav class="nav fonts-nav"><ul class="nav-list js_fontOptions"><li class="nav-item"><span class="headline nav-link">Main fonts</span></li></ul></nav><nav class="nav colorschemes-nav"><ul class="nav-list js_colorschemeOptions"><li class="nav-item"><span class="headline nav-link">Syntax themes</span></li></ul></nav></aside><script src="script/2f0514c18c642778d627.js"></script></body></html>

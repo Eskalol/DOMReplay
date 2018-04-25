@@ -1,5 +1,11 @@
 window.esdocSearchIndex = [
   [
+    "domreplayhud/js/hud/buttons/base.js~basebutton",
+    "class/js/hud/buttons/base.js~BaseButton.html",
+    "<span>BaseButton</span> <span class=\"search-result-import-path\">domreplayhud/js/hud/buttons/base.js</span>",
+    "class"
+  ],
+  [
     "domreplayhud/js/domreplay/state.js~domreplay_state_ready",
     "variable/index.html#static-variable-DOMREPLAY_STATE_READY",
     "<span>DOMREPLAY_STATE_READY</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/state.js</span>",
@@ -39,6 +45,12 @@ window.esdocSearchIndex = [
     "domreplayhud/js/domreplay/replay.js~replay",
     "class/js/domreplay/replay.js~Replay.html",
     "<span>Replay</span> <span class=\"search-result-import-path\">domreplayhud/js/domreplay/replay.js</span>",
+    "class"
+  ],
+  [
+    "domreplayhud/js/hud/containers/index.js~replaycontainer",
+    "class/js/hud/containers/index.js~ReplayContainer.html",
+    "<span>ReplayContainer</span> <span class=\"search-result-import-path\">domreplayhud/js/hud/containers/index.js</span>",
     "class"
   ],
   [
@@ -660,6 +672,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/replay.js~replay#addreplayborder",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-addReplayBorder",
+    "js/domreplay/replay.js~Replay#addReplayBorder",
+    "method"
+  ],
+  [
     "js/domreplay/replay.js~replay#clear",
     "class/js/domreplay/replay.js~Replay.html#instance-method-clear",
     "js/domreplay/replay.js~Replay#clear",
@@ -672,9 +690,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/replay.js~replay#executechangeevent",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-executeChangeEvent",
+    "js/domreplay/replay.js~Replay#executeChangeEvent",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#executeclickevent",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-executeClickEvent",
+    "js/domreplay/replay.js~Replay#executeClickEvent",
+    "method"
+  ],
+  [
     "js/domreplay/replay.js~replay#executeevent",
     "class/js/domreplay/replay.js~Replay.html#instance-method-executeEvent",
     "js/domreplay/replay.js~Replay#executeEvent",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#executefocuselement",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-executeFocusElement",
+    "js/domreplay/replay.js~Replay#executeFocusElement",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#executeinputevent",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-executeInputEvent",
+    "js/domreplay/replay.js~Replay#executeInputEvent",
     "method"
   ],
   [
@@ -705,6 +747,12 @@ window.esdocSearchIndex = [
     "js/domreplay/replay.js~replay#readystatecheck",
     "class/js/domreplay/replay.js~Replay.html#instance-method-readyStateCheck",
     "js/domreplay/replay.js~Replay#readyStateCheck",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#removereplayborder",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-removeReplayBorder",
+    "js/domreplay/replay.js~Replay#removeReplayBorder",
     "method"
   ],
   [
@@ -828,9 +876,27 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/storage.js~storage#lastrecordedelement",
+    "class/js/domreplay/storage.js~Storage.html#instance-get-lastRecordedElement",
+    "js/domreplay/storage.js~Storage#lastRecordedElement",
+    "member"
+  ],
+  [
     "js/domreplay/storage.js~storage#storagekey",
     "class/js/domreplay/storage.js~Storage.html#instance-member-storageKey",
     "js/domreplay/storage.js~Storage#storageKey",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#updatelastevent",
+    "class/js/domreplay/storage.js~Storage.html#instance-set-updateLastEvent",
+    "js/domreplay/storage.js~Storage#updateLastEvent",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#updatestorage",
+    "class/js/domreplay/storage.js~Storage.html#instance-set-updateStorage",
+    "js/domreplay/storage.js~Storage#updateStorage",
     "member"
   ],
   [
@@ -843,6 +909,90 @@ window.esdocSearchIndex = [
     "js/domreplay/storage.js~storage.storagekey",
     "class/js/domreplay/storage.js~Storage.html#static-member-storageKey",
     "js/domreplay/storage.js~Storage.storageKey",
+    "member"
+  ],
+  [
+    "js/hud/buttons/base.js",
+    "file/js/hud/buttons/base.js.html",
+    "js/hud/buttons/base.js",
+    "file"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#classnames",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-get-classNames",
+    "js/hud/buttons/base.js~BaseButton#classNames",
+    "member"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#constructor",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-constructor-constructor",
+    "js/hud/buttons/base.js~BaseButton#constructor",
+    "method"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#domreplay",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-member-domreplay",
+    "js/hud/buttons/base.js~BaseButton#domreplay",
+    "member"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#handleonclickevent",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-method-handleOnClickEvent",
+    "js/hud/buttons/base.js~BaseButton#handleOnClickEvent",
+    "method"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#id",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-get-id",
+    "js/hud/buttons/base.js~BaseButton#id",
+    "member"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#innerhtml",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-member-innerHTML",
+    "js/hud/buttons/base.js~BaseButton#innerHTML",
+    "member"
+  ],
+  [
+    "js/hud/buttons/base.js~basebutton#text",
+    "class/js/hud/buttons/base.js~BaseButton.html#instance-get-text",
+    "js/hud/buttons/base.js~BaseButton#text",
+    "member"
+  ],
+  [
+    "js/hud/buttons/index.js",
+    "file/js/hud/buttons/index.js.html",
+    "js/hud/buttons/index.js",
+    "file"
+  ],
+  [
+    "js/hud/containers/index.js",
+    "file/js/hud/containers/index.js.html",
+    "js/hud/containers/index.js",
+    "file"
+  ],
+  [
+    "js/hud/containers/index.js~replaycontainer#addcontent",
+    "class/js/hud/containers/index.js~ReplayContainer.html#instance-method-addContent",
+    "js/hud/containers/index.js~ReplayContainer#addContent",
+    "method"
+  ],
+  [
+    "js/hud/containers/index.js~replaycontainer#constructor",
+    "class/js/hud/containers/index.js~ReplayContainer.html#instance-constructor-constructor",
+    "js/hud/containers/index.js~ReplayContainer#constructor",
+    "method"
+  ],
+  [
+    "js/hud/containers/index.js~replaycontainer#content",
+    "class/js/hud/containers/index.js~ReplayContainer.html#instance-get-content",
+    "js/hud/containers/index.js~ReplayContainer#content",
+    "member"
+  ],
+  [
+    "js/hud/containers/index.js~replaycontainer#domreplay",
+    "class/js/hud/containers/index.js~ReplayContainer.html#instance-member-domreplay",
+    "js/hud/containers/index.js~ReplayContainer#domreplay",
     "member"
   ],
   [
