@@ -2,20 +2,15 @@
 import { stateIsReady, setStateReplay, setStateReady } from &apos;./state&apos;;
 import { tracker } from &apos;./domhound&apos;;
 
-/**
- * Replay loaded events in browser
- */
+
 export default class Replay {
 	static storageKey;
+
 
 	constructor() {
 		this.storageKey = &apos;DOMREPLAY_REPLAY_EVENTS&apos;;
 	}
 
-	/**
-	 * Loads event object into localstorage
-	 * @param  {Object} eventObject - Json object with event data to be played.
-	 */
 	load(eventObject) {
 		const replayObject = {
 			nextEvent: 0,
@@ -24,61 +19,34 @@ export default class Replay {
 		this._replayObject = replayObject;
 	}
 
-	/**
-	 * Clears the replay local storage
-	 */
 	clear() {
 		window.localStorage.removeItem(this.storageKey);
 	}
 
-	/**
-	 * Sets replay object, usually called when the storage has been updated.
-	 * @param  {Object} replayObject - Json object with replay information
-	 */
 	set _replayObject(replayObject) {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(replayObject));
 	}
 
-	/**
-	 * Sets the next event index, usually called when restted.
-	 * @param  {Number} index - the event index to set.
-	 */
+	get _replayObject() {
+		return JSON.parse(window.localStorage.getItem(this.storageKey));
+	}
+
 	set _nextEventIndex(index) {
 		let replayObject = this._replayObject;
 		replayObject.nextEvent = index;
 		this._replayObject = replayObject;
 	}
 
-	/**
-	 * Returns the replay object from localstorage
-	 * @return {Object} returns eventObject from storage
-	 */
-	get _replayObject() {
-		return JSON.parse(window.localStorage.getItem(this.storageKey));
-	}
-
-	/**
-	 * Gets total event count
-	 * @return {Number} total event count
-	 */
 	get _totalEventCount() {
 		let replayObject = this._replayObject;
 		return replayObject.eventObject.count;
 	}
 
-	/**
-	 * gets next event index.
-	 * @return {Number} returns next event index
-	 */
 	get _nextEventIndex() {
 		let replayObject = this._replayObject;
 		return replayObject.nextEvent;
 	}
 
-	/**
-	 * Gets next event object to be executed.
-	 * @return {Object} returns object with information about then next scheduled event.
-	 */
 	get _nextEvent() {
 		let replayObject = this._replayObject;
 		let nextEventIndex = this._nextEventIndex;
@@ -86,17 +54,10 @@ export default class Replay {
 		return replayObject.eventObject.eventList[nextEventIndex];
 	}
 
-	/**
-	 * Reset event index
-	 */
 	reset() {
 		this._nextEventIndex = 0;
 	}
 
-	/**
-	 * Gets next event if we have not reached the end.
-	 * @return {Promise} resolves to the next event if there is still more event, resolves otherwise to null.
-	 */
 	getNextStep() {
 		return new Promise(resolve =&gt; {
 			if (this._nextEventIndex &gt;= this._totalEventCount) {
@@ -108,30 +69,7 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * Adds replay border around dom-element which the framework is performing a event on.
-	 * @param {HTMLElement} element - HTMLElement to be highlighted.
-	 */
-	addReplayBorder(element) {
-		element.classList.add(&apos;dom-replay-border&apos;);
-		console.log(element.classList);
-	}
-
-	/**
-	 * Removes the replay border from a HTMLElement.
-	 * @param  {HTMLElement} element - HTMLElement to remove border from.
-	 */
-	removeReplayBorder(element) {
-		element.classList.remove(&apos;dom-replay-border&apos;);
-	}
-
-	/**
-	 * Executes click event on element
-	 * @param  {HTMLElement} element - Perform click event on HTMLElement.
-	 * @return {Promise}         resolves with false when click event has been performed.
-	 */
 	executeClickEvent(element) {
-		this.addReplayBorder(element);
 		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
 				element.click();
@@ -140,11 +78,6 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * Execute focus on HTMLElement, usually called when performing events on input fields.
-	 * @param  {HTMLElement} element - HTMLElement to focus.
-	 * @return {PRomise}         resolves with null when focus has been performed.
-	 */
 	executeFocusElement(element) {
 		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
@@ -154,14 +87,7 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * execute input event on element, executes multiple events on input field, to fill in a specified value.
-	 * @param  {HTMLElement} element - HTMLElement to perform input evnets on.
-	 * @param  {String} value        - value to be filled in.
-	 * @return {Promise}         resolves with false when input evnets has been completed.
-	 */
 	async executeInputEvent(element, value) {
-		this.addReplayBorder(element);
 		await this.executeFocusElement(element);
 		return new Promise(resolve =&gt; {
 				let index = 0;
@@ -179,11 +105,6 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * execute change evnets on a HTMLElement
-	 * @param  {HTMLElement} element - HTMLElement to perform change event on.
-	 * @return {Promise}         resolves with false when done.
-	 */
 	executeChangeEvent(element) {
 		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
@@ -194,12 +115,6 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * Execute event proxy.
-	 * @param  {HTMLElement} element     - HTMLElement to perform event on.
-	 * @param  {Object} eventObject 		 - eventObject which contains information about the event.
-	 * @return {Promise}             		 - The proxy returns the correct promise to be resolved.
-	 */
 	executeEvent(element, eventObject) {
 		Logger.debug(`Executing ${eventObject.type} event.`);
 		if (eventObject.type === &apos;click&apos;) {
@@ -211,10 +126,6 @@ export default class Replay {
 		}
 	}
 
-	/**
-	 * Checks whether the HTML-DOM load is completed, if not it will wait until it has been completed.
-	 * @return {Pronise} resolves with no value when completed.
-	 */
 	readyStateCheck() {
 		return new Promise(resolve =&gt; {
 			const time = setInterval(() =&gt; {
@@ -228,10 +139,6 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * play single step.
-	 * @return {Promise} Resolves with false if the step has been played. resolves with true if the step has been played
-	 */
 	async playStep() {
 		await this.readyStateCheck();
 		const nextStep = await this.getNextStep();
@@ -244,15 +151,11 @@ export default class Replay {
 		if (!nextStep &amp;&amp; !element) {
 			return new Promise(resolve =&gt; resolve(true));
 		}
+
 		const result = await this.executeEvent(element, nextStep);
-		this.removeReplayBorder(element);
 		return new Promise(resolve =&gt; resolve(result));
 	}
 
-	/**
-	 * Runs basic checks then start replay sequence.
-	 * @return {Promise} Resolves with stats over total played events.
-	 */
 	play() {
 		Logger.debug(&apos;replay: start replaying events!&apos;);
 		if (!stateIsReady()) {

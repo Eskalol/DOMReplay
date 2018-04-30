@@ -655,13 +655,13 @@ window.esdocSearchIndex = [
   ],
   [
     "js/domreplay/replay.js~replay#_replayobject",
-    "class/js/domreplay/replay.js~Replay.html#instance-set-_replayObject",
+    "class/js/domreplay/replay.js~Replay.html#instance-get-_replayObject",
     "js/domreplay/replay.js~Replay#_replayObject",
     "member"
   ],
   [
     "js/domreplay/replay.js~replay#_replayobject",
-    "class/js/domreplay/replay.js~Replay.html#instance-get-_replayObject",
+    "class/js/domreplay/replay.js~Replay.html#instance-set-_replayObject",
     "js/domreplay/replay.js~Replay#_replayObject",
     "member"
   ],
@@ -670,12 +670,6 @@ window.esdocSearchIndex = [
     "class/js/domreplay/replay.js~Replay.html#instance-get-_totalEventCount",
     "js/domreplay/replay.js~Replay#_totalEventCount",
     "member"
-  ],
-  [
-    "js/domreplay/replay.js~replay#addreplayborder",
-    "class/js/domreplay/replay.js~Replay.html#instance-method-addReplayBorder",
-    "js/domreplay/replay.js~Replay#addReplayBorder",
-    "method"
   ],
   [
     "js/domreplay/replay.js~replay#clear",
@@ -747,12 +741,6 @@ window.esdocSearchIndex = [
     "js/domreplay/replay.js~replay#readystatecheck",
     "class/js/domreplay/replay.js~Replay.html#instance-method-readyStateCheck",
     "js/domreplay/replay.js~Replay#readyStateCheck",
-    "method"
-  ],
-  [
-    "js/domreplay/replay.js~replay#removereplayborder",
-    "class/js/domreplay/replay.js~Replay.html#instance-method-removeReplayBorder",
-    "js/domreplay/replay.js~Replay#removeReplayBorder",
     "method"
   ],
   [

@@ -1,7 +1,7 @@
 {
-  "coverage": "32.19%",
-  "expectCount": 146,
-  "actualCount": 47,
+  "coverage": "18.05%",
+  "expectCount": 144,
+  "actualCount": 26,
   "files": {
     "js/domreplay/domhound/tracker.js": {
       "expectCount": 2,
@@ -67,12 +67,31 @@
       ]
     },
     "js/domreplay/replay.js": {
-      "expectCount": 24,
-      "actualCount": 21,
+      "expectCount": 22,
+      "actualCount": 0,
       "undocumentLines": [
-        9,
+        6,
+        7,
+        10,
         11,
-        12
+        14,
+        22,
+        26,
+        30,
+        34,
+        40,
+        45,
+        50,
+        57,
+        61,
+        72,
+        81,
+        90,
+        108,
+        118,
+        129,
+        142,
+        159
       ]
     },
     "js/domreplay/serverstorage.js": {
