@@ -1,17 +1,12 @@
-
-
-
-
-
 const getSiblingIndex = (element, index) => {
-	if (element.previousSibling == null) {
+	if (element.previousElementSibling == null) {
 		return index;
 	}
-	return getSiblingIndex(element.previousSibling, ++index);
+	return getSiblingIndex(element.previousElementSibling, ++index);
 }
 
 
-export const trail = (element, child, childIndex) => {
+export const trail = (element, child = null, childIndex = 0) => {
 	if (element.id) {
 		return {
 			id: element.id,
