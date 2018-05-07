@@ -1,0 +1,139 @@
+$fa-font-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts" !default;
+// bower:scss
+@import "bower_components/font-awesome/web-fonts-with-css/scss/fontawesome.scss";
+// endbower
+@import "mixins";
+@import "animations";
+
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+$font-size-base:            14px !default;
+$line-height-base:          1.428571429 !default; // 20/14
+$border-radius-base:        4px !default;
+$background-color:          #2F2D2E;
+$foreground-color:          #99C24D;
+$border-color:              #2E4057;
+$dom-color-success:         #5cb85c !default;
+$dom-color-info:            #5bc0de !default;
+$dom-color-warning:         #f0ad4e !default;
+$dom-color-danger:          #d9534f !default;
+
+
+.dom-hud-header {
+  width: 100%;
+  top: -5em;
+  left: 0px;
+  background-color: $background-color;
+  height: 5em;
+  z-index: 9000;
+  position: fixed;
+
+  &.slide-down {
+    @include animation('headerSlideDown .5s 1 forwards');
+  }
+
+  &.slide-up {
+    @include animation('headerSlideUp .5s 1 forwards');
+  }
+
+  .dom-hud-btn {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+}
+
+.dom-hud-btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  @include button-variant($background-color, $foreground-color, $border-color);
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+
+}
+
+.dom-hud-dropDown {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  z-index: 9001;
+
+  &:before {
+    font-family: FontAwesome;
+    content: "\f078";
+  }
+
+
+  &:after {
+    content: " show";
+  }
+
+  &.slide-down {
+    @include animation('buttonSlideDown .5s 1 forwards');
+    &:before {
+      font-family: FontAwesome;
+      content: "\f077";
+    }
+    &:after {
+      content: " hide";
+    }
+  }
+
+  &.slide-up {
+    @include animation('buttonSlideUp .5s 1 forwards');
+    &:before {
+      font-family: FontAwesome;
+      content: "\f078";
+    }
+    &:after {
+      content: " show";
+    }
+  }
+}
+
+.dom-state-indicator {
+	position: fixed;
+	top: 1em;
+	right: 1em;
+	z-index: 9002;
+	&:hover {
+		//todo: hide on hover.
+		z-index: 0;
+		@include animation('record .1s 1 forwards');
+	}
+
+	&.record {
+		@include animation('record 1s infinite');
+		h1 {
+			font-weight: bold;
+			color: rgba($dom-color-danger, .5);
+			&:after {
+				font-family: FontAwesome;
+	      content: " \f111";
+			}
+		}
+	}
+
+	&.replay {
+		@include animation('record 1s infinite');
+		h1 {
+			font-weight: bold;
+			color: rgba($dom-color-warning, .5);
+			&:after {
+				font-family: FontAwesome;
+				content: " \f04b"
+			}
+		}
+	}
+}
+
+.dom-replay-border {
+	border: yellow solid 4px !important;
+}
+
+
