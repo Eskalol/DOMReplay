@@ -4008,7 +4008,7 @@
   },
   {
     "kind": "index",
-    "content": "",
+    "content": "[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n",
     "longname": "/Users/eska/dev/DOMReplay/README.md",
     "name": "./README.md",
     "static": true,
