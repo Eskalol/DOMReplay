@@ -166,6 +166,7 @@ export default class Replay {
 			Logger.warn('Please load event see Replay.load');
 			return;
 		}
+
 		const instance = this;
 		return setStateReplay()
 			.then(async () => {

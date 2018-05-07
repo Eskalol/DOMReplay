@@ -4,9 +4,8 @@ jest.disableAutomock();
 
 import fs from 'fs';
 import { trail, tracker } from '../../src/js/domreplay/domhound';
-import util from 'util';
 
-const doc = fs.readFileSync('./test/domreplay/fixture.html').toString();
+const doc = fs.readFileSync('./test/domreplay/domhound-fixture.html').toString();
 
 
 describe('domhound test', () => {

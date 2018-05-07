@@ -114,7 +114,7 @@ const initializeMutationObserver = (events) => {
  * document is ready.
  * @param  {Array} events - list
  */
-export const domloader = (events) => {
+export const domloader = (events, test=false) => {
 	return new Promise((resolve, reject) => {
 		const time = setInterval(() => {
 			if (document.readyState !== 'complete') {
@@ -123,7 +123,11 @@ export const domloader = (events) => {
 			}
 			clearInterval(time);
 			initializeEvents(events);
-			initializeMutationObserver(events);
+
+			// Don't initialize mutation observer when testing.
+			if (!test) {
+				initializeMutationObserver(events);
+			}
 			Logger.debug('Done initializing events');
 			resolve();
 		}, 100);
