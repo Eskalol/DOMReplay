@@ -7,7 +7,7 @@ import {
 	stateIsRecord,
 	stateIsReady
 } from './domreplay/state';
-import { handleClickEvent, handleChangeEvent, handleInputEvent } from './DomReplay/handlers';
+import { handleClickEvent, handleChangeEvent, handleInputEvent } from './domreplay/handlers';
 
 
 export { domreplayIgnoreClassName as domreplayIgnoreClassName } from './domreplay/loader';
