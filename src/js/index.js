@@ -10,7 +10,7 @@ import {
 import { handleClickEvent, handleChangeEvent, handleInputEvent } from './domreplay/handlers';
 
 
-export { domreplayIgnoreClassName as domreplayIgnoreClassName } from './domreplay/loader';
+export { domreplayIgnoreAttributeName as domreplayIgnoreAttributeName } from './domreplay/loader';
 
 export const dispatcher = {
 	addStateChangeEventListener

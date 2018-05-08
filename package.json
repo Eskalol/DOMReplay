@@ -48,6 +48,8 @@
     "webpack-merge": "^4.1.0"
   },
   "jest": {
-    "setupFiles": ["jest-localstorage-mock"]
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
   }
 }

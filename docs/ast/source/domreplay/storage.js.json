@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2197,
+  "end": 2196,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 88,
+      "line": 87,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2197,
+    "end": 2196,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 88,
+        "line": 87,
         "column": 0
       }
     },
@@ -23345,15 +23345,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2197,
-      "end": 2197,
+      "start": 2196,
+      "end": 2196,
       "loc": {
         "start": {
-          "line": 88,
+          "line": 87,
           "column": 0
         },
         "end": {
-          "line": 88,
+          "line": 87,
           "column": 0
         }
       }

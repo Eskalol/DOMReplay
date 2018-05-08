@@ -1,7 +1,7 @@
 import Logger from './logger';
 
 // HTMLElements using this classname will be ignored
-export const domreplayIgnoreClassName = 'dom-replay-ignore';
+export const domreplayIgnoreAttributeName = 'dom-replay-ignore';
 
 /**
  * Generator function that creates an iterator of
@@ -23,7 +23,7 @@ const initializeEvents = (events) => {
 	events.forEach(event => {
 		event.tagnames.forEach(tagname => {
 			for (let element of elementByTagNameIterator(tagname)) {
-				if (!element.className.includes(domreplayIgnoreClassName)) {
+				if (!element.hasAttribute(domreplayIgnoreAttributeName)) {
 					Logger.debug(`Adding ${event.type} event listener to element`);
 					element.addEventListener(event.type, () => event.handler(element), false);
 				}
@@ -44,7 +44,7 @@ function* getFlatElementIterator(mutation, tagfilter) {
 	const recursiveFlat = function* (node) {
 		if (node instanceof HTMLElement &&
 					tagfilter.includes(node.tagName.toLowerCase()) &&
-					!node.className.includes(domreplayIgnoreClassName)
+					!node.hasAttribute(domreplayIgnoreAttributeName)
 				) {
 			yield node;
 		} else if (node.childNodes.length > 0) {
@@ -113,6 +113,7 @@ const initializeMutationObserver = (events) => {
  * and initializes the mutation observer when
  * document is ready.
  * @param  {Array} events - list
+ * @param  {Boolean} test -  if true mutation observer is disabled.
  */
 export const domloader = (events, test=false) => {
 	return new Promise((resolve, reject) => {

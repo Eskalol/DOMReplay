@@ -132,9 +132,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "domreplay/js/domreplay/loader.js~domreplayignoreclassname",
-    "variable/index.html#static-variable-domreplayIgnoreClassName",
-    "<span>domreplayIgnoreClassName</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/loader.js</span>",
+    "domreplay/js/domreplay/loader.js~domreplayignoreattributename",
+    "variable/index.html#static-variable-domreplayIgnoreAttributeName",
+    "<span>domreplayIgnoreAttributeName</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/loader.js</span>",
     "variable"
   ],
   [
@@ -154,6 +154,12 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-handleInputEvent",
     "<span>handleInputEvent</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/handlers.js</span>",
     "function"
+  ],
+  [
+    "domreplay/js/index.js~handlers",
+    "variable/index.html#static-variable-handlers",
+    "<span>handlers</span> <span class=\"search-result-import-path\">domreplay/js/index.js</span>",
+    "variable"
   ],
   [
     "domreplay/js/domreplay/logger.js~logger",
@@ -685,13 +691,13 @@ window.esdocSearchIndex = [
   ],
   [
     "js/domreplay/replay.js~replay#_replayobject",
-    "class/js/domreplay/replay.js~Replay.html#instance-set-_replayObject",
+    "class/js/domreplay/replay.js~Replay.html#instance-get-_replayObject",
     "js/domreplay/replay.js~Replay#_replayObject",
     "member"
   ],
   [
     "js/domreplay/replay.js~replay#_replayobject",
-    "class/js/domreplay/replay.js~Replay.html#instance-get-_replayObject",
+    "class/js/domreplay/replay.js~Replay.html#instance-set-_replayObject",
     "js/domreplay/replay.js~Replay#_replayObject",
     "member"
   ],

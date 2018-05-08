@@ -114,7 +114,7 @@ export const setStateRecord = (force=false) => {
  * Resolves when the state has changed.
  * It will reject whenever the current state is not ready.
  * @param  {Boolean} force - no safe
- * @return {Promise}        - Returns a Promise.
+ * @return {Promise}       - Returns a Promise.
  */
 export const setStateReplay = (force=false) => {
 	return new Promise((resolve, reject) => {
