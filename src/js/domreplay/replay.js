@@ -152,7 +152,9 @@ export default class Replay {
 			return new Promise(resolve => resolve(true));
 		}
 
+		element.classList.add('dom-replay-border');
 		const result = await this.executeEvent(element, nextStep);
+		element.classList.remove('dom-replay-border');
 		return new Promise(resolve => resolve(result));
 	}
 

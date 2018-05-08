@@ -25,8 +25,6 @@ export const state = {
 	stateIsReady
 };
 
-
-
 export const handlers = {
 	handleClickEvent,
 	handleInputEvent,
