@@ -1787,7 +1787,7 @@
     "__docId__": 102,
     "kind": "file",
     "name": "js/domreplay/replay.js",
-    "content": "import Logger from './logger';\nimport { stateIsReady, setStateReplay, setStateReady } from './state';\nimport { tracker } from './domhound';\n\n\nexport default class Replay {\n\tstatic storageKey;\n\n\n\tconstructor() {\n\t\tthis.storageKey = 'DOMREPLAY_REPLAY_EVENTS';\n\t}\n\n\tload(eventObject) {\n\t\tconst replayObject = {\n\t\t\tnextEvent: 0,\n\t\t\teventObject\n\t\t};\n\t\tthis._replayObject = replayObject;\n\t}\n\n\tclear() {\n\t\twindow.localStorage.removeItem(this.storageKey);\n\t}\n\n\tset _replayObject(replayObject) {\n\t\twindow.localStorage.setItem(this.storageKey, JSON.stringify(replayObject));\n\t}\n\n\tget _replayObject() {\n\t\treturn JSON.parse(window.localStorage.getItem(this.storageKey));\n\t}\n\n\tset _nextEventIndex(index) {\n\t\tlet replayObject = this._replayObject;\n\t\treplayObject.nextEvent = index;\n\t\tthis._replayObject = replayObject;\n\t}\n\n\tget _totalEventCount() {\n\t\tlet replayObject = this._replayObject;\n\t\treturn replayObject.eventObject.count;\n\t}\n\n\tget _nextEventIndex() {\n\t\tlet replayObject = this._replayObject;\n\t\treturn replayObject.nextEvent;\n\t}\n\n\tget _nextEvent() {\n\t\tlet replayObject = this._replayObject;\n\t\tlet nextEventIndex = this._nextEventIndex;\n\t\tthis._nextEventIndex = nextEventIndex + 1;\n\t\treturn replayObject.eventObject.eventList[nextEventIndex];\n\t}\n\n\treset() {\n\t\tthis._nextEventIndex = 0;\n\t}\n\n\tgetNextStep() {\n\t\treturn new Promise(resolve => {\n\t\t\tif (this._nextEventIndex >= this._totalEventCount) {\n\t\t\t\tresolve(null);\n\t\t\t}\n\t\t\telse {\n\t\t\t\tresolve(this._nextEvent);\n\t\t\t}\n\t\t});\n\t}\n\n\texecuteClickEvent(element) {\n\t\treturn new Promise(resolve => {\n\t\t\tsetTimeout(() => {\n\t\t\t\telement.click();\n\t\t\t\tresolve(false);\n\t\t\t}, 1000);\n\t\t});\n\t}\n\n\texecuteFocusElement(element) {\n\t\treturn new Promise(resolve => {\n\t\t\tsetTimeout(() => {\n\t\t\t\telement.focus();\n\t\t\t\tresolve(false);\n\t\t\t}, 1000);\n\t\t});\n\t}\n\n\tasync executeInputEvent(element, value) {\n\t\tawait this.executeFocusElement(element);\n\t\treturn new Promise(resolve => {\n\t\t\t\tlet index = 0;\n\t\t\t\tconst time = setInterval(() => {\n\t\t\t\t\tif (index == value.length) {\n\t\t\t\t\t\tclearInterval(time);\n\t\t\t\t\t\tresolve(false);\n\t\t\t\t\t}\n\t\t\t\t\telement.value = element.value + value.substring(index, index + 1);\n\t\t\t\t\tlet event = new InputEvent('input', {bubbles: true, data: value[index], inputType: 'insertText' });\n\t\t\t\t\tlet textInputEvent = new Event('textInput', {bubbles: true, data: value[index++]});\n\t\t\t\t\telement.dispatchEvent(event);\n\t\t\t\t\telement.dispatchEvent(textInputEvent);\n\t\t\t\t}, 100);\n\t\t});\n\t}\n\n\texecuteChangeEvent(element) {\n\t\treturn new Promise(resolve => {\n\t\t\tsetTimeout(() => {\n\t\t\t\tconst event = new Event('change', {bubbles: true});\n\t\t\t\telement.dispatchEvent(event);\n\t\t\t\tresolve(false);\n\t\t\t}, 1000);\n\t\t});\n\t}\n\n\texecuteEvent(element, eventObject) {\n\t\tLogger.debug(`Executing ${eventObject.type} event.`);\n\t\tif (eventObject.type === 'click') {\n\t\t\treturn this.executeClickEvent(element);\n\t\t} else if (eventObject.type === 'input') {\n\t\t\treturn this.executeInputEvent(element, eventObject.value);\n\t\t} else if (eventObject.type === 'change') {\n\t\t\treturn this.executeChangeEvent(element);\n\t\t}\n\t}\n\n\treadyStateCheck() {\n\t\treturn new Promise(resolve => {\n\t\t\tconst time = setInterval(() => {\n\t\t\t\tif (document.readyState !== 'complete') {\n\t\t\t\t\tLogger.debug('Waiting for dom to complete loading after navigation');\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tclearInterval(time);\n\t\t\t\tresolve();\n\t\t\t}, 500);\n\t\t});\n\t}\n\n\tasync playStep() {\n\t\tawait this.readyStateCheck();\n\t\tconst nextStep = await this.getNextStep();\n\t\tif (!nextStep) {\n\t\t\treturn new Promise(resolve => resolve(true));\n\t\t}\n\t\t// We need a way to wait for the element to appear if the dom is loading\n\t\t// something from apis.\n\t\tconst element = await tracker(nextStep.trail);\n\t\tif (!nextStep && !element) {\n\t\t\treturn new Promise(resolve => resolve(true));\n\t\t}\n\n\t\telement.classList.add('dom-replay-border');\n\t\tconst result = await this.executeEvent(element, nextStep);\n\t\telement.classList.remove('dom-replay-border');\n\t\treturn new Promise(resolve => resolve(result));\n\t}\n\n\tplay() {\n\t\tLogger.debug('replay: start replaying events!');\n\t\tif (!stateIsReady()) {\n\t\t\tLogger.debug('state is not ready');\n\t\t}\n\n\t\tif (!this._replayObject) {\n\t\t\tLogger.warn('Please load event see Replay.load');\n\t\t\treturn;\n\t\t}\n\n\t\tconst instance = this;\n\t\treturn setStateReplay()\n\t\t\t.then(async () => {\n\t\t\t\twhile(!await this.playStep());\n\t\t\t\treturn {\n\t\t\t\t\ttotal: this._totalEventCount,\n\t\t\t\t\treplayed: this._nextEventIndex\n\t\t\t\t};\n\t\t\t}).then(({total, replayed}) => {\n\t\t\t\tif (total == replayed) {\n\t\t\t\t\tsetStateReady(true);\n\t\t\t\t}\n\t\t\t\treturn {\n\t\t\t\t\ttotal,\n\t\t\t\t\treplayed\n\t\t\t\t};\n\t\t\t});\n\t}\n}\n",
+    "content": "import Logger from './logger';\nimport { stateIsReady, setStateReplay, setStateReady } from './state';\nimport { tracker } from './domhound';\n\n\nexport default class Replay {\n\tstatic storageKey;\n\n\n\tconstructor() {\n\t\tthis.storageKey = 'DOMREPLAY_REPLAY_EVENTS';\n\t}\n\n\t/**\n\t * Loads event object into replay storage\n\t * @param  {Object} eventObject the event object to be replayed\n\t */\n\tload(eventObject) {\n\t\tconst replayObject = {\n\t\t\tnextEvent: 0,\n\t\t\teventObject\n\t\t};\n\t\tthis._replayObject = replayObject;\n\t}\n\n\t/**\n\t * Clears the replay storage\n\t */\n\tclear() {\n\t\twindow.localStorage.removeItem(this.storageKey);\n\t}\n\n\tset _replayObject(replayObject) {\n\t\twindow.localStorage.setItem(this.storageKey, JSON.stringify(replayObject));\n\t}\n\n\tget _replayObject() {\n\t\treturn JSON.parse(window.localStorage.getItem(this.storageKey));\n\t}\n\n\tset _nextEventIndex(index) {\n\t\tlet replayObject = this._replayObject;\n\t\treplayObject.nextEvent = index;\n\t\tthis._replayObject = replayObject;\n\t}\n\n\tget _totalEventCount() {\n\t\tlet replayObject = this._replayObject;\n\t\treturn replayObject.eventObject.count;\n\t}\n\n\tget _nextEventIndex() {\n\t\tlet replayObject = this._replayObject;\n\t\treturn replayObject.nextEvent;\n\t}\n\n\tget _nextEvent() {\n\t\tlet replayObject = this._replayObject;\n\t\tlet nextEventIndex = this._nextEventIndex;\n\t\tthis._nextEventIndex = nextEventIndex + 1;\n\t\treturn replayObject.eventObject.eventList[nextEventIndex];\n\t}\n\n\t/**\n\t * Resets events to be played.\n\t */\n\treset() {\n\t\tthis._nextEventIndex = 0;\n\t}\n\n\t/**\n\t * Gets the next step to be played.\n\t * if there is no more events to be played it will\n\t * resolve with null.\n\t */\n\tgetNextStep() {\n\t\treturn new Promise(resolve => {\n\t\t\tif (this._nextEventIndex >= this._totalEventCount) {\n\t\t\t\tresolve(null);\n\t\t\t}\n\t\t\telse {\n\t\t\t\tresolve(this._nextEvent);\n\t\t\t}\n\t\t});\n\t}\n\n\t/**\n\t * Executes click event and waits for 1 sec\n\t * @param  {HTMLElement} element - element to perform click on.\n\t * @return {Promise}     resolves when clicked.\n\t */\n\texecuteClickEvent(element) {\n\t\treturn new Promise(resolve => {\n\t\t\tsetTimeout(() => {\n\t\t\t\telement.click();\n\t\t\t\tresolve(false);\n\t\t\t}, 1000);\n\t\t});\n\t}\n\n\t/**\n\t * executes focus on element\n\t * @param  {HTMLElement} element - element to perform focus on.\n\t * @return {Promise}     resolves when element has been focused.\n\t */\n\texecuteFocusElement(element) {\n\t\treturn new Promise(resolve => {\n\t\t\tsetTimeout(() => {\n\t\t\t\telement.focus();\n\t\t\t\tresolve(false);\n\t\t\t}, 1000);\n\t\t});\n\t}\n\n\t/**\n\t * Executes Input event on element.\n\t * it will type one character at a time and, liker normal typing.\n\t * @param  {HTMLElement} element - html element to perform input events on.\n\t * @param  {String} \t\t value \t - value to type in.\n\t * @return {Promise}     returns Promise, resolves when done.\n\t */\n\tasync executeInputEvent(element, value) {\n\t\tawait this.executeFocusElement(element);\n\t\treturn new Promise(resolve => {\n\t\t\t\tlet index = 0;\n\t\t\t\tconst time = setInterval(() => {\n\t\t\t\t\tif (index == value.length) {\n\t\t\t\t\t\tclearInterval(time);\n\t\t\t\t\t\tresolve(false);\n\t\t\t\t\t}\n\t\t\t\t\telement.value = element.value + value.substring(index, index + 1);\n\t\t\t\t\tlet event = new InputEvent('input', {bubbles: true, data: value[index], inputType: 'insertText' });\n\t\t\t\t\tlet textInputEvent = new Event('textInput', {bubbles: true, data: value[index++]});\n\t\t\t\t\telement.dispatchEvent(event);\n\t\t\t\t\telement.dispatchEvent(textInputEvent);\n\t\t\t\t}, 100);\n\t\t});\n\t}\n\n\t/**\n\t * Executes change event on element\n\t * @param  {HTMLElement} element - element to perform change event on.\n\t * @return {Promise}         resolves when done.\n\t */\n\texecuteChangeEvent(element) {\n\t\treturn new Promise(resolve => {\n\t\t\tsetTimeout(() => {\n\t\t\t\tconst event = new Event('change', {bubbles: true});\n\t\t\t\telement.dispatchEvent(event);\n\t\t\t\tresolve(false);\n\t\t\t}, 1000);\n\t\t});\n\t}\n\n\t/**\n\t * execute event proxy.\n\t * It will check for which event to be executed and then\n\t * return the correct promise.\n\t * @param  {HTMLElement} element     - HTML element to preform event on.\n\t * @param  {Object} eventObject      - event object which contains information about the event.\n\t * @return {Promise}             \treturns Promise according to the event.\n\t */\n\texecuteEvent(element, eventObject) {\n\t\tLogger.debug(`Executing ${eventObject.type} event.`);\n\t\tif (eventObject.type === 'click') {\n\t\t\treturn this.executeClickEvent(element);\n\t\t} else if (eventObject.type === 'input') {\n\t\t\treturn this.executeInputEvent(element, eventObject.value);\n\t\t} else if (eventObject.type === 'change') {\n\t\t\treturn this.executeChangeEvent(element);\n\t\t}\n\t}\n\n\t/**\n\t * Ready state check, checks wheter the document is ready.\n\t * resolves when the document is ready.\n\t * @return {Promise} resolves when document is ready.\n\t */\n\treadyStateCheck() {\n\t\treturn new Promise(resolve => {\n\t\t\tconst time = setInterval(() => {\n\t\t\t\tif (document.readyState !== 'complete') {\n\t\t\t\t\tLogger.debug('Waiting for dom to complete loading after navigation');\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tclearInterval(time);\n\t\t\t\tresolve();\n\t\t\t}, 500);\n\t\t});\n\t}\n\n\t/**\n\t * Plays a single step in the event queue.\n\t * Resolves to true when there is noe event to be executed.\n\t * Resolves to false when there is still events to be executed.\n\t * @return {Promise} returns Promise, true if there is no events left, otherwise false.\n\t */\n\tasync playStep() {\n\t\tawait this.readyStateCheck();\n\t\tconst nextStep = await this.getNextStep();\n\t\tif (!nextStep) {\n\t\t\treturn new Promise(resolve => resolve(true));\n\t\t}\n\t\t// We need a way to wait for the element to appear if the dom is loading\n\t\t// something from apis.\n\t\tconst element = await tracker(nextStep.trail);\n\t\tif (!nextStep && !element) {\n\t\t\treturn new Promise(resolve => resolve(true));\n\t\t}\n\n\t\telement.classList.add('dom-replay-border');\n\t\tconst result = await this.executeEvent(element, nextStep);\n\t\telement.classList.remove('dom-replay-border');\n\t\treturn new Promise(resolve => resolve(result));\n\t}\n\n\t/**\n\t * Play a sequence of events. stored in the replay storage.\n\t * @return {Promise} eventually resolves with total events and played events.\n\t */\n\tplay() {\n\t\tLogger.debug('replay: start replaying events!');\n\t\tif (!stateIsReady()) {\n\t\t\tLogger.debug('state is not ready');\n\t\t}\n\n\t\tif (!this._replayObject) {\n\t\t\tLogger.warn('Please load event see Replay.load');\n\t\t\treturn;\n\t\t}\n\n\t\tconst instance = this;\n\t\treturn setStateReplay()\n\t\t\t.then(async () => {\n\t\t\t\twhile(!await this.playStep());\n\t\t\t\treturn {\n\t\t\t\t\ttotal: this._totalEventCount,\n\t\t\t\t\treplayed: this._nextEventIndex\n\t\t\t\t};\n\t\t\t}).then(({total, replayed}) => {\n\t\t\t\tif (total == replayed) {\n\t\t\t\t\tsetStateReady(true);\n\t\t\t\t}\n\t\t\t\treturn {\n\t\t\t\t\ttotal,\n\t\t\t\t\treplayed\n\t\t\t\t};\n\t\t\t});\n\t}\n}\n",
     "static": true,
     "longname": "/Users/eska/dev/DOMReplay/src/js/domreplay/replay.js",
     "access": "public",
@@ -1868,15 +1868,18 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#load",
     "access": "public",
-    "description": null,
-    "lineNumber": 14,
-    "undocument": true,
+    "description": "Loads event object into replay storage",
+    "lineNumber": 18,
     "params": [
       {
-        "name": "eventObject",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "eventObject",
+        "description": "the event object to be replayed"
       }
     ],
     "return": null
@@ -1891,9 +1894,8 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#clear",
     "access": "public",
-    "description": null,
-    "lineNumber": 22,
-    "undocument": true,
+    "description": "Clears the replay storage",
+    "lineNumber": 29,
     "params": [],
     "return": null
   },
@@ -1908,7 +1910,7 @@
     "longname": "js/domreplay/replay.js~Replay#_replayObject",
     "access": "private",
     "description": null,
-    "lineNumber": 26,
+    "lineNumber": 33,
     "undocument": true
   },
   {
@@ -1922,7 +1924,7 @@
     "longname": "js/domreplay/replay.js~Replay#_replayObject",
     "access": "private",
     "description": null,
-    "lineNumber": 30,
+    "lineNumber": 37,
     "undocument": true,
     "type": {
       "types": [
@@ -1941,7 +1943,7 @@
     "longname": "js/domreplay/replay.js~Replay#_nextEventIndex",
     "access": "private",
     "description": null,
-    "lineNumber": 34,
+    "lineNumber": 41,
     "undocument": true
   },
   {
@@ -1955,7 +1957,7 @@
     "longname": "js/domreplay/replay.js~Replay#_totalEventCount",
     "access": "private",
     "description": null,
-    "lineNumber": 40,
+    "lineNumber": 47,
     "undocument": true,
     "type": {
       "types": [
@@ -1974,7 +1976,7 @@
     "longname": "js/domreplay/replay.js~Replay#_nextEventIndex",
     "access": "private",
     "description": null,
-    "lineNumber": 45,
+    "lineNumber": 52,
     "undocument": true,
     "type": {
       "types": [
@@ -1993,7 +1995,7 @@
     "longname": "js/domreplay/replay.js~Replay#_nextEvent",
     "access": "private",
     "description": null,
-    "lineNumber": 50,
+    "lineNumber": 57,
     "undocument": true,
     "type": {
       "types": [
@@ -2011,9 +2013,8 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#reset",
     "access": "public",
-    "description": null,
-    "lineNumber": 57,
-    "undocument": true,
+    "description": "Resets events to be played.",
+    "lineNumber": 67,
     "params": [],
     "return": null
   },
@@ -2027,9 +2028,8 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#getNextStep",
     "access": "public",
-    "description": null,
-    "lineNumber": 61,
-    "undocument": true,
+    "description": "Gets the next step to be played.\nif there is no more events to be played it will\nresolve with null.",
+    "lineNumber": 76,
     "params": [],
     "return": {
       "types": [
@@ -2047,21 +2047,27 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#executeClickEvent",
     "access": "public",
-    "description": null,
-    "lineNumber": 72,
-    "undocument": true,
+    "description": "Executes click event and waits for 1 sec",
+    "lineNumber": 92,
     "params": [
       {
-        "name": "element",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "element to perform click on."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Promise"
+      ],
+      "spread": false,
+      "description": "resolves when clicked."
     }
   },
   {
@@ -2074,21 +2080,27 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#executeFocusElement",
     "access": "public",
-    "description": null,
-    "lineNumber": 81,
-    "undocument": true,
+    "description": "executes focus on element",
+    "lineNumber": 106,
     "params": [
       {
-        "name": "element",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "element to perform focus on."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Promise"
+      ],
+      "spread": false,
+      "description": "resolves when element has been focused."
     }
   },
   {
@@ -2101,27 +2113,37 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#executeInputEvent",
     "access": "public",
-    "description": null,
-    "lineNumber": 90,
-    "undocument": true,
+    "description": "Executes Input event on element.\nit will type one character at a time and, liker normal typing.",
+    "lineNumber": 122,
     "params": [
       {
-        "name": "element",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "html element to perform input events on."
       },
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "value to type in."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Promise"
+      ],
+      "spread": false,
+      "description": "returns Promise, resolves when done."
     }
   },
   {
@@ -2134,21 +2156,27 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#executeChangeEvent",
     "access": "public",
-    "description": null,
-    "lineNumber": 108,
-    "undocument": true,
+    "description": "Executes change event on element",
+    "lineNumber": 145,
     "params": [
       {
-        "name": "element",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "element to perform change event on."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Promise"
+      ],
+      "spread": false,
+      "description": "resolves when done."
     }
   },
   {
@@ -2161,27 +2189,37 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#executeEvent",
     "access": "public",
-    "description": null,
-    "lineNumber": 118,
-    "undocument": true,
+    "description": "execute event proxy.\nIt will check for which event to be executed and then\nreturn the correct promise.",
+    "lineNumber": 163,
     "params": [
       {
-        "name": "element",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "HTMLElement"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "HTML element to preform event on."
       },
       {
-        "name": "eventObject",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "eventObject",
+        "description": "event object which contains information about the event."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Promise"
+      ],
+      "spread": false,
+      "description": "returns Promise according to the event."
     }
   },
   {
@@ -2194,15 +2232,17 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#readyStateCheck",
     "access": "public",
-    "description": null,
-    "lineNumber": 129,
-    "undocument": true,
-    "params": [],
+    "description": "Ready state check, checks wheter the document is ready.\nresolves when the document is ready.",
+    "lineNumber": 179,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    }
+        "Promise"
+      ],
+      "spread": false,
+      "description": "resolves when document is ready."
+    },
+    "params": []
   },
   {
     "__docId__": 127,
@@ -2214,15 +2254,17 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#playStep",
     "access": "public",
-    "description": null,
-    "lineNumber": 142,
-    "undocument": true,
-    "params": [],
+    "description": "Plays a single step in the event queue.\nResolves to true when there is noe event to be executed.\nResolves to false when there is still events to be executed.",
+    "lineNumber": 198,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    }
+        "Promise"
+      ],
+      "spread": false,
+      "description": "returns Promise, true if there is no events left, otherwise false."
+    },
+    "params": []
   },
   {
     "__docId__": 128,
@@ -2234,15 +2276,17 @@
     "static": false,
     "longname": "js/domreplay/replay.js~Replay#play",
     "access": "public",
-    "description": null,
-    "lineNumber": 161,
-    "undocument": true,
-    "params": [],
+    "description": "Play a sequence of events. stored in the replay storage.",
+    "lineNumber": 221,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    }
+        "Promise"
+      ],
+      "spread": false,
+      "description": "eventually resolves with total events and played events."
+    },
+    "params": []
   },
   {
     "__docId__": 129,

@@ -11,6 +11,10 @@ export default class Replay {
 		this.storageKey = &apos;DOMREPLAY_REPLAY_EVENTS&apos;;
 	}
 
+	/**
+	 * Loads event object into replay storage
+	 * @param  {Object} eventObject the event object to be replayed
+	 */
 	load(eventObject) {
 		const replayObject = {
 			nextEvent: 0,
@@ -19,6 +23,9 @@ export default class Replay {
 		this._replayObject = replayObject;
 	}
 
+	/**
+	 * Clears the replay storage
+	 */
 	clear() {
 		window.localStorage.removeItem(this.storageKey);
 	}
@@ -54,10 +61,18 @@ export default class Replay {
 		return replayObject.eventObject.eventList[nextEventIndex];
 	}
 
+	/**
+	 * Resets events to be played.
+	 */
 	reset() {
 		this._nextEventIndex = 0;
 	}
 
+	/**
+	 * Gets the next step to be played.
+	 * if there is no more events to be played it will
+	 * resolve with null.
+	 */
 	getNextStep() {
 		return new Promise(resolve =&gt; {
 			if (this._nextEventIndex &gt;= this._totalEventCount) {
@@ -69,6 +84,11 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * Executes click event and waits for 1 sec
+	 * @param  {HTMLElement} element - element to perform click on.
+	 * @return {Promise}     resolves when clicked.
+	 */
 	executeClickEvent(element) {
 		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
@@ -78,6 +98,11 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * executes focus on element
+	 * @param  {HTMLElement} element - element to perform focus on.
+	 * @return {Promise}     resolves when element has been focused.
+	 */
 	executeFocusElement(element) {
 		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
@@ -87,6 +112,13 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * Executes Input event on element.
+	 * it will type one character at a time and, liker normal typing.
+	 * @param  {HTMLElement} element - html element to perform input events on.
+	 * @param  {String} 		 value 	 - value to type in.
+	 * @return {Promise}     returns Promise, resolves when done.
+	 */
 	async executeInputEvent(element, value) {
 		await this.executeFocusElement(element);
 		return new Promise(resolve =&gt; {
@@ -105,6 +137,11 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * Executes change event on element
+	 * @param  {HTMLElement} element - element to perform change event on.
+	 * @return {Promise}         resolves when done.
+	 */
 	executeChangeEvent(element) {
 		return new Promise(resolve =&gt; {
 			setTimeout(() =&gt; {
@@ -115,6 +152,14 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * execute event proxy.
+	 * It will check for which event to be executed and then
+	 * return the correct promise.
+	 * @param  {HTMLElement} element     - HTML element to preform event on.
+	 * @param  {Object} eventObject      - event object which contains information about the event.
+	 * @return {Promise}             	returns Promise according to the event.
+	 */
 	executeEvent(element, eventObject) {
 		Logger.debug(`Executing ${eventObject.type} event.`);
 		if (eventObject.type === &apos;click&apos;) {
@@ -126,6 +171,11 @@ export default class Replay {
 		}
 	}
 
+	/**
+	 * Ready state check, checks wheter the document is ready.
+	 * resolves when the document is ready.
+	 * @return {Promise} resolves when document is ready.
+	 */
 	readyStateCheck() {
 		return new Promise(resolve =&gt; {
 			const time = setInterval(() =&gt; {
@@ -139,6 +189,12 @@ export default class Replay {
 		});
 	}
 
+	/**
+	 * Plays a single step in the event queue.
+	 * Resolves to true when there is noe event to be executed.
+	 * Resolves to false when there is still events to be executed.
+	 * @return {Promise} returns Promise, true if there is no events left, otherwise false.
+	 */
 	async playStep() {
 		await this.readyStateCheck();
 		const nextStep = await this.getNextStep();
@@ -158,6 +214,10 @@ export default class Replay {
 		return new Promise(resolve =&gt; resolve(result));
 	}
 
+	/**
+	 * Play a sequence of events. stored in the replay storage.
+	 * @return {Promise} eventually resolves with total events and played events.
+	 */
 	play() {
 		Logger.debug(&apos;replay: start replaying events!&apos;);
 		if (!stateIsReady()) {
