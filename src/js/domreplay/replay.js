@@ -76,17 +76,14 @@ export default class Replay {
 	/**
 	 * Gets the next step to be played.
 	 * if there is no more events to be played it will
-	 * resolve with null.
+	 * @return {Object} returns nextEvent object or null.
 	 */
 	getNextStep() {
-		return new Promise(resolve => {
-			if (this._nextEventIndex >= this._totalEventCount) {
-				resolve(null);
-			}
-			else {
-				resolve(this._nextEvent);
-			}
-		});
+		if (this._nextEventIndex >= this._totalEventCount) {
+			return null
+		} else {
+			return this._nextEvent;
+		}
 	}
 
 	/**
@@ -202,21 +199,21 @@ export default class Replay {
 	 */
 	async playStep() {
 		await this.readyStateCheck();
-		const nextStep = await this.getNextStep();
+		const nextStep = this.getNextStep();
 		if (!nextStep) {
 			return new Promise(resolve => resolve(true));
 		}
-		// We need a way to wait for the element to appear if the dom is loading
-		// something from apis.
+
 		const element = await this.tracker(nextStep.trail);
 		if (!nextStep && !element) {
-			return new Promise(resolve => resolve(true));
+			this._nextEventIndex--;
+			return new Promise(resolve => resolve(false));
 		}
 
 		element.classList.add('dom-replay-border');
 		const result = await this.executeEvent(element, nextStep);
 		element.classList.remove('dom-replay-border');
-		return new Promise(resolve => resolve(result));
+		return result;
 	}
 
 	/**
@@ -234,10 +231,14 @@ export default class Replay {
 			return;
 		}
 
-		const instance = this;
 		return setStateReplay()
 			.then(async () => {
-				while(!await this.playStep());
+				let done = false;
+				while(!done) {
+					done = await this.playStep();
+					Logger.debug(`stepz ${done}`);
+				}
+				Logger.debug('Wow');
 				return {
 					total: this._totalEventCount,
 					replayed: this._nextEventIndex
