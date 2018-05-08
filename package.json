@@ -51,5 +51,13 @@
     "setupFiles": [
       "jest-localstorage-mock"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eskalol/DOMReplay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Eskalol/DOMReplay/issues"
+  },
+  "homepage": "https://eskalol.github.io/DOMReplay/"
 }

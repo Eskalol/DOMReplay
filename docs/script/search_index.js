@@ -685,25 +685,25 @@ window.esdocSearchIndex = [
   ],
   [
     "js/domreplay/replay.js~replay#_nexteventindex",
-    "class/js/domreplay/replay.js~Replay.html#instance-get-_nextEventIndex",
-    "js/domreplay/replay.js~Replay#_nextEventIndex",
-    "member"
-  ],
-  [
-    "js/domreplay/replay.js~replay#_nexteventindex",
     "class/js/domreplay/replay.js~Replay.html#instance-set-_nextEventIndex",
     "js/domreplay/replay.js~Replay#_nextEventIndex",
     "member"
   ],
   [
-    "js/domreplay/replay.js~replay#_replayobject",
-    "class/js/domreplay/replay.js~Replay.html#instance-get-_replayObject",
-    "js/domreplay/replay.js~Replay#_replayObject",
+    "js/domreplay/replay.js~replay#_nexteventindex",
+    "class/js/domreplay/replay.js~Replay.html#instance-get-_nextEventIndex",
+    "js/domreplay/replay.js~Replay#_nextEventIndex",
     "member"
   ],
   [
     "js/domreplay/replay.js~replay#_replayobject",
     "class/js/domreplay/replay.js~Replay.html#instance-set-_replayObject",
+    "js/domreplay/replay.js~Replay#_replayObject",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay#_replayobject",
+    "class/js/domreplay/replay.js~Replay.html#instance-get-_replayObject",
     "js/domreplay/replay.js~Replay#_replayObject",
     "member"
   ],

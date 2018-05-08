@@ -9,7 +9,7 @@
 > Record and Replay your events in the browser.
 
 
-## Basic usage
+# Basic usage
 ```javascript
 import DomReplay, { Hud } from 'domreplay';
 const domreplay = new DomReplay({debugmode: true});
@@ -20,5 +20,5 @@ hud.render();
 ```
 
 
-## Guides
-* [Custom Element Tracker](guides/custom_element_tracker.md)
+# Guides
+* [Custom Element Tracker](manual/custom_element_tracker.md)
