@@ -2,7 +2,7 @@ import Logger from './logger';
 import { stateIsRecord } from './state';
 import { createStorageError } from './error';
 import { dispatchStorageUpdateEvent } from './dispatcher';
-import { trail, tracker } from './domhound';
+import * as domhound from './domhound';
 
 
 class Storage {
@@ -14,11 +14,12 @@ class Storage {
 		if (!this.instance) {
 			this.instance = this;
 			this.storageKey = 'DOMREPLAY_EVENT_STORAGE';
-			this.eventStorageFunctions = {
+			this._eventStorageFunctions = {
 				'input': this.addInputEvent.bind(this),
 				'change': this.basicAddEvent.bind(this),
 				'click': this.basicAddEvent.bind(this)
 			};
+			this.trail = domhound.trail;
 		}
 		return this.instance;
 	}
@@ -47,7 +48,15 @@ class Storage {
 	}
 
 	setEventStorageFunctions(functionMap) {
-		this.eventStorageFunctions = functionMap;
+		this._eventStorageFunctions = functionMap;
+	}
+
+	get eventStorageFunctions() {
+		return this._eventStorageFunctions;
+	}
+
+	setTrailFunction(func) {
+		this.trail = func;
 	}
 
 	_appendEvent(object) {
@@ -72,7 +81,7 @@ class Storage {
 		let object = {
 			type,
 			location: window.location.href,
-			trail: trail(element, null, null)
+			trail: this.trail(element, null, null)
 		}
 		if (value) {
 			object.value = value;
@@ -83,7 +92,7 @@ class Storage {
 
 	addInputEvent(element, type, value = null, extra = {}) {
 		let lastEvent = this.lastRecordedElement;
-		if(lastEvent && JSON.stringify(trail(element, null, null)) === JSON.stringify(lastEvent.trail)) {
+		if(lastEvent && JSON.stringify(this.trail(element, null, null)) === JSON.stringify(lastEvent.trail)) {
 			Logger.debug('Updates last event');
 			lastEvent.value = element.value;
 			this.updateLastEvent = lastEvent;

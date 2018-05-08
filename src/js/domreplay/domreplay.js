@@ -44,6 +44,12 @@ export class DomReplay {
       ];
     }
 
+    if (config.customTracker &&
+    		config.customTracker.trackerFunc &&
+    		config.customTracker.trailFunc) {
+    	this.setCustomElementTracker(config.customTracker.trackerFunc, config.customTracker.trailFunc);
+    }
+
     if (this.config.server) {
       this.serverstorage = new ServerStorage(this);
     }
@@ -102,5 +108,14 @@ export class DomReplay {
   				setStateReady(true);
   			}
   		});
+  }
+
+  /**
+   * Sets your custom element tracker
+   * @param {function} tracker - the function which finds the correct element according to its trail.
+   * @param {function} trail   - the function that should create an unique selector for the element.
+   */
+  setCustomElementTracker(tracker, trail) {
+  	Storage.setTrailFunction(trail);
   }
 }
