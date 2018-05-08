@@ -14,6 +14,11 @@ class Storage {
 		if (!this.instance) {
 			this.instance = this;
 			this.storageKey = 'DOMREPLAY_EVENT_STORAGE';
+			this.eventStorageFunctions = {
+				'input': this.addInputEvent.bind(this),
+				'change': this.basicAddEvent.bind(this),
+				'click': this.basicAddEvent.bind(this)
+			};
 		}
 		return this.instance;
 	}
@@ -41,6 +46,10 @@ class Storage {
 		return eventObject.eventList[eventObject.count - 1];
 	}
 
+	setEventStorageFunctions(functionMap) {
+		this.eventStorageFunctions = functionMap;
+	}
+
 	_appendEvent(object) {
 		let eventObject = JSON.parse(window.localStorage.getItem(this.storageKey));
 		let eventList = [];
@@ -59,21 +68,39 @@ class Storage {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
 	}
 
+	basicAddEvent(element, type, value = null, extra = {}) {
+		let object = {
+			type,
+			location: window.location.href,
+			trail: trail(element, null, null)
+		}
+		if (value) {
+			object.value = value;
+		}
+		this._appendEvent(object);
+		return object
+	}
+
+	addInputEvent(element, type, value = null, extra = {}) {
+		let lastEvent = this.lastRecordedElement;
+		if(lastEvent && JSON.stringify(trail(element, null, null)) === JSON.stringify(lastEvent.trail)) {
+			Logger.debug('Updates last event');
+			lastEvent.value = element.value;
+			this.updateLastEvent = lastEvent;
+			return lastEvent;
+		} else {
+			console.log('Creating new input event record');
+			return this.basicAddEvent(element, 'input', element.value);
+		}
+	}
+
 	addEvent(element, type, value = null, extra = {}) {
 		return new Promise((resolve, reject) => {
 			if (!stateIsRecord()) {
 				Logger.error('Tried to add event to localstorage, but domreplay is not in record state');
 				reject(createStorageError('Tried to add event to localstorage, but domreplay is not in record state'));
 			}
-			let object = {
-				type,
-				location: window.location.href,
-				trail: trail(element, null, null)
-			}
-			if (value) {
-				object.value = value;
-			}
-			this._appendEvent(object);
+			const object = this.eventStorageFunctions[type](element, type, value, extra);
 			resolve(object);
 		});
 	}
