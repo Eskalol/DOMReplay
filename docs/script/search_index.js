@@ -582,6 +582,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/domreplay.js~domreplay#setcustomelementtracker",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-setCustomElementTracker",
+    "js/domreplay/domreplay.js~DomReplay#setCustomElementTracker",
+    "method"
+  ],
+  [
     "js/domreplay/domreplay.js~domreplay#startrecord",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-startRecord",
     "js/domreplay/domreplay.js~DomReplay#startRecord",
@@ -786,9 +792,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/replay.js~replay#setcustomtrackerfunction",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-setCustomTrackerFunction",
+    "js/domreplay/replay.js~Replay#setCustomTrackerFunction",
+    "method"
+  ],
+  [
     "js/domreplay/replay.js~replay#storagekey",
     "class/js/domreplay/replay.js~Replay.html#instance-member-storageKey",
     "js/domreplay/replay.js~Replay#storageKey",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay#tracker",
+    "class/js/domreplay/replay.js~Replay.html#instance-member-tracker",
+    "js/domreplay/replay.js~Replay#tracker",
     "member"
   ],
   [
@@ -870,9 +888,27 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/storage.js~storage#_eventstoragefunctions",
+    "class/js/domreplay/storage.js~Storage.html#instance-member-_eventStorageFunctions",
+    "js/domreplay/storage.js~Storage#_eventStorageFunctions",
+    "member"
+  ],
+  [
     "js/domreplay/storage.js~storage#addevent",
     "class/js/domreplay/storage.js~Storage.html#instance-method-addEvent",
     "js/domreplay/storage.js~Storage#addEvent",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#addinputevent",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-addInputEvent",
+    "js/domreplay/storage.js~Storage#addInputEvent",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#basicaddevent",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-basicAddEvent",
+    "js/domreplay/storage.js~Storage#basicAddEvent",
     "method"
   ],
   [
@@ -894,6 +930,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/storage.js~storage#eventstoragefunctions",
+    "class/js/domreplay/storage.js~Storage.html#instance-get-eventStorageFunctions",
+    "js/domreplay/storage.js~Storage#eventStorageFunctions",
+    "member"
+  ],
+  [
     "js/domreplay/storage.js~storage#instance",
     "class/js/domreplay/storage.js~Storage.html#instance-member-instance",
     "js/domreplay/storage.js~Storage#instance",
@@ -906,9 +948,27 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/storage.js~storage#setcustomtrailfunction",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-setCustomTrailFunction",
+    "js/domreplay/storage.js~Storage#setCustomTrailFunction",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#seteventstoragefunctions",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-setEventStorageFunctions",
+    "js/domreplay/storage.js~Storage#setEventStorageFunctions",
+    "method"
+  ],
+  [
     "js/domreplay/storage.js~storage#storagekey",
     "class/js/domreplay/storage.js~Storage.html#instance-member-storageKey",
     "js/domreplay/storage.js~Storage#storageKey",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#trail",
+    "class/js/domreplay/storage.js~Storage.html#instance-member-trail",
+    "js/domreplay/storage.js~Storage#trail",
     "member"
   ],
   [

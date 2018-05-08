@@ -2,7 +2,7 @@
 import { stateIsRecord } from &apos;./state&apos;;
 import { createStorageError } from &apos;./error&apos;;
 import { dispatchStorageUpdateEvent } from &apos;./dispatcher&apos;;
-import { trail, tracker } from &apos;./domhound&apos;;
+import * as domhound from &apos;./domhound&apos;;
 
 
 class Storage {
@@ -14,6 +14,12 @@ class Storage {
 		if (!this.instance) {
 			this.instance = this;
 			this.storageKey = &apos;DOMREPLAY_EVENT_STORAGE&apos;;
+			this._eventStorageFunctions = {
+				&apos;input&apos;: this.addInputEvent.bind(this),
+				&apos;change&apos;: this.basicAddEvent.bind(this),
+				&apos;click&apos;: this.basicAddEvent.bind(this)
+			};
+			this.trail = domhound.trail;
 		}
 		return this.instance;
 	}
@@ -41,6 +47,18 @@ class Storage {
 		return eventObject.eventList[eventObject.count - 1];
 	}
 
+	setEventStorageFunctions(functionMap) {
+		this._eventStorageFunctions = functionMap;
+	}
+
+	get eventStorageFunctions() {
+		return this._eventStorageFunctions;
+	}
+
+	setCustomTrailFunction(func) {
+		this.trail = func;
+	}
+
 	_appendEvent(object) {
 		let eventObject = JSON.parse(window.localStorage.getItem(this.storageKey));
 		let eventList = [];
@@ -59,21 +77,39 @@ class Storage {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
 	}
 
+	basicAddEvent(element, type, value = null, extra = {}) {
+		let object = {
+			type,
+			location: window.location.href,
+			trail: this.trail(element, null, null)
+		}
+		if (value) {
+			object.value = value;
+		}
+		this._appendEvent(object);
+		return object
+	}
+
+	addInputEvent(element, type, value = null, extra = {}) {
+		let lastEvent = this.lastRecordedElement;
+		if(lastEvent &amp;&amp; JSON.stringify(this.trail(element, null, null)) === JSON.stringify(lastEvent.trail)) {
+			Logger.debug(&apos;Updates last event&apos;);
+			lastEvent.value = element.value;
+			this.updateLastEvent = lastEvent;
+			return lastEvent;
+		} else {
+			console.log(&apos;Creating new input event record&apos;);
+			return this.basicAddEvent(element, &apos;input&apos;, element.value);
+		}
+	}
+
 	addEvent(element, type, value = null, extra = {}) {
 		return new Promise((resolve, reject) =&gt; {
 			if (!stateIsRecord()) {
 				Logger.error(&apos;Tried to add event to localstorage, but domreplay is not in record state&apos;);
 				reject(createStorageError(&apos;Tried to add event to localstorage, but domreplay is not in record state&apos;));
 			}
-			let object = {
-				type,
-				location: window.location.href,
-				trail: trail(element, null, null)
-			}
-			if (value) {
-				object.value = value;
-			}
-			this._appendEvent(object);
+			const object = this.eventStorageFunctions[type](element, type, value, extra);
 			resolve(object);
 		});
 	}

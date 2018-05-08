@@ -1,7 +1,7 @@
 {
-  "coverage": "27.81%",
-  "expectCount": 151,
-  "actualCount": 42,
+  "coverage": "26.7%",
+  "expectCount": 161,
+  "actualCount": 43,
   "files": {
     "js/domreplay/dispatcher.js": {
       "expectCount": 6,
@@ -28,18 +28,18 @@
       ]
     },
     "js/domreplay/domreplay.js": {
-      "expectCount": 10,
-      "actualCount": 1,
+      "expectCount": 11,
+      "actualCount": 2,
       "undocumentLines": [
         17,
         24,
         28,
-        48,
-        65,
-        76,
-        87,
-        91,
-        98
+        54,
+        71,
+        82,
+        93,
+        97,
+        104
       ]
     },
     "js/domreplay/error.js": {
@@ -75,19 +75,21 @@
       ]
     },
     "js/domreplay/replay.js": {
-      "expectCount": 22,
+      "expectCount": 24,
       "actualCount": 12,
       "undocumentLines": [
         6,
         7,
         10,
         11,
-        33,
-        37,
-        41,
-        47,
-        52,
-        57
+        12,
+        34,
+        38,
+        42,
+        48,
+        53,
+        58,
+        65
       ]
     },
     "js/domreplay/serverstorage.js": {
@@ -116,7 +118,7 @@
       ]
     },
     "js/domreplay/storage.js": {
-      "expectCount": 14,
+      "expectCount": 21,
       "actualCount": 0,
       "undocumentLines": [
         8,
@@ -125,14 +127,21 @@
         13,
         15,
         16,
-        21,
-        26,
-        30,
+        17,
+        22,
+        27,
+        32,
         36,
-        44,
+        42,
+        50,
+        54,
+        58,
         62,
-        81,
-        86
+        80,
+        93,
+        106,
+        117,
+        122
       ]
     },
     "js/hud/buttons/base.js": {
