@@ -53,7 +53,6 @@ export class DomReplay {
 			.catch(err => {
 				if (err.type === STATE_ERROR) {
 					if (stateIsReplay()) {
-						console.log('WTF');
 						this.replay.play();
 						return;
 					}

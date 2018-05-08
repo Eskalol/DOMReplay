@@ -7,6 +7,8 @@ import {
 	stateIsRecord,
 	stateIsReady
 } from './domreplay/state';
+import { handleClickEvent, handleChangeEvent, handleInputEvent } from './DomReplay/handlers';
+
 
 export { domreplayIgnoreClassName as domreplayIgnoreClassName } from './domreplay/loader';
 
@@ -21,6 +23,14 @@ export const state = {
 	stateIsReplay,
 	stateIsRecord,
 	stateIsReady
+};
+
+
+
+export const handlers = {
+	handleClickEvent,
+	handleInputEvent,
+	handleChangeEvent
 };
 
 export { default as Storage } from './domreplay/storage';
