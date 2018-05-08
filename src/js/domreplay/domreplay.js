@@ -116,7 +116,7 @@ export class DomReplay {
    * @param {function} trail   - the function that should create an unique selector for the element.
    */
   setCustomElementTracker(tracker, trail) {
-  	Storage.setTrailFunction(trail);
+  	Storage.setCustomTrailFunction(trail);
   	this.replay.setCustomTrackerFunction(tracker);
   }
 }
