@@ -12,7 +12,8 @@
   	  "manual": {
 		  	"index": "./README.md",
 		  	"files": [
-		  		"./manual/custom_element_tracker.md"
+		  		"./manual/custom_element_tracker.md",
+		  		"./manual/CHANGELOG.md"
 		  	]
 		  }
     },
