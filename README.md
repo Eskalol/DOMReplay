@@ -18,3 +18,7 @@ const domreplay = new DomReplay({debugmode: true});
 const hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});
 hud.render();
 ```
+
+
+## Guides
+* [Custom Element Tracker](guides/custom_element_tracker.md)
