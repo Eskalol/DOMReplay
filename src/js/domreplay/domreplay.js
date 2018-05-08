@@ -117,5 +117,6 @@ export class DomReplay {
    */
   setCustomElementTracker(tracker, trail) {
   	Storage.setTrailFunction(trail);
+  	this.replay.setCustomTrackerFunction(tracker);
   }
 }

@@ -9,6 +9,7 @@ export default class Replay {
 
 	constructor() {
 		this.storageKey = 'DOMREPLAY_REPLAY_EVENTS';
+		this.tracker = tracker;
 	}
 
 	/**
@@ -59,6 +60,10 @@ export default class Replay {
 		let nextEventIndex = this._nextEventIndex;
 		this._nextEventIndex = nextEventIndex + 1;
 		return replayObject.eventObject.eventList[nextEventIndex];
+	}
+
+	setCustomTrackerFunction(func) {
+		this.tracker = func;
 	}
 
 	/**
@@ -203,7 +208,7 @@ export default class Replay {
 		}
 		// We need a way to wait for the element to appear if the dom is loading
 		// something from apis.
-		const element = await tracker(nextStep.trail);
+		const element = await this.tracker(nextStep.trail);
 		if (!nextStep && !element) {
 			return new Promise(resolve => resolve(true));
 		}

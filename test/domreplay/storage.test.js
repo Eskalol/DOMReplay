@@ -58,7 +58,7 @@ describe('Storage', () => {
 		beforeAll(() => {
 			localStorage.clear();
 			document.documentElement.innerHTML = doc;
-			Storage.setTrailFunction(customTrail);
+			Storage.setCustomTrailFunction(customTrail);
 			return domloader([{
 				type: 'click',
 				tagnames: ['a', 'button'],

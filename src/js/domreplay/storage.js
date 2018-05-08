@@ -55,7 +55,7 @@ class Storage {
 		return this._eventStorageFunctions;
 	}
 
-	setTrailFunction(func) {
+	setCustomTrailFunction(func) {
 		this.trail = func;
 	}
 
