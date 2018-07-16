@@ -1,22 +1,43 @@
 import RegistrySingleton from '../../src/js/domreplay/registry';
 import EventBaseClass from '../../src/js/domreplay/eventbaseclass';
 
+
+class ChangeEvent extends EventBaseClass {
+	get eventType() {
+		return 'change';
+	}
+
+	get tagnames() {
+		return ['input'];
+	}
+}
+
+
 class InputEvent extends EventBaseClass {
 	get eventType() {
 		return 'input';
 	}
+
+	get tagnames() {
+		return ['input'];
+	}
+
 }
+
 
 class ClickEvent extends EventBaseClass {
 	get eventType() {
 		return 'click';
 	}
+
+	get tagnames() {
+		return ['a', 'button'];
+	}
 }
 
+
 class NonEvent {
-	get eventType() {
-		return 'non-event';
-	}
+
 }
 
 
@@ -93,5 +114,37 @@ describe('RegistrySingleton', () => {
 		RegistrySingleton.getEvent('input')._makeTrailForElement(secondElement);
 		expect(trail).toHaveBeenCalledTimes(2);
 		expect(trail).toHaveBeenLastCalledWith(secondElement);
+	});
+
+	it('should return a list with all event type names', () => {
+		RegistrySingleton.registerEvent(new ClickEvent());
+		RegistrySingleton.registerEvent(new InputEvent());
+		expect(RegistrySingleton.getEventTypes()).toContain('click');
+		expect(RegistrySingleton.getEventTypes()).toContain('input');
+	});
+
+	it('should return a list of all tagnames in registry', () => {
+		RegistrySingleton.registerEvent(new ClickEvent());
+		RegistrySingleton.registerEvent(new InputEvent());
+		expect(RegistrySingleton.getTagnames().length).toBe(3);
+		expect(RegistrySingleton.getTagnames()).toContain('input');
+		expect(RegistrySingleton.getTagnames()).toContain('a');
+		expect(RegistrySingleton.getTagnames()).toContain('button');
+	});
+
+	it('should return event objects by tagname', () => {
+		const clickEvent = new ClickEvent();
+		const inputEvent = new InputEvent();
+		const changeEvent = new ChangeEvent();
+
+		RegistrySingleton.registerEvent(clickEvent);
+		RegistrySingleton.registerEvent(inputEvent);
+		RegistrySingleton.registerEvent(changeEvent);
+
+		const events = RegistrySingleton.getEventsByTagname('input');
+		expect(events.length).toBe(2)
+		expect(events).toContain(inputEvent);
+		expect(events).toContain(changeEvent);
+		expect(events).not.toContain(clickEvent);
 	});
 });

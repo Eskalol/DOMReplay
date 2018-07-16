@@ -36,6 +36,10 @@ export default class EventBaseClass {
 		throw new ProgrammingError('Please override get eventType function to return a event type');
 	}
 
+	get tagnames() {
+		throw new ProgrammingError('Please override get tagnames function to return list of tagnames');
+	}
+
 	_addDomReplayBorderToElement(element) {
 		element.classList.add(EventBaseClass.DOM_REPLAY_BORDER_CLASS);
 	}

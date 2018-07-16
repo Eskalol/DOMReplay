@@ -1,6 +1,7 @@
 import EventBaseClass from './eventbaseclass';
 import { ProgrammingError } from './error'
 
+
 class RegistrySingleton {
 	static instance;
 
@@ -22,12 +23,34 @@ class RegistrySingleton {
 		return this._events.get(eventType);
 	}
 
+	getEventsByTagname(tagname) {
+		let events = []
+		for (let event of this._events.values()) {
+			if (event.tagnames.includes(tagname)) {
+				events.push(event);
+			}
+		}
+		return events;
+	}
+
 	deleteEvent(eventType) {
 		this._events.delete(eventType);
 	}
 
 	clearAllEvents() {
 		this._events.clear();
+	}
+
+	getEventTypes() {
+		return this._events.keys();
+	}
+
+	getTagnames() {
+		let tagnames = []
+		for (let event of this._events.values()) {
+			tagnames.push(...event.tagnames);
+		}
+		return tagnames;
 	}
 
 	get size() {

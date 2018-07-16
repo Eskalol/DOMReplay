@@ -8,6 +8,7 @@ class BasicEvent extends EventBaseClass {
 
 }
 
+
 class ExampleEvent extends EventBaseClass {
 	handler(element) {
 		return 'event is handled';
@@ -19,6 +20,10 @@ class ExampleEvent extends EventBaseClass {
 
 	get eventType() {
 		return 'example';
+	}
+
+	get tagnames() {
+		return ['button', 'a'];
 	}
 }
 
@@ -70,12 +75,27 @@ describe('EventBaseClass', () => {
 			}).toThrowError();
 		});
 
-		it('it should not throw programming error when event type is set', () => {
+		it('should not throw programming error when event type is set', () => {
 			const event = new ExampleEvent();
 			expect(event.eventType).toBe('example');
 		});
 	});
 
+	describe('tagnames', () => {
+		it('should throw programming error when tagnames is not set', () => {
+			const event = new BasicEvent();
+			expect(() => {
+				event.tagnames;
+			}).toThrowError();
+		});
+
+		it('should not throw programming when tagnames is set', () => {
+			const event = new ExampleEvent();
+			expect(event.tagnames).toContain('a');
+			expect(event.tagnames).toContain('button');
+		});
+	});
+	
 	describe('replay border', () => {
 		it('should add replay border class to element', () => {
 			const element = document.createElement('div');
