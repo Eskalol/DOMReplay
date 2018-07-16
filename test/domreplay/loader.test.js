@@ -5,8 +5,12 @@ import * as loader from '../../src/js/domreplay/loader';
 import EventBaseClass from '../../src/js/domreplay/eventbaseclass';
 import RegistrySingleton from '../../src/js/domreplay/registry';
 
-
 const doc = fs.readFileSync('./test/domreplay/domloader-fixture.html').toString();
+
+
+jest.mock('../../src/js/domreplay/state', () => ({
+	stateIsRecord: () => true
+}));
 
 class ClickEvent extends EventBaseClass {
 	handler = jest.fn();

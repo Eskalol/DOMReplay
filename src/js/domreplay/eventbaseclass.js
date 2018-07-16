@@ -1,6 +1,8 @@
 import Storage from './storage';
 import { ProgrammingError } from './error';
 import { trail, tracker } from './domhound';
+import { stateIsRecord } from './state'
+import Logger from './logger';
 
 
 export default class EventBaseClass {
@@ -66,6 +68,14 @@ export default class EventBaseClass {
 
 	handler(element) {
 		throw new ProgrammingError('Not Implemented Error, please implement handler function');
+	}
+
+	_handler(element) {
+		if (stateIsRecord()) {
+			//TODO: dispatch event and tell something is being recorded
+			Logger.debug(`handling ${this.eventType} event on ${element}`);
+			this.handler(element);
+		}
 	}
 
 	replay(eventObject) {
