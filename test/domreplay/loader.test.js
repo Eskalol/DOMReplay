@@ -1,61 +1,79 @@
 jest.dontMock("fs");
 
-
 import fs from 'fs';
 import * as loader from '../../src/js/domreplay/loader';
+import EventBaseClass from '../../src/js/domreplay/eventbaseclass';
+import RegistrySingleton from '../../src/js/domreplay/registry';
+
+
 const doc = fs.readFileSync('./test/domreplay/domloader-fixture.html').toString();
+
+class ClickEvent extends EventBaseClass {
+	handler = jest.fn();
+
+	get tagnames () {
+		return ['a', 'button'];
+	}
+
+	get eventType () {
+		return 'click';
+	}
+}
+
+
+class InputEvent extends EventBaseClass {
+	handler = jest.fn();
+
+	get tagnames () {
+		return ['input', 'select', 'textarea'];
+	}
+
+	get eventType() {
+		return 'input';
+	}
+}
 
 
 describe('domloader', () => {
-	const clickHandler = jest.fn();
-	const inputHandler = jest.fn();
-	const changeHandler = jest.fn();
-
 	beforeAll(() => {
 		document.documentElement.innerHTML = doc;
-		const events = [{
-			type: 'click',
-			tagnames: ['a', 'button'],
-			handler: clickHandler
-		}, {
-			type: 'input',
-			tagnames: ['input', 'select', 'textarea'],
-			handler: inputHandler
-		}, {
-			type: 'change',
-			tagnames: ['input', 'select', 'textarea']
-		}];
-		return loader.domloader(events, test=true);
+		RegistrySingleton.registerEvent(new ClickEvent());
+		RegistrySingleton.registerEvent(new InputEvent());
+		return loader.domloader(test=true);
 	});
 
 	it('should execute handler function when button clicked', () => {
 		const button = document.getElementsByTagName('button')[0];
 		button.click();
-		expect(clickHandler).toHaveBeenCalledTimes(1);
-		expect(clickHandler).toHaveBeenCalledWith(button);
+		const clickEvent = RegistrySingleton.getEvent('click');
+		expect(clickEvent.handler).toHaveBeenCalledTimes(1);
+		expect(clickEvent.handler).toHaveBeenCalledWith(button);
 	});
 
 	it('should execute input event on first input element', () => {
 		const input = document.getElementsByTagName('input')[0];
 		let event = new Event('input');
 		input.dispatchEvent(event);
-		expect(inputHandler).toHaveBeenCalledTimes(1);
-		expect(inputHandler).toHaveBeenCalledWith(input);
+		const inputEvent = RegistrySingleton.getEvent('input');
+		expect(inputEvent.handler).toHaveBeenCalledTimes(1);
+		expect(inputEvent.handler).toHaveBeenCalledWith(input);
 	});
 
 	it('should execute input event on second input element', () => {
 		const input = document.getElementsByTagName('input')[1];
 		let event = new Event('input');
 		input.dispatchEvent(event);
-		expect(inputHandler).toHaveBeenCalledTimes(2);
-		expect(inputHandler).toHaveBeenCalledWith(input);
+		const inputEvent = RegistrySingleton.getEvent('input');
+		expect(inputEvent.handler).toHaveBeenCalledTimes(2);
+		expect(inputEvent.handler).toHaveBeenCalledWith(input);
 	});
 
 	it('should execute input event on textarea', () => {
 		const textarea = document.getElementsByTagName('textarea')[0];
 		let event = new Event('input');
 		textarea.dispatchEvent(event);
-		expect(inputHandler).toHaveBeenCalledTimes(3);
-		expect(inputHandler).toHaveBeenCalledWith(textarea);
+		const inputEvent = RegistrySingleton.getEvent('input');
+		expect(inputEvent.handler).toHaveBeenCalledTimes(3);
+		expect(inputEvent.handler).toHaveBeenCalledWith(textarea);
 	});
 });

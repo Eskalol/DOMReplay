@@ -1,4 +1,5 @@
 import Logger from './logger';
+import RegistrySingleton from './registry';
 
 // HTMLElements using this classname will be ignored
 export const domreplayIgnoreAttributeName = 'dom-replay-ignore';
@@ -16,20 +17,20 @@ function* elementByTagNameIterator(tagname) {
 
 /**
  * Initializes events on elements in the dom.
- * @param  {Array} events - list of events
  */
-const initializeEvents = (events) => {
+const initializeEvents = () => {
 	Logger.debug('Initializing existing events.');
-	events.forEach(event => {
-		event.tagnames.forEach(tagname => {
-			for (let element of elementByTagNameIterator(tagname)) {
-				if (!element.hasAttribute(domreplayIgnoreAttributeName)) {
-					Logger.debug(`Adding ${event.type} event listener to element`);
-					element.addEventListener(event.type, () => event.handler(element), false);
+	for (let tagname of RegistrySingleton.getTagnames()) {
+		let events = RegistrySingleton.getEventsByTagname(tagname);
+		for (let element of elementByTagNameIterator(tagname)) {
+			if (!element.hasAttribute(domreplayIgnoreAttributeName)) {
+				for (let event of events) {
+					Logger.debug(`Adding ${event.eventType} event listener to element`);
+					element.addEventListener(event.eventType, () => event.handler(element), false);
 				}
 			}
-		});
-	});
+		}
+	}
 }
 
 /**
@@ -37,7 +38,7 @@ const initializeEvents = (events) => {
  * HTML elements with tagnames that should,
  * be tracked.
  * @param {[type]} mutation      		- mutation object from the mutation observer.
- * @param {Array[String]} tagfilter     - tagnames that should be tracked
+ * @param {Array[]} tagfilter     - tagnames that should be tracked
  * @yield {HTMLElement} yields trackable HTMLElements.
  */
 function* getFlatElementIterator(mutation, tagfilter) {
@@ -60,62 +61,43 @@ function* getFlatElementIterator(mutation, tagfilter) {
 }
 
 /**
- * To ensure that the only top level element is captured in tagnames,
- * we need a filter. for example when a button contains an 'a' tag,
- * only the button is captured.
- * @param  {[type]} events [description]
- * @return {[type]}        [description]
- */
-const flatTagnames = (events) => {
-	let tagnames = []
-	events.forEach(event => {
-		tagnames.push(...event.tagnames);
-	});
-	return tagnames;
-}
-
-/**
  * Initializes mutation observer,
  * when ever a new element has been added, it will automaticly
  * add event listener to the element.
- * @param  {Array} events - list of events
  */
-const initializeMutationObserver = (events) => {
+const initializeMutationObserver = () => {
 	Logger.debug('Initializing mutation observer.');
-	const tagfilter = flatTagnames(events);
 	const analyzeElement = (element) => {
-		events.forEach(event => {
-			if (event.tagnames.includes(element.tagName.toLowerCase())) {
+		if (RegistrySingleton.getTagnames().includes(element.tagName.toLowerCase())) {
+			for (let event of RegistrySingleton.getEventsByTagname(element.tagName.toLowerCase())) {
 				Logger.debug(`mutationobserver is adding a ${event.type}-listener to element ${element.id}`);
-				element.addEventListener(event.type, () => event.handler(element), false);
+				element.addEventListener(event.eventType, () => event.handler(element), false);
 			}
-		});
+		}
 	}
 
 	const observer = new MutationObserver(mutations => {
 		mutations.forEach(mutation => {
-			for (let element of getFlatElementIterator(mutation, tagfilter)) {
+			for (let element of getFlatElementIterator(mutation, RegistrySingleton.getTagnames())) {
 				analyzeElement(element);
 			}
 		});
 	});
 
 	const config = {
-      childList: true,
-      subtree: true
-    };
-
-    observer.observe(document.body, config);
+		childList: true,
+		subtree: true
+	};
+	observer.observe(document.body, config);
 }
 
 /**
  * Initializes events on existing elements,
  * and initializes the mutation observer when
  * document is ready.
- * @param  {Array} events - list
  * @param  {Boolean} test -  if true mutation observer is disabled.
  */
-export const domloader = (events, test=false) => {
+export const domloader = (test=false) => {
 	return new Promise((resolve, reject) => {
 		const time = setInterval(() => {
 			if (document.readyState !== 'complete') {
@@ -123,11 +105,11 @@ export const domloader = (events, test=false) => {
 				return;
 			}
 			clearInterval(time);
-			initializeEvents(events);
+			initializeEvents();
 
 			// Don't initialize mutation observer when testing.
 			if (!test) {
-				initializeMutationObserver(events);
+				initializeMutationObserver();
 			}
 			Logger.debug('Done initializing events');
 			resolve();
