@@ -25,7 +25,8 @@ export const createStorageError = (message) => {
 export class ProgrammingError extends Error {
 	constructor(message, ...args) {
 		super(`DOM-Replay programming Error: ${message}`, ...args);
-		Error.captureStackTrace(this, ProgrammingError);
+		this.name = this.constructor.name;
+		Error.captureStackTrace(this, this.constructor);
 	}
 }
 

@@ -7,6 +7,9 @@ export default class EventBaseClass {
 	static DOM_REPLAY_BORDER_CLASS = 'dom-replay-border';
 
 	constructor() {
+		if (new.target === EventBaseClass) {
+			throw new TypeError('Cannot construct EventBaseClass instances directly');
+		}
 		this._trailFunc = trail;
 		this._trackerFunc = tracker;
 		this._replayTiming = 1000;

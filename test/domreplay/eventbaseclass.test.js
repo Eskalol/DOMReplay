@@ -4,6 +4,10 @@ import EventBaseClass from '../../src/js/domreplay/eventbaseclass';
 import { ProgrammingError } from '../../src/js/domreplay/error';
 
 
+class BasicEvent extends EventBaseClass {
+
+}
+
 class ExampleEvent extends EventBaseClass {
 	handler(element) {
 		return 'event is handled';
@@ -21,9 +25,18 @@ class ExampleEvent extends EventBaseClass {
 
 describe('EventBaseClass', () => {
 
+	describe('EventBaseClass abstractness', () => {
+		it('should not be able to create instance of EventBaseClass directly', () => {
+			expect(() => {
+				new EventBaseClass();
+			}).toThrowError(TypeError);
+
+		});
+	});
+
 	describe('handler function', () => {
 		it('should throw programming error when handler not implemented', () => {
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			expect(() => {
 				event.handler(null);
 			}).toThrowError();
@@ -37,7 +50,7 @@ describe('EventBaseClass', () => {
 
 	describe('replay function', () => {
 		it('should throw programming error when replay not implemented', () => {
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			expect(() => {
 				event.replay(null);
 			}).toThrowError();
@@ -51,7 +64,7 @@ describe('EventBaseClass', () => {
 
 	describe('event type', () => {
 		it('should throw programming error when event type is not set', () => {
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			expect(() => {
 				event.eventType;
 			}).toThrowError();
@@ -66,14 +79,14 @@ describe('EventBaseClass', () => {
 	describe('replay border', () => {
 		it('should add replay border class to element', () => {
 			const element = document.createElement('div');
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event._addDomReplayBorderToElement(element);
 			expect(element.classList.contains(EventBaseClass.DOM_REPLAY_BORDER_CLASS)).toBeTruthy();
 		});
 
 		it('should remove replay border class to element', () => {
 			const element = document.createElement('div');
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event._addDomReplayBorderToElement(element);
 			expect(element.classList.contains(EventBaseClass.DOM_REPLAY_BORDER_CLASS)).toBeTruthy();
 			event._removeDomReplayBorderFromElement(element);
@@ -84,7 +97,7 @@ describe('EventBaseClass', () => {
 	describe('trail end tracker functions', () => {
 		it('should set tracker function and be called in the correct way', () => {
 			const tracker = jest.fn();
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event.trackerFunc = tracker;
 			event._trackElementOnTrail('a trail');
 			expect(tracker).toBeCalled();
@@ -94,7 +107,7 @@ describe('EventBaseClass', () => {
 
 		it('should set trail function and be called in the correct way', () => {
 			const trail = jest.fn();
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event.trailFunc = trail;
 			const element = document.createElement('div');
 			event._makeTrailForElement(element);
@@ -106,14 +119,14 @@ describe('EventBaseClass', () => {
 
 	describe('timing', () => {
 		it('should set correct timing', () => {
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event.timing = 1000;
 			expect(event.timing).toBe(1000);
 		});
 
 		it('should execute function after 1000 ms', () => {
 			jest.useFakeTimers();
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event.timing = 1000;
 			event._executeTimingRelative(() => {});
 			expect(setTimeout).toHaveBeenCalledTimes(1);
@@ -123,7 +136,7 @@ describe('EventBaseClass', () => {
 
 		it('should execute function after 0.5 relative to timing', () => {
 			jest.useFakeTimers();
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			event.timing = 1000;
 			event._executeTimingRelative(() => {}, 0.5);
 			expect(setTimeout).toHaveBeenCalledTimes(1);
@@ -132,7 +145,7 @@ describe('EventBaseClass', () => {
 		})
 
 		it('should execute function', () => {
-			const event = new EventBaseClass();
+			const event = new BasicEvent();
 			expect(event._executeTimingRelative(() => 'cool')).resolves.toBe('cool');
 		});
 	});
