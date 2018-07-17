@@ -10,7 +10,8 @@
     "watch": "babel src/js -d lib --watch",
     "build-docs": "esdoc",
     "open-docs": "open ./docs/index.html",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -rf lib dist docs"
   },
   "keywords": [
     "Es6",
