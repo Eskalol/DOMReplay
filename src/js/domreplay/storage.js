@@ -2,7 +2,6 @@ import Logger from './logger';
 import { stateIsRecord } from './state';
 import { createStorageError } from './error';
 import { dispatchStorageUpdateEvent } from './dispatcher';
-import * as domhound from './domhound';
 
 
 class Storage {
@@ -14,108 +13,112 @@ class Storage {
 		if (!this.instance) {
 			this.instance = this;
 			this.storageKey = 'DOMREPLAY_EVENT_STORAGE';
-			this._eventStorageFunctions = {
-				'input': this.addInputEvent.bind(this),
-				'change': this.basicAddEvent.bind(this),
-				'click': this.basicAddEvent.bind(this)
-			};
-			this.trail = domhound.trail;
 		}
 		return this.instance;
 	}
 
+	/**
+	 * Clears the event storage.
+	 */
 	clear() {
 		window.localStorage.removeItem(this.storageKey);
 		Logger.debug('Event storage cleared!');
 	}
 
-	set updateStorage(eventObject) {
+	/**
+	 * Updates storage
+	 * @param {Object} eventObject
+	 */
+	updateStorage(eventObject) {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
+		dispatchStorageUpdateEvent(this.getLastStored());
 	}
 
-	set updateLastEvent(object) {
-		let eventObject = this.eventList;
-		eventObject.eventList[eventObject.count - 1] = object;
-		this.updateStorage = eventObject;
+	/**
+	 * Merge updates last stored event
+	 * @param {Object} updates
+	 */
+	updateLastStored(updates) {
+		let events = this.events;
+		events.events[events.count - 1] = {...this.getLastStored(), ...updates};
+		this.updateStorage(events);
 	}
 
-	get lastRecordedElement() {
-		let eventObject = this.eventList;
-		if (!eventObject) {
+	/**
+	 * Gets the last stored event in storage.
+	 * @returns {Object}			- last stored event.
+	 */
+	getLastStored() {
+		const events = this.events;
+		if (!events) {
 			return null;
 		}
-		return eventObject.eventList[eventObject.count - 1];
+		return events.events[events.count - 1];
 	}
 
-	setEventStorageFunctions(functionMap) {
-		this._eventStorageFunctions = functionMap;
-	}
-
-	get eventStorageFunctions() {
-		return this._eventStorageFunctions;
-	}
-
-	setCustomTrailFunction(func) {
-		this.trail = func;
-	}
-
+	/**
+	 * Appends event to storage and increment storage count.
+	 * @param {Object} object 		- Object to append.
+	 * @private
+	 */
 	_appendEvent(object) {
-		let eventObject = JSON.parse(window.localStorage.getItem(this.storageKey));
-		let eventList = [];
-		if (!!eventObject) {
-			eventList = eventObject.eventList;
+		let events = this.events;
+		if (!events) {
+			events = {};
+			events.count = 0;
+			events.events = []
 		}
-		else {
-			eventObject = {};
-			eventObject.count = 0;
-			eventList = []
-		}
-		eventList.push(object);
-		eventObject.eventList = eventList;
-		eventObject.count++;
-		Logger.debug(`Count: ${eventObject.count}, Event: type(${object.type}) id(${object.id}) value(${object.value})`);
-		window.localStorage.setItem(this.storageKey, JSON.stringify(eventObject));
+		events.events.push(object);
+		events.count++;
+		Logger.debug(`Count: ${events.count}, Event: type(${object.type}) id(${object.id}) value(${object.value})`);
+		this.updateStorage(events);
 	}
 
-	basicAddEvent(element, type, value = null, extra = {}) {
-		let object = {
-			type,
-			location: window.location.href,
-			trail: this.trail(element, null, null)
-		}
-		if (value) {
-			object.value = value;
-		}
-		this._appendEvent(object);
-		return object
+	/**
+	 * Gets stored event by index.
+	 * @param {Number} index
+	 * @returns {Object} 		- event object
+	 */
+	getItem(index) {
+		return this.events.events[index];
 	}
 
-	addInputEvent(element, type, value = null, extra = {}) {
-		let lastEvent = this.lastRecordedElement;
-		if(lastEvent && JSON.stringify(this.trail(element, null, null)) === JSON.stringify(lastEvent.trail)) {
-			Logger.debug('Updates last event');
-			lastEvent.value = element.value;
-			this.updateLastEvent = lastEvent;
-			return lastEvent;
-		} else {
-			console.log('Creating new input event record');
-			return this.basicAddEvent(element, 'input', element.value);
-		}
+	/**
+	 * Gets storage object
+	 * @returns {Object}
+	 */
+	get events() {
+		return JSON.parse(window.localStorage.getItem(this.storageKey));
 	}
 
-	addEvent(element, type, value = null, extra = {}) {
+	/**
+	 * returns the size of Storage by event count.
+	 * @returns {Number}
+	 */
+	get size() {
+		return this.events.count;
+	}
+
+	/**
+	 * store event object in storage.
+	 * @param type
+	 * @param eventObject
+	 * @returns {Promise<Error> | Promise<Object>}
+	 */
+	store(type, eventObject) {
 		return new Promise((resolve, reject) => {
 			if (!stateIsRecord()) {
 				Logger.error('Tried to add event to localstorage, but domreplay is not in record state');
 				reject(createStorageError('Tried to add event to localstorage, but domreplay is not in record state'));
 			}
-			const object = this.eventStorageFunctions[type](element, type, value, extra);
-			resolve(object);
+			const objectToStore = {
+				location: window.location.href,
+				type,
+				...eventObject
+			};
+			this._appendEvent(objectToStore);
+			resolve(objectToStore);
 		});
-	}
-
-	get eventList() {
-		return JSON.parse(window.localStorage.getItem(this.storageKey));
 	}
 }
 

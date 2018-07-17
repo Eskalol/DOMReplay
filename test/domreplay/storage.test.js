@@ -1,97 +1,72 @@
-jest.dontMock("fs");
+import { Storage } from '../../src/js';
 
-import fs from 'fs';
-
-import { Storage, handlers } from '../../src/js';
-import { domloader } from '../../src/js/domreplay/loader';
-import { setStateReady, setStateRecord } from '../../src/js/domreplay/state';
-import { tracker } from '../../src/js/domreplay/domhound';
-
-const doc = fs.readFileSync('./test/domreplay/storage-fixture.html');
-
-function customTrail(element) {
-	return element.id;
-}
+jest.mock('../../src/js/domreplay/state', () => ({
+	stateIsRecord: () => true
+}));
 
 describe('Storage', () => {
-
-	describe('Stored correctly', () => {
-		beforeAll(() => {
-			document.documentElement.innerHTML = doc;
-			return domloader([{
-				type: 'click',
-				tagnames: ['a', 'button'],
-				handler: handlers.handleClickEvent
-			}, {
-				type: 'input',
-				tagnames: ['input', 'select', 'textarea'],
-				handler: handlers.handleInputEvent
-			}, {
-				type: 'change',
-				tagnames: ['input', 'select', 'textarea'],
-				handler: handlers.handleChangeEvent
-			}], test=true);
-		});
-
-		it('should store button correctly', async () => {
-			await setStateReady();
-			await setStateRecord();
-			const button = document.getElementsByTagName('button')[0];
-			button.click();
-			const eventList = Storage.eventList;
-			expect(eventList.count).toEqual(1);
-			expect(eventList.eventList.length).toBe(1);
-			expect(tracker(eventList.eventList[0].trail)).resolves.toEqual(button);
-		});
-
-		it('should store second button correctly', () => {
-			const button = document.getElementsByTagName('button')[1];
-			button.click();
-			const eventList = Storage.eventList;
-			expect(eventList.count).toEqual(2);
-			expect(eventList.eventList.length).toBe(2);
-			expect(tracker(eventList.eventList[1].trail)).resolves.toEqual(button);
-		});
+	afterEach(() => {
+		Storage.clear();
 	});
 
-	describe('Custom trail in store', () => {
-		beforeAll(() => {
-			localStorage.clear();
-			document.documentElement.innerHTML = doc;
-			Storage.setCustomTrailFunction(customTrail);
-			return domloader([{
-				type: 'click',
-				tagnames: ['a', 'button'],
-				handler: handlers.handleClickEvent
-			}, {
-				type: 'input',
-				tagnames: ['input', 'select', 'textarea'],
-				handler: handlers.handleInputEvent
-			}, {
-				type: 'change',
-				tagnames: ['input', 'select', 'textarea'],
-				handler: handlers.handleChangeEvent
-			}], test=true);
-		});
+	it('should store one event', () => {
+		return Storage.store('click', {trail: 'a trail'})
+			.then(() => {
+				expect(Storage.size).toBe(1);
+				expect(Storage.getItem(0).trail).toBe('a trail');
+				expect(Storage.getItem(0).type).toBe('click');
+			});
+	});
 
-		it('custom trail should be cool', async () => {
-			await setStateReady();
-			await setStateRecord();
-			const button = document.getElementsByTagName('button')[2];
-			button.click();
-			const eventList = Storage.eventList;
-			expect(eventList.count).toEqual(1);
-			expect(eventList.eventList.length).toBe(1);
-			expect(eventList.eventList[0].trail).toEqual('cool');
-		});
+	it('should store multiple events', () => {
+		return Storage.store('click', {trail: 'just another trail'})
+			.then(Storage.store('input', {trail: 'such trail', value: 'wow'}))
+			.then(() => {
+				expect(Storage.size).toBe(2);
+				expect(Storage.getItem(0).trail).toBe('just another trail')
+				expect(Storage.getItem(0).type).toBe('click');
+				expect(Storage.getItem(1).trail).toBe('such trail');
+				expect(Storage.getItem(1).type).toBe('input');
+				expect(Storage.getItem(1).value).toBe('wow');
+			});
+	});
 
-		it('custom trail should be imba', () => {
-			const button = document.getElementsByTagName('button')[3];
-			button.click();
-			const eventList = Storage.eventList;
-			expect(eventList.count).toEqual(2);
-			expect(eventList.eventList.length).toBe(2);
-			expect(eventList.eventList[1].trail).toEqual('imba');
-		});
+	it('should get last stored event', () => {
+		return Storage.store('click', {trail: 'what a trail'})
+			.then(() => {
+				expect(Storage.size).toBe(1);
+				expect(Storage.getLastStored().type).toBe('click');
+				expect(Storage.getLastStored().trail).toBe('what a trail');
+			});
+	});
+
+	it('should get last stored event when multiple events stored', () => {
+		return Storage.store('input', {trail: 'ohh you trail', value: 'all hail and nail pale ale!'})
+			.then(Storage.store('click', {trail: 'too much meme trailz'}))
+			.then(() => {
+				expect(Storage.getLastStored().type).toBe('click');
+				expect(Storage.getLastStored().trail).toBe('too much meme trailz');
+				expect(Storage.size).toBe(2);
+			});
+	});
+
+	it('should update last stored event', () => {
+		return Storage.store('input', {trail: 'wow trail', value: 'ohh'})
+			.then(Storage.updateLastStored({value: 'ohh you!'}))
+			.then(() => {
+				expect(Storage.size).toBe(1);
+				expect(Storage.getLastStored().value).toBe('ohh you!');
+			});
+
+	});
+
+	it('should update last stored event when there is multiple events in storage', () => {
+		return Storage.store('click', {trail: 'trailz inc!'})
+			.then(Storage.store('input', {trail: 'wow trail', value: 'ohh'}))
+			.then(Storage.updateLastStored({value: 'ohh you!'}))
+			.then(() => {
+				expect(Storage.size).toBe(2);
+				expect(Storage.getLastStored().value).toBe('ohh you!');
+			});
 	});
 });
