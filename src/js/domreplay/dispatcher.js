@@ -6,10 +6,11 @@ import Logger from './logger';
 
 const DOMREPLAY_STATE_CHANGE_EVENT = 'DOMREPLAY_STATE_CHANGE_EVENT';
 const DOMREPLAY_STORAGE_UPDATE_EVENT = 'DOMREPLAY_STORAGE_UPDATE_EVENT';
+const DOMREPLAY_REPLAY_UPDATE_EVENT = 'DOMREPLAY_REPLAY_UPDATE_EVENT';
 
 /**
- * Adds a event listener to the state change event.
- * @param  {Func} func - the function to be called when the event has been dispached.
+ * Adds an event listener to the state change event.
+ * @param  {function} func - the function to be called when the event has been dispached.
  */
 export const addStateChangeEventListener = (func) => {
 	Logger.debug('adding add state event listener');
@@ -33,8 +34,8 @@ export const dispatchStateChangeEvent = (state) => {
 
 
 /**
- * Adds a event listener to the storage update event.
- * @param  {Func} func 	- the function to be called when the event has been dispatched.
+ * Adds an event listener to the storage update event.
+ * @param  {function} func 	- the function to be called when the event has been dispatched.
  */
 export const addStorageUpdateEventListener = (func) => {
 	Logger.debug('adding storage update event listener');
@@ -48,6 +49,27 @@ export const addStorageUpdateEventListener = (func) => {
 export const dispatchStorageUpdateEvent = (update) => {
 	Logger.debug('dispatching storage update event');
 	const event = new CustomEvent(DOMREPLAY_STORAGE_UPDATE_EVENT, {
+		detail: update
+	});
+	window.dispatchEvent(event);
+}
+
+/**
+ * Adds an event event listener to the replay update event.
+ * @param {function} func - the function to be called when the event has been dispatched.
+ */
+export const addReplayUpdateEventListener = (func) => {
+	Logger.debug('adding replay update event listener');
+	window.addEventListener(DOMREPLAY_REPLAY_UPDATE_EVENT, func);
+}
+
+/**
+ * Replay update event dispatcher
+ * @param {Object} update - object with update information
+ */
+export const dispatchReplayUpdateEventListener = (update) => {
+	Logger.debug('dispatching replay ipdate event');
+	const event = new CustomEvent(DOMREPLAY_REPLAY_UPDATE_EVENT, {
 		detail: update
 	});
 	window.dispatchEvent(event);
