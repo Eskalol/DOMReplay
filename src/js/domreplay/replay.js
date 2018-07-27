@@ -16,22 +16,40 @@ class Replay {
 		return this.instance;
 	}
 
+	/**
+	 * Get event object stored in local storage.
+	 * @returns {Object}
+	 */
 	get events() {
 		return JSON.parse(window.localStorage.getItem(this.storageKey));
 	}
 
+	/**
+	 * Stop replay execution.
+	 */
 	stop() {
 		this.cancel = true;
 	}
 
+	/**
+	 * update replay storage
+	 * @param {Object} object object to store.
+	 */
 	updateReplayStorage(object) {
 		window.localStorage.setItem(this.storageKey, JSON.stringify(object));
 	}
 
+	/**
+	 * Gets the current event index.
+	 * @returns {*|number}
+	 */
 	getCurrentEventIndex() {
 		return this.events.currentEventIndex;
 	}
 
+	/**
+	 * Increment current event index.
+	 */
 	incrementCurrentEventIndedx() {
 		this.updateReplayStorage({
 			...this.events,
@@ -39,19 +57,37 @@ class Replay {
 		})
 	}
 
+	/**
+	 * Get event Item by Index.
+	 * @param index
+	 * @returns {Object}
+	 */
 	getItem(index) {
 		return this.events.events[index];
 	}
 
+	/**
+	 * Gets number of total evnets
+	 * @returns {Number}
+	 */
 	getTotalEvents() {
 		return this.events.count;
 	}
 
+	/**
+	 * Clears the storage.
+	 */
 	clear() {
 		window.localStorage.removeItem(this.storageKey);
 		Logger.debug('Replay stoage cleared!');
 	}
 
+	/**
+	 * Load events into storage.
+	 * adds a currentEventIndex which will be used
+	 * to keep track on which event we are currently playing.
+	 * @param events
+	 */
 	load(events) {
 		this.updateReplayStorage({
 			...events,
@@ -77,6 +113,15 @@ class Replay {
 		});
 	}
 
+	/**
+	 * @brief returns a promise which executes an event.
+	 * Checks for cancellation which occurs when this.stop() has been called.
+	 * Finds the event to be executed in replay storage.
+	 * Increment the current event index.
+	 * Finds the correct class based on event type in Registry.
+	 * Execute the replay function on the event class and wait for it to resolve.
+	 * @returns {Promise<Object> | Promise<undefined>}  returns a Promise which rejects to an error and resolves to undefined.
+	 */
 	playNextEvent() {
 		return new Promise(async (resolve, reject) => {
 				if (this.cancel) {
@@ -101,6 +146,11 @@ class Replay {
 		});
 	}
 
+	/**
+	 * Builds the promise chain for replaying events, so every event will be executed in
+	 * correct order.
+	 * @private
+	 */
 	_buildReplayChain() {
 		const currentIndex = this.getCurrentEventIndex();
 		const totalEvents = this.getTotalEvents();
@@ -113,6 +163,10 @@ class Replay {
 		Logger.debug(`Done building replay chain`);
 	}
 
+	/**
+	 * Replay events.
+	 * @returns {Promise<void>}
+	 */
 	async replay() {
 		await setStateReplay()
 			.then(() => {
