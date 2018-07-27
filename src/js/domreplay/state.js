@@ -16,7 +16,7 @@ export const DOMREPLAY_STATE_READY = 'DOMREPLAY_STATE_READY';
  * Gets the state from localstorage
  * @return {String} - current state
  */
-const getState = () => {
+export const getState = () => {
 	return window.localStorage.getItem(DOMREPLAY_STATE_STORAGE_KEY);
 };
 
