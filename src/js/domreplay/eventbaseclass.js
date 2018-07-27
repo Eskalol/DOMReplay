@@ -135,7 +135,6 @@ export default class EventBaseClass {
 	 */
 	_handler(element) {
 		if (stateIsRecord()) {
-			//TODO: dispatch event and tell something is being recorded
 			Logger.debug(`handling ${this.eventType} event on ${element}`);
 			this.handler(element);
 		}
@@ -177,7 +176,7 @@ export default class EventBaseClass {
 	_store(eventObject) {
 		return Storage.store(this.eventType, eventObject)
 			.catch(error => {
-
+				throw error;
 			});
 	}
 
@@ -188,6 +187,6 @@ export default class EventBaseClass {
 	 * @private
 	 */
 	async _syncStore(eventObject) {
-		return await this.store(eventObject);
+		return await this._store(eventObject);
 	}
 }
