@@ -26,7 +26,7 @@ const initializeEvents = () => {
 			if (!element.hasAttribute(domreplayIgnoreAttributeName)) {
 				for (let event of events) {
 					Logger.debug(`Adding ${event.eventType} event listener to element`);
-					element.addEventListener(event.eventType, () => event.handler(element), false);
+					element.addEventListener(event.eventType, () => event._handler(element), false);
 				}
 			}
 		}
@@ -71,7 +71,7 @@ const initializeMutationObserver = () => {
 		if (RegistrySingleton.getTagnames().includes(element.tagName.toLowerCase())) {
 			for (let event of RegistrySingleton.getEventsByTagname(element.tagName.toLowerCase())) {
 				Logger.debug(`mutationobserver is adding a ${event.eventType}-listener to element ${element.id}`);
-				element.addEventListener(event.eventType, () => event.handler(element), false);
+				element.addEventListener(event.eventType, () => event._handler(element), false);
 			}
 		}
 	}

@@ -84,34 +84,7 @@ export class DomReplay {
 		}
 	}
 
-
   loadEventsFromLocalStorage() {
   	Replay.load(Storage.events);
   }
-
-  // play() {
-  // 	this.replay.reset();
-  // 	this.replay.play().then(status => {
-  // 		Logger.debug(`replayed ${status.total} of ${status.replayed} events.`);
-  // 	});
-  // }
-  //
-  // playStep() {
-  // 	this.replay.playStep()
-  // 		.then(done => {
-  // 			if (done) {
-  // 				setStateReady(true);
-  // 			}
-  // 		});
-  // }
-
-  // /**
-  //  * Sets your custom element tracker
-  //  * @param {function} tracker - the function which finds the correct element according to its trail.
-  //  * @param {function} trail   - the function that should create an unique selector for the element.
-  //  */
-  // setCustomElementTracker(tracker, trail) {
-  // 	Storage.setCustomTrailFunction(trail);
-  // 	this.replay.setCustomTrackerFunction(tracker);
-  // }
 }

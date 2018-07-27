@@ -133,7 +133,7 @@ export default class EventBaseClass {
 	 * @param {HTMLElement} element
 	 * @private
 	 */
-	handler(element) {
+	_handler(element) {
 		if (stateIsRecord()) {
 			Logger.debug(`handling ${this.eventType} event on ${element}`);
 			this.handler(element);
