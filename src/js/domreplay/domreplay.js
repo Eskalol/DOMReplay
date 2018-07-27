@@ -32,12 +32,15 @@ export class DomReplay {
 				if (err.type === STATE_ERROR) {
 					Logger.debug(`could not set ready state, current state is ${getState()}`);
 				}
+				if (stateIsReplay()) {
+					this.tryToContinueReplay();
+				}
 			});
 	}
 
 	tryToContinueReplay() {
   	if (stateIsReplay()) {
-  		//TODO: continue replay.
+  		Replay.replay();
 		}
 	}
 
