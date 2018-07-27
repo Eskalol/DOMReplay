@@ -8,6 +8,7 @@
 
 > Record and Replay your events in the browser.
 
+#### [Documentation](https://eskalol.github.io/DOMReplay)
 
 # Basic usage
 domreplay.initialize() has to be called after the registry has been populated.
