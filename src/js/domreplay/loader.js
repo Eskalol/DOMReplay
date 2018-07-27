@@ -1,7 +1,7 @@
 import Logger from './logger';
 import RegistrySingleton from './registry';
 
-// HTMLElements using this classname will be ignored
+// HTMLElements using this attribute will be ignored
 export const domreplayIgnoreAttributeName = 'dom-replay-ignore';
 
 /**
@@ -70,7 +70,7 @@ const initializeMutationObserver = () => {
 	const analyzeElement = (element) => {
 		if (RegistrySingleton.getTagnames().includes(element.tagName.toLowerCase())) {
 			for (let event of RegistrySingleton.getEventsByTagname(element.tagName.toLowerCase())) {
-				Logger.debug(`mutationobserver is adding a ${event.type}-listener to element ${element.id}`);
+				Logger.debug(`mutationobserver is adding a ${event.eventType}-listener to element ${element.id}`);
 				element.addEventListener(event.eventType, () => event._handler(element), false);
 			}
 		}
@@ -98,7 +98,7 @@ const initializeMutationObserver = () => {
  * @param  {Boolean} test -  if true mutation observer is disabled.
  */
 export const domloader = (test=false) => {
-	return new Promise((resolve, reject) => {
+	return new Promise(resolve => {
 		const time = setInterval(() => {
 			if (document.readyState !== 'complete') {
 				Logger.debug('Ready-state check failed!');
