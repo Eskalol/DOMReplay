@@ -1,4 +1,9 @@
-import { addStateChangeEventListener } from './domreplay/dispatcher';
+import {
+	addStateChangeEventListener,
+	addStorageUpdateEventListener,
+	addReplayUpdateEventListener
+} from './domreplay/dispatcher';
+
 import {
 	DOMREPLAY_STATE_REPLAY,
 	DOMREPLAY_STATE_RECORD,
@@ -8,10 +13,17 @@ import {
 	stateIsReady
 } from './domreplay/state';
 
+import {
+	ClickEvent,
+	InputEvent
+} from './domreplay/defaultEvents'
+
 export { domreplayIgnoreAttributeName as domreplayIgnoreAttributeName } from './domreplay/loader';
 
 export const dispatcher = {
-	addStateChangeEventListener
+	addStateChangeEventListener,
+	addStorageUpdateEventListener,
+	addReplayUpdateEventListener
 };
 
 export const state = {
@@ -23,6 +35,13 @@ export const state = {
 	stateIsReady
 };
 
+export const events = {
+	ClickEvent,
+	InputEvent
+};
+
 export { default as Storage } from './domreplay/storage';
 export { default as Hud } from './hud';
 export { DomReplay as default } from './domreplay/domreplay';
+export { default as EventBaseClass } from './domreplay/eventbaseclass';
+export { default as Registry } from './domreplay/registry';

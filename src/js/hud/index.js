@@ -98,7 +98,7 @@ export default class Hud {
   getStopButtonEvent() {
     const domreplay = this.domreplay
     return () => {
-      domreplay.stopRecord();
+      domreplay.stop();
     }
   }
 
@@ -107,21 +107,21 @@ export default class Hud {
     const button = this.dropDownButton;
 
     return () => {
-      if (header.className.indexOf('slide-down') != -1) {
+      if (header.className.indexOf('slide-down') !== -1) {
         header.className = header.className.substring(0, header.className.indexOf(' slide-down'));
         header.className += ' slide-up';
       } else {
-        if (header.className.indexOf('slide-up') != -1) {
+        if (header.className.indexOf('slide-up') !== -1) {
           header.className = header.className.substring(0, header.className.indexOf(' slide-up'));
         }
         header.className += ' slide-down';
       }
 
-      if (button.className.indexOf('slide-down') != -1) {
+      if (button.className.indexOf('slide-down') !== -1) {
         button.className = button.className.substring(0, button.className.indexOf(' slide-down'));
         button.className += ' slide-up';
       } else {
-        if (button.className.indexOf('slide-up') != -1) {
+        if (button.className.indexOf('slide-up') !== -1) {
           button.className = button.className.substring(0, button.className.indexOf(' slide-up'));
         }
         button.className += ' slide-down';
