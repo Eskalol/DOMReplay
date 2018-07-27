@@ -2,7 +2,7 @@ import EventBaseClass from '../eventbaseclass';
 import Logger from '../logger';
 
 
-export default class InputEvent extends EventBaseClass {
+export default class CustomInputEvent extends EventBaseClass {
 
 	get eventType() {
 		return 'input';
@@ -15,7 +15,7 @@ export default class InputEvent extends EventBaseClass {
 	handler(element) {
 			Logger.debug('Input event handler');
 			const lastEvent = this.getLastStored();
-			const trail = this.makeTrailForElement()
+			const trail = this.makeTrailForElement(element)
 			if (lastEvent && JSON.stringify(this.makeTrailForElement(element)) === JSON.stringify(lastEvent.trail)) {
 				Logger.debug('Updates last event');
 				this.updateLastStored({ value: element.value });
@@ -28,22 +28,24 @@ export default class InputEvent extends EventBaseClass {
 	}
 
 	replay(eventObject) {
+		const { value } = eventObject;
 		return this.trackElementOnTrail(eventObject.trail)
 			.then(element => {
 				this.addDomReplayBorderToElement(element);
 				element.focus();
-				return new promise(resolve => {
+				return new Promise(resolve => {
 					let index = 0;
 					const time = setInterval(() => {
 						if (index === eventObject.value.length) {
 							clearInterval(time);
-							resolve(element);
+							return resolve(element);
 						}
-						element.value = element.value + eventObject.value.substring(index, index + 1);
+						element.value = value.substring(0, index + 1);
 						const inputEvent = new InputEvent('input', { bubbles: true, data: value[index], inputType: 'insertText' });
-						const textInputEvent = new Event('textInput', { bubbles: true, data: value[index++] });
+						const textInputEvent = new Event('textInput', { bubbles: true, data: value[index] });
 						element.dispatchEvent(inputEvent);
 						element.dispatchEvent(textInputEvent);
+						index++;
 					}, this.timing * 0.1);
 				});
 			})
