@@ -80,7 +80,7 @@ Example how to set the _replayTiming variable from constructor
 ```javascript
 import { EventBaseClass } from 'domreplay';
 
-export default class MyEvent extends {
+export default class MyEvent extends EventBaseClass {
 	constructor() {
 		super();
 		this._replayTiming = 2000;

@@ -115,7 +115,7 @@ domreplay.initialize();</code>
 </code></pre><p>And thats it!</p><h2>Replay Timing and ratio.</h2><h3>Timing</h3><p>Timing can easily be changed as we want. It is useful to slow down or speed up replays.
 The default value is set to 1000ms</p><p>Example how to set the _replayTiming variable from constructor</p><pre><code class="lang-javascript"><code class="source-code prettyprint">import { EventBaseClass } from &apos;domreplay&apos;;
 
-export default class MyEvent extends {
+export default class MyEvent extends EventBaseClass {
     constructor() {
         super();
         this._replayTiming = 2000;

@@ -25,6 +25,11 @@ export class DomReplay {
     }
   }
 
+	/**
+	 * @brief Initializes the framework.
+	 * This will initialize all handlers and mutation observer.
+	 * @returns {Promise&lt;*&gt;}
+	 */
   async initialize() {
   	return await domloader()
 			.then(() =&gt; setStateReady())
@@ -38,12 +43,19 @@ export class DomReplay {
 			});
 	}
 
+	/**
+	 * checks for replay state and try to continue replay
+	 * usually happens after navigation event during replay.
+	 */
 	tryToContinueReplay() {
   	if (stateIsReplay()) {
   		Replay.replay();
 		}
 	}
 
+	/**
+	 * Start recording
+	 */
   startRecord() {
   	setStateRecord()
   		.catch(err =&gt; {
@@ -55,7 +67,10 @@ export class DomReplay {
   		});
   }
 
-  stopRecord() {
+	/**
+	 * Stop recording
+	 */
+	stopRecord() {
   	setStateReady(true)
   		.catch(err =&gt; {
   			if (err === STATE_ERROR) {
@@ -66,15 +81,24 @@ export class DomReplay {
   		});
   }
 
-  play() {
+	/**
+	 * Play events
+	 */
+	play() {
   	Replay.replay();
 	}
 
+	/**
+	 * Stop replay
+	 */
 	stopReplay() {
 		Replay.stop();
   	setStateReady(true);
 	}
 
+	/**
+	 * Stop recording or replaying.
+	 */
 	stop() {
   	if(stateIsRecord()) {
   		this.stopRecord();
@@ -84,6 +108,9 @@ export class DomReplay {
 		}
 	}
 
+	/**
+	 * Load events from storage into replay storage.
+	 */
   loadEventsFromLocalStorage() {
   	Replay.load(Storage.events);
   }

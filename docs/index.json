@@ -1246,7 +1246,7 @@
     "__docId__": 78,
     "kind": "file",
     "name": "js/domreplay/domreplay.js",
-    "content": "import Storage from './storage';\nimport Replay from './replay';\nimport { domloader } from './loader';\nimport Logger from './logger';\nimport { STATE_ERROR } from './error';\nimport {\n\tsetStateReady,\n\tsetStateRecord,\n\tstateIsReplay,\n\tstateIsRecord,\n\tgetState\n} from './state';\n\n\nexport class DomReplay {\n\t/**\n\t * The core DomReplay class\n\t * @param  {Boolean}  config.debugmode - if true, debug messages wil be logged.\n\t * @return {DomReplay} an instance of DomReplay\n\t */\n  constructor(config = {}) {\n  \tthis.config = config;\n    if (config.debugmode) {\n    \tLogger.logging = true;\n    }\n  }\n\n  async initialize() {\n  \treturn await domloader()\n\t\t\t.then(() => setStateReady())\n\t\t\t.catch(err => {\n\t\t\t\tif (err.type === STATE_ERROR) {\n\t\t\t\t\tLogger.debug(`could not set ready state, current state is ${getState()}`);\n\t\t\t\t}\n\t\t\t\tif (stateIsReplay()) {\n\t\t\t\t\tthis.tryToContinueReplay();\n\t\t\t\t}\n\t\t\t});\n\t}\n\n\ttryToContinueReplay() {\n  \tif (stateIsReplay()) {\n  \t\tReplay.replay();\n\t\t}\n\t}\n\n  startRecord() {\n  \tsetStateRecord()\n  \t\t.catch(err => {\n  \t\t\tif (err === STATE_ERROR) {\n  \t\t\t\tLogger.warning(err.message);\n  \t\t\t} else {\n  \t\t\t\tthrow err;\n  \t\t\t}\n  \t\t});\n  }\n\n  stopRecord() {\n  \tsetStateReady(true)\n  \t\t.catch(err => {\n  \t\t\tif (err === STATE_ERROR) {\n  \t\t\t\tLogger.warning(err.message);\n  \t\t\t} else {\n  \t\t\t\tthrow err;\n  \t\t\t}\n  \t\t});\n  }\n\n  play() {\n  \tReplay.replay();\n\t}\n\n\tstopReplay() {\n\t\tReplay.stop();\n  \tsetStateReady(true);\n\t}\n\n\tstop() {\n  \tif(stateIsRecord()) {\n  \t\tthis.stopRecord();\n\t\t}\n\t\telse if (stateIsReplay()) {\n  \t\tthis.stopReplay();\n\t\t}\n\t}\n\n  loadEventsFromLocalStorage() {\n  \tReplay.load(Storage.events);\n  }\n}\n",
+    "content": "import Storage from './storage';\nimport Replay from './replay';\nimport { domloader } from './loader';\nimport Logger from './logger';\nimport { STATE_ERROR } from './error';\nimport {\n\tsetStateReady,\n\tsetStateRecord,\n\tstateIsReplay,\n\tstateIsRecord,\n\tgetState\n} from './state';\n\n\nexport class DomReplay {\n\t/**\n\t * The core DomReplay class\n\t * @param  {Boolean}  config.debugmode - if true, debug messages wil be logged.\n\t * @return {DomReplay} an instance of DomReplay\n\t */\n  constructor(config = {}) {\n  \tthis.config = config;\n    if (config.debugmode) {\n    \tLogger.logging = true;\n    }\n  }\n\n\t/**\n\t * @brief Initializes the framework.\n\t * This will initialize all handlers and mutation observer.\n\t * @returns {Promise<*>}\n\t */\n  async initialize() {\n  \treturn await domloader()\n\t\t\t.then(() => setStateReady())\n\t\t\t.catch(err => {\n\t\t\t\tif (err.type === STATE_ERROR) {\n\t\t\t\t\tLogger.debug(`could not set ready state, current state is ${getState()}`);\n\t\t\t\t}\n\t\t\t\tif (stateIsReplay()) {\n\t\t\t\t\tthis.tryToContinueReplay();\n\t\t\t\t}\n\t\t\t});\n\t}\n\n\t/**\n\t * checks for replay state and try to continue replay\n\t * usually happens after navigation event during replay.\n\t */\n\ttryToContinueReplay() {\n  \tif (stateIsReplay()) {\n  \t\tReplay.replay();\n\t\t}\n\t}\n\n\t/**\n\t * Start recording\n\t */\n  startRecord() {\n  \tsetStateRecord()\n  \t\t.catch(err => {\n  \t\t\tif (err === STATE_ERROR) {\n  \t\t\t\tLogger.warning(err.message);\n  \t\t\t} else {\n  \t\t\t\tthrow err;\n  \t\t\t}\n  \t\t});\n  }\n\n\t/**\n\t * Stop recording\n\t */\n\tstopRecord() {\n  \tsetStateReady(true)\n  \t\t.catch(err => {\n  \t\t\tif (err === STATE_ERROR) {\n  \t\t\t\tLogger.warning(err.message);\n  \t\t\t} else {\n  \t\t\t\tthrow err;\n  \t\t\t}\n  \t\t});\n  }\n\n\t/**\n\t * Play events\n\t */\n\tplay() {\n  \tReplay.replay();\n\t}\n\n\t/**\n\t * Stop replay\n\t */\n\tstopReplay() {\n\t\tReplay.stop();\n  \tsetStateReady(true);\n\t}\n\n\t/**\n\t * Stop recording or replaying.\n\t */\n\tstop() {\n  \tif(stateIsRecord()) {\n  \t\tthis.stopRecord();\n\t\t}\n\t\telse if (stateIsReplay()) {\n  \t\tthis.stopReplay();\n\t\t}\n\t}\n\n\t/**\n\t * Load events from storage into replay storage.\n\t */\n  loadEventsFromLocalStorage() {\n  \tReplay.load(Storage.events);\n  }\n}\n",
     "static": true,
     "longname": "/Users/eska/dev/DOMReplay/src/js/domreplay/domreplay.js",
     "access": "public",
@@ -1329,15 +1329,27 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#initialize",
     "access": "public",
-    "description": null,
-    "lineNumber": 28,
-    "undocument": true,
-    "params": [],
+    "description": "",
+    "lineNumber": 33,
+    "unknown": [
+      {
+        "tagName": "@brief",
+        "tagValue": "Initializes the framework.\nThis will initialize all handlers and mutation observer."
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Promise<*>}"
+      }
+    ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    }
+        "Promise<*>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
   },
   {
     "__docId__": 83,
@@ -1349,9 +1361,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#tryToContinueReplay",
     "access": "public",
-    "description": null,
-    "lineNumber": 41,
-    "undocument": true,
+    "description": "checks for replay state and try to continue replay\nusually happens after navigation event during replay.",
+    "lineNumber": 50,
     "params": [],
     "return": null
   },
@@ -1365,9 +1376,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#startRecord",
     "access": "public",
-    "description": null,
-    "lineNumber": 47,
-    "undocument": true,
+    "description": "Start recording",
+    "lineNumber": 59,
     "params": [],
     "return": null
   },
@@ -1381,9 +1391,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#stopRecord",
     "access": "public",
-    "description": null,
-    "lineNumber": 58,
-    "undocument": true,
+    "description": "Stop recording",
+    "lineNumber": 73,
     "params": [],
     "return": null
   },
@@ -1397,9 +1406,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#play",
     "access": "public",
-    "description": null,
-    "lineNumber": 69,
-    "undocument": true,
+    "description": "Play events",
+    "lineNumber": 87,
     "params": [],
     "return": null
   },
@@ -1413,9 +1421,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#stopReplay",
     "access": "public",
-    "description": null,
-    "lineNumber": 73,
-    "undocument": true,
+    "description": "Stop replay",
+    "lineNumber": 94,
     "params": [],
     "return": null
   },
@@ -1429,9 +1436,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#stop",
     "access": "public",
-    "description": null,
-    "lineNumber": 78,
-    "undocument": true,
+    "description": "Stop recording or replaying.",
+    "lineNumber": 102,
     "params": [],
     "return": null
   },
@@ -1445,9 +1451,8 @@
     "static": false,
     "longname": "js/domreplay/domreplay.js~DomReplay#loadEventsFromLocalStorage",
     "access": "public",
-    "description": null,
-    "lineNumber": 87,
-    "undocument": true,
+    "description": "Load events from storage into replay storage.",
+    "lineNumber": 114,
     "params": [],
     "return": null
   },
@@ -3951,7 +3956,7 @@
     "kind": "manual",
     "longname": "/Users/eska/dev/DOMReplay/manual/custom_event.md",
     "name": "./manual/custom_event.md",
-    "content": "# How to record and replay your custom event\nThe framework makes it easy to implement your own event.\nSince adding event listeners, storage, and replaying functionality is handled under the hood the only thing we have to think of is handle and replay.\n\n### Create the custom event class.\nExample of an Click event class with the mandatory functions implemented.\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyButtonEvent extends {\n\t\n\t// Event type to record.\n\t// This has to be an unique event type added to the registry.\n\tget eventType() {\n\t\treturn 'click';\n\t}\n\t\n\t// list of tagnames where we should add handlers.\n\tget tagnames() {\n\t\treturn ['button', 'a'];\n\t}\n\t\n\t// This handler will be called when the framework is in record state.\n\t// and an element has been clicked.\n\t// The element will be passed as an argument.\n\thandler(element) {\n\t\t// make trail to identify the element which has been clicked.\n\t\tconst trail = this.makeTrailForElement(element);\n\t\t\n\t\t// store the information.\n\t\t// You'll be free to put what ever you want here, just make sure to\n\t\t// have a plan how to interpret the data afterwards.\n\t\tthis.syncStore({ trail });\n\t}\n\t\n\t// This function will be called when an event is about to be replayed\n\t// with this.eventType.\n\t// The information about the event to be played will be passed as\n\t// an argument. Notice this is the information you stored in the\n\t// handler function.\n\treplay(eventObject) {\n\t\treturn this.trackElementOnTrail(eventObject.trail)\n\t\t\t.then(element => {\n\t\t\t\t// adding a border to highlight the element;\n\t\t\t\tthis.addDomReplayBorderToElement(element);\n\t\t\t\t\n\t\t\t\t// executing click event after some time.\n\t\t\t\treturn this.executeTimingRelative(() => {\n\t\t\t\t\telement.click();\n\t\t\t\t\tthis.removeDomReplayBorderFromElement(element);\n\t\t\t\t\treturn element;\n\t\t\t\t});\n\t\t\t});\n\t}\n\t\n};\n```\n\n### Add the custom event to registry.\nBefore our newly created event will be in use by the framework we have to add it to the registry first.\nIt is important to call initialize on DomReplay object after the Registry has been populated.\n```javascript\nimport DomReplay, { Registry } from 'domreplay'; \nimport MyButtonEvent from './myButtonEvent';\n\nRegistry.registerEvent(new MyButtonEvent());\nconst domreplay = new DomReplay();\ndomreplay.initialize();\n```\n\nAnd thats it!\n\n## Replay Timing and ratio.\n\n### Timing\nTiming can easily be changed as we want. It is useful to slow down or speed up replays.\nThe default value is set to 1000ms\n\nExample how to set the _replayTiming variable from constructor\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyEvent extends {\n\tconstructor() {\n\t\tsuper();\n\t\tthis._replayTiming = 2000;\n\t\t// timing is set to 2000ms\n\t}\n}\n\n```\n\nFrom the outside just use the timing setter.\n```javascript\n\tconst event = new MyEvent();\n\tevent.timing = 500;\n\t// timing is set to 500ms\n```\n\n### Ratio\nSome actions happens faster than other. To mimic a more human behaviour for instance typing into an input field,\nwe can pass the ratio parameter into the executeTimingRelative function.\n\nIn this example the function is called after half of the replayTiming variable.\n```javascript\nthis.executeTimingRelative(() => {\n\t// do stuff.\n}, 0.5);\n```\n\n",
+    "content": "# How to record and replay your custom event\nThe framework makes it easy to implement your own event.\nSince adding event listeners, storage, and replaying functionality is handled under the hood the only thing we have to think of is handle and replay.\n\n### Create the custom event class.\nExample of an Click event class with the mandatory functions implemented.\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyButtonEvent extends {\n\t\n\t// Event type to record.\n\t// This has to be an unique event type added to the registry.\n\tget eventType() {\n\t\treturn 'click';\n\t}\n\t\n\t// list of tagnames where we should add handlers.\n\tget tagnames() {\n\t\treturn ['button', 'a'];\n\t}\n\t\n\t// This handler will be called when the framework is in record state.\n\t// and an element has been clicked.\n\t// The element will be passed as an argument.\n\thandler(element) {\n\t\t// make trail to identify the element which has been clicked.\n\t\tconst trail = this.makeTrailForElement(element);\n\t\t\n\t\t// store the information.\n\t\t// You'll be free to put what ever you want here, just make sure to\n\t\t// have a plan how to interpret the data afterwards.\n\t\tthis.syncStore({ trail });\n\t}\n\t\n\t// This function will be called when an event is about to be replayed\n\t// with this.eventType.\n\t// The information about the event to be played will be passed as\n\t// an argument. Notice this is the information you stored in the\n\t// handler function.\n\treplay(eventObject) {\n\t\treturn this.trackElementOnTrail(eventObject.trail)\n\t\t\t.then(element => {\n\t\t\t\t// adding a border to highlight the element;\n\t\t\t\tthis.addDomReplayBorderToElement(element);\n\t\t\t\t\n\t\t\t\t// executing click event after some time.\n\t\t\t\treturn this.executeTimingRelative(() => {\n\t\t\t\t\telement.click();\n\t\t\t\t\tthis.removeDomReplayBorderFromElement(element);\n\t\t\t\t\treturn element;\n\t\t\t\t});\n\t\t\t});\n\t}\n\t\n};\n```\n\n### Add the custom event to registry.\nBefore our newly created event will be in use by the framework we have to add it to the registry first.\nIt is important to call initialize on DomReplay object after the Registry has been populated.\n```javascript\nimport DomReplay, { Registry } from 'domreplay'; \nimport MyButtonEvent from './myButtonEvent';\n\nRegistry.registerEvent(new MyButtonEvent());\nconst domreplay = new DomReplay();\ndomreplay.initialize();\n```\n\nAnd thats it!\n\n## Replay Timing and ratio.\n\n### Timing\nTiming can easily be changed as we want. It is useful to slow down or speed up replays.\nThe default value is set to 1000ms\n\nExample how to set the _replayTiming variable from constructor\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyEvent extends EventBaseClass {\n\tconstructor() {\n\t\tsuper();\n\t\tthis._replayTiming = 2000;\n\t\t// timing is set to 2000ms\n\t}\n}\n\n```\n\nFrom the outside just use the timing setter.\n```javascript\n\tconst event = new MyEvent();\n\tevent.timing = 500;\n\t// timing is set to 500ms\n```\n\n### Ratio\nSome actions happens faster than other. To mimic a more human behaviour for instance typing into an input field,\nwe can pass the ratio parameter into the executeTimingRelative function.\n\nIn this example the function is called after half of the replayTiming variable.\n```javascript\nthis.executeTimingRelative(() => {\n\t// do stuff.\n}, 0.5);\n```\n\n",
     "static": true,
     "access": "public"
   }
