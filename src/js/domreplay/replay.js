@@ -131,6 +131,15 @@ class Replay {
 				}
 				const eventIndex = this.getCurrentEventIndex();
 				const event = this.getItem(eventIndex);
+
+				if (window.location.href !== event.location) {
+					window.location.assign(event.location);
+					const urlWithoutAnchor = window.location.origin + window.location.pathname + '#';
+					if (event.location.includes(urlWithoutAnchor)) {
+						window.location.reload();
+					}
+					return reject('Navigation needed');
+				}
 				dispatchReplayUpdateEventListener({ number: eventIndex + 1, of: this.getTotalEvents()});
 				Logger.debug(`Replaying event number ${eventIndex}`);
 				this.incrementCurrentEventIndedx();
