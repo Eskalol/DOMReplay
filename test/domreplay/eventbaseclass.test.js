@@ -95,21 +95,21 @@ describe('EventBaseClass', () => {
 			expect(event.tagnames).toContain('button');
 		});
 	});
-	
+
 	describe('replay border', () => {
 		it('should add replay border class to element', () => {
 			const element = document.createElement('div');
 			const event = new BasicEvent();
-			event._addDomReplayBorderToElement(element);
+			event.addDomReplayBorderToElement(element);
 			expect(element.classList.contains(EventBaseClass.DOM_REPLAY_BORDER_CLASS)).toBeTruthy();
 		});
 
 		it('should remove replay border class to element', () => {
 			const element = document.createElement('div');
 			const event = new BasicEvent();
-			event._addDomReplayBorderToElement(element);
+			event.addDomReplayBorderToElement(element);
 			expect(element.classList.contains(EventBaseClass.DOM_REPLAY_BORDER_CLASS)).toBeTruthy();
-			event._removeDomReplayBorderFromElement(element);
+			event.removeDomReplayBorderFromElement(element);
 			expect(element.classList.contains(EventBaseClass.DOM_REPLAY_BORDER_CLASS)).toBeFalsy();
 		});
 	});
@@ -119,7 +119,7 @@ describe('EventBaseClass', () => {
 			const tracker = jest.fn();
 			const event = new BasicEvent();
 			event.trackerFunc = tracker;
-			event._trackElementOnTrail('a trail');
+			event.trackElementOnTrail('a trail');
 			expect(tracker).toBeCalled();
 			expect(tracker.mock.calls.length).toBe(1);
 			expect(tracker).toBeCalledWith('a trail');
@@ -130,7 +130,7 @@ describe('EventBaseClass', () => {
 			const event = new BasicEvent();
 			event.trailFunc = trail;
 			const element = document.createElement('div');
-			event._makeTrailForElement(element);
+			event.makeTrailForElement(element);
 			expect(trail).toBeCalled();
 			expect(trail.mock.calls.length).toBe(1);
 			expect(trail).toBeCalledWith(element);
@@ -148,7 +148,7 @@ describe('EventBaseClass', () => {
 			jest.useFakeTimers();
 			const event = new BasicEvent();
 			event.timing = 1000;
-			event._executeTimingRelative(() => {});
+			event.executeTimingRelative(() => {});
 			expect(setTimeout).toHaveBeenCalledTimes(1);
 			expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
 			jest.clearAllTimers();
@@ -158,7 +158,7 @@ describe('EventBaseClass', () => {
 			jest.useFakeTimers();
 			const event = new BasicEvent();
 			event.timing = 1000;
-			event._executeTimingRelative(() => {}, 0.5);
+			event.executeTimingRelative(() => {}, 0.5);
 			expect(setTimeout).toHaveBeenCalledTimes(1);
 			expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000 * 0.5);
 			jest.clearAllTimers();
@@ -166,7 +166,7 @@ describe('EventBaseClass', () => {
 
 		it('should execute function', () => {
 			const event = new BasicEvent();
-			expect(event._executeTimingRelative(() => 'cool')).resolves.toBe('cool');
+			expect(event.executeTimingRelative(() => 'cool')).resolves.toBe('cool');
 		});
 	});
 });

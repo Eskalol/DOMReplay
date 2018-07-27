@@ -11,22 +11,22 @@ export default class ClickEvent extends EventBaseClass {
 	}
 
 	handler(element) {
-		const trail = this._makeTrailForElement(element);
-		this._syncStore({ trail });
+		const trail = this.makeTrailForElement(element);
+		this.syncStore({ trail });
 	}
 
 	replay(eventObject) {
-		return this._trackElementOnTrail(eventObject.trail)
+		return this.trackElementOnTrail(eventObject.trail)
 			.then(element => {
-				this._addDomReplayBorderToElement(element);
-				return this._executeTimingRelative(() => {
+				this.addDomReplayBorderToElement(element);
+				return this.executeTimingRelative(() => {
 					element.click();
-					this._removeDomReplayBorderFromElement(element);
+					this.removeDomReplayBorderFromElement(element);
 					return element;
 				});
 			})
 			.then(() => {
-				return this._executeTimingRelative(() => {}, 1);
+				return this.executeTimingRelative(() => {});
 			});
 	}
 }

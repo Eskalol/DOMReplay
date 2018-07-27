@@ -14,13 +14,13 @@ export default class InputEvent extends EventBaseClass {
 
 	handler(element) {
 			Logger.debug('Input event handler');
-			const lastEvent = this._getLastStored();
-			const trail = this._makeTrailForElement()
-			if (lastEvent && JSON.stringify(this._makeTrailForElement(element)) === JSON.stringify(lastEvent.trail)) {
+			const lastEvent = this.getLastStored();
+			const trail = this.makeTrailForElement()
+			if (lastEvent && JSON.stringify(this.makeTrailForElement(element)) === JSON.stringify(lastEvent.trail)) {
 				Logger.debug('Updates last event');
-				this._updateLastStored({ value: element.value });
+				this.updateLastStored({ value: element.value });
 			} else {
-				this._syncStore({
+				this.syncStore({
 					value: element.value,
 					trail
 				});
@@ -28,9 +28,9 @@ export default class InputEvent extends EventBaseClass {
 	}
 
 	replay(eventObject) {
-		return this._trackElementOnTrail(eventObject.trail)
+		return this.trackElementOnTrail(eventObject.trail)
 			.then(element => {
-				this._addDomReplayBorderToElement(element);
+				this.addDomReplayBorderToElement(element);
 				element.focus();
 				return new promise(resolve => {
 					let index = 0;
@@ -48,8 +48,8 @@ export default class InputEvent extends EventBaseClass {
 				});
 			})
 			.then(element => {
-				return this._executeTimingRelative(() => {
-					this._removeDomReplayBorderFromElement(element);
+				return this.executeTimingRelative(() => {
+					this.removeDomReplayBorderFromElement(element);
 					return element;
 				}, 0.5)
 			})

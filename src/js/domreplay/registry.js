@@ -95,7 +95,7 @@ class RegistrySingleton {
 	 * Sets trail function for all events in registry.
 	 * @param {function} trailFunc
 	 */
-	setTrailFuncForAllEventObjectsInRegistry(trailFunc) {
+	setTrailFuncForAllEventsInRegistry(trailFunc) {
 		for (let event of this._events.values()) {
 			event.trailFunc = trailFunc;
 		}
@@ -105,7 +105,7 @@ class RegistrySingleton {
 	 * Sets tracker function for all events in registry.
  	 * @param {function} trackerFunc
 	 */
-	setTrackerFuncForAllEventObjectsInRegistry(trackerFunc) {
+	setTrackerFuncForAllEventsInRegistry(trackerFunc) {
 		for (let event of this._events.values()) {
 			event.trackerFunc = trackerFunc
 		}

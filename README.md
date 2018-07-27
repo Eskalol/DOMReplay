@@ -21,4 +21,5 @@ hud.render();
 
 
 # Guides
-* [Custom Element Tracker](manual/custom_element_tracker.md)
+* [Custom Element Tracker](./manual/custom_element_tracker.md)
+* [Custom event](./manual/custom_event.md)

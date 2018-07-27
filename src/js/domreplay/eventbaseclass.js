@@ -37,11 +37,11 @@ export default class EventBaseClass {
 	 * Executes function after timeout
 	 * @param func 							- function to call
 	 * @param {float} ratio 		- relative to timing.
-	 * @param args 							- function arguments
+	 * @param args 							- arguments to be passed to the passed function.
 	 * @returns {Promise} 			- resolves with function return value after function has been executed.
 	 * @private
 	 */
-	_executeTimingRelative(func, ratio = 1.0, ...args) {
+	executeTimingRelative(func, ratio = 1.0, ...args) {
 		return new Promise(resolve => {
 			setTimeout(() => {
 				const retval = func(...args);
@@ -69,7 +69,7 @@ export default class EventBaseClass {
 	 * @param {HTMLElement} element 	- HTML element.
 	 * @private
 	 */
-	_addDomReplayBorderToElement(element) {
+	addDomReplayBorderToElement(element) {
 		element.classList.add(EventBaseClass.DOM_REPLAY_BORDER_CLASS);
 	}
 
@@ -78,7 +78,7 @@ export default class EventBaseClass {
 	 * @param {HTMLElement} element		- HTML element.
 	 * @private
 	 */
-	_removeDomReplayBorderFromElement(element) {
+	removeDomReplayBorderFromElement(element) {
 		element.classList.remove(EventBaseClass.DOM_REPLAY_BORDER_CLASS);
 	}
 
@@ -88,7 +88,7 @@ export default class EventBaseClass {
 	 * @returns {*}
 	 * @private
 	 */
-	_trackElementOnTrail(trail) {
+	trackElementOnTrail(trail) {
 		return this._trackerFunc(trail);
 	}
 
@@ -98,7 +98,7 @@ export default class EventBaseClass {
 	 * @returns {*}
 	 * @private
 	 */
-	_makeTrailForElement(element) {
+	makeTrailForElement(element) {
 		return this._trailFunc(element);
 	}
 
@@ -133,7 +133,7 @@ export default class EventBaseClass {
 	 * @param {HTMLElement} element
 	 * @private
 	 */
-	_handler(element) {
+	handler(element) {
 		if (stateIsRecord()) {
 			Logger.debug(`handling ${this.eventType} event on ${element}`);
 			this.handler(element);
@@ -154,7 +154,7 @@ export default class EventBaseClass {
 	 * @returns {Object} an object of the last stored event.
 	 * @private
 	 */
-	_getLastStored() {
+	getLastStored() {
 		return Storage.getLastStored();
 	}
 
@@ -163,7 +163,7 @@ export default class EventBaseClass {
 	 * @param {Object} updates 	- update object.
 	 * @private
 	 */
-	_updateLastStored(updates) {
+	updateLastStored(updates) {
 		return Storage.updateLastStored(updates);
 	}
 
@@ -173,7 +173,7 @@ export default class EventBaseClass {
 	 * @returns {*|Promise<object>}
 	 * @private
 	 */
-	_store(eventObject) {
+	store(eventObject) {
 		return Storage.store(this.eventType, eventObject)
 			.catch(error => {
 				throw error;
@@ -181,12 +181,12 @@ export default class EventBaseClass {
 	}
 
 	/**
-	 * waits for the promise returned by this._store to be resolved.
+	 * waits for the promise returned by this.store to be resolved.
 	 * @param {Object} eventObject
 	 * @returns {Promise<object>}
 	 * @private
 	 */
-	async _syncStore(eventObject) {
-		return await this._store(eventObject);
+	async syncStore(eventObject) {
+		return await this.store(eventObject);
 	}
 }

@@ -13,6 +13,7 @@
 		  	"index": "./README.md",
 		  	"files": [
 		  		"./manual/custom_element_tracker.md",
+					"./manual/custom_event.md",
 		  		"./manual/CHANGELOG.md"
 		  	]
 		  }
@@ -24,7 +25,8 @@
 	  	  "manual": {
 			  	"index": "./README.md",
 			  	"files": [
-			  		"./manual/custom_element_tracker.md"
+			  		"./manual/custom_element_tracker.md",
+						"./manual/custom_event.md"
 			  	]
 			  }
     	}
