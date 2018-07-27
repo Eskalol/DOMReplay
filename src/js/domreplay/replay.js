@@ -1,176 +1,62 @@
 import Logger from './logger';
-import { stateIsReady, setStateReplay, setStateReady } from './state';
-import { tracker } from './domhound';
+import { setStateReplay, setStateReady } from './state'
+import RegistrySingleton from './registry';
+import { dispatchReplayUpdateEventListener } from './dispatcher'
 
-
-export default class Replay {
+class Replay {
 	static storageKey;
-
+	static instance;
 
 	constructor() {
 		this.storageKey = 'DOMREPLAY_REPLAY_EVENTS';
-		this.tracker = tracker;
+		if (!this.instance) {
+			this.instance = this;
+			this.cancel = false;
+		}
+		return this.instance;
 	}
 
-	/**
-	 * Loads event object into replay storage
-	 * @param  {Object} eventObject the event object to be replayed
-	 */
-	load(eventObject) {
-		const replayObject = {
-			nextEvent: 0,
-			eventObject
-		};
-		this._replayObject = replayObject;
-	}
-
-	/**
-	 * Clears the replay storage
-	 */
-	clear() {
-		window.localStorage.removeItem(this.storageKey);
-	}
-
-	set _replayObject(replayObject) {
-		window.localStorage.setItem(this.storageKey, JSON.stringify(replayObject));
-	}
-
-	get _replayObject() {
+	get events() {
 		return JSON.parse(window.localStorage.getItem(this.storageKey));
 	}
 
-	set _nextEventIndex(index) {
-		let replayObject = this._replayObject;
-		replayObject.nextEvent = index;
-		this._replayObject = replayObject;
+	stop() {
+		this.cancel = true;
 	}
 
-	get _totalEventCount() {
-		let replayObject = this._replayObject;
-		return replayObject.eventObject.count;
+	updateReplayStorage(object) {
+		window.localStorage.setItem(this.storageKey, JSON.stringify(object));
 	}
 
-	get _nextEventIndex() {
-		let replayObject = this._replayObject;
-		return replayObject.nextEvent;
+	getCurrentEventIndex() {
+		return this.events.currentEventIndex;
 	}
 
-	get _nextEvent() {
-		let replayObject = this._replayObject;
-		let nextEventIndex = this._nextEventIndex;
-		this._nextEventIndex = nextEventIndex + 1;
-		return replayObject.eventObject.eventList[nextEventIndex];
+	incrementCurrentEventIndedx() {
+		this.updateReplayStorage({
+			...this.events,
+			currentEventIndex: this.getCurrentEventIndex() + 1
+		})
 	}
 
-	setCustomTrackerFunction(func) {
-		this.tracker = func;
+	getItem(index) {
+		return this.events.events[index];
 	}
 
-	/**
-	 * Resets events to be played.
-	 */
-	reset() {
-		this._nextEventIndex = 0;
+	getTotalEvents() {
+		return this.events.count;
 	}
 
-	/**
-	 * Gets the next step to be played.
-	 * if there is no more events to be played it will
-	 * @return {Object} returns nextEvent object or null.
-	 */
-	getNextStep() {
-		if (this._nextEventIndex >= this._totalEventCount) {
-			return null
-		} else {
-			return this._nextEvent;
-		}
+	clear() {
+		window.localStorage.removeItem(this.storageKey);
+		Logger.debug('Replay stoage cleared!');
 	}
 
-	/**
-	 * Executes click event and waits for 1 sec
-	 * @param  {HTMLElement} element - element to perform click on.
-	 * @return {Promise}     resolves when clicked.
-	 */
-	executeClickEvent(element) {
-		return new Promise(resolve => {
-			setTimeout(() => {
-				element.click();
-				resolve(false);
-			}, 1000);
-		});
-	}
-
-	/**
-	 * executes focus on element
-	 * @param  {HTMLElement} element - element to perform focus on.
-	 * @return {Promise}     resolves when element has been focused.
-	 */
-	executeFocusElement(element) {
-		return new Promise(resolve => {
-			setTimeout(() => {
-				element.focus();
-				resolve(false);
-			}, 1000);
-		});
-	}
-
-	/**
-	 * Executes Input event on element.
-	 * it will type one character at a time and, liker normal typing.
-	 * @param  {HTMLElement} element - html element to perform input events on.
-	 * @param  {String} 		 value 	 - value to type in.
-	 * @return {Promise}     returns Promise, resolves when done.
-	 */
-	async executeInputEvent(element, value) {
-		await this.executeFocusElement(element);
-		return new Promise(resolve => {
-				let index = 0;
-				const time = setInterval(() => {
-					if (index == value.length) {
-						clearInterval(time);
-						resolve(false);
-					}
-					element.value = element.value + value.substring(index, index + 1);
-					let event = new InputEvent('input', {bubbles: true, data: value[index], inputType: 'insertText' });
-					let textInputEvent = new Event('textInput', {bubbles: true, data: value[index++]});
-					element.dispatchEvent(event);
-					element.dispatchEvent(textInputEvent);
-				}, 100);
-		});
-	}
-
-	/**
-	 * Executes change event on element
-	 * @param  {HTMLElement} element - element to perform change event on.
-	 * @return {Promise}         resolves when done.
-	 */
-	executeChangeEvent(element) {
-		return new Promise(resolve => {
-			setTimeout(() => {
-				const event = new Event('change', {bubbles: true});
-				element.dispatchEvent(event);
-				resolve(false);
-			}, 1000);
-		});
-	}
-
-	/**
-	 * execute event proxy.
-	 * It will check for which event to be executed and then
-	 * return the correct promise.
-	 * @param  {HTMLElement} element     - HTML element to preform event on.
-	 * @param  {Object} eventObject      - event object which contains information about the event.
-	 * @return {Promise}             	returns Promise according to the event.
-	 */
-	executeEvent(element, eventObject) {
-		Logger.debug(`Executing ${eventObject.type} event.`);
-		if (eventObject.type === 'click') {
-			return this.executeClickEvent(element);
-		} else if (eventObject.type === 'input') {
-			return this.executeInputEvent(element, eventObject.value);
-		} else if (eventObject.type === 'change') {
-			return this.executeChangeEvent(element);
-		}
+	load(events) {
+		this.updateReplayStorage({
+			...events,
+			currentEventIndex: 0
+		})
 	}
 
 	/**
@@ -191,66 +77,48 @@ export default class Replay {
 		});
 	}
 
-	/**
-	 * Plays a single step in the event queue.
-	 * Resolves to true when there is noe event to be executed.
-	 * Resolves to false when there is still events to be executed.
-	 * @return {Promise} returns Promise, true if there is no events left, otherwise false.
-	 */
-	async playStep() {
-		await this.readyStateCheck();
-		const nextStep = this.getNextStep();
-		if (!nextStep) {
-			return new Promise(resolve => resolve(true));
-		}
-
-		const element = await this.tracker(nextStep.trail);
-		if (!nextStep && !element) {
-			this._nextEventIndex--;
-			return new Promise(resolve => resolve(false));
-		}
-
-		element.classList.add('dom-replay-border');
-		const result = await this.executeEvent(element, nextStep);
-		element.classList.remove('dom-replay-border');
-		return result;
+	playNextEvent() {
+		return new Promise(async (resolve, reject) => {
+				if (this.cancel) {
+					this.cancel = false;
+					Logger.debug('Replay promise chain cancelled.');
+					reject('Cancelled by user');
+				}
+				const eventIndex = this.getCurrentEventIndex();
+				const event = this.getItem(eventIndex);
+				dispatchReplayUpdateEventListener({ number: eventIndex + 1, of: this.getTotalEvents()});
+				Logger.debug(`Replaying event number ${eventIndex}`);
+				this.incrementCurrentEventIndedx();
+				const eventClass = RegistrySingleton.getEvent(event.type);
+				await eventClass.replay(event)
+					.then(() => {
+						Logger.debug(`Done replaying event number ${eventIndex}`);
+					})
+					.catch(err => {
+						return reject(err);
+					});
+				return resolve();
+		});
 	}
 
-	/**
-	 * Play a sequence of events. stored in the replay storage.
-	 * @return {Promise} eventually resolves with total events and played events.
-	 */
-	play() {
-		Logger.debug('replay: start replaying events!');
-		if (!stateIsReady()) {
-			Logger.debug('state is not ready');
-		}
+	_buildReplayChain() {
+		const currentIndex = this.getCurrentEventIndex();
+		const totalEvents = this.getTotalEvents();
+		let promise = this.readyStateCheck();
 
-		if (!this._replayObject) {
-			Logger.warn('Please load event see Replay.load');
-			return;
+		for(let i = currentIndex; i < totalEvents; i++) {
+			promise = promise.then(() => this.playNextEvent());
 		}
+		promise.then(() => setStateReady(true));
+		Logger.debug(`Done building replay chain`);
+	}
 
-		return setStateReplay()
-			.then(async () => {
-				let done = false;
-				while(!done) {
-					done = await this.playStep();
-					Logger.debug(`stepz ${done}`);
-				}
-				Logger.debug('Wow');
-				return {
-					total: this._totalEventCount,
-					replayed: this._nextEventIndex
-				};
-			}).then(({total, replayed}) => {
-				if (total == replayed) {
-					setStateReady(true);
-				}
-				return {
-					total,
-					replayed
-				};
+	async replay() {
+		await setStateReplay()
+			.then(() => {
+				this._buildReplayChain();
 			});
 	}
 }
+
+export default new Replay();
