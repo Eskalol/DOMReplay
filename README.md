@@ -10,9 +10,16 @@
 
 
 # Basic usage
+domreplay.initialize() has to be called after the registry has been populated.
 ```javascript
-import DomReplay, { Hud } from 'domreplay';
+import DomReplay, { Hud, Registry, events } from 'domreplay';
+// Populate the registry.
+Registry.registerEvent(new events.ClickEvent());
+Registry.registerEvent(new events.InputEvent());
+
+// create the dom replay instance and initialize it.
 const domreplay = new DomReplay({debugmode: true});
+domreplay.initialize();
 
 // If you also want to render the shipped hud.
 const hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});
