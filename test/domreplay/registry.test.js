@@ -147,4 +147,19 @@ describe('RegistrySingleton', () => {
 		expect(events).toContain(changeEvent);
 		expect(events).not.toContain(clickEvent);
 	});
+
+	it('should change timing on all events in registry', () => {
+		const clickEvent = new ClickEvent();
+		const inputEvent = new InputEvent();
+		const changeEvent = new ChangeEvent();
+
+		RegistrySingleton.registerEvent(clickEvent);
+		RegistrySingleton.registerEvent(inputEvent);
+		RegistrySingleton.registerEvent(changeEvent);
+
+		RegistrySingleton.setTimingForAllEventsInRegistry(2000);
+		expect(clickEvent.timing).toBe(2000);
+		expect(inputEvent.timing).toBe(2000);
+		expect(changeEvent.timing).toBe(2000);
+	});
 });

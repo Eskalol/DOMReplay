@@ -110,6 +110,17 @@ class RegistrySingleton {
 			event.trackerFunc = trackerFunc
 		}
 	}
+
+	/**
+	 * @brief Set timing for all events in registry
+	 * Usually called when slowing down or speeding up replays.
+	 * @param {Number} timing - timing in ms
+	 */
+	setTimingForAllEventsInRegistry(timing) {
+		for (let event of this._events.values()) {
+			event.timing = timing;
+		}
+	}
 }
 
 
