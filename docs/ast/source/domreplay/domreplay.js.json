@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2111,
+  "end": 2408,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 120,
+      "line": 136,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2111,
+    "end": 2408,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 120,
+        "line": 136,
         "column": 0
       }
     },
@@ -710,14 +710,14 @@
       {
         "type": "ExportNamedDeclaration",
         "start": 301,
-        "end": 2110,
+        "end": 2407,
         "loc": {
           "start": {
             "line": 17,
             "column": 0
           },
           "end": {
-            "line": 119,
+            "line": 135,
             "column": 1
           }
         },
@@ -726,14 +726,14 @@
         "declaration": {
           "type": "ClassDeclaration",
           "start": 308,
-          "end": 2110,
+          "end": 2407,
           "loc": {
             "start": {
               "line": 17,
               "column": 7
             },
             "end": {
-              "line": 119,
+              "line": 135,
               "column": 1
             }
           },
@@ -759,14 +759,14 @@
           "body": {
             "type": "ClassBody",
             "start": 324,
-            "end": 2110,
+            "end": 2407,
             "loc": {
               "start": {
                 "line": 17,
                 "column": 23
               },
               "end": {
-                "line": 119,
+                "line": 135,
                 "column": 1
               }
             },
@@ -4282,7 +4282,8 @@
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
@@ -4297,6 +4298,395 @@
                       },
                       "end": {
                         "line": 115,
+                        "column": 4
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n\t * Sets the replay speed divider.\n\t * @param divider\t\t- higher is faster, lower is slower.\n\t ",
+                    "start": 2111,
+                    "end": 2211,
+                    "loc": {
+                      "start": {
+                        "line": 120,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 123,
+                        "column": 4
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ClassMethod",
+                "start": 2214,
+                "end": 2277,
+                "loc": {
+                  "start": {
+                    "line": 124,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 126,
+                    "column": 2
+                  }
+                },
+                "static": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 2214,
+                  "end": 2228,
+                  "loc": {
+                    "start": {
+                      "line": 124,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 124,
+                      "column": 16
+                    },
+                    "identifierName": "setReplaySpeed"
+                  },
+                  "name": "setReplaySpeed",
+                  "leadingComments": null
+                },
+                "kind": "method",
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "start": 2229,
+                    "end": 2236,
+                    "loc": {
+                      "start": {
+                        "line": 124,
+                        "column": 17
+                      },
+                      "end": {
+                        "line": 124,
+                        "column": 24
+                      },
+                      "identifierName": "divider"
+                    },
+                    "name": "divider"
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 2238,
+                  "end": 2277,
+                  "loc": {
+                    "start": {
+                      "line": 124,
+                      "column": 26
+                    },
+                    "end": {
+                      "line": 126,
+                      "column": 2
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 2243,
+                      "end": 2274,
+                      "loc": {
+                        "start": {
+                          "line": 125,
+                          "column": 3
+                        },
+                        "end": {
+                          "line": 125,
+                          "column": 34
+                        }
+                      },
+                      "expression": {
+                        "type": "CallExpression",
+                        "start": 2243,
+                        "end": 2273,
+                        "loc": {
+                          "start": {
+                            "line": 125,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 125,
+                            "column": 33
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 2243,
+                          "end": 2264,
+                          "loc": {
+                            "start": {
+                              "line": 125,
+                              "column": 3
+                            },
+                            "end": {
+                              "line": 125,
+                              "column": 24
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 2243,
+                            "end": 2249,
+                            "loc": {
+                              "start": {
+                                "line": 125,
+                                "column": 3
+                              },
+                              "end": {
+                                "line": 125,
+                                "column": 9
+                              },
+                              "identifierName": "Replay"
+                            },
+                            "name": "Replay"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 2250,
+                            "end": 2264,
+                            "loc": {
+                              "start": {
+                                "line": 125,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 125,
+                                "column": 24
+                              },
+                              "identifierName": "setReplaySpeed"
+                            },
+                            "name": "setReplaySpeed"
+                          },
+                          "computed": false
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "start": 2265,
+                            "end": 2272,
+                            "loc": {
+                              "start": {
+                                "line": 125,
+                                "column": 25
+                              },
+                              "end": {
+                                "line": 125,
+                                "column": 32
+                              },
+                              "identifierName": "divider"
+                            },
+                            "name": "divider"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "directives": [],
+                  "trailingComments": null
+                },
+                "leadingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n\t * Sets the replay speed divider.\n\t * @param divider\t\t- higher is faster, lower is slower.\n\t ",
+                    "start": 2111,
+                    "end": 2211,
+                    "loc": {
+                      "start": {
+                        "line": 120,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 123,
+                        "column": 4
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n\t * Gets the current replay speed.\n\t * @returns {*}\n\t ",
+                    "start": 2280,
+                    "end": 2340,
+                    "loc": {
+                      "start": {
+                        "line": 128,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 131,
+                        "column": 4
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ClassMethod",
+                "start": 2342,
+                "end": 2405,
+                "loc": {
+                  "start": {
+                    "line": 132,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 134,
+                    "column": 2
+                  }
+                },
+                "static": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 2342,
+                  "end": 2363,
+                  "loc": {
+                    "start": {
+                      "line": 132,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 132,
+                      "column": 22
+                    },
+                    "identifierName": "getCurrentReplaySpeed"
+                  },
+                  "name": "getCurrentReplaySpeed",
+                  "leadingComments": null
+                },
+                "kind": "method",
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 2366,
+                  "end": 2405,
+                  "loc": {
+                    "start": {
+                      "line": 132,
+                      "column": 25
+                    },
+                    "end": {
+                      "line": 134,
+                      "column": 2
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "start": 2371,
+                      "end": 2402,
+                      "loc": {
+                        "start": {
+                          "line": 133,
+                          "column": 3
+                        },
+                        "end": {
+                          "line": 133,
+                          "column": 34
+                        }
+                      },
+                      "argument": {
+                        "type": "CallExpression",
+                        "start": 2378,
+                        "end": 2401,
+                        "loc": {
+                          "start": {
+                            "line": 133,
+                            "column": 10
+                          },
+                          "end": {
+                            "line": 133,
+                            "column": 33
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 2378,
+                          "end": 2399,
+                          "loc": {
+                            "start": {
+                              "line": 133,
+                              "column": 10
+                            },
+                            "end": {
+                              "line": 133,
+                              "column": 31
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 2378,
+                            "end": 2384,
+                            "loc": {
+                              "start": {
+                                "line": 133,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 133,
+                                "column": 16
+                              },
+                              "identifierName": "Replay"
+                            },
+                            "name": "Replay"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 2385,
+                            "end": 2399,
+                            "loc": {
+                              "start": {
+                                "line": 133,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 133,
+                                "column": 31
+                              },
+                              "identifierName": "getReplaySpeed"
+                            },
+                            "name": "getReplaySpeed"
+                          },
+                          "computed": false
+                        },
+                        "arguments": []
+                      }
+                    }
+                  ],
+                  "directives": []
+                },
+                "leadingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n\t * Gets the current replay speed.\n\t * @returns {*}\n\t ",
+                    "start": 2280,
+                    "end": 2340,
+                    "loc": {
+                      "start": {
+                        "line": 128,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 131,
                         "column": 4
                       }
                     }
@@ -4504,6 +4894,38 @@
         },
         "end": {
           "line": 115,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n\t * Sets the replay speed divider.\n\t * @param divider\t\t- higher is faster, lower is slower.\n\t ",
+      "start": 2111,
+      "end": 2211,
+      "loc": {
+        "start": {
+          "line": 120,
+          "column": 1
+        },
+        "end": {
+          "line": 123,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n\t * Gets the current replay speed.\n\t * @returns {*}\n\t ",
+      "start": 2280,
+      "end": 2340,
+      "loc": {
+        "start": {
+          "line": 128,
+          "column": 1
+        },
+        "end": {
+          "line": 131,
           "column": 4
         }
       }
@@ -12954,6 +13376,329 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n\t * Sets the replay speed divider.\n\t * @param divider\t\t- higher is faster, lower is slower.\n\t ",
+      "start": 2111,
+      "end": 2211,
+      "loc": {
+        "start": {
+          "line": 120,
+          "column": 1
+        },
+        "end": {
+          "line": 123,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "setReplaySpeed",
+      "start": 2214,
+      "end": 2228,
+      "loc": {
+        "start": {
+          "line": 124,
+          "column": 2
+        },
+        "end": {
+          "line": 124,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2228,
+      "end": 2229,
+      "loc": {
+        "start": {
+          "line": 124,
+          "column": 16
+        },
+        "end": {
+          "line": 124,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "divider",
+      "start": 2229,
+      "end": 2236,
+      "loc": {
+        "start": {
+          "line": 124,
+          "column": 17
+        },
+        "end": {
+          "line": 124,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2236,
+      "end": 2237,
+      "loc": {
+        "start": {
+          "line": 124,
+          "column": 24
+        },
+        "end": {
+          "line": 124,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2238,
+      "end": 2239,
+      "loc": {
+        "start": {
+          "line": 124,
+          "column": 26
+        },
+        "end": {
+          "line": 124,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Replay",
+      "start": 2243,
+      "end": 2249,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 3
+        },
+        "end": {
+          "line": 125,
+          "column": 9
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2249,
+      "end": 2250,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 9
+        },
+        "end": {
+          "line": 125,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "setReplaySpeed",
+      "start": 2250,
+      "end": 2264,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 10
+        },
+        "end": {
+          "line": 125,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2264,
+      "end": 2265,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 24
+        },
+        "end": {
+          "line": 125,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "divider",
+      "start": 2265,
+      "end": 2272,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 25
+        },
+        "end": {
+          "line": 125,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2272,
+      "end": 2273,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 32
+        },
+        "end": {
+          "line": 125,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2273,
+      "end": 2274,
+      "loc": {
+        "start": {
+          "line": 125,
+          "column": 33
+        },
+        "end": {
+          "line": 125,
+          "column": 34
+        }
+      }
+    },
+    {
       "type": {
         "label": "}",
         "beforeExpr": false,
@@ -12965,15 +13710,364 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2109,
-      "end": 2110,
+      "start": 2276,
+      "end": 2277,
       "loc": {
         "start": {
-          "line": 119,
+          "line": 126,
+          "column": 1
+        },
+        "end": {
+          "line": 126,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n\t * Gets the current replay speed.\n\t * @returns {*}\n\t ",
+      "start": 2280,
+      "end": 2340,
+      "loc": {
+        "start": {
+          "line": 128,
+          "column": 1
+        },
+        "end": {
+          "line": 131,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "getCurrentReplaySpeed",
+      "start": 2342,
+      "end": 2363,
+      "loc": {
+        "start": {
+          "line": 132,
+          "column": 1
+        },
+        "end": {
+          "line": 132,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2363,
+      "end": 2364,
+      "loc": {
+        "start": {
+          "line": 132,
+          "column": 22
+        },
+        "end": {
+          "line": 132,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2364,
+      "end": 2365,
+      "loc": {
+        "start": {
+          "line": 132,
+          "column": 23
+        },
+        "end": {
+          "line": 132,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2366,
+      "end": 2367,
+      "loc": {
+        "start": {
+          "line": 132,
+          "column": 25
+        },
+        "end": {
+          "line": 132,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "return",
+        "keyword": "return",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "return",
+      "start": 2371,
+      "end": 2377,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 3
+        },
+        "end": {
+          "line": 133,
+          "column": 9
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Replay",
+      "start": 2378,
+      "end": 2384,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 10
+        },
+        "end": {
+          "line": 133,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2384,
+      "end": 2385,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 16
+        },
+        "end": {
+          "line": 133,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "getReplaySpeed",
+      "start": 2385,
+      "end": 2399,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 17
+        },
+        "end": {
+          "line": 133,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2399,
+      "end": 2400,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 31
+        },
+        "end": {
+          "line": 133,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2400,
+      "end": 2401,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 32
+        },
+        "end": {
+          "line": 133,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2401,
+      "end": 2402,
+      "loc": {
+        "start": {
+          "line": 133,
+          "column": 33
+        },
+        "end": {
+          "line": 133,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2404,
+      "end": 2405,
+      "loc": {
+        "start": {
+          "line": 134,
+          "column": 1
+        },
+        "end": {
+          "line": 134,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2406,
+      "end": 2407,
+      "loc": {
+        "start": {
+          "line": 135,
           "column": 0
         },
         "end": {
-          "line": 119,
+          "line": 135,
           "column": 1
         }
       }
@@ -12991,15 +14085,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2111,
-      "end": 2111,
+      "start": 2408,
+      "end": 2408,
       "loc": {
         "start": {
-          "line": 120,
+          "line": 136,
           "column": 0
         },
         "end": {
-          "line": 120,
+          "line": 136,
           "column": 0
         }
       }

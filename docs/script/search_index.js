@@ -648,6 +648,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/domreplay.js~domreplay#getcurrentreplayspeed",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-getCurrentReplaySpeed",
+    "js/domreplay/domreplay.js~DomReplay#getCurrentReplaySpeed",
+    "method"
+  ],
+  [
     "js/domreplay/domreplay.js~domreplay#initialize",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-initialize",
     "js/domreplay/domreplay.js~DomReplay#initialize",
@@ -663,6 +669,12 @@ window.esdocSearchIndex = [
     "js/domreplay/domreplay.js~domreplay#play",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-play",
     "js/domreplay/domreplay.js~DomReplay#play",
+    "method"
+  ],
+  [
+    "js/domreplay/domreplay.js~domreplay#setreplayspeed",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-setReplaySpeed",
+    "js/domreplay/domreplay.js~DomReplay#setReplaySpeed",
     "method"
   ],
   [
@@ -772,6 +784,12 @@ window.esdocSearchIndex = [
     "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-replay",
     "js/domreplay/eventbaseclass.js~EventBaseClass#replay",
     "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#replayspeed",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-set-replaySpeed",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#replaySpeed",
+    "member"
   ],
   [
     "js/domreplay/eventbaseclass.js~eventbaseclass#store",
@@ -906,6 +924,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/registry.js~registrysingleton#setreplayspeedforalleventsinregistry",
+    "class/js/domreplay/registry.js~RegistrySingleton.html#instance-method-setReplaySpeedForAllEventsInRegistry",
+    "js/domreplay/registry.js~RegistrySingleton#setReplaySpeedForAllEventsInRegistry",
+    "method"
+  ],
+  [
     "js/domreplay/registry.js~registrysingleton#settimingforalleventsinregistry",
     "class/js/domreplay/registry.js~RegistrySingleton.html#instance-method-setTimingForAllEventsInRegistry",
     "js/domreplay/registry.js~RegistrySingleton#setTimingForAllEventsInRegistry",
@@ -978,6 +1002,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/replay.js~replay#getreplayspeed",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-getReplaySpeed",
+    "js/domreplay/replay.js~Replay#getReplaySpeed",
+    "method"
+  ],
+  [
     "js/domreplay/replay.js~replay#gettotalevents",
     "class/js/domreplay/replay.js~Replay.html#instance-method-getTotalEvents",
     "js/domreplay/replay.js~Replay#getTotalEvents",
@@ -1017,6 +1047,12 @@ window.esdocSearchIndex = [
     "js/domreplay/replay.js~replay#replay",
     "class/js/domreplay/replay.js~Replay.html#instance-method-replay",
     "js/domreplay/replay.js~Replay#replay",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#setreplayspeed",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-setReplaySpeed",
+    "js/domreplay/replay.js~Replay#setReplaySpeed",
     "method"
   ],
   [
@@ -1314,6 +1350,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/hud/index.js~hud#getcontainer",
+    "class/js/hud/index.js~Hud.html#instance-method-getContainer",
+    "js/hud/index.js~Hud#getContainer",
+    "method"
+  ],
+  [
     "js/hud/index.js~hud#getdropdownbuttonevent",
     "class/js/hud/index.js~Hud.html#instance-method-getDropDownButtonEvent",
     "js/hud/index.js~Hud#getDropDownButtonEvent",
@@ -1326,21 +1368,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "js/hud/index.js~hud#getplaystepbuttonevent",
-    "class/js/hud/index.js~Hud.html#instance-method-getPlayStepButtonEvent",
-    "js/hud/index.js~Hud#getPlayStepButtonEvent",
-    "method"
-  ],
-  [
     "js/hud/index.js~hud#getrecordbuttonevent",
     "class/js/hud/index.js~Hud.html#instance-method-getRecordButtonEvent",
     "js/hud/index.js~Hud#getRecordButtonEvent",
     "method"
   ],
   [
-    "js/hud/index.js~hud#getstartbuttonevent",
-    "class/js/hud/index.js~Hud.html#instance-method-getStartButtonEvent",
-    "js/hud/index.js~Hud#getStartButtonEvent",
+    "js/hud/index.js~hud#getreplaybuttonevent",
+    "class/js/hud/index.js~Hud.html#instance-method-getReplayButtonEvent",
+    "js/hud/index.js~Hud#getReplayButtonEvent",
     "method"
   ],
   [
@@ -1362,12 +1398,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "js/hud/index.js~hud#playstepbutton",
-    "class/js/hud/index.js~Hud.html#instance-member-playStepButton",
-    "js/hud/index.js~Hud#playStepButton",
-    "member"
-  ],
-  [
     "js/hud/index.js~hud#recordbutton",
     "class/js/hud/index.js~Hud.html#instance-member-recordButton",
     "js/hud/index.js~Hud#recordButton",
@@ -1386,15 +1416,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "js/hud/index.js~hud#replaystateindicator",
-    "class/js/hud/index.js~Hud.html#instance-member-replayStateIndicator",
-    "js/hud/index.js~Hud#replayStateIndicator",
+    "js/hud/index.js~hud#replaybutton",
+    "class/js/hud/index.js~Hud.html#instance-member-replayButton",
+    "js/hud/index.js~Hud#replayButton",
     "member"
   ],
   [
-    "js/hud/index.js~hud#startbutton",
-    "class/js/hud/index.js~Hud.html#instance-member-startButton",
-    "js/hud/index.js~Hud#startButton",
+    "js/hud/index.js~hud#replaystateindicator",
+    "class/js/hud/index.js~Hud.html#instance-member-replayStateIndicator",
+    "js/hud/index.js~Hud#replayStateIndicator",
     "member"
   ],
   [

@@ -125,6 +125,17 @@ class RegistrySingleton {
 			event.timing = timing;
 		}
 	}
+
+	/**
+	 * Sets replay speed for all events in registry
+	 * 2.0 is twice as fast.
+	 * @param divider 	- higher is faster, lower is slower.
+	 */
+	setReplaySpeedForAllEventsInRegistry(divider) {
+		for (let event of this._events.values()) {
+			event.replaySpeed = divider;
+		}
+	}
 }
 
 

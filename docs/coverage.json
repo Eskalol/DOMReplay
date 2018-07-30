@@ -1,7 +1,7 @@
 {
-  "coverage": "48.05%",
-  "expectCount": 206,
-  "actualCount": 99,
+  "coverage": "48.37%",
+  "expectCount": 215,
+  "actualCount": 104,
   "files": {
     "js/domreplay/defaultEvents/clickEvent.js": {
       "expectCount": 5,
@@ -43,8 +43,8 @@
       "undocumentLines": []
     },
     "js/domreplay/domreplay.js": {
-      "expectCount": 11,
-      "actualCount": 10,
+      "expectCount": 13,
+      "actualCount": 12,
       "undocumentLines": [
         24
       ]
@@ -61,14 +61,15 @@
       ]
     },
     "js/domreplay/eventbaseclass.js": {
-      "expectCount": 24,
-      "actualCount": 19,
+      "expectCount": 26,
+      "actualCount": 20,
       "undocumentLines": [
         12,
         14,
         18,
         19,
-        20
+        20,
+        21
       ]
     },
     "js/domreplay/loader.js": {
@@ -90,19 +91,19 @@
       ]
     },
     "js/domreplay/registry.js": {
-      "expectCount": 17,
-      "actualCount": 12,
+      "expectCount": 18,
+      "actualCount": 13,
       "undocumentLines": [
         10,
         12,
         14,
         15,
-        131
+        142
       ]
     },
     "js/domreplay/replay.js": {
-      "expectCount": 21,
-      "actualCount": 14,
+      "expectCount": 23,
+      "actualCount": 15,
       "undocumentLines": [
         11,
         12,
@@ -110,7 +111,8 @@
         15,
         17,
         18,
-        191
+        54,
+        209
       ]
     },
     "js/domreplay/serverstorage.js": {
@@ -185,38 +187,40 @@
       ]
     },
     "js/hud/index.js": {
-      "expectCount": 29,
+      "expectCount": 31,
       "actualCount": 0,
       "undocumentLines": [
         8,
         17,
         24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
+        35,
+        41,
+        42,
+        43,
+        44,
+        45,
         46,
         47,
         48,
-        57,
-        70,
-        77,
-        84,
-        91,
-        98,
-        105,
-        132,
-        136,
+        49,
+        50,
+        61,
+        62,
+        63,
+        72,
+        85,
+        92,
+        99,
+        106,
+        113,
+        140,
         144,
-        150,
+        152,
         158,
-        164
+        166,
+        172,
+        188,
+        196
       ]
     },
     "js/index.js": {
