@@ -18,6 +18,16 @@ export default class EventBaseClass {
 		this._trailFunc = trail;
 		this._trackerFunc = tracker;
 		this._replayTiming = 1000;
+		this._replaySpeed = 1.0;
+	}
+
+	/**
+	 * Replay speed.
+	 * 2.0 is twice as fast.
+	 * @param divider		- higher is faster, lower is slower
+	 */
+	set replaySpeed(divider) {
+		this._replaySpeed = divider;
 	}
 
 	/**
@@ -33,7 +43,7 @@ export default class EventBaseClass {
 	 * @returns {number} gets the timing.
 	 */
 	get timing() {
-		return this._replayTiming;
+		return this._replayTiming / this._replaySpeed;
 	}
 
 	/**

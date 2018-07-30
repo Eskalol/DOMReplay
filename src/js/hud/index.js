@@ -21,20 +21,35 @@ const div = (classes='', id=undefined) => {
   return div;
 }
 
+const inputRange = (classes='', min=0.1, max=2, value=1) => {
+	const input = document.createElement('input');
+	input.className = `dom-slider ${classes}`;
+	input.setAttribute(domreplayIgnoreAttributeName, '');
+	input.type = 'range';
+	input.min = min;
+	input.max = max;
+	input.value = `${value}`;
+	return input;
+}
+
+const span = (classes='') => {
+	const span = document.createElement('span');
+	span.className = classes;
+	return span;
+}
+
 export default class Hud {
   constructor(domreplay, config={}) {
   	this.config = config;
     this.domreplay = domreplay;
-    this.startButton = button('Start');
+    this.replayButton = button('Replay');
     this.stopButton = button('Stop');
     this.recordButton = button('Record');
     this.loadFromStorageButton = button('Load from storage');
-    this.playStepButton = button('Play step');
     this.header = div('dom-hud-header');
     this.dropDownButton = button('DOMReplay', 'dom-hud-dropDown');
 
-    this.addEventListenerToElement(this.playStepButton, 'click', this.getPlayStepButtonEvent());
-    this.addEventListenerToElement(this.startButton, 'click', this.getStartButtonEvent());
+    this.addEventListenerToElement(this.replayButton, 'click', this.getReplayButtonEvent());
     this.addEventListenerToElement(this.loadFromStorageButton, 'click', this.getLoadFromStorageButtonEvent());
     this.addEventListenerToElement(this.recordButton, 'click', this.getRecordButtonEvent());
     this.addEventListenerToElement(this.stopButton, 'click', this.getStopButtonEvent());
@@ -67,13 +82,6 @@ export default class Hud {
   	});
   }
 
-  getPlayStepButtonEvent() {
-  	const domreplay = this.domreplay;
-  	return () => {
-  		domreplay.playStep();
-  	}
-  }
-
   getLoadFromStorageButtonEvent() {
   	const domreplay = this.domreplay;
   	return () => {
@@ -81,7 +89,7 @@ export default class Hud {
   	}
   }
 
-  getStartButtonEvent() {
+  getReplayButtonEvent() {
   	const domreplay = this.domreplay;
   	return () => {
   		domreplay.play();
@@ -161,15 +169,42 @@ export default class Hud {
   	}
   }
 
+  _getNewSlider() {
+  	const currentReplaySpeed = this.domreplay.getCurrentReplaySpeed();
+  	const sliderContainer = div('dom-slidecontainer');
+  	const slider = inputRange('', "1", "100", `${(currentReplaySpeed-0.2)/2*100}`);
+  	const sliderSpan = span('speed');
+		slider.oninput = () => {
+  		sliderSpan.innerText = `  x ${Math.round((Number(slider.value)/50*100)+20)/100}`;
+		}
+		slider.onchange = () => {
+			this.domreplay.setReplaySpeed(Math.round((Number(slider.value)/50*100)+20)/100);
+		}
+  	sliderContainer.appendChild(slider);
+  	sliderSpan.innerText = `  x ${this.domreplay.getCurrentReplaySpeed()}`;
+  	return [sliderContainer, sliderSpan];
+	}
+
+	getContainer(classes='', ...args) {
+  	const container = div(classes);
+  	for (let e of args) {
+			container.appendChild(e);
+		}
+		return container;
+	}
+
   render() {
-    this.header.appendChild(this.startButton);
-    this.header.appendChild(this.stopButton);
-    this.header.appendChild(this.recordButton);
-    this.header.appendChild(this.loadFromStorageButton);
-    this.header.appendChild(this.playStepButton);
+  	const recordReplay = this.getContainer('dom-container',
+			this.replayButton,
+			this.stopButton,
+			this.recordButton,
+			...this._getNewSlider());
+  	const storageContainer = this.getContainer('dom-container',
+			this.loadFromStorageButton);
+  	this.header.appendChild(recordReplay);
+    this.header.appendChild(storageContainer);
     let body = document.getElementsByTagName('body')[0];
     body.prepend(this.header);
     body.prepend(this.dropDownButton);
   }
-
 }

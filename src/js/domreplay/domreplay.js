@@ -116,4 +116,20 @@ export class DomReplay {
   loadEventsFromLocalStorage() {
   	Replay.load(Storage.events);
   }
+
+	/**
+	 * Sets the replay speed divider.
+	 * @param divider		- higher is faster, lower is slower.
+	 */
+  setReplaySpeed(divider) {
+  	Replay.setReplaySpeed(divider);
+	}
+
+	/**
+	 * Gets the current replay speed.
+	 * @returns {*}
+	 */
+	getCurrentReplaySpeed() {
+  	return Replay.getReplaySpeed();
+	}
 }

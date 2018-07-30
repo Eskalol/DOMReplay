@@ -51,6 +51,10 @@ class Replay {
 		return this.events.currentEventIndex;
 	}
 
+	getReplaySpeed() {
+		return this.events.replaySpeed;
+	}
+
 	/**
 	 * Increment current event index.
 	 */
@@ -95,8 +99,21 @@ class Replay {
 	load(events) {
 		this.updateReplayStorage({
 			...events,
+			replaySpeed: 1.0,
 			currentEventIndex: 0
 		})
+	}
+
+	/**
+	 * Sets the replay speed
+	 * @param divider		- higher is faster, lower is slower.
+	 */
+	setReplaySpeed(divider) {
+		RegistrySingleton.setReplaySpeedForAllEventsInRegistry(divider);
+		this.updateReplayStorage({
+			...this.events,
+			replaySpeed: divider
+		});
 	}
 
 	/**
@@ -183,6 +200,7 @@ class Replay {
 	async replay() {
 		await setStateReplay()
 			.then(() => {
+				this.setReplaySpeed(this.getReplaySpeed());
 				this._buildReplayChain();
 			});
 	}

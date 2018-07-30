@@ -4,6 +4,7 @@ $fa-font-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts" !defau
 // endbower
 @import "mixins";
 @import "animations";
+@import "input";
 
 $padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
@@ -21,10 +22,11 @@ $dom-color-danger:          #d9534f !default;
 
 .dom-hud-header {
   width: 100%;
-  top: -5em;
+  top: -10em;
   left: 0px;
   background-color: $background-color;
-  height: 5em;
+  //height: 5em;
+	padding-bottom: 2em;
   z-index: 9000;
   position: fixed;
 
@@ -126,7 +128,7 @@ $dom-color-danger:          #d9534f !default;
 			color: rgba($dom-color-warning, .5);
 			&:after {
 				font-family: FontAwesome;
-				content: " \f04b"
+				content: " \f04b";
 			}
 		}
 	}
@@ -136,4 +138,19 @@ $dom-color-danger:          #d9534f !default;
 	border: yellow solid 4px !important;
 }
 
+.dom-container {
+	display: inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+}
 
+span {
+	&.speed {
+		display: inline-block;
+		color: $foreground-color;
+		&:before {
+			font-family: FontAwesome;
+			content: " \f0e4";
+		}
+	}
+}
