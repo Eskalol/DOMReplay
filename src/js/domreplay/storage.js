@@ -3,7 +3,10 @@ import { stateIsRecord } from './state';
 import { createStorageError } from './error';
 import { dispatchStorageUpdateEvent } from './dispatcher';
 
-
+/**
+ * Stores information about the events recorded into local storage.
+ * @access public
+ */
 class Storage {
 
 	static storageKey;
@@ -59,7 +62,7 @@ class Storage {
 	/**
 	 * Appends event to storage and increment storage count.
 	 * @param {Object} object 		- Object to append.
-	 * @private
+	 * @access private
 	 */
 	_appendEvent(object) {
 		let events = this.events;

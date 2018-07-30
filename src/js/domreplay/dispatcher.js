@@ -11,6 +11,7 @@ const DOMREPLAY_REPLAY_UPDATE_EVENT = 'DOMREPLAY_REPLAY_UPDATE_EVENT';
 /**
  * Adds an event listener to the state change event.
  * @param  {function} func - the function to be called when the event has been dispached.
+ * @access public
  */
 export const addStateChangeEventListener = (func) => {
 	Logger.debug('adding add state event listener');
@@ -36,6 +37,7 @@ export const dispatchStateChangeEvent = (state) => {
 /**
  * Adds an event listener to the storage update event.
  * @param  {function} func 	- the function to be called when the event has been dispatched.
+ * @access public
  */
 export const addStorageUpdateEventListener = (func) => {
 	Logger.debug('adding storage update event listener');
@@ -57,6 +59,7 @@ export const dispatchStorageUpdateEvent = (update) => {
 /**
  * Adds an event event listener to the replay update event.
  * @param {function} func - the function to be called when the event has been dispatched.
+ * @access public
  */
 export const addReplayUpdateEventListener = (func) => {
 	Logger.debug('adding replay update event listener');

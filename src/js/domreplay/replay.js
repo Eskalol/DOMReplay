@@ -3,6 +3,10 @@ import { setStateReplay, setStateReady } from './state'
 import RegistrySingleton from './registry';
 import { dispatchReplayUpdateEventListener } from './dispatcher'
 
+/**
+ * Replay singleton takes care of replay.
+ * @access public
+ */
 class Replay {
 	static storageKey;
 	static instance;
@@ -114,7 +118,7 @@ class Replay {
 	}
 
 	/**
-	 * @brief returns a promise which executes an event.
+	 * Returns a promise which executes an event.
 	 * Checks for cancellation which occurs when this.stop() has been called.
 	 * Finds the event to be executed in replay storage.
 	 * Increment the current event index.
@@ -158,7 +162,7 @@ class Replay {
 	/**
 	 * Builds the promise chain for replaying events, so every event will be executed in
 	 * correct order.
-	 * @private
+	 * @access private
 	 */
 	_buildReplayChain() {
 		const currentIndex = this.getCurrentEventIndex();

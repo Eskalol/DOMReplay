@@ -1,6 +1,8 @@
 import EventBaseClass from '../eventbaseclass';
 
-
+/**
+ * Basic Click Event.
+ */
 export default class ClickEvent extends EventBaseClass {
 	get eventType() {
 		return 'click';

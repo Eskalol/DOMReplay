@@ -4,7 +4,10 @@ import { trail, tracker } from './domhound';
 import { stateIsRecord } from './state'
 import Logger from './logger';
 
-
+/**
+ * Extend this when implementing custom events that should be recorded/replayed.
+ * @access public
+ */
 export default class EventBaseClass {
 	static DOM_REPLAY_BORDER_CLASS = 'dom-replay-border';
 
@@ -39,7 +42,6 @@ export default class EventBaseClass {
 	 * @param {float} ratio 		- relative to timing.
 	 * @param args 							- arguments to be passed to the passed function.
 	 * @returns {Promise} 			- resolves with function return value after function has been executed.
-	 * @private
 	 */
 	executeTimingRelative(func, ratio = 1.0, ...args) {
 		return new Promise(resolve => {
@@ -52,6 +54,7 @@ export default class EventBaseClass {
 
 	/**
 	 * Should return a string with event type, needs to be overridden by subclass.
+	 * @abstract
 	 */
 	get eventType() {
 		throw new ProgrammingError('Please override get eventType function to return a event type');
@@ -59,6 +62,7 @@ export default class EventBaseClass {
 
 	/**
 	 * Should return a list og tagnames which handlers should be subscribed to.
+	 * @abstract
 	 */
 	get tagnames() {
 		throw new ProgrammingError('Please override get tagnames function to return list of tagnames');
@@ -67,7 +71,6 @@ export default class EventBaseClass {
 	/**
 	 * add border to element.
 	 * @param {HTMLElement} element 	- HTML element.
-	 * @private
 	 */
 	addDomReplayBorderToElement(element) {
 		element.classList.add(EventBaseClass.DOM_REPLAY_BORDER_CLASS);
@@ -76,7 +79,6 @@ export default class EventBaseClass {
 	/**
 	 * remove border from element.
 	 * @param {HTMLElement} element		- HTML element.
-	 * @private
 	 */
 	removeDomReplayBorderFromElement(element) {
 		element.classList.remove(EventBaseClass.DOM_REPLAY_BORDER_CLASS);
@@ -86,7 +88,6 @@ export default class EventBaseClass {
 	 * track element in HTML DOM by trail.
 	 * @param {Object} trail
 	 * @returns {*}
-	 * @private
 	 */
 	trackElementOnTrail(trail) {
 		return this._trackerFunc(trail);
@@ -96,7 +97,6 @@ export default class EventBaseClass {
 	 * make trail for element in HTML DOM.
 	 * @param {HTMLElement} element
 	 * @returns {*}
-	 * @private
 	 */
 	makeTrailForElement(element) {
 		return this._trailFunc(element);
@@ -121,6 +121,7 @@ export default class EventBaseClass {
 	/**
 	 * This is handler called when event is dispatched.
 	 * Should be overridden by subclass and store event to storage.
+	 * @abstract
 	 * @param {HTMLElement} element
 	 */
 	handler(element) {
@@ -131,7 +132,7 @@ export default class EventBaseClass {
 	 * This is the function subscribed to the event.
 	 * This ensures only to call this.handler when the framework is in record state.
 	 * @param {HTMLElement} element
-	 * @private
+	 * @access private
 	 */
 	_handler(element) {
 		if (stateIsRecord()) {
@@ -143,6 +144,7 @@ export default class EventBaseClass {
 	/**
 	 * This should be overridden by subclass, and should do the correct
 	 * replay sequence for the event.
+	 * @abstract
 	 * @param {Object} eventObject
 	 */
 	replay(eventObject) {
@@ -152,7 +154,6 @@ export default class EventBaseClass {
 	/**
 	 * Gets the last stored event from storage.
 	 * @returns {Object} an object of the last stored event.
-	 * @private
 	 */
 	getLastStored() {
 		return Storage.getLastStored();
@@ -161,7 +162,6 @@ export default class EventBaseClass {
 	/**
 	 * Merge update the last stored event, useful when recording input events and such.
 	 * @param {Object} updates 	- update object.
-	 * @private
 	 */
 	updateLastStored(updates) {
 		return Storage.updateLastStored(updates);
@@ -171,7 +171,6 @@ export default class EventBaseClass {
 	 * Should be called when event is about to be stored.
 	 * @param {Object} eventObject
 	 * @returns {*|Promise<object>}
-	 * @private
 	 */
 	store(eventObject) {
 		return Storage.store(this.eventType, eventObject)
@@ -184,7 +183,6 @@ export default class EventBaseClass {
 	 * waits for the promise returned by this.store to be resolved.
 	 * @param {Object} eventObject
 	 * @returns {Promise<object>}
-	 * @private
 	 */
 	async syncStore(eventObject) {
 		return await this.store(eventObject);

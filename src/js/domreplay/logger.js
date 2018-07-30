@@ -1,6 +1,7 @@
 /**
  * Logger Singleton class,
  * used for debug, error and warning logging
+ * @access private
  */
 class Logger {
 	static instance;

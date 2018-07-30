@@ -11,7 +11,9 @@ import {
 	getState
 } from './state';
 
-
+/**
+ * @access public
+ */
 export class DomReplay {
 	/**
 	 * The core DomReplay class

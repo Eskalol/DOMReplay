@@ -42,15 +42,15 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "domreplay/js/hud/index.js~hud",
-    "class/js/hud/index.js~Hud.html",
-    "<span>Hud</span> <span class=\"search-result-import-path\">domreplay/js/hud/index.js</span>",
+    "domreplay/js/domreplay/eventbaseclass.js~eventbaseclass",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html",
+    "<span>EventBaseClass</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/eventbaseclass.js</span>",
     "class"
   ],
   [
-    "domreplay/js/domreplay/logger.js~logger",
-    "class/js/domreplay/logger.js~Logger.html",
-    "<span>Logger</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/logger.js</span>",
+    "domreplay/js/hud/index.js~hud",
+    "class/js/hud/index.js~Hud.html",
+    "<span>Hud</span> <span class=\"search-result-import-path\">domreplay/js/hud/index.js</span>",
     "class"
   ],
   [
@@ -63,6 +63,12 @@ window.esdocSearchIndex = [
     "domreplay/js/domreplay/registry.js~registrysingleton",
     "class/js/domreplay/registry.js~RegistrySingleton.html",
     "<span>RegistrySingleton</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/registry.js</span>",
+    "class"
+  ],
+  [
+    "domreplay/js/domreplay/replay.js~replay",
+    "class/js/domreplay/replay.js~Replay.html",
+    "<span>Replay</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/replay.js</span>",
     "class"
   ],
   [
@@ -87,6 +93,12 @@ window.esdocSearchIndex = [
     "domreplay/js/domreplay/serverstorage.js~serverstorage",
     "class/js/domreplay/serverstorage.js~ServerStorage.html",
     "<span>ServerStorage</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/serverstorage.js</span>",
+    "class"
+  ],
+  [
+    "domreplay/js/domreplay/storage.js~storage",
+    "class/js/domreplay/storage.js~Storage.html",
+    "<span>Storage</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/storage.js</span>",
     "class"
   ],
   [
@@ -150,12 +162,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "domreplay/js/domreplay/loader.js~domloader",
-    "function/index.html#static-function-domloader",
-    "<span>domloader</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/loader.js</span>",
-    "function"
-  ],
-  [
     "domreplay/js/domreplay/loader.js~domreplayignoreattributename",
     "variable/index.html#static-variable-domreplayIgnoreAttributeName",
     "<span>domreplayIgnoreAttributeName</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/loader.js</span>",
@@ -183,6 +189,12 @@ window.esdocSearchIndex = [
     "domreplay/js/domreplay/registry.js~registrysingleton",
     "variable/index.html#static-variable-registrySingleton",
     "<span>registrySingleton</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/registry.js</span>",
+    "variable"
+  ],
+  [
+    "domreplay/js/domreplay/replay.js~replay",
+    "variable/index.html#static-variable-replay",
+    "<span>replay</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/replay.js</span>",
     "variable"
   ],
   [
@@ -226,6 +238,12 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-stateIsReplay",
     "<span>stateIsReplay</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/state.js</span>",
     "function"
+  ],
+  [
+    "domreplay/js/domreplay/storage.js~storage",
+    "variable/index.html#static-variable-storage",
+    "<span>storage</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/storage.js</span>",
+    "variable"
   ],
   [
     "domreplay/js/domreplay/domhound/tracker.js~tracker",
@@ -696,6 +714,126 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/eventbaseclass.js",
+    "file/js/domreplay/eventbaseclass.js.html",
+    "js/domreplay/eventbaseclass.js",
+    "file"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#adddomreplaybordertoelement",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-addDomReplayBorderToElement",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#addDomReplayBorderToElement",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#constructor",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-constructor-constructor",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#constructor",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#eventtype",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-get-eventType",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#eventType",
+    "member"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#executetimingrelative",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-executeTimingRelative",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#executeTimingRelative",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#getlaststored",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-getLastStored",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#getLastStored",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#handler",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-handler",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#handler",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#maketrailforelement",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-makeTrailForElement",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#makeTrailForElement",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#removedomreplayborderfromelement",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-removeDomReplayBorderFromElement",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#removeDomReplayBorderFromElement",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#replay",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-replay",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#replay",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#store",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-store",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#store",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#syncstore",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-syncStore",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#syncStore",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#tagnames",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-get-tagnames",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#tagnames",
+    "member"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#timing",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-set-timing",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#timing",
+    "member"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#timing",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-get-timing",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#timing",
+    "member"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#trackelementontrail",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-trackElementOnTrail",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#trackElementOnTrail",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#trackerfunc",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-set-trackerFunc",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#trackerFunc",
+    "member"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#trailfunc",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-set-trailFunc",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#trailFunc",
+    "member"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass#updatelaststored",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-method-updateLastStored",
+    "js/domreplay/eventbaseclass.js~EventBaseClass#updateLastStored",
+    "method"
+  ],
+  [
+    "js/domreplay/eventbaseclass.js~eventbaseclass.dom_replay_border_class",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#static-member-DOM_REPLAY_BORDER_CLASS",
+    "js/domreplay/eventbaseclass.js~EventBaseClass.DOM_REPLAY_BORDER_CLASS",
+    "member"
+  ],
+  [
     "js/domreplay/loader.js",
     "file/js/domreplay/loader.js.html",
     "js/domreplay/loader.js",
@@ -706,48 +844,6 @@ window.esdocSearchIndex = [
     "file/js/domreplay/logger.js.html",
     "js/domreplay/logger.js",
     "file"
-  ],
-  [
-    "js/domreplay/logger.js~logger#constructor",
-    "class/js/domreplay/logger.js~Logger.html#instance-constructor-constructor",
-    "js/domreplay/logger.js~Logger#constructor",
-    "method"
-  ],
-  [
-    "js/domreplay/logger.js~logger#debug",
-    "class/js/domreplay/logger.js~Logger.html#instance-method-debug",
-    "js/domreplay/logger.js~Logger#debug",
-    "method"
-  ],
-  [
-    "js/domreplay/logger.js~logger#error",
-    "class/js/domreplay/logger.js~Logger.html#instance-method-error",
-    "js/domreplay/logger.js~Logger#error",
-    "method"
-  ],
-  [
-    "js/domreplay/logger.js~logger#instance",
-    "class/js/domreplay/logger.js~Logger.html#instance-member-instance",
-    "js/domreplay/logger.js~Logger#instance",
-    "member"
-  ],
-  [
-    "js/domreplay/logger.js~logger#logging",
-    "class/js/domreplay/logger.js~Logger.html#instance-set-logging",
-    "js/domreplay/logger.js~Logger#logging",
-    "member"
-  ],
-  [
-    "js/domreplay/logger.js~logger#warning",
-    "class/js/domreplay/logger.js~Logger.html#instance-method-warning",
-    "js/domreplay/logger.js~Logger#warning",
-    "method"
-  ],
-  [
-    "js/domreplay/logger.js~logger.instance",
-    "class/js/domreplay/logger.js~Logger.html#static-member-instance",
-    "js/domreplay/logger.js~Logger.instance",
-    "member"
   ],
   [
     "js/domreplay/registry.js",
@@ -840,6 +936,120 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/domreplay/replay.js",
+    "file/js/domreplay/replay.js.html",
+    "js/domreplay/replay.js",
+    "file"
+  ],
+  [
+    "js/domreplay/replay.js~replay#cancel",
+    "class/js/domreplay/replay.js~Replay.html#instance-member-cancel",
+    "js/domreplay/replay.js~Replay#cancel",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay#clear",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-clear",
+    "js/domreplay/replay.js~Replay#clear",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#constructor",
+    "class/js/domreplay/replay.js~Replay.html#instance-constructor-constructor",
+    "js/domreplay/replay.js~Replay#constructor",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#events",
+    "class/js/domreplay/replay.js~Replay.html#instance-get-events",
+    "js/domreplay/replay.js~Replay#events",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay#getcurrenteventindex",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-getCurrentEventIndex",
+    "js/domreplay/replay.js~Replay#getCurrentEventIndex",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#getitem",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-getItem",
+    "js/domreplay/replay.js~Replay#getItem",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#gettotalevents",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-getTotalEvents",
+    "js/domreplay/replay.js~Replay#getTotalEvents",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#incrementcurrenteventindedx",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-incrementCurrentEventIndedx",
+    "js/domreplay/replay.js~Replay#incrementCurrentEventIndedx",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#instance",
+    "class/js/domreplay/replay.js~Replay.html#instance-member-instance",
+    "js/domreplay/replay.js~Replay#instance",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay#load",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-load",
+    "js/domreplay/replay.js~Replay#load",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#playnextevent",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-playNextEvent",
+    "js/domreplay/replay.js~Replay#playNextEvent",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#readystatecheck",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-readyStateCheck",
+    "js/domreplay/replay.js~Replay#readyStateCheck",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#replay",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-replay",
+    "js/domreplay/replay.js~Replay#replay",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#stop",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-stop",
+    "js/domreplay/replay.js~Replay#stop",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay#storagekey",
+    "class/js/domreplay/replay.js~Replay.html#instance-member-storageKey",
+    "js/domreplay/replay.js~Replay#storageKey",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay#updatereplaystorage",
+    "class/js/domreplay/replay.js~Replay.html#instance-method-updateReplayStorage",
+    "js/domreplay/replay.js~Replay#updateReplayStorage",
+    "method"
+  ],
+  [
+    "js/domreplay/replay.js~replay.instance",
+    "class/js/domreplay/replay.js~Replay.html#static-member-instance",
+    "js/domreplay/replay.js~Replay.instance",
+    "member"
+  ],
+  [
+    "js/domreplay/replay.js~replay.storagekey",
+    "class/js/domreplay/replay.js~Replay.html#static-member-storageKey",
+    "js/domreplay/replay.js~Replay.storageKey",
+    "member"
+  ],
+  [
     "js/domreplay/serverstorage.js",
     "file/js/domreplay/serverstorage.js.html",
     "js/domreplay/serverstorage.js",
@@ -898,6 +1108,90 @@ window.esdocSearchIndex = [
     "file/js/domreplay/state.js.html",
     "js/domreplay/state.js",
     "file"
+  ],
+  [
+    "js/domreplay/storage.js",
+    "file/js/domreplay/storage.js.html",
+    "js/domreplay/storage.js",
+    "file"
+  ],
+  [
+    "js/domreplay/storage.js~storage#clear",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-clear",
+    "js/domreplay/storage.js~Storage#clear",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#constructor",
+    "class/js/domreplay/storage.js~Storage.html#instance-constructor-constructor",
+    "js/domreplay/storage.js~Storage#constructor",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#events",
+    "class/js/domreplay/storage.js~Storage.html#instance-get-events",
+    "js/domreplay/storage.js~Storage#events",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#getitem",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-getItem",
+    "js/domreplay/storage.js~Storage#getItem",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#getlaststored",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-getLastStored",
+    "js/domreplay/storage.js~Storage#getLastStored",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#instance",
+    "class/js/domreplay/storage.js~Storage.html#instance-member-instance",
+    "js/domreplay/storage.js~Storage#instance",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#size",
+    "class/js/domreplay/storage.js~Storage.html#instance-get-size",
+    "js/domreplay/storage.js~Storage#size",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#storagekey",
+    "class/js/domreplay/storage.js~Storage.html#instance-member-storageKey",
+    "js/domreplay/storage.js~Storage#storageKey",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage#store",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-store",
+    "js/domreplay/storage.js~Storage#store",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#updatelaststored",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-updateLastStored",
+    "js/domreplay/storage.js~Storage#updateLastStored",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage#updatestorage",
+    "class/js/domreplay/storage.js~Storage.html#instance-method-updateStorage",
+    "js/domreplay/storage.js~Storage#updateStorage",
+    "method"
+  ],
+  [
+    "js/domreplay/storage.js~storage.instance",
+    "class/js/domreplay/storage.js~Storage.html#static-member-instance",
+    "js/domreplay/storage.js~Storage.instance",
+    "member"
+  ],
+  [
+    "js/domreplay/storage.js~storage.storagekey",
+    "class/js/domreplay/storage.js~Storage.html#static-member-storageKey",
+    "js/domreplay/storage.js~Storage.storageKey",
+    "member"
   ],
   [
     "js/hud/buttons/base.js",

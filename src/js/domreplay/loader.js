@@ -95,6 +95,7 @@ const initializeMutationObserver = () => {
  * Initializes events on existing elements,
  * and initializes the mutation observer when
  * document is ready.
+ * @access private
  * @param  {Boolean} test -  if true mutation observer is disabled.
  */
 export const domloader = (test=false) => {

@@ -1,7 +1,9 @@
 import EventBaseClass from '../eventbaseclass';
 import Logger from '../logger';
 
-
+/**
+ * Basic Input Event.
+ */
 export default class CustomInputEvent extends EventBaseClass {
 
 	get eventType() {

@@ -20,8 +20,10 @@ export const createStorageError = (message) => {
 	}
 }
 
-
-
+/**
+ * Thrown when the framework is wrongly used.
+ * Please read error and fix it.
+ */
 export class ProgrammingError extends Error {
 	constructor(message, ...args) {
 		super(`DOM-Replay programming Error: ${message}`, ...args);

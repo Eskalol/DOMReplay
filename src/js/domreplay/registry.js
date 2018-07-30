@@ -1,7 +1,11 @@
 import EventBaseClass from './eventbaseclass';
 import { ProgrammingError } from './error'
 
-
+/**
+ * Use this singleton to register events you want to record/replay.
+ * the objects registered should extend EventBaseClass.
+ * @access public
+ */
 class RegistrySingleton {
 	static instance;
 
