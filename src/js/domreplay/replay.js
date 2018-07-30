@@ -52,7 +52,7 @@ class Replay {
 	}
 
 	getReplaySpeed() {
-		return this.events.replaySpeed;
+		return this.events ? this.events.replaySpeed : 1;
 	}
 
 	/**
