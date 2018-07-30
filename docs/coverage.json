@@ -1,7 +1,7 @@
 {
-  "coverage": "31.94%",
-  "expectCount": 144,
-  "actualCount": 46,
+  "coverage": "32.41%",
+  "expectCount": 145,
+  "actualCount": 47,
   "files": {
     "js/domreplay/defaultEvents/clickEvent.js": {
       "expectCount": 5,
@@ -89,15 +89,15 @@
       ]
     },
     "js/domreplay/registry.js": {
-      "expectCount": 16,
-      "actualCount": 10,
+      "expectCount": 17,
+      "actualCount": 11,
       "undocumentLines": [
         5,
         6,
         8,
         10,
         11,
-        116
+        127
       ]
     },
     "js/domreplay/serverstorage.js": {

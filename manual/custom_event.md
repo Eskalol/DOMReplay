@@ -7,7 +7,7 @@ Example of an Click event class with the mandatory functions implemented.
 ```javascript
 import { EventBaseClass } from 'domreplay';
 
-export default class MyButtonEvent extends {
+export default class MyButtonEvent extends EventBaseClass {
 	
 	// Event type to record.
 	// This has to be an unique event type added to the registry.

@@ -2,7 +2,7 @@
 <blockquote>
 <p>Record and Replay your events in the browser.</p>
 </blockquote>
-<h1 id="basic-usage">Basic usage</h1><p>domreplay.initialize() has to be called after the registry has been populated.</p>
+<h4 id="-a-href--https---eskalol-github-io-domreplay--documentation--a-"><a href="https://eskalol.github.io/DOMReplay">Documentation</a></h4><h1 id="basic-usage">Basic usage</h1><p>domreplay.initialize() has to be called after the registry has been populated.</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">import DomReplay, { Hud, Registry, events } from &apos;domreplay&apos;;
 // Populate the registry.
 Registry.registerEvent(new events.ClickEvent());
@@ -58,7 +58,7 @@ domreplay.initialize();</code>
 <div class="manual-card-wrap" data-ice="cards"><div class="manual-card js_ManualCard" href="#" tabindex="-1"><div data-ice="card"><h1>How to record and replay your custom event</h1><p>The framework makes it easy to implement your own event.
 Since adding event listeners, storage, and replaying functionality is handled under the hood the only thing we have to think of is handle and replay.</p><h3>Create the custom event class.</h3><p>Example of an Click event class with the mandatory functions implemented.</p><pre><code class="lang-javascript"><code class="source-code prettyprint">import { EventBaseClass } from &apos;domreplay&apos;;
 
-export default class MyButtonEvent extends {
+export default class MyButtonEvent extends EventBaseClass {
 
     // Event type to record.
     // This has to be an unique event type added to the registry.

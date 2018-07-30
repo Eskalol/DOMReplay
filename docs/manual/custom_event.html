@@ -3,7 +3,7 @@ Since adding event listeners, storage, and replaying functionality is handled un
 <h3 id="create-the-custom-event-class-">Create the custom event class.</h3><p>Example of an Click event class with the mandatory functions implemented.</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">import { EventBaseClass } from &apos;domreplay&apos;;
 
-export default class MyButtonEvent extends {
+export default class MyButtonEvent extends EventBaseClass {
 
     // Event type to record.
     // This has to be an unique event type added to the registry.

@@ -2019,7 +2019,7 @@
     "__docId__": 117,
     "kind": "file",
     "name": "js/domreplay/registry.js",
-    "content": "import EventBaseClass from './eventbaseclass';\nimport { ProgrammingError } from './error'\n\n\nclass RegistrySingleton {\n\tstatic instance;\n\n\tconstructor () {\n\t\tif (!this.instance) {\n\t\t\tthis.instance = this;\n\t\t\tthis._events = new Map()\n\t\t}\n\t}\n\n\t/**\n\t * Register an event.\n\t * Object passed should be an instance of EventBaseClass.\n\t * @param {EventBaseClass} event\n\t */\n\tregisterEvent(event) {\n\t\tif (!(event instanceof EventBaseClass)) {\n\t\t\tthrow new ProgrammingError('RegistrySingleton should only contain classes with EventBaseClass as superclass');\n\t\t}\n\t\tthis._events.set(event.eventType, event);\n\t}\n\n\t/**\n\t * Gets an event from registry by event type.\n\t * @param {String} eventType\n\t * @returns {String | undefined}\n\t */\n\tgetEvent(eventType) {\n\t\treturn this._events.get(eventType);\n\t}\n\n\t/**\n\t * Gets a list of events by tagname\n\t * @param {String} tagname\n\t * @returns {Array[]}\n\t */\n\tgetEventsByTagname(tagname) {\n\t\tlet events = []\n\t\tfor (let event of this._events.values()) {\n\t\t\tif (event.tagnames.includes(tagname)) {\n\t\t\t\tevents.push(event);\n\t\t\t}\n\t\t}\n\t\treturn events;\n\t}\n\n\t/**\n\t * Delete an event from registry by event type.\n\t * @param {String} eventType\n\t */\n\tdeleteEvent(eventType) {\n\t\tthis._events.delete(eventType);\n\t}\n\n\t/**\n\t * Clears all events from registry.\n\t */\n\tclearAllEvents() {\n\t\tthis._events.clear();\n\t}\n\n\t/**\n\t * Gets event types in registry.\n\t * @returns {IterableIterator<String>}\n\t */\n\tgetEventTypes() {\n\t\treturn this._events.keys();\n\t}\n\n\t/**\n\t * Gets tag names in registry.\n\t * @returns {Array}\n\t */\n\tgetTagnames() {\n\t\tlet tagnames = []\n\t\tfor (let event of this._events.values()) {\n\t\t\ttagnames.push(...event.tagnames);\n\t\t}\n\t\treturn tagnames;\n\t}\n\n\t/**\n\t * Gets registry size\n\t * @returns {number}\n\t */\n\tget size() {\n\t\treturn this._events.size;\n\t}\n\n\t/**\n\t * Sets trail function for all events in registry.\n\t * @param {function} trailFunc\n\t */\n\tsetTrailFuncForAllEventsInRegistry(trailFunc) {\n\t\tfor (let event of this._events.values()) {\n\t\t\tevent.trailFunc = trailFunc;\n\t\t}\n\t}\n\n\t/**\n\t * Sets tracker function for all events in registry.\n \t * @param {function} trackerFunc\n\t */\n\tsetTrackerFuncForAllEventsInRegistry(trackerFunc) {\n\t\tfor (let event of this._events.values()) {\n\t\t\tevent.trackerFunc = trackerFunc\n\t\t}\n\t}\n}\n\n\nexport default new RegistrySingleton();\n",
+    "content": "import EventBaseClass from './eventbaseclass';\nimport { ProgrammingError } from './error'\n\n\nclass RegistrySingleton {\n\tstatic instance;\n\n\tconstructor () {\n\t\tif (!this.instance) {\n\t\t\tthis.instance = this;\n\t\t\tthis._events = new Map()\n\t\t}\n\t}\n\n\t/**\n\t * Register an event.\n\t * Object passed should be an instance of EventBaseClass.\n\t * @param {EventBaseClass} event\n\t */\n\tregisterEvent(event) {\n\t\tif (!(event instanceof EventBaseClass)) {\n\t\t\tthrow new ProgrammingError('RegistrySingleton should only contain classes with EventBaseClass as superclass');\n\t\t}\n\t\tthis._events.set(event.eventType, event);\n\t}\n\n\t/**\n\t * Gets an event from registry by event type.\n\t * @param {String} eventType\n\t * @returns {String | undefined}\n\t */\n\tgetEvent(eventType) {\n\t\treturn this._events.get(eventType);\n\t}\n\n\t/**\n\t * Gets a list of events by tagname\n\t * @param {String} tagname\n\t * @returns {Array[]}\n\t */\n\tgetEventsByTagname(tagname) {\n\t\tlet events = []\n\t\tfor (let event of this._events.values()) {\n\t\t\tif (event.tagnames.includes(tagname)) {\n\t\t\t\tevents.push(event);\n\t\t\t}\n\t\t}\n\t\treturn events;\n\t}\n\n\t/**\n\t * Delete an event from registry by event type.\n\t * @param {String} eventType\n\t */\n\tdeleteEvent(eventType) {\n\t\tthis._events.delete(eventType);\n\t}\n\n\t/**\n\t * Clears all events from registry.\n\t */\n\tclearAllEvents() {\n\t\tthis._events.clear();\n\t}\n\n\t/**\n\t * Gets event types in registry.\n\t * @returns {IterableIterator<String>}\n\t */\n\tgetEventTypes() {\n\t\treturn this._events.keys();\n\t}\n\n\t/**\n\t * Gets tag names in registry.\n\t * @returns {Array}\n\t */\n\tgetTagnames() {\n\t\tlet tagnames = []\n\t\tfor (let event of this._events.values()) {\n\t\t\ttagnames.push(...event.tagnames);\n\t\t}\n\t\treturn tagnames;\n\t}\n\n\t/**\n\t * Gets registry size\n\t * @returns {number}\n\t */\n\tget size() {\n\t\treturn this._events.size;\n\t}\n\n\t/**\n\t * Sets trail function for all events in registry.\n\t * @param {function} trailFunc\n\t */\n\tsetTrailFuncForAllEventsInRegistry(trailFunc) {\n\t\tfor (let event of this._events.values()) {\n\t\t\tevent.trailFunc = trailFunc;\n\t\t}\n\t}\n\n\t/**\n\t * Sets tracker function for all events in registry.\n \t * @param {function} trackerFunc\n\t */\n\tsetTrackerFuncForAllEventsInRegistry(trackerFunc) {\n\t\tfor (let event of this._events.values()) {\n\t\t\tevent.trackerFunc = trackerFunc\n\t\t}\n\t}\n\n\t/**\n\t * @brief Set timing for all events in registry\n\t * Usually called when slowing down or speeding up replays.\n\t * @param {Number} timing - timing in ms\n\t */\n\tsetTimingForAllEventsInRegistry(timing) {\n\t\tfor (let event of this._events.values()) {\n\t\t\tevent.timing = timing;\n\t\t}\n\t}\n}\n\n\nexport default new RegistrySingleton();\n",
     "static": true,
     "longname": "/Users/eska/dev/DOMReplay/src/js/domreplay/registry.js",
     "access": "public",
@@ -2396,6 +2396,38 @@
   },
   {
     "__docId__": 133,
+    "kind": "method",
+    "name": "setTimingForAllEventsInRegistry",
+    "memberof": "js/domreplay/registry.js~RegistrySingleton",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "js/domreplay/registry.js~RegistrySingleton#setTimingForAllEventsInRegistry",
+    "access": "public",
+    "description": "",
+    "lineNumber": 119,
+    "unknown": [
+      {
+        "tagName": "@brief",
+        "tagValue": "Set timing for all events in registry\nUsually called when slowing down or speeding up replays."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "timing",
+        "description": "timing in ms"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 134,
     "kind": "variable",
     "name": "registrySingleton",
     "memberof": "js/domreplay/registry.js",
@@ -2406,7 +2438,7 @@
     "importPath": "domreplay/js/domreplay/registry.js",
     "importStyle": "registrySingleton",
     "description": null,
-    "lineNumber": 116,
+    "lineNumber": 127,
     "undocument": true,
     "type": {
       "types": [
@@ -2415,7 +2447,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 135,
     "kind": "file",
     "name": "js/domreplay/serverstorage.js",
     "content": "export default class ServerStorage {\n  constructor(main) {\n    this.main = main;\n    this.util = this.main.util;\n    this.conf = this.main.config.server;\n    this.loadFromServer();\n  }\n\n  readyToLoad() {\n    if (!this.conf.url) {\n      this.debug('Cannot make call to server without url!');\n      return false;\n    }\n    if (!this.main.operatingStateIsPassive()) {\n      this.debug('Cannot make a call to server while state is not passive!');\n      return false;\n    }\n    return !this.conf.isLoading;\n  }\n\n  loadFromServer() {\n    if (!this.readyToLoad()) {\n      return;\n    }\n    this.conf.isLoading = true;\n\n    let urlstring = `${this.conf.url}?session_id=${this.conf.sessionId}`;\n    if (!this.conf.userId) {\n      urlstring = `${urlstring}&user_id=${this.conf.userId}`;\n    }\n    this.util.debug(`Attempting to load from url: ${urlstring}`);\n    this.util.debug(`conf.user_id: ${this.conf.user_id}, conf.session_id: ${this.conf.session_id}, conf.url: ${this.conf.url}`);\n    this.util.debug('conf:');\n    this.util.debugLiteral(this.conf);\n    const headers = new Headers();\n    headers.append('Content-Type', 'application/json');\n    const config = {\n      method: 'GET',\n      headers,\n    };\n    fetch(new Request(urlstring), config).then((response) => {\n      this.util.debug(response);\n      if (response.status === 200) {\n        this.main.storage.updateStorage(response.data);\n      }\n      this.isLoading = false;\n    }).catch((error) => {\n      this.util.debug(error);\n    });\n  }\n\n  pushToServer() {\n    if (!this.readyToLoad()) {\n      return;\n    }\n    this.conf.isLoading = true;\n    const headers = new Headers();\n    headers.append('Content-Type', 'application/json');\n    headers.append('Origin', `${this.conf.url}`);\n    const config = {\n      method: 'POST',\n      headers,\n    };\n    const data = {\n      user_id: this.conf.userId,\n      session_id: this.conf.session_id,\n      data: this.main.storage.data,\n    };\n    fetch(new Request(this.conf.url), config).then((response) => {\n      this.isLoading = false;\n    }).catch((error) => {\n\n    });\n  }\n}\n",
@@ -2426,7 +2458,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 135,
+    "__docId__": 136,
     "kind": "class",
     "name": "ServerStorage",
     "memberof": "js/domreplay/serverstorage.js",
@@ -2442,7 +2474,7 @@
     "interface": false
   },
   {
-    "__docId__": 136,
+    "__docId__": 137,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2456,7 +2488,7 @@
     "undocument": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 138,
     "kind": "member",
     "name": "main",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2473,7 +2505,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 139,
     "kind": "member",
     "name": "util",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2490,7 +2522,7 @@
     }
   },
   {
-    "__docId__": 139,
+    "__docId__": 140,
     "kind": "member",
     "name": "conf",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2507,7 +2539,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 141,
     "kind": "method",
     "name": "readyToLoad",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2527,7 +2559,7 @@
     }
   },
   {
-    "__docId__": 141,
+    "__docId__": 142,
     "kind": "method",
     "name": "loadFromServer",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2543,7 +2575,7 @@
     "return": null
   },
   {
-    "__docId__": 142,
+    "__docId__": 143,
     "kind": "member",
     "name": "isLoading",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2560,7 +2592,7 @@
     }
   },
   {
-    "__docId__": 143,
+    "__docId__": 144,
     "kind": "method",
     "name": "pushToServer",
     "memberof": "js/domreplay/serverstorage.js~ServerStorage",
@@ -2576,7 +2608,7 @@
     "return": null
   },
   {
-    "__docId__": 145,
+    "__docId__": 146,
     "kind": "file",
     "name": "js/domreplay/state.js",
     "content": "/**\n * Store the Domreplay state in local storage and provides functions to\n * change state safely and check state.\n */\nimport { createStateError } from './error';\nimport { dispatchStateChangeEvent } from './dispatcher';\n\n\nconst DOMREPLAY_STATE_STORAGE_KEY = 'DOMREPLAY_STATE';\nexport const DOMREPLAY_STATE_REPLAY = 'DOMREPLAY_STATE_REPLAY';\nexport const DOMREPLAY_STATE_RECORD = 'DOMREPLAY_STATE_RECORD';\nexport const DOMREPLAY_STATE_READY = 'DOMREPLAY_STATE_READY';\n\n\n/**\n * Gets the state from localstorage\n * @return {String} - current state\n */\nexport const getState = () => {\n\treturn window.localStorage.getItem(DOMREPLAY_STATE_STORAGE_KEY);\n};\n\n/**\n * Sets state\n * @param  {String} state - State to set\n */\nconst setState = (state) => {\n\twindow.localStorage.setItem(DOMREPLAY_STATE_STORAGE_KEY, state);\n};\n\n/**\n * Clears the state storage\n */\nexport const clearStateStorage = () => {\n\twindow.localstorage.removeItem(DOMREPLAY_STATE);\n}\n\n/**\n * returns true if state is empy\n * @return {Boolean} - true if state is empty otherwise false.\n */\nconst stateIsEmpty = () => {\n\treturn !getState();\n}\n\n/**\n * True if state is Replay\n * @return {Boolean} - True if state is Replay\n */\nexport const stateIsReplay = () => {\n\treturn getState() === DOMREPLAY_STATE_REPLAY;\n};\n\n/**\n * True if state is Record\n * @return {Boolean} - True if state is Record\n */\nexport const stateIsRecord = () => {\n\treturn getState() === DOMREPLAY_STATE_RECORD;\n}\n\n/**\n * True if state is Ready\n * @return {Boolean} - True if state is Ready\n */\nexport const stateIsReady = () => {\n\treturn getState() === DOMREPLAY_STATE_READY;\n};\n\n/**\n * Sets the state to ready.\n * Resolves when state has changed\n * It will reject whenever the current state is not ready.\n * @param  {Boolean} force\t- no safe\n */\nexport const setStateReady = (force=false) => {\n\treturn new Promise((resolve, reject) => {\n\t\tif (force || stateIsEmpty()) {\n\t\t\tsetState(DOMREPLAY_STATE_READY)\n\t\t\tdispatchStateChangeEvent(getState());\n\t\t\tresolve(getState());\n\t\t}\n\t\telse if (stateIsReady()) {\n\t\t\tresolve(DOMREPLAY_STATE_READY);\n\t\t} else {\n\t\t\treject(createStateError(`Cannot change state from \"${getState()}\" to \"${DOMREPLAY_STATE_READY}\"`));\n\t\t}\n\t});\n};\n\n/**\n * Set state safely to record.\n * Resolves when the state has changed.\n * It will reject whenever the current state is not ready.\n * @param  {Boolean} force\t- no safe\n * @return {Promise}        - Returns a Promise.\n */\nexport const setStateRecord = (force=false) => {\n\treturn new Promise((resolve, reject) => {\n\t\tif (force || stateIsReady()) {\n\t\t\tsetState(DOMREPLAY_STATE_RECORD);\n\t\t\tdispatchStateChangeEvent(getState());\n\t\t\tresolve(getState());\n\t\t} else if (stateIsReplay()) {\n\t\t\tresolve(DOMREPLAY_STATE_RECORD);\n\t\t}else {\n\t\t\treject(createStateError(`Cannot change state from \"${getState()}\" to \"${DOMREPLAY_STATE_RECORD}\"`));\n\t\t}\n\t});\n};\n\n/**\n * Set state safely to replay.\n * Resolves when the state has changed.\n * It will reject whenever the current state is not ready.\n * @param  {Boolean} force - no safe\n * @return {Promise}       - Returns a Promise.\n */\nexport const setStateReplay = (force=false) => {\n\treturn new Promise((resolve, reject) => {\n\t\tif (force || stateIsReady()) {\n\t\t\tsetState(DOMREPLAY_STATE_REPLAY);\n\t\t\tdispatchStateChangeEvent(getState());\n\t\t\tresolve(getState());\n\t\t} else if (stateIsReplay()) {\n\t\t\tresolve(DOMREPLAY_STATE_REPLAY);\n\t\t} else {\n\t\t\treject(createStateError(`Cannot change state from \"${getState()}\" to \"${DOMREPLAY_STATE_REPLAY}\"`))\n\t\t}\n\t});\n};\n\n\n\n\n\n\n\n\n\n\n\n\n",
@@ -2587,7 +2619,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 146,
+    "__docId__": 147,
     "kind": "variable",
     "name": "DOMREPLAY_STATE_STORAGE_KEY",
     "memberof": "js/domreplay/state.js",
@@ -2608,7 +2640,7 @@
     "ignore": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 148,
     "kind": "variable",
     "name": "DOMREPLAY_STATE_REPLAY",
     "memberof": "js/domreplay/state.js",
@@ -2628,7 +2660,7 @@
     }
   },
   {
-    "__docId__": 148,
+    "__docId__": 149,
     "kind": "variable",
     "name": "DOMREPLAY_STATE_RECORD",
     "memberof": "js/domreplay/state.js",
@@ -2648,7 +2680,7 @@
     }
   },
   {
-    "__docId__": 149,
+    "__docId__": 150,
     "kind": "variable",
     "name": "DOMREPLAY_STATE_READY",
     "memberof": "js/domreplay/state.js",
@@ -2668,7 +2700,7 @@
     }
   },
   {
-    "__docId__": 150,
+    "__docId__": 151,
     "kind": "function",
     "name": "getState",
     "memberof": "js/domreplay/state.js",
@@ -2693,7 +2725,7 @@
     "params": []
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "function",
     "name": "setState",
     "memberof": "js/domreplay/state.js",
@@ -2723,7 +2755,7 @@
     "ignore": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "function",
     "name": "clearStateStorage",
     "memberof": "js/domreplay/state.js",
@@ -2741,7 +2773,7 @@
     "return": null
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "function",
     "name": "stateIsEmpty",
     "memberof": "js/domreplay/state.js",
@@ -2767,7 +2799,7 @@
     "ignore": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "function",
     "name": "stateIsReplay",
     "memberof": "js/domreplay/state.js",
@@ -2792,7 +2824,7 @@
     "params": []
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "function",
     "name": "stateIsRecord",
     "memberof": "js/domreplay/state.js",
@@ -2817,7 +2849,7 @@
     "params": []
   },
   {
-    "__docId__": 156,
+    "__docId__": 157,
     "kind": "function",
     "name": "stateIsReady",
     "memberof": "js/domreplay/state.js",
@@ -2842,7 +2874,7 @@
     "params": []
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "function",
     "name": "setStateReady",
     "memberof": "js/domreplay/state.js",
@@ -2875,7 +2907,7 @@
     }
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "function",
     "name": "setStateRecord",
     "memberof": "js/domreplay/state.js",
@@ -2911,7 +2943,7 @@
     }
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "function",
     "name": "setStateReplay",
     "memberof": "js/domreplay/state.js",
@@ -2947,7 +2979,7 @@
     }
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "file",
     "name": "js/hud/buttons/base.js",
     "content": "\n\nexport default class BaseButton extends HTMLButtonElement {\n\n\tconstructor(domreplay) {\n\t\tsuper();\n\t\tthis.domreplay = domreplay;\n\t\tthis.addEventListener('click', this.handleOnClickEvent);\n\t\tthis.innerHTML = this.text;\n\t\tthis.id = this.id;\n\t\tthis.classNames = this.classNames.join(' ');\n\t}\n\n\tget classNames() {\n\t\treturn [\n\t\t\t'dom-hud-btn'\n\t\t];\n\t}\n\n\tget id() {\n\t\treturn undefined;\n\t}\n\n\tget text() {\n\t\treturn '';\n\t}\n\n\thandleOnClickEvent() {\n\n\t}\n}\n",
@@ -2958,7 +2990,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "class",
     "name": "BaseButton",
     "memberof": "js/hud/buttons/base.js",
@@ -2977,7 +3009,7 @@
     ]
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -2991,7 +3023,7 @@
     "undocument": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
     "kind": "member",
     "name": "domreplay",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -3008,7 +3040,7 @@
     }
   },
   {
-    "__docId__": 164,
+    "__docId__": 165,
     "kind": "member",
     "name": "innerHTML",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -3025,7 +3057,7 @@
     }
   },
   {
-    "__docId__": 167,
+    "__docId__": 168,
     "kind": "get",
     "name": "classNames",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -3044,7 +3076,7 @@
     }
   },
   {
-    "__docId__": 168,
+    "__docId__": 169,
     "kind": "get",
     "name": "id",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -3063,7 +3095,7 @@
     }
   },
   {
-    "__docId__": 169,
+    "__docId__": 170,
     "kind": "get",
     "name": "text",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -3082,7 +3114,7 @@
     }
   },
   {
-    "__docId__": 170,
+    "__docId__": 171,
     "kind": "method",
     "name": "handleOnClickEvent",
     "memberof": "js/hud/buttons/base.js~BaseButton",
@@ -3098,7 +3130,7 @@
     "return": null
   },
   {
-    "__docId__": 171,
+    "__docId__": 172,
     "kind": "file",
     "name": "js/hud/buttons/index.js",
     "content": "import BaseButton from './base';\n\n\nclass PlayButton extends BaseButton {\n\n\t\tget text() {\n\t\t\treturn 'play';\n\t\t}\n\n\t\thandleOnClickEvent() {\n\t\t\tthis.domreplay.play();\n\t\t}\n}\n\n\n",
@@ -3109,7 +3141,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 172,
+    "__docId__": 173,
     "kind": "class",
     "name": "PlayButton",
     "memberof": "js/hud/buttons/index.js",
@@ -3129,7 +3161,7 @@
     "ignore": true
   },
   {
-    "__docId__": 173,
+    "__docId__": 174,
     "kind": "get",
     "name": "text",
     "memberof": "js/hud/buttons/index.js~PlayButton",
@@ -3148,7 +3180,7 @@
     }
   },
   {
-    "__docId__": 174,
+    "__docId__": 175,
     "kind": "method",
     "name": "handleOnClickEvent",
     "memberof": "js/hud/buttons/index.js~PlayButton",
@@ -3164,7 +3196,7 @@
     "return": null
   },
   {
-    "__docId__": 175,
+    "__docId__": 176,
     "kind": "file",
     "name": "js/hud/containers/index.js",
     "content": "import { PlayButton } from '../buttons';\n\n\nexport class ReplayContainer extends HTMLDivElement {\n\n\tconstructor(domreplay) {\n\t\tsuper();\n\t\tthis.domreplay = domreplay;\n\t}\n\n\tget content() {\n\t\treturn [\n\t\t\tnew PlayButton,\n\t\t]\n\t}\n\n\taddContent() {\n\t\tfor (let element of this.content) {\n\t\t\tthis.appendChild(new element(this.domreplay));\n\t\t}\n\t}\n\n\n}\n",
@@ -3175,7 +3207,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 176,
+    "__docId__": 177,
     "kind": "class",
     "name": "ReplayContainer",
     "memberof": "js/hud/containers/index.js",
@@ -3194,7 +3226,7 @@
     ]
   },
   {
-    "__docId__": 177,
+    "__docId__": 178,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/hud/containers/index.js~ReplayContainer",
@@ -3208,7 +3240,7 @@
     "undocument": true
   },
   {
-    "__docId__": 178,
+    "__docId__": 179,
     "kind": "member",
     "name": "domreplay",
     "memberof": "js/hud/containers/index.js~ReplayContainer",
@@ -3225,7 +3257,7 @@
     }
   },
   {
-    "__docId__": 179,
+    "__docId__": 180,
     "kind": "get",
     "name": "content",
     "memberof": "js/hud/containers/index.js~ReplayContainer",
@@ -3244,7 +3276,7 @@
     }
   },
   {
-    "__docId__": 180,
+    "__docId__": 181,
     "kind": "method",
     "name": "addContent",
     "memberof": "js/hud/containers/index.js~ReplayContainer",
@@ -3260,7 +3292,7 @@
     "return": null
   },
   {
-    "__docId__": 181,
+    "__docId__": 182,
     "kind": "file",
     "name": "js/hud/index.js",
     "content": "import {\n\tdispatcher,\n\tdomreplayIgnoreAttributeName,\n\tstate\n} from '../';\n\n\nconst button = (text='', classes='', id=undefined) => {\n  const button = document.createElement('button');\n  button.innerHTML = text;\n  button.id = id;\n  button.className = `dom-hud-btn ${classes}`;\n  button.setAttribute(domreplayIgnoreAttributeName, '');\n  return button;\n}\n\nconst div = (classes='', id=undefined) => {\n  const div = document.createElement('div');\n  div.className = classes;\n  div.id = id;\n  return div;\n}\n\nexport default class Hud {\n  constructor(domreplay, config={}) {\n  \tthis.config = config;\n    this.domreplay = domreplay;\n    this.startButton = button('Start');\n    this.stopButton = button('Stop');\n    this.recordButton = button('Record');\n    this.loadFromStorageButton = button('Load from storage');\n    this.playStepButton = button('Play step');\n    this.header = div('dom-hud-header');\n    this.dropDownButton = button('DOMReplay', 'dom-hud-dropDown');\n\n    this.addEventListenerToElement(this.playStepButton, 'click', this.getPlayStepButtonEvent());\n    this.addEventListenerToElement(this.startButton, 'click', this.getStartButtonEvent());\n    this.addEventListenerToElement(this.loadFromStorageButton, 'click', this.getLoadFromStorageButtonEvent());\n    this.addEventListenerToElement(this.recordButton, 'click', this.getRecordButtonEvent());\n    this.addEventListenerToElement(this.stopButton, 'click', this.getStopButtonEvent());\n    this.addEventListenerToElement(this.dropDownButton, 'click', this.getDropDownButtonEvent());\n    this._initializeIndicators();\n    this._initializeEventListeners();\n  }\n\n  _initializeIndicators() {\n  \tthis.replayStateIndicator = null;\n  \tthis.recordStateIndicator = null;\n  \tif (this.config.showRecordIndicator && state.stateIsRecord()) {\n  \t\tthis._renderRecordStateIndicator();\n  \t}\n  \telse if (this.config.showReplayIndicator && state.stateIsReplay()) {\n  \t\tthis._renderReplayStateIndicator();\n  \t}\n  }\n\n  _initializeEventListeners() {\n  \tdispatcher.addStateChangeEventListener((event) => {\n  \t\tif (state.stateIsRecord() && this.config.showRecordIndicator) {\n  \t\t\tthis._renderRecordStateIndicator();\n  \t\t} else if (state.stateIsReplay() && this.config.showReplayIndicator) {\n  \t\t\tthis._renderReplayStateIndicator();\n  \t\t} else {\n  \t\t\tthis._removeRecordStateIndicator();\n  \t\t\tthis._removeReplayStateIndicator();\n  \t\t}\n  \t});\n  }\n\n  getPlayStepButtonEvent() {\n  \tconst domreplay = this.domreplay;\n  \treturn () => {\n  \t\tdomreplay.playStep();\n  \t}\n  }\n\n  getLoadFromStorageButtonEvent() {\n  \tconst domreplay = this.domreplay;\n  \treturn () => {\n  \t\tdomreplay.loadEventsFromLocalStorage();\n  \t}\n  }\n\n  getStartButtonEvent() {\n  \tconst domreplay = this.domreplay;\n  \treturn () => {\n  \t\tdomreplay.play();\n  \t}\n  }\n\n  getRecordButtonEvent() {\n    const domreplay = this.domreplay;\n    return () => {\n      domreplay.startRecord();\n    };\n  }\n\n  getStopButtonEvent() {\n    const domreplay = this.domreplay\n    return () => {\n      domreplay.stop();\n    }\n  }\n\n  getDropDownButtonEvent() {\n    const header = this.header;\n    const button = this.dropDownButton;\n\n    return () => {\n      if (header.className.indexOf('slide-down') !== -1) {\n        header.className = header.className.substring(0, header.className.indexOf(' slide-down'));\n        header.className += ' slide-up';\n      } else {\n        if (header.className.indexOf('slide-up') !== -1) {\n          header.className = header.className.substring(0, header.className.indexOf(' slide-up'));\n        }\n        header.className += ' slide-down';\n      }\n\n      if (button.className.indexOf('slide-down') !== -1) {\n        button.className = button.className.substring(0, button.className.indexOf(' slide-down'));\n        button.className += ' slide-up';\n      } else {\n        if (button.className.indexOf('slide-up') !== -1) {\n          button.className = button.className.substring(0, button.className.indexOf(' slide-up'));\n        }\n        button.className += ' slide-down';\n      }\n    };\n  }\n\n  addEventListenerToElement(element, type, event) {\n    element.addEventListener(type, event);\n  }\n\n  _renderReplayStateIndicator() {\n  \tthis.replayStateIndicator = div('dom-state-indicator replay');\n  \tconst text = document.createElement('h1');\n  \ttext.innerHTML = \"REPLAY\";\n  \tthis.replayStateIndicator.appendChild(text);\n  \tdocument.getElementsByTagName('body')[0].appendChild(this.replayStateIndicator);\n  }\n\n  _removeReplayStateIndicator() {\n  \tif (this.replayStateIndicator) {\n  \t\tthis.replayStateIndicator.parentNode.removeChild(this.replayStateIndicator);\n  \t}\n  }\n\n  _renderRecordStateIndicator() {\n  \tthis.recordStateIndicator = div('dom-state-indicator record');\n  \tconst text = document.createElement('h1');\n  \ttext.innerHTML = 'REC';\n  \tthis.recordStateIndicator.appendChild(text);\n  \tdocument.getElementsByTagName('body')[0].appendChild(this.recordStateIndicator);\n  }\n\n  _removeRecordStateIndicator() {\n  \tif (this.recordStateIndicator) {\n  \t\tthis.recordStateIndicator.parentNode.removeChild(this.recordStateIndicator);\n  \t}\n  }\n\n  render() {\n    this.header.appendChild(this.startButton);\n    this.header.appendChild(this.stopButton);\n    this.header.appendChild(this.recordButton);\n    this.header.appendChild(this.loadFromStorageButton);\n    this.header.appendChild(this.playStepButton);\n    let body = document.getElementsByTagName('body')[0];\n    body.prepend(this.header);\n    body.prepend(this.dropDownButton);\n  }\n\n}\n",
@@ -3271,7 +3303,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 182,
+    "__docId__": 183,
     "kind": "function",
     "name": "button",
     "memberof": "js/hud/index.js",
@@ -3323,7 +3355,7 @@
     "ignore": true
   },
   {
-    "__docId__": 183,
+    "__docId__": 184,
     "kind": "function",
     "name": "div",
     "memberof": "js/hud/index.js",
@@ -3366,7 +3398,7 @@
     "ignore": true
   },
   {
-    "__docId__": 184,
+    "__docId__": 185,
     "kind": "class",
     "name": "Hud",
     "memberof": "js/hud/index.js",
@@ -3382,7 +3414,7 @@
     "interface": false
   },
   {
-    "__docId__": 185,
+    "__docId__": 186,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "js/hud/index.js~Hud",
@@ -3396,7 +3428,7 @@
     "undocument": true
   },
   {
-    "__docId__": 186,
+    "__docId__": 187,
     "kind": "member",
     "name": "config",
     "memberof": "js/hud/index.js~Hud",
@@ -3413,7 +3445,7 @@
     }
   },
   {
-    "__docId__": 187,
+    "__docId__": 188,
     "kind": "member",
     "name": "domreplay",
     "memberof": "js/hud/index.js~Hud",
@@ -3430,7 +3462,7 @@
     }
   },
   {
-    "__docId__": 188,
+    "__docId__": 189,
     "kind": "member",
     "name": "startButton",
     "memberof": "js/hud/index.js~Hud",
@@ -3447,7 +3479,7 @@
     }
   },
   {
-    "__docId__": 189,
+    "__docId__": 190,
     "kind": "member",
     "name": "stopButton",
     "memberof": "js/hud/index.js~Hud",
@@ -3464,7 +3496,7 @@
     }
   },
   {
-    "__docId__": 190,
+    "__docId__": 191,
     "kind": "member",
     "name": "recordButton",
     "memberof": "js/hud/index.js~Hud",
@@ -3481,7 +3513,7 @@
     }
   },
   {
-    "__docId__": 191,
+    "__docId__": 192,
     "kind": "member",
     "name": "loadFromStorageButton",
     "memberof": "js/hud/index.js~Hud",
@@ -3498,7 +3530,7 @@
     }
   },
   {
-    "__docId__": 192,
+    "__docId__": 193,
     "kind": "member",
     "name": "playStepButton",
     "memberof": "js/hud/index.js~Hud",
@@ -3515,7 +3547,7 @@
     }
   },
   {
-    "__docId__": 193,
+    "__docId__": 194,
     "kind": "member",
     "name": "header",
     "memberof": "js/hud/index.js~Hud",
@@ -3532,7 +3564,7 @@
     }
   },
   {
-    "__docId__": 194,
+    "__docId__": 195,
     "kind": "member",
     "name": "dropDownButton",
     "memberof": "js/hud/index.js~Hud",
@@ -3549,7 +3581,7 @@
     }
   },
   {
-    "__docId__": 195,
+    "__docId__": 196,
     "kind": "method",
     "name": "_initializeIndicators",
     "memberof": "js/hud/index.js~Hud",
@@ -3565,7 +3597,7 @@
     "return": null
   },
   {
-    "__docId__": 196,
+    "__docId__": 197,
     "kind": "member",
     "name": "replayStateIndicator",
     "memberof": "js/hud/index.js~Hud",
@@ -3582,7 +3614,7 @@
     }
   },
   {
-    "__docId__": 197,
+    "__docId__": 198,
     "kind": "member",
     "name": "recordStateIndicator",
     "memberof": "js/hud/index.js~Hud",
@@ -3599,7 +3631,7 @@
     }
   },
   {
-    "__docId__": 198,
+    "__docId__": 199,
     "kind": "method",
     "name": "_initializeEventListeners",
     "memberof": "js/hud/index.js~Hud",
@@ -3615,7 +3647,7 @@
     "return": null
   },
   {
-    "__docId__": 199,
+    "__docId__": 200,
     "kind": "method",
     "name": "getPlayStepButtonEvent",
     "memberof": "js/hud/index.js~Hud",
@@ -3635,7 +3667,7 @@
     }
   },
   {
-    "__docId__": 200,
+    "__docId__": 201,
     "kind": "method",
     "name": "getLoadFromStorageButtonEvent",
     "memberof": "js/hud/index.js~Hud",
@@ -3655,7 +3687,7 @@
     }
   },
   {
-    "__docId__": 201,
+    "__docId__": 202,
     "kind": "method",
     "name": "getStartButtonEvent",
     "memberof": "js/hud/index.js~Hud",
@@ -3675,7 +3707,7 @@
     }
   },
   {
-    "__docId__": 202,
+    "__docId__": 203,
     "kind": "method",
     "name": "getRecordButtonEvent",
     "memberof": "js/hud/index.js~Hud",
@@ -3695,7 +3727,7 @@
     }
   },
   {
-    "__docId__": 203,
+    "__docId__": 204,
     "kind": "method",
     "name": "getStopButtonEvent",
     "memberof": "js/hud/index.js~Hud",
@@ -3715,7 +3747,7 @@
     }
   },
   {
-    "__docId__": 204,
+    "__docId__": 205,
     "kind": "method",
     "name": "getDropDownButtonEvent",
     "memberof": "js/hud/index.js~Hud",
@@ -3735,7 +3767,7 @@
     }
   },
   {
-    "__docId__": 205,
+    "__docId__": 206,
     "kind": "method",
     "name": "addEventListenerToElement",
     "memberof": "js/hud/index.js~Hud",
@@ -3770,7 +3802,7 @@
     "return": null
   },
   {
-    "__docId__": 206,
+    "__docId__": 207,
     "kind": "method",
     "name": "_renderReplayStateIndicator",
     "memberof": "js/hud/index.js~Hud",
@@ -3786,7 +3818,7 @@
     "return": null
   },
   {
-    "__docId__": 208,
+    "__docId__": 209,
     "kind": "method",
     "name": "_removeReplayStateIndicator",
     "memberof": "js/hud/index.js~Hud",
@@ -3802,7 +3834,7 @@
     "return": null
   },
   {
-    "__docId__": 209,
+    "__docId__": 210,
     "kind": "method",
     "name": "_renderRecordStateIndicator",
     "memberof": "js/hud/index.js~Hud",
@@ -3818,7 +3850,7 @@
     "return": null
   },
   {
-    "__docId__": 211,
+    "__docId__": 212,
     "kind": "method",
     "name": "_removeRecordStateIndicator",
     "memberof": "js/hud/index.js~Hud",
@@ -3834,7 +3866,7 @@
     "return": null
   },
   {
-    "__docId__": 212,
+    "__docId__": 213,
     "kind": "method",
     "name": "render",
     "memberof": "js/hud/index.js~Hud",
@@ -3850,7 +3882,7 @@
     "return": null
   },
   {
-    "__docId__": 213,
+    "__docId__": 214,
     "kind": "file",
     "name": "js/index.js",
     "content": "import {\n\taddStateChangeEventListener,\n\taddStorageUpdateEventListener,\n\taddReplayUpdateEventListener\n} from './domreplay/dispatcher';\n\nimport {\n\tDOMREPLAY_STATE_REPLAY,\n\tDOMREPLAY_STATE_RECORD,\n\tDOMREPLAY_STATE_READY,\n\tstateIsReplay,\n\tstateIsRecord,\n\tstateIsReady\n} from './domreplay/state';\n\nimport {\n\tClickEvent,\n\tInputEvent\n} from './domreplay/defaultEvents'\n\nexport { domreplayIgnoreAttributeName as domreplayIgnoreAttributeName } from './domreplay/loader';\n\nexport const dispatcher = {\n\taddStateChangeEventListener,\n\taddStorageUpdateEventListener,\n\taddReplayUpdateEventListener\n};\n\nexport const state = {\n\tDOMREPLAY_STATE_REPLAY,\n\tDOMREPLAY_STATE_RECORD,\n\tDOMREPLAY_STATE_READY,\n\tstateIsReplay,\n\tstateIsRecord,\n\tstateIsReady\n};\n\nexport const events = {\n\tClickEvent,\n\tInputEvent\n};\n\nexport { default as Storage } from './domreplay/storage';\nexport { default as Hud } from './hud';\nexport { DomReplay as default } from './domreplay/domreplay';\nexport { default as EventBaseClass } from './domreplay/eventbaseclass';\nexport { default as Registry } from './domreplay/registry';\n",
@@ -3861,7 +3893,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 214,
+    "__docId__": 215,
     "kind": "variable",
     "name": "dispatcher",
     "memberof": "js/index.js",
@@ -3881,7 +3913,7 @@
     }
   },
   {
-    "__docId__": 215,
+    "__docId__": 216,
     "kind": "variable",
     "name": "state",
     "memberof": "js/index.js",
@@ -3901,7 +3933,7 @@
     }
   },
   {
-    "__docId__": 216,
+    "__docId__": 217,
     "kind": "variable",
     "name": "events",
     "memberof": "js/index.js",
@@ -3922,7 +3954,7 @@
   },
   {
     "kind": "index",
-    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
+    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n#### [Documentation](https://eskalol.github.io/DOMReplay)\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
     "longname": "/Users/eska/dev/DOMReplay/README.md",
     "name": "./README.md",
     "static": true,
@@ -3938,7 +3970,7 @@
   },
   {
     "kind": "manualIndex",
-    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
+    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n#### [Documentation](https://eskalol.github.io/DOMReplay)\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
     "longname": "/Users/eska/dev/DOMReplay/README.md",
     "name": "./README.md",
     "static": true,
@@ -3956,7 +3988,7 @@
     "kind": "manual",
     "longname": "/Users/eska/dev/DOMReplay/manual/custom_event.md",
     "name": "./manual/custom_event.md",
-    "content": "# How to record and replay your custom event\nThe framework makes it easy to implement your own event.\nSince adding event listeners, storage, and replaying functionality is handled under the hood the only thing we have to think of is handle and replay.\n\n### Create the custom event class.\nExample of an Click event class with the mandatory functions implemented.\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyButtonEvent extends {\n\t\n\t// Event type to record.\n\t// This has to be an unique event type added to the registry.\n\tget eventType() {\n\t\treturn 'click';\n\t}\n\t\n\t// list of tagnames where we should add handlers.\n\tget tagnames() {\n\t\treturn ['button', 'a'];\n\t}\n\t\n\t// This handler will be called when the framework is in record state.\n\t// and an element has been clicked.\n\t// The element will be passed as an argument.\n\thandler(element) {\n\t\t// make trail to identify the element which has been clicked.\n\t\tconst trail = this.makeTrailForElement(element);\n\t\t\n\t\t// store the information.\n\t\t// You'll be free to put what ever you want here, just make sure to\n\t\t// have a plan how to interpret the data afterwards.\n\t\tthis.syncStore({ trail });\n\t}\n\t\n\t// This function will be called when an event is about to be replayed\n\t// with this.eventType.\n\t// The information about the event to be played will be passed as\n\t// an argument. Notice this is the information you stored in the\n\t// handler function.\n\treplay(eventObject) {\n\t\treturn this.trackElementOnTrail(eventObject.trail)\n\t\t\t.then(element => {\n\t\t\t\t// adding a border to highlight the element;\n\t\t\t\tthis.addDomReplayBorderToElement(element);\n\t\t\t\t\n\t\t\t\t// executing click event after some time.\n\t\t\t\treturn this.executeTimingRelative(() => {\n\t\t\t\t\telement.click();\n\t\t\t\t\tthis.removeDomReplayBorderFromElement(element);\n\t\t\t\t\treturn element;\n\t\t\t\t});\n\t\t\t});\n\t}\n\t\n};\n```\n\n### Add the custom event to registry.\nBefore our newly created event will be in use by the framework we have to add it to the registry first.\nIt is important to call initialize on DomReplay object after the Registry has been populated.\n```javascript\nimport DomReplay, { Registry } from 'domreplay'; \nimport MyButtonEvent from './myButtonEvent';\n\nRegistry.registerEvent(new MyButtonEvent());\nconst domreplay = new DomReplay();\ndomreplay.initialize();\n```\n\nAnd thats it!\n\n## Replay Timing and ratio.\n\n### Timing\nTiming can easily be changed as we want. It is useful to slow down or speed up replays.\nThe default value is set to 1000ms\n\nExample how to set the _replayTiming variable from constructor\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyEvent extends EventBaseClass {\n\tconstructor() {\n\t\tsuper();\n\t\tthis._replayTiming = 2000;\n\t\t// timing is set to 2000ms\n\t}\n}\n\n```\n\nFrom the outside just use the timing setter.\n```javascript\n\tconst event = new MyEvent();\n\tevent.timing = 500;\n\t// timing is set to 500ms\n```\n\n### Ratio\nSome actions happens faster than other. To mimic a more human behaviour for instance typing into an input field,\nwe can pass the ratio parameter into the executeTimingRelative function.\n\nIn this example the function is called after half of the replayTiming variable.\n```javascript\nthis.executeTimingRelative(() => {\n\t// do stuff.\n}, 0.5);\n```\n\n",
+    "content": "# How to record and replay your custom event\nThe framework makes it easy to implement your own event.\nSince adding event listeners, storage, and replaying functionality is handled under the hood the only thing we have to think of is handle and replay.\n\n### Create the custom event class.\nExample of an Click event class with the mandatory functions implemented.\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyButtonEvent extends EventBaseClass {\n\t\n\t// Event type to record.\n\t// This has to be an unique event type added to the registry.\n\tget eventType() {\n\t\treturn 'click';\n\t}\n\t\n\t// list of tagnames where we should add handlers.\n\tget tagnames() {\n\t\treturn ['button', 'a'];\n\t}\n\t\n\t// This handler will be called when the framework is in record state.\n\t// and an element has been clicked.\n\t// The element will be passed as an argument.\n\thandler(element) {\n\t\t// make trail to identify the element which has been clicked.\n\t\tconst trail = this.makeTrailForElement(element);\n\t\t\n\t\t// store the information.\n\t\t// You'll be free to put what ever you want here, just make sure to\n\t\t// have a plan how to interpret the data afterwards.\n\t\tthis.syncStore({ trail });\n\t}\n\t\n\t// This function will be called when an event is about to be replayed\n\t// with this.eventType.\n\t// The information about the event to be played will be passed as\n\t// an argument. Notice this is the information you stored in the\n\t// handler function.\n\treplay(eventObject) {\n\t\treturn this.trackElementOnTrail(eventObject.trail)\n\t\t\t.then(element => {\n\t\t\t\t// adding a border to highlight the element;\n\t\t\t\tthis.addDomReplayBorderToElement(element);\n\t\t\t\t\n\t\t\t\t// executing click event after some time.\n\t\t\t\treturn this.executeTimingRelative(() => {\n\t\t\t\t\telement.click();\n\t\t\t\t\tthis.removeDomReplayBorderFromElement(element);\n\t\t\t\t\treturn element;\n\t\t\t\t});\n\t\t\t});\n\t}\n\t\n};\n```\n\n### Add the custom event to registry.\nBefore our newly created event will be in use by the framework we have to add it to the registry first.\nIt is important to call initialize on DomReplay object after the Registry has been populated.\n```javascript\nimport DomReplay, { Registry } from 'domreplay'; \nimport MyButtonEvent from './myButtonEvent';\n\nRegistry.registerEvent(new MyButtonEvent());\nconst domreplay = new DomReplay();\ndomreplay.initialize();\n```\n\nAnd thats it!\n\n## Replay Timing and ratio.\n\n### Timing\nTiming can easily be changed as we want. It is useful to slow down or speed up replays.\nThe default value is set to 1000ms\n\nExample how to set the _replayTiming variable from constructor\n```javascript\nimport { EventBaseClass } from 'domreplay';\n\nexport default class MyEvent extends EventBaseClass {\n\tconstructor() {\n\t\tsuper();\n\t\tthis._replayTiming = 2000;\n\t\t// timing is set to 2000ms\n\t}\n}\n\n```\n\nFrom the outside just use the timing setter.\n```javascript\n\tconst event = new MyEvent();\n\tevent.timing = 500;\n\t// timing is set to 500ms\n```\n\n### Ratio\nSome actions happens faster than other. To mimic a more human behaviour for instance typing into an input field,\nwe can pass the ratio parameter into the executeTimingRelative function.\n\nIn this example the function is called after half of the replayTiming variable.\n```javascript\nthis.executeTimingRelative(() => {\n\t// do stuff.\n}, 0.5);\n```\n\n",
     "static": true,
     "access": "public"
   }

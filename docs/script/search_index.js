@@ -822,6 +822,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/domreplay/registry.js~registrysingleton#settimingforalleventsinregistry",
+    "class/js/domreplay/registry.js~RegistrySingleton.html#instance-method-setTimingForAllEventsInRegistry",
+    "js/domreplay/registry.js~RegistrySingleton#setTimingForAllEventsInRegistry",
+    "method"
+  ],
+  [
     "js/domreplay/registry.js~registrysingleton#settrackerfuncforalleventsinregistry",
     "class/js/domreplay/registry.js~RegistrySingleton.html#instance-method-setTrackerFuncForAllEventsInRegistry",
     "js/domreplay/registry.js~RegistrySingleton#setTrackerFuncForAllEventsInRegistry",
