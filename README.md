@@ -27,6 +27,11 @@ const hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: 
 hud.render();
 ```
 
+If you also need the hud you should also import the styles.
+```scss
+@import '../node_modules/domreplay/dist/styles.css';
+```
+
 
 # Guides
 * [Custom Element Tracker](./manual/custom_element_tracker.md)

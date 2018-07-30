@@ -1869,6 +1869,7 @@
     "description": null,
     "lineNumber": 10,
     "undocument": true,
+    "ignore": true,
     "type": {
       "types": [
         "boolean"
@@ -2102,6 +2103,7 @@
     "description": null,
     "lineNumber": 11,
     "undocument": true,
+    "ignore": true,
     "type": {
       "types": [
         "*"
@@ -3593,6 +3595,7 @@
     "description": null,
     "lineNumber": 46,
     "undocument": true,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -3643,6 +3646,7 @@
     "description": null,
     "lineNumber": 57,
     "undocument": true,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -3814,6 +3818,7 @@
     "description": null,
     "lineNumber": 136,
     "undocument": true,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -3830,6 +3835,7 @@
     "description": null,
     "lineNumber": 144,
     "undocument": true,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -3846,6 +3852,7 @@
     "description": null,
     "lineNumber": 150,
     "undocument": true,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -3862,6 +3869,7 @@
     "description": null,
     "lineNumber": 158,
     "undocument": true,
+    "ignore": true,
     "params": [],
     "return": null
   },
@@ -3954,7 +3962,7 @@
   },
   {
     "kind": "index",
-    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n#### [Documentation](https://eskalol.github.io/DOMReplay)\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
+    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n#### [Documentation](https://eskalol.github.io/DOMReplay)\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\nIf you also need the hud you should also import the styles.\n```scss\n@import '../node_modules/domreplay/dist/styles.css';\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
     "longname": "/Users/eska/dev/DOMReplay/README.md",
     "name": "./README.md",
     "static": true,
@@ -3970,7 +3978,7 @@
   },
   {
     "kind": "manualIndex",
-    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n#### [Documentation](https://eskalol.github.io/DOMReplay)\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
+    "content": "# DOMREPLAY\n\n[![Build Status][travis-image]][travis-url]\n\n\n[travis-image]: https://img.shields.io/travis/Eskalol/DOMReplay/master.svg?style=flat-square\n[travis-url]: https://travis-ci.org/Eskalol/DOMReplay\n\n> Record and Replay your events in the browser.\n\n#### [Documentation](https://eskalol.github.io/DOMReplay)\n\n# Basic usage\ndomreplay.initialize() has to be called after the registry has been populated.\n```javascript\nimport DomReplay, { Hud, Registry, events } from 'domreplay';\n// Populate the registry.\nRegistry.registerEvent(new events.ClickEvent());\nRegistry.registerEvent(new events.InputEvent());\n\n// create the dom replay instance and initialize it.\nconst domreplay = new DomReplay({debugmode: true});\ndomreplay.initialize();\n\n// If you also want to render the shipped hud.\nconst hud = new Hud(domreplay, {showRecordIndicator: true, showReplayIndicator: true});\nhud.render();\n```\n\nIf you also need the hud you should also import the styles.\n```scss\n@import '../node_modules/domreplay/dist/styles.css';\n```\n\n\n# Guides\n* [Custom Element Tracker](./manual/custom_element_tracker.md)\n* [Custom event](./manual/custom_event.md)\n",
     "longname": "/Users/eska/dev/DOMReplay/README.md",
     "name": "./README.md",
     "static": true,

@@ -708,12 +708,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "js/domreplay/logger.js~logger#_debug",
-    "class/js/domreplay/logger.js~Logger.html#instance-member-_debug",
-    "js/domreplay/logger.js~Logger#_debug",
-    "member"
-  ],
-  [
     "js/domreplay/logger.js~logger#constructor",
     "class/js/domreplay/logger.js~Logger.html#instance-constructor-constructor",
     "js/domreplay/logger.js~Logger#constructor",
@@ -760,12 +754,6 @@ window.esdocSearchIndex = [
     "file/js/domreplay/registry.js.html",
     "js/domreplay/registry.js",
     "file"
-  ],
-  [
-    "js/domreplay/registry.js~registrysingleton#_events",
-    "class/js/domreplay/registry.js~RegistrySingleton.html#instance-member-_events",
-    "js/domreplay/registry.js~RegistrySingleton#_events",
-    "member"
   ],
   [
     "js/domreplay/registry.js~registrysingleton#clearallevents",
@@ -1000,42 +988,6 @@ window.esdocSearchIndex = [
     "file/js/hud/index.js.html",
     "js/hud/index.js",
     "file"
-  ],
-  [
-    "js/hud/index.js~hud#_initializeeventlisteners",
-    "class/js/hud/index.js~Hud.html#instance-method-_initializeEventListeners",
-    "js/hud/index.js~Hud#_initializeEventListeners",
-    "method"
-  ],
-  [
-    "js/hud/index.js~hud#_initializeindicators",
-    "class/js/hud/index.js~Hud.html#instance-method-_initializeIndicators",
-    "js/hud/index.js~Hud#_initializeIndicators",
-    "method"
-  ],
-  [
-    "js/hud/index.js~hud#_removerecordstateindicator",
-    "class/js/hud/index.js~Hud.html#instance-method-_removeRecordStateIndicator",
-    "js/hud/index.js~Hud#_removeRecordStateIndicator",
-    "method"
-  ],
-  [
-    "js/hud/index.js~hud#_removereplaystateindicator",
-    "class/js/hud/index.js~Hud.html#instance-method-_removeReplayStateIndicator",
-    "js/hud/index.js~Hud#_removeReplayStateIndicator",
-    "method"
-  ],
-  [
-    "js/hud/index.js~hud#_renderrecordstateindicator",
-    "class/js/hud/index.js~Hud.html#instance-method-_renderRecordStateIndicator",
-    "js/hud/index.js~Hud#_renderRecordStateIndicator",
-    "method"
-  ],
-  [
-    "js/hud/index.js~hud#_renderreplaystateindicator",
-    "class/js/hud/index.js~Hud.html#instance-method-_renderReplayStateIndicator",
-    "js/hud/index.js~Hud#_renderReplayStateIndicator",
-    "method"
   ],
   [
     "js/hud/index.js~hud#addeventlistenertoelement",

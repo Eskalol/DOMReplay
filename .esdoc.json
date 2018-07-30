@@ -22,6 +22,13 @@
     	"name": "esdoc-standard-plugin",
     	"option": {
     		"title": "DOMReplay",
+				"coverage": {
+					"enable": true
+				},
+				"accessor": {
+					"access": ["public"],
+					"autoPrivate": true
+				},
 	  	  "manual": {
 			  	"index": "./README.md",
 			  	"files": [
