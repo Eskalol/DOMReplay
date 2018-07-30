@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build-dist": "webpack -p --config webpack.prod.js",
-    "build": "webpack -p --config webpack.prod.js && npm run build-lib",
+    "build": "webpack --config webpack.prod.js && npm run build-lib",
     "build-lib": "rm -rf lib && babel src/js -d lib",
     "watch": "babel src/js -d lib --watch",
     "build-docs": "esdoc",
