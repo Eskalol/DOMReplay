@@ -160,10 +160,14 @@ export class DomReplay {
 	/**
 	 * Push storage data to server.
 	 */
-	pushStorageToServer(autoplay = false) {
+	pushStorageToServer() {
 		return ServerStorage.push(Storage.events)
 			.then(response => {
-				return { url:`${new UrlParser().buildUrl(response.id, autoplay)}`, id: response.id};
+				return {
+					url:`${new UrlParser().buildUrl(response.id, false)}`,
+					autoplayUrl:`${new UrlParser().buildUrl(response.id, true)}`,
+					id: response.id
+				};
 			});
 	}
 }

@@ -5,6 +5,7 @@ $fa-font-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/fonts" !defau
 @import "mixins";
 @import "animations";
 @import "input";
+@import "modal";
 
 $padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
@@ -55,6 +56,9 @@ $dom-color-danger:          #d9534f !default;
   border: 1px solid transparent;
   white-space: nowrap;
   @include button-variant($background-color, $foreground-color, $border-color);
+	&.info {
+		@include button-variant($background-color, $dom-color-info, $border-color);
+	}
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
 
 }

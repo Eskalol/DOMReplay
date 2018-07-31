@@ -3,6 +3,7 @@ import {
 	domreplayIgnoreAttributeName,
 	state
 } from '../';
+import Modal from './modal';
 
 
 const button = (text='', classes='', id=undefined) => {
@@ -87,8 +88,9 @@ export default class Hud {
   getShareButtonEvent() {
   	const domreplay = this.domreplay;
   	return () => {
-  		domreplay.pushStorageToServer()
-				.then(data => console.log(data));
+			const modal = new Modal();
+			modal.render();
+			modal.handleResponse(domreplay.pushStorageToServer());
 		}
 	}
 
