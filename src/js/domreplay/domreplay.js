@@ -1,4 +1,6 @@
 import Storage from './storage';
+import ServerStorage from './serverstorage';
+import UrlParser from './urlparser';
 import Replay from './replay';
 import { domloader } from './loader';
 import Logger from './logger';
@@ -25,6 +27,10 @@ export class DomReplay {
     if (config.debugmode) {
     	Logger.logging = true;
     }
+
+    if (config.apiUrl) {
+			ServerStorage.setApiUrl(config.apiUrl);
+		}
   }
 
 	/**
@@ -35,6 +41,24 @@ export class DomReplay {
   async initialize() {
   	return await domloader()
 			.then(() => setStateReady())
+			.then(() => {
+				const urlparser = new UrlParser();
+				if (urlparser.containsId() && !!this.config.apiUrl) {
+					if (urlparser.autoplay()) {
+						this.autoplay = true;
+					}
+					return ServerStorage.load(urlparser.getId());
+				}
+				return null;
+			})
+			.then(response => {
+				if (!!response) {
+					Replay.load(response);
+					if (this.autoplay) {
+						Replay.replay();
+					}
+				}
+			})
 			.catch(err => {
 				if (err.type === STATE_ERROR) {
 					Logger.debug(`could not set ready state, current state is ${getState()}`);
@@ -131,5 +155,15 @@ export class DomReplay {
 	 */
 	getCurrentReplaySpeed() {
   	return Replay.getReplaySpeed();
+	}
+
+	/**
+	 * Push storage data to server.
+	 */
+	pushStorageToServer(autoplay = false) {
+		return ServerStorage.push(Storage.events)
+			.then(response => {
+				return { url:`${new UrlParser().buildUrl(response.id, autoplay)}`, id: response.id};
+			});
 	}
 }

@@ -48,7 +48,9 @@ export default class Hud {
     this.loadFromStorageButton = button('Load from storage');
     this.header = div('dom-hud-header');
     this.dropDownButton = button('DOMReplay', 'dom-hud-dropDown');
+		this.shareButton = button('Share');
 
+		this.addEventListenerToElement(this.shareButton, 'click', this.getShareButtonEvent());
     this.addEventListenerToElement(this.replayButton, 'click', this.getReplayButtonEvent());
     this.addEventListenerToElement(this.loadFromStorageButton, 'click', this.getLoadFromStorageButtonEvent());
     this.addEventListenerToElement(this.recordButton, 'click', this.getRecordButtonEvent());
@@ -81,6 +83,14 @@ export default class Hud {
   		}
   	});
   }
+
+  getShareButtonEvent() {
+  	const domreplay = this.domreplay;
+  	return () => {
+  		domreplay.pushStorageToServer()
+				.then(data => console.log(data));
+		}
+	}
 
   getLoadFromStorageButtonEvent() {
   	const domreplay = this.domreplay;
@@ -200,7 +210,8 @@ export default class Hud {
 			this.recordButton,
 			...this._getNewSlider());
   	const storageContainer = this.getContainer('dom-container',
-			this.loadFromStorageButton);
+			this.loadFromStorageButton,
+			this.shareButton);
   	this.header.appendChild(recordReplay);
     this.header.appendChild(storageContainer);
     let body = document.getElementsByTagName('body')[0];

@@ -1,75 +1,60 @@
-export default class ServerStorage {
-  constructor(main) {
-    this.main = main;
-    this.util = this.main.util;
-    this.conf = this.main.config.server;
-    this.loadFromServer();
-  }
+import Logger from './logger';
 
-  readyToLoad() {
-    if (!this.conf.url) {
-      this.debug('Cannot make call to server without url!');
-      return false;
-    }
-    if (!this.main.operatingStateIsPassive()) {
-      this.debug('Cannot make a call to server while state is not passive!');
-      return false;
-    }
-    return !this.conf.isLoading;
-  }
+class ServerStorage {
+	static instance;
 
-  loadFromServer() {
-    if (!this.readyToLoad()) {
-      return;
-    }
-    this.conf.isLoading = true;
+	constructor() {
+		if (!this.instance) {
+			this.instance = this;
+		}
+		return this.instance;
+	}
 
-    let urlstring = `${this.conf.url}?session_id=${this.conf.sessionId}`;
-    if (!this.conf.userId) {
-      urlstring = `${urlstring}&user_id=${this.conf.userId}`;
-    }
-    this.util.debug(`Attempting to load from url: ${urlstring}`);
-    this.util.debug(`conf.user_id: ${this.conf.user_id}, conf.session_id: ${this.conf.session_id}, conf.url: ${this.conf.url}`);
-    this.util.debug('conf:');
-    this.util.debugLiteral(this.conf);
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    const config = {
-      method: 'GET',
-      headers,
-    };
-    fetch(new Request(urlstring), config).then((response) => {
-      this.util.debug(response);
-      if (response.status === 200) {
-        this.main.storage.updateStorage(response.data);
-      }
-      this.isLoading = false;
-    }).catch((error) => {
-      this.util.debug(error);
-    });
-  }
+	setApiUrl(apiUrl) {
+		this.apiUrl = apiUrl;
+	}
 
-  pushToServer() {
-    if (!this.readyToLoad()) {
-      return;
-    }
-    this.conf.isLoading = true;
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Origin', `${this.conf.url}`);
-    const config = {
-      method: 'POST',
-      headers,
-    };
-    const data = {
-      user_id: this.conf.userId,
-      session_id: this.conf.session_id,
-      data: this.main.storage.data,
-    };
-    fetch(new Request(this.conf.url), config).then((response) => {
-      this.isLoading = false;
-    }).catch((error) => {
+	load(id) {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		const config = {
+			method: 'GET',
+			headers
+		};
+		console.log(`fetch Url: ${this.apiUrl}/${id}`);
+		return fetch(`${this.apiUrl}/${id}`, config)
+			.then(response => {
+				if (response.status === 200) {
+					Logger.debug(`GET ${this.apiUrl} returned with status ${response.status}`);
+					Logger.debug(`${response.body}`);
+					return response.json();
+				} else {
+					throw new Error(`GET ${this.apiUrl} returned with status ${response.status}`);
+				}
+			}).catch(error => {
+				Logger.error(error);
+			});
+	}
 
-    });
-  }
+	push(data) {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		const config = {
+			method: 'POST',
+			headers,
+			body: JSON.stringify(data)
+		};
+
+		return fetch(this.apiUrl, config)
+			.then(response => response.json())
+			.then(response => {
+				console.log(response);
+				return response;
+			})
+			.catch(error => {
+				Logger.error(error);
+			});
+	}
 }
+
+export default new ServerStorage();
