@@ -43,13 +43,13 @@ export default class Hud {
   constructor(domreplay, config={}) {
   	this.config = config;
     this.domreplay = domreplay;
-    this.replayButton = button('Replay');
-    this.stopButton = button('Stop');
-    this.recordButton = button('Record');
-    this.loadFromStorageButton = button('Load from storage');
+    this.replayButton = button('    Replay', 'play');
+    this.stopButton = button('    Stop', 'stop');
+    this.recordButton = button('    Record', 'record');
+    this.loadFromStorageButton = button('    Load from storage', 'load');
     this.header = div('dom-hud-header');
     this.dropDownButton = button('DOMReplay', 'dom-hud-dropDown');
-		this.shareButton = button('Share');
+		this.shareButton = button('    Share', 'share');
 
 		this.addEventListenerToElement(this.shareButton, 'click', this.getShareButtonEvent());
     this.addEventListenerToElement(this.replayButton, 'click', this.getReplayButtonEvent());

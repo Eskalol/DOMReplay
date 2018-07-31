@@ -61,6 +61,40 @@ $dom-color-danger:          #d9534f !default;
 	}
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
 
+	&.share {
+		&:before {
+			font-family: FontAwesome;
+			content: '\f1e0';
+		}
+	}
+
+	&.play {
+		&:before {
+			font-family: FontAwesome;
+			content: '\f04b';
+		}
+	}
+
+	&.stop {
+		&:before {
+			font-family: FontAwesome;
+			content: '\f04d';
+		}
+	}
+
+	&.record {
+		&:before {
+			font-family: FontAwesome;
+			content: '\f03d';
+		}
+	}
+
+	&.load {
+		&:before {
+			font-family: FontAwesome;
+			content: '\f0a0';
+		}
+	}
 }
 
 .dom-hud-dropDown {
