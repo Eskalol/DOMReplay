@@ -1,6 +1,12 @@
 node_modules
-bower_components
-test/bower_components
-dist/
-lib/
 .idea/
+src/
+docs/
+test/
+.babelrc
+.codeclimate.yml
+.esdocs.json
+.travis.yml
+index.html
+webpack.config.js
+webpack.prod.js
