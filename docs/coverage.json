@@ -1,7 +1,7 @@
 {
-  "coverage": "48.37%",
-  "expectCount": 215,
-  "actualCount": 104,
+  "coverage": "44.3%",
+  "expectCount": 237,
+  "actualCount": 105,
   "files": {
     "js/domreplay/defaultEvents/clickEvent.js": {
       "expectCount": 5,
@@ -43,10 +43,11 @@
       "undocumentLines": []
     },
     "js/domreplay/domreplay.js": {
-      "expectCount": 13,
-      "actualCount": 12,
+      "expectCount": 15,
+      "actualCount": 13,
       "undocumentLines": [
-        24
+        26,
+        48
       ]
     },
     "js/domreplay/error.js": {
@@ -119,15 +120,15 @@
       "expectCount": 9,
       "actualCount": 0,
       "undocumentLines": [
-        1,
-        2,
         3,
         4,
-        5,
-        9,
-        21,
-        46,
-        52
+        6,
+        8,
+        13,
+        14,
+        17,
+        39,
+        60
       ]
     },
     "js/domreplay/state.js": {
@@ -150,6 +151,17 @@
         17,
         18,
         128
+      ]
+    },
+    "js/domreplay/urlparser.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        7,
+        13,
+        17
       ]
     },
     "js/hud/buttons/base.js": {
@@ -187,14 +199,13 @@
       ]
     },
     "js/hud/index.js": {
-      "expectCount": 31,
+      "expectCount": 33,
       "actualCount": 0,
       "undocumentLines": [
-        8,
-        17,
-        24,
-        35,
-        41,
+        9,
+        18,
+        25,
+        36,
         42,
         43,
         44,
@@ -204,23 +215,45 @@
         48,
         49,
         50,
-        61,
-        62,
-        63,
-        72,
-        85,
-        92,
-        99,
-        106,
-        113,
-        140,
-        144,
+        51,
+        52,
+        64,
+        65,
+        66,
+        75,
+        88,
+        97,
+        104,
+        111,
+        118,
+        125,
         152,
-        158,
-        166,
-        172,
-        188,
-        196
+        156,
+        164,
+        170,
+        178,
+        184,
+        200,
+        208
+      ]
+    },
+    "js/hud/modal.js": {
+      "expectCount": 13,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        12,
+        20,
+        29,
+        31,
+        32,
+        33,
+        34,
+        42,
+        49,
+        68,
+        80,
+        88
       ]
     },
     "js/index.js": {

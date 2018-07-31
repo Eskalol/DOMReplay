@@ -54,6 +54,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "domreplay/js/hud/modal.js~modal",
+    "class/js/hud/modal.js~Modal.html",
+    "<span>Modal</span> <span class=\"search-result-import-path\">domreplay/js/hud/modal.js</span>",
+    "class"
+  ],
+  [
     "domreplay/js/domreplay/error.js~programmingerror",
     "class/js/domreplay/error.js~ProgrammingError.html",
     "<span>ProgrammingError</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/error.js</span>",
@@ -99,6 +105,12 @@ window.esdocSearchIndex = [
     "domreplay/js/domreplay/storage.js~storage",
     "class/js/domreplay/storage.js~Storage.html",
     "<span>Storage</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/storage.js</span>",
+    "class"
+  ],
+  [
+    "domreplay/js/domreplay/urlparser.js~urlparser",
+    "class/js/domreplay/urlparser.js~UrlParser.html",
+    "<span>UrlParser</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/urlparser.js</span>",
     "class"
   ],
   [
@@ -195,6 +207,12 @@ window.esdocSearchIndex = [
     "domreplay/js/domreplay/replay.js~replay",
     "variable/index.html#static-variable-replay",
     "<span>replay</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/replay.js</span>",
+    "variable"
+  ],
+  [
+    "domreplay/js/domreplay/serverstorage.js~serverstorage",
+    "variable/index.html#static-variable-serverStorage",
+    "<span>serverStorage</span> <span class=\"search-result-import-path\">domreplay/js/domreplay/serverstorage.js</span>",
     "variable"
   ],
   [
@@ -636,6 +654,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "js/domreplay/domreplay.js~domreplay#autoplay",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-autoplay",
+    "js/domreplay/domreplay.js~DomReplay#autoplay",
+    "member"
+  ],
+  [
     "js/domreplay/domreplay.js~domreplay#config",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-member-config",
     "js/domreplay/domreplay.js~DomReplay#config",
@@ -669,6 +693,12 @@ window.esdocSearchIndex = [
     "js/domreplay/domreplay.js~domreplay#play",
     "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-play",
     "js/domreplay/domreplay.js~DomReplay#play",
+    "method"
+  ],
+  [
+    "js/domreplay/domreplay.js~domreplay#pushstoragetoserver",
+    "class/js/domreplay/domreplay.js~DomReplay.html#instance-method-pushStorageToServer",
+    "js/domreplay/domreplay.js~DomReplay#pushStorageToServer",
     "method"
   ],
   [
@@ -811,13 +841,13 @@ window.esdocSearchIndex = [
   ],
   [
     "js/domreplay/eventbaseclass.js~eventbaseclass#timing",
-    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-set-timing",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-get-timing",
     "js/domreplay/eventbaseclass.js~EventBaseClass#timing",
     "member"
   ],
   [
     "js/domreplay/eventbaseclass.js~eventbaseclass#timing",
-    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-get-timing",
+    "class/js/domreplay/eventbaseclass.js~EventBaseClass.html#instance-set-timing",
     "js/domreplay/eventbaseclass.js~EventBaseClass#timing",
     "member"
   ],
@@ -1092,9 +1122,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "js/domreplay/serverstorage.js~serverstorage#conf",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-member-conf",
-    "js/domreplay/serverstorage.js~ServerStorage#conf",
+    "js/domreplay/serverstorage.js~serverstorage#apiurl",
+    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-member-apiUrl",
+    "js/domreplay/serverstorage.js~ServerStorage#apiUrl",
     "member"
   ],
   [
@@ -1104,39 +1134,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "js/domreplay/serverstorage.js~serverstorage#isloading",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-member-isLoading",
-    "js/domreplay/serverstorage.js~ServerStorage#isLoading",
+    "js/domreplay/serverstorage.js~serverstorage#instance",
+    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-member-instance",
+    "js/domreplay/serverstorage.js~ServerStorage#instance",
     "member"
   ],
   [
-    "js/domreplay/serverstorage.js~serverstorage#loadfromserver",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-method-loadFromServer",
-    "js/domreplay/serverstorage.js~ServerStorage#loadFromServer",
+    "js/domreplay/serverstorage.js~serverstorage#load",
+    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-method-load",
+    "js/domreplay/serverstorage.js~ServerStorage#load",
     "method"
   ],
   [
-    "js/domreplay/serverstorage.js~serverstorage#main",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-member-main",
-    "js/domreplay/serverstorage.js~ServerStorage#main",
-    "member"
-  ],
-  [
-    "js/domreplay/serverstorage.js~serverstorage#pushtoserver",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-method-pushToServer",
-    "js/domreplay/serverstorage.js~ServerStorage#pushToServer",
+    "js/domreplay/serverstorage.js~serverstorage#push",
+    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-method-push",
+    "js/domreplay/serverstorage.js~ServerStorage#push",
     "method"
   ],
   [
-    "js/domreplay/serverstorage.js~serverstorage#readytoload",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-method-readyToLoad",
-    "js/domreplay/serverstorage.js~ServerStorage#readyToLoad",
+    "js/domreplay/serverstorage.js~serverstorage#setapiurl",
+    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-method-setApiUrl",
+    "js/domreplay/serverstorage.js~ServerStorage#setApiUrl",
     "method"
   ],
   [
-    "js/domreplay/serverstorage.js~serverstorage#util",
-    "class/js/domreplay/serverstorage.js~ServerStorage.html#instance-member-util",
-    "js/domreplay/serverstorage.js~ServerStorage#util",
+    "js/domreplay/serverstorage.js~serverstorage.instance",
+    "class/js/domreplay/serverstorage.js~ServerStorage.html#static-member-instance",
+    "js/domreplay/serverstorage.js~ServerStorage.instance",
     "member"
   ],
   [
@@ -1228,6 +1252,36 @@ window.esdocSearchIndex = [
     "class/js/domreplay/storage.js~Storage.html#static-member-storageKey",
     "js/domreplay/storage.js~Storage.storageKey",
     "member"
+  ],
+  [
+    "js/domreplay/urlparser.js",
+    "file/js/domreplay/urlparser.js.html",
+    "js/domreplay/urlparser.js",
+    "file"
+  ],
+  [
+    "js/domreplay/urlparser.js~urlparser#autoplay",
+    "class/js/domreplay/urlparser.js~UrlParser.html#instance-method-autoplay",
+    "js/domreplay/urlparser.js~UrlParser#autoplay",
+    "method"
+  ],
+  [
+    "js/domreplay/urlparser.js~urlparser#buildurl",
+    "class/js/domreplay/urlparser.js~UrlParser.html#instance-method-buildUrl",
+    "js/domreplay/urlparser.js~UrlParser#buildUrl",
+    "method"
+  ],
+  [
+    "js/domreplay/urlparser.js~urlparser#containsid",
+    "class/js/domreplay/urlparser.js~UrlParser.html#instance-method-containsId",
+    "js/domreplay/urlparser.js~UrlParser#containsId",
+    "method"
+  ],
+  [
+    "js/domreplay/urlparser.js~urlparser#getid",
+    "class/js/domreplay/urlparser.js~UrlParser.html#instance-method-getId",
+    "js/domreplay/urlparser.js~UrlParser#getId",
+    "method"
   ],
   [
     "js/hud/buttons/base.js",
@@ -1380,6 +1434,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "js/hud/index.js~hud#getsharebuttonevent",
+    "class/js/hud/index.js~Hud.html#instance-method-getShareButtonEvent",
+    "js/hud/index.js~Hud#getShareButtonEvent",
+    "method"
+  ],
+  [
     "js/hud/index.js~hud#getstopbuttonevent",
     "class/js/hud/index.js~Hud.html#instance-method-getStopButtonEvent",
     "js/hud/index.js~Hud#getStopButtonEvent",
@@ -1428,10 +1488,76 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/hud/index.js~hud#sharebutton",
+    "class/js/hud/index.js~Hud.html#instance-member-shareButton",
+    "js/hud/index.js~Hud#shareButton",
+    "member"
+  ],
+  [
     "js/hud/index.js~hud#stopbutton",
     "class/js/hud/index.js~Hud.html#instance-member-stopButton",
     "js/hud/index.js~Hud#stopButton",
     "member"
+  ],
+  [
+    "js/hud/modal.js",
+    "file/js/hud/modal.js.html",
+    "js/hud/modal.js",
+    "file"
+  ],
+  [
+    "js/hud/modal.js~modal#close",
+    "class/js/hud/modal.js~Modal.html#instance-member-close",
+    "js/hud/modal.js~Modal#close",
+    "member"
+  ],
+  [
+    "js/hud/modal.js~modal#constructor",
+    "class/js/hud/modal.js~Modal.html#instance-constructor-constructor",
+    "js/hud/modal.js~Modal#constructor",
+    "method"
+  ],
+  [
+    "js/hud/modal.js~modal#createinputcopybuttonpair",
+    "class/js/hud/modal.js~Modal.html#instance-method-createInputCopyButtonPair",
+    "js/hud/modal.js~Modal#createInputCopyButtonPair",
+    "method"
+  ],
+  [
+    "js/hud/modal.js~modal#getclosehandler",
+    "class/js/hud/modal.js~Modal.html#instance-method-getCloseHandler",
+    "js/hud/modal.js~Modal#getCloseHandler",
+    "method"
+  ],
+  [
+    "js/hud/modal.js~modal#getsharebuttonhandler",
+    "class/js/hud/modal.js~Modal.html#instance-method-getShareButtonHandler",
+    "js/hud/modal.js~Modal#getShareButtonHandler",
+    "method"
+  ],
+  [
+    "js/hud/modal.js~modal#handleresponse",
+    "class/js/hud/modal.js~Modal.html#instance-method-handleResponse",
+    "js/hud/modal.js~Modal#handleResponse",
+    "method"
+  ],
+  [
+    "js/hud/modal.js~modal#modalcontainer",
+    "class/js/hud/modal.js~Modal.html#instance-member-modalContainer",
+    "js/hud/modal.js~Modal#modalContainer",
+    "member"
+  ],
+  [
+    "js/hud/modal.js~modal#modalcontent",
+    "class/js/hud/modal.js~Modal.html#instance-member-modalContent",
+    "js/hud/modal.js~Modal#modalContent",
+    "member"
+  ],
+  [
+    "js/hud/modal.js~modal#render",
+    "class/js/hud/modal.js~Modal.html#instance-method-render",
+    "js/hud/modal.js~Modal#render",
+    "method"
   ],
   [
     "js/index.js",
