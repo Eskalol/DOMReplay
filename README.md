@@ -16,6 +16,8 @@
 
 Tip: Clear local storage when playing around with the framework.
 
+#### [API doc](https://nameless-river-12581.herokuapp.com/api/doc)
+
 #### [Demo API repo](https://github.com/Eskalol/replayjs-example-api)
 #### [Demo App repo](https://github.com/Eskalol/replayjs-test-repo)
 
