@@ -10,6 +10,15 @@
 
 #### [Documentation](https://eskalol.github.io/DOMReplay)
 
+# Demo
+#### [Demo auto replay](https://thawing-forest-16778.herokuapp.com?replayjs_id=5b60fe5babf9f9002ccab837&replayjs_autoplay=true)
+#### [Demo app](https://thawing-forest-16778.herokuapp.com)
+
+Tip: Clear local storage when playing around with the framework.
+
+#### [Demo API repo](https://github.com/Eskalol/replayjs-example-api)
+#### [Demo App repo](https://github.com/Eskalol/replayjs-test-repo)
+
 # Basic usage
 domreplay.initialize() has to be called after the registry has been populated.
 ```javascript
