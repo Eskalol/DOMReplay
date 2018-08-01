@@ -8,6 +8,13 @@
 
 > Record and Replay your events in the browser.
 
+# Installation
+```bash
+npm install --save git+https://github.com/Eskalol/DOMReplay.git#dist
+# or
+yarn add git+https://github.com/Eskalol/DOMReplay.git#dist
+```
+
 #### [Documentation](https://eskalol.github.io/DOMReplay)
 
 # Demo
